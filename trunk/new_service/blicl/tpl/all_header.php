@@ -29,7 +29,7 @@
 
 	<div id="header">
 		<div id="mylogo">
-			<img src="images/logo1.png" style="padding:3px 9px;" />
+			<a href="home"><img src="images/logo1.png" style="padding:3px 9px;border:0;" /></a>
 		</div>
 
 	</div>
