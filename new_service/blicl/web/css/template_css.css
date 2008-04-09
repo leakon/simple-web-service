@@ -475,3 +475,15 @@ table.floatLeft td	{
 	background:url(../images/banner_background.jpg) no-repeat;
 	float:left;
 }
+
+
+td.imagesList img	{
+	margin:4px 1px;
+	border:1px solid black;
+}
+
+ul.newsItemList li	{
+	margin:4px 8px;
+}
+
+.contentBox	{padding:8px 4px 20px; line-height:22px;}
