@@ -129,14 +129,6 @@ body.contentpane .button {
 /*kod wstawiany na strone*/
 .moscode {}, .highlight {}, pre {}, code {}
 
-#mylogo {
-
-	width:782px;
-	height:185px;
-	background:url(../images/back.jpg) no-repeat;
-	float:left;
-}
-
 #top {
 	padding:7px 7px 0px 7px;
 	vertical-align:top;
@@ -397,7 +389,7 @@ body.contentpane .button {
 
 #header {
 	position:relative;
-	height:190px;
+	height:122px;
 	padding:6px 0px 0px 15px;
 	width:796px;
 	margin:auto;
@@ -449,4 +441,37 @@ body.contentpane .button {
 /*hide the right column when printing*/
 #rightcol{display:none;}
 #twocols, #maincol{width:100%; float:none;}
+}
+
+
+
+/**/
+
+.longLine {
+	clear:both;
+	color:#b2b2b2;
+	border-top:3px solid #f4f4f4;
+	xheight:25px;
+	padding:10px 5px 0px 15px;
+	text-align:left;
+	width:776px;
+	margin:auto;
+}
+
+table.floatLeft {
+	border:1px solid gray;
+	float:left;
+	margin:2px 8px;
+}
+
+table.floatLeft td	{
+	padding:4px;
+}
+
+#mylogo {
+
+	width:782px;
+	height:185px;
+	background:url(../images/banner_background.jpg) no-repeat;
+	float:left;
 }
