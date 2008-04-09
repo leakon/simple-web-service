@@ -17,6 +17,8 @@ class BLUrl {
 				'lottery'	=> true,
 				'recruiting'	=> true,
 				'news'		=> true,
+				'news_item_1'		=> true,
+				'news_item_2'		=> true,
 
 			);
 

@@ -188,7 +188,7 @@ $itemWidth	= 140;
 
 				<ul>
 					<?php for ($i = 0; $i < 40; $i++) : ?>
-					<li><a href="#<?php echo $i ?>" >相关新闻标题 <?php echo $i ?></a></li>
+					<li><a href="news_item_1" >相关新闻标题 <?php echo $i ?></a></li>
 					<?php endfor ?>
 
 				</ul>
@@ -219,7 +219,7 @@ $itemWidth	= 140;
 
 				<ul>
 					<?php for ($i = 0; $i < 20; $i++) : ?>
-					<li><a href="#<?php echo $i ?>" >介绍文字 <?php echo $i ?></a></li>
+					<li><a href="news_item_1" >介绍文字 <?php echo $i ?></a></li>
 					<?php endfor ?>
 
 				</ul>
