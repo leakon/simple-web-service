@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="propel" defaultIdMethod="native" noXsd="true" package="lib.model">
+
+  <table name="sf_issue " phpName="Issue" idMethod="native">
+    <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+    <column name="created_time" type="INTEGER" required="true" default="0" />
+    <column name="update_time" type="INTEGER" required="true" default="0" />
+    <column name="user_id" type="INTEGER" required="true" default="0" />
+    <column name="type" type="TINYINT" required="true" default="0" />
+    <column name="status" type="TINYINT" required="true" default="0" />
+    <column name="priority" type="TINYINT" required="true" default="0" />
+    <column name="title" type="CHAR" size="255" required="true" default="" />
+    <column name="description" type="LONGVARCHAR" required="true" />
+    <column name="solution" type="LONGVARCHAR" required="true" />
+    <column name="reference" type="LONGVARCHAR" required="true" />
+    <index name="user_id">
+      <index-column name="user_id" />
+    </index>
+    <index name="created_time">
+      <index-column name="created_time" />
+    </index>
+  </table>
+
+
+  <table name="sf_user" phpName="User" idMethod="native">
+    <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+    <column name="created_time" type="INTEGER" required="true" default="0" />
+    <column name="username" type="CHAR" size="30" required="true" default="" />
+    <column name="password" type="CHAR" size="32" required="true" default="" />
+    <column name="nickname" type="CHAR" size="30" required="true" default="" />
+    <column name="email" type="CHAR" size="255" required="true" default="" />
+    <unique name="username">
+      <unique-column name="username" />
+    </unique>
+
+  </table>
+
+</database>
