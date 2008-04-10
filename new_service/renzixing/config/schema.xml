@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database name="propel" defaultIdMethod="native" noXsd="true" package="lib.model">
 
-  <table name="sf_issue" phpName="Issue" idMethod="native">
+  <table name="rzx_issue" phpName="Issue" idMethod="native">
     <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
-    <column name="created_time" type="INTEGER" required="true" default="0" />
-    <column name="update_time" type="INTEGER" required="true" default="0" />
+    <column name="created_at" type="TIMESTAMP" required="true" default="2008-03-10 00:00:00" />
+    <column name="updated_at" type="TIMESTAMP" required="true" default="2008-03-10 00:00:00" />
     <column name="user_id" type="INTEGER" required="true" default="0" />
     <column name="type" type="TINYINT" required="true" default="0" />
     <column name="status" type="TINYINT" required="true" default="0" />
@@ -16,15 +16,15 @@
     <index name="user_id">
       <index-column name="user_id" />
     </index>
-    <index name="created_time">
-      <index-column name="created_time" />
+    <index name="updated_at">
+      <index-column name="updated_at" />
     </index>
   </table>
 
 
-  <table name="sf_user" phpName="User" idMethod="native">
+  <table name="rzx_user" phpName="User" idMethod="native">
     <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
-    <column name="created_time" type="INTEGER" required="true" default="0" />
+    <column name="created_at" type="TIMESTAMP" required="true" default="2008-03-10 00:00:00" />
     <column name="role" type="CHAR" size="30" required="true" default="" />
     <column name="username" type="CHAR" size="30" required="true" default="" />
     <column name="password" type="CHAR" size="32" required="true" default="" />
