@@ -17,6 +17,9 @@ class SimpleDB {
 			$dbInstance = $databaseManager->getDatabase('propel');
 			$SimpleDBConnectionStatic = $dbInstance->getConnection();
 
+			$statement = $SimpleDBConnectionStatic->prepareStatement("SET NAMES 'UTF8'");
+			$resultset = $statement->executeQuery();
+
 		}
 
 		return	$SimpleDBConnectionStatic;

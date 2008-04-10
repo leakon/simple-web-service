@@ -17,53 +17,29 @@ define('SF_DEBUG',       1);
 
 require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php');
 
-// initialize database manager
-$databaseManager = new sfDatabaseManager();
-$databaseManager->initialize();
-
-// batch process here
-
-$dbInstance	= $databaseManager->getDatabase('propel');
-$connnection	= $dbInstance->getConnection();
-
-$query = 'SELECT * FROM %s';
-$query = sprintf($query, UserPeer::TABLE_NAME);
-$statement = $connnection->prepareStatement($query);
-$resultset = $statement->executeQuery();
 
 
-#print_r($dbInstance);
-#print_r($resultset);
+
+$TRUNCATE	= sprintf("TRUNCATE %s", UserPeer::TABLE_NAME);
+$res		= SimpleDB::execute($TRUNCATE);
 
 
-$TplInsert	= "INSERT INTO %s SET username = '%s', role = '%s'";
-$SQLInsert	= sprintf($TplInsert, UserPeer::TABLE_NAME, "leakon?'''" . chr(hexdec('5c')) . time() . rand(1, 99999), 'ceo');
 
+$filePath	= str_replace("\\", '/', SF_ROOT_DIR . '/doc/contact.txt');
 
-$resource	= $connnection->getResource();
+#var_dump(file_exists($filePath));
 
-#$tmp		= mysql_real_escape_string("'\\運", $resource);
+$SQLLoad	= sprintf("LOAD DATA INFILE '%s' IGNORE INTO TABLE %s (username, role)", $filePath, UserPeer::TABLE_NAME);
+$res		= SimpleDB::execute($SQLLoad);
 
-
-$TplInsert	= "UPDATE %s SET role = '%s' WHERE username = '%s'";
-$SQLUpdate	= sprintf($TplInsert, UserPeer::TABLE_NAME, "role" . time() . rand(1, 99999), 'leakon120781949877768');
-$SQLUpdate	= sprintf($TplInsert, UserPeer::TABLE_NAME, "roleddd", 'leakon120781949877768');
-
-#$res		= SimpleDB::execute($SQLUpdate);
-#var_dump($res);
-
-
-$TplInsert	= "SELECT * FROM %s WHERE username LIKE '%s%s%s'";
-$SQLSelect	= sprintf($TplInsert, UserPeer::TABLE_NAME, '%', 'leakon1', '%');
-
-#var_dump($SQLSelect);
-
-$res		= SimpleDB::fetchAll($SQLSelect);
 print_r($res);
 
 
+$SQLLoad	= sprintf("UPDATE %s SET password = '%s' ", UserPeer::TABLE_NAME, md5('123456'));
+$res		= SimpleDB::execute($SQLLoad);
 
-#$statement	= $connnection->prepareStatement($SQLInsert);
-#$resultset	= $statement->executeQuery();
+$SQLWarings	= 'SHOW WARNINGS';
+$res		= SimpleDB::fetchAll($SQLWarings);
 
+print_r($res);
 
