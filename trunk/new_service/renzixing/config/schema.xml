@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database name="propel" defaultIdMethod="native" noXsd="true" package="lib.model">
 
-  <table name="sf_issue " phpName="Issue" idMethod="native">
+  <table name="sf_issue" phpName="Issue" idMethod="native">
     <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
     <column name="created_time" type="INTEGER" required="true" default="0" />
     <column name="update_time" type="INTEGER" required="true" default="0" />
@@ -25,9 +25,9 @@
   <table name="sf_user" phpName="User" idMethod="native">
     <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
     <column name="created_time" type="INTEGER" required="true" default="0" />
+    <column name="role" type="CHAR" size="30" required="true" default="" />
     <column name="username" type="CHAR" size="30" required="true" default="" />
     <column name="password" type="CHAR" size="32" required="true" default="" />
-    <column name="nickname" type="CHAR" size="30" required="true" default="" />
     <column name="email" type="CHAR" size="255" required="true" default="" />
     <unique name="username">
       <unique-column name="username" />
