@@ -1,0 +1,23 @@
+methods:
+  post: [nickname, email]
+
+names:
+  nickname:
+    required:     false
+    validators:   nicknameValidator
+
+  email:
+    required:     false
+    validators:   emailValidator
+
+nicknameValidator:
+    class:           sfStringValidator
+    param:
+      max:           30
+      max_error:     昵称不能超过 30 个字符
+
+emailValidator:
+    class:           sfEmailValidator
+    param:
+      check:         email
+      email_error:   无效的邮件地址

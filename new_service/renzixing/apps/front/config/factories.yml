@@ -10,6 +10,17 @@ test:
   storage:
     class: sfSessionTestStorage
 
+
+
+all:
+  storage:
+    class: sfSessionStorage
+    param:
+      session_name: passport
+
+  user:
+    class: mySimpleUser
+
 #all:
 #  controller:
 #    class: sfFrontWebController
