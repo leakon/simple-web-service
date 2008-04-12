@@ -1,2 +1,5 @@
-default:
-  is_secure: off
+#default:
+#  is_secure: on
+
+all:
+  is_secure: on

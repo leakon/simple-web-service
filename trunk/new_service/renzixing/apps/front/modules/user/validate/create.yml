@@ -1,0 +1,44 @@
+methods:
+  post: [username, password, confirm]
+
+names:
+  username:
+    required:     true
+    required_msg: 用户名不能为空
+    validators:   nameLengthValidator, userNameValidator
+
+  password:
+    required:     true
+    required_msg: 请输入密码
+    validators:   passwordValidator
+
+  confirm:
+    required:     true
+    required_msg: 请重复输入密码
+    validators:   passwordCompare
+
+nameLengthValidator:
+    class:        sfStringValidator
+    param:
+      min:        4
+      max:        30
+      min_error:  用户名的长度必须介于 4 到 30 个字符之间
+
+passwordValidator:
+    class:        sfStringValidator
+    param:
+      min:        4
+      min_error:  为了您的帐户安全，密码最少需要 4 个字符
+
+passwordCompare:
+    class:            sfCompareValidator
+    param:
+      check:          password
+      compare_error:  两次输入的密码不一致
+
+userNameValidator:
+    class:           userNameValidator
+    param:
+      name:          username
+      exists_error:  用户名已经存在，请重新选择
+      chars_error:   只能使用字母 (a-z)、数字 (0-9) 和下划线 (_)
