@@ -5,10 +5,23 @@
 
 <div class="wrap">
 
-<form id="posts-filter" action="" method="get">
-<h2>Manage Posts</h2>
+<form id="posts-filter" action="<?php echo url_for("issue/search") ?>" method="get">
+<h2>问题列表</h2>
 
+<p id="post-search">
 
+	<?php if ($objPager->getNbResults()) : ?>
+
+		<span class="searchResult">
+		找到 <?php echo $objPager->getNbResults() ?> 条结果
+		以下是第 <?php echo $objPager->getCurrentStart() ?> - <?php echo $objPager->getCurrentCount() ?> 项
+		</span>
+
+	<?php endif ?>
+
+	<input type="text" id="post-search-input" name="keyword" value="<?php echo htmlspecialchars($sf_request->getParameter('keyword', '')) ?>" />
+	<input type="submit" value="搜索" class="button" />
+</p>
 
 <br class="clear" />
 
@@ -26,8 +39,10 @@
 <tbody>
 
 
+<?php if ($objPager->getNbResults()) : ?>
+
 <?php foreach ($objPager->getResults() as $issue): ?>
-<tr id='post-<?php echo $issue['id'] ?>' class='alternate author-self status-publish' valign="top">
+<tr id="post-<?php echo $issue['id'] ?>" class="alternate author-self status-publish" valign="top">
 
 	<td><?php echo substr($issue['created_at'], 0, 10) ?></td>
 
@@ -40,29 +55,43 @@
 
 </tr>
 <?php endforeach; ?>
-	</tbody>
+
+<?php else : ?>
+
+
+<tr id="post-0" class="alternate author-self status-publish" valign="top">
+	<td colspan="4">
+		<span class="searchResult">没有找到与 <strong><?php echo htmlspecialchars($sf_request->getParameter('keyword', '')) ?></strong> 匹配的结果！ </span>
+	</td>
+</tr>
+
+<?php endif ?>
+
+
+
+</tbody>
 </table>
 
 </form>
 
 <div id="ajax-response"></div>
 
-<div class="tablenav">
+<?php
 
-<?php if (0) : ?>
-<div class='tablenav-pages'><span class='page-numbers current'>1</span>
-<a class='page-numbers' href='/wp-admin/edit.php?paged=2'>2</a>
-<a class='page-numbers' href='/wp-admin/edit.php?paged=3'>3</a>
-<span class='page-numbers dots'>...</span>
-<a class='page-numbers' href='/wp-admin/edit.php?paged=8'>8</a>
-<a class='next page-numbers' href='/wp-admin/edit.php?paged=2'>Next &raquo;</a></div>
-<br class="clear" />
-</div>
-<?php endif ?>
+$action		= $sf_context->getActionName();
 
-<?php echo include_partial('global/pageNavigation', array('pageNavigation' => $objPager, 'pageUri' => 'issue/list?')) ?>
+// 如果是 search ，并且是有效的关键词
+$isValidSearch	= 'search' == $action && strlen($keyword = $sf_request->getParameter('keyword', ''));
 
-<br class="clear" />
+#var_dump($isValidSearch);
+
+$pageUri	= sprintf(  "issue/%s?%s", $action, ($isValidSearch ? 'keyword=' . urlencode($keyword) . '&' : '')  );
 
 
-</div>
+echo include_partial('global/pageNavigation',
+				array(
+					'pageNavigation' => $objPager,
+					'pageUri' => $pageUri
+				)
+			) ?>
+

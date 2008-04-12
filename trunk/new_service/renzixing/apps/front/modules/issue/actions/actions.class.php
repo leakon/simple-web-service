@@ -91,5 +91,12 @@ class issueActions extends sfActions
 
 	}
 
+	public function executeSearch() {
+		#    $this->issues = IssuePeer::doSelect(new Criteria());
+		// 带翻页的列表
+		$this->setTemplate('list');
+		$this->objPager = IssuePeer::searchIssues($this->getRequestParameter('page', 1));
+
+	}
 
 }

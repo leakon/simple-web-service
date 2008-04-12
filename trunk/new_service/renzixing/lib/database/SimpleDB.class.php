@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Leakon
+ *
+ * @package    Symfony
+ * @author     Leakon <leakon@gmail.com>
+ * @version    2008-04-13 02:01
+ *
+ * Simple Database API for Symfony PHP Framework
+ */
+
 class SimpleDB {
 
 	private static function getConnection() {
@@ -68,7 +78,7 @@ class SimpleDB {
 		static	$SimpleDBResourceStatic = null;
 
 		if (empty($SimpleDBResourceStatic)) {
-			$SimpleDBResourceStatic = $connnection->getResource();
+			$SimpleDBResourceStatic = self::getConnection()->getResource();
 		}
 
 		return	mysql_real_escape_string($string, $SimpleDBResourceStatic);

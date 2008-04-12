@@ -7,7 +7,8 @@
 	$pageToken = $pageNavigation->getLastPage() > $navLength;	// 总页数是否大于分页条的长度？
 ?>
 
-<div class='tablenav-pages'>
+<div class="tablenav">
+	<div class='tablenav-pages'>
 <?php
 
 	$strLink	= '';
@@ -45,6 +46,8 @@
 	echo	$strLink;
 
 ?>
+	<br class="clear" />
+	</div>
 <br class="clear" />
 </div>
 <?php endif; ?>
