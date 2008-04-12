@@ -6,6 +6,7 @@
     <column name="created_at" type="TIMESTAMP" required="true" default="2008-03-10 00:00:00" />
     <column name="updated_at" type="TIMESTAMP" required="true" default="2008-03-10 00:00:00" />
     <column name="user_id" type="INTEGER" required="true" default="0" />
+    <column name="locker_id" type="INTEGER" required="true" default="0" />
     <column name="type" type="TINYINT" required="true" default="0" />
     <column name="status" type="TINYINT" required="true" default="0" />
     <column name="priority" type="TINYINT" required="true" default="0" />

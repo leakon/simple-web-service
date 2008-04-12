@@ -26,7 +26,8 @@
   <th>Password*:</th>
   <td><?php echo object_input_tag($user, 'getPassword', array (
   'size' => 32,
-)) ?></td>
+  'value' => '',
+)) ?> 输入密码明文，会自动加密保存</td>
 </tr>
 <tr>
   <th>Email*:</th>

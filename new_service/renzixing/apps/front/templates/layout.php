@@ -72,25 +72,19 @@ addLoadEvent = function(func) {if (typeof jQuery != "undefined") jQuery(document
 
 	<li><strong><a href="#">任子行客服系统</a></strong></li></ul>
 
-<ul id="adminmenu">
-	<li><a href='edit.php'>Manage</a></li>
-	<li><a href='edit-comments.php' class="current">Comments <span id='awaiting-mod' class='count-0'><span class='comment-count'>0</span></span></a></li></ul>
+<?php echo include_partial('global/siteNavigation') ?>
 
 <?php if (0) : ?>
-<ul id="sidemenu">
-
-	<li><a href='options-general.php'>Settings</a> </li>
-	<li><a href='plugins.php'>Plugins</a> </li>
-	<li><a href='users.php'>Users</a></li></ul>
-<?php endif ?>
-
-
-<ul id="submenu">
-
-	<li><a href='edit-comments.php' class="current">Comments</a></li>
+<ul id="adminmenu">
+	<li><a href="<?php echo url_for("issue/list") ?>" class="current">Issue</a></li>
+	<li><a href="#">Manage</a></li>
 </ul>
 
-
+<ul id="submenu">
+	<li><a href="<?php echo url_for("issue/create") ?>" class="current">Create</a></li>
+	<li><a href="<?php echo url_for("issue/list") ?>">List</a></li>
+</ul>
+<?php endif ?>
 
 
 <div id="wpbody">
@@ -198,9 +192,8 @@ addLoadEvent = function(func) {if (typeof jQuery != "undefined") jQuery(document
 </div><!-- wpcontent -->
 </div><!-- wpwrap -->
 <div id="footer">
-<p>Thank you for creating with <a href="http://wordpress.org/">WordPress</a> | <a href="http://codex.wordpress.org/">Documentation</a> | <a href="http://wordpress.org/support/forum/4">Feedback</a> | Version 2.5</p>
+<p><a href="http://www.leakon.com/">Lakon</a> 2008</p>
 
 </div>
-<script type="text/javascript">if(typeof wpOnload=='function')wpOnload();</script>
 </body>
 </html>
