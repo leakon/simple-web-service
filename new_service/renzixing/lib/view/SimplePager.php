@@ -1,12 +1,13 @@
 <?php
 
 /**
- *
  * Leakon
  *
- * @package    Leakon
+ * @package    Symfony
  * @author     Leakon <leakon@gmail.com>
- * @version    SVN: $Id: SimplePager.php 1000 2008-04-12 22:57:15
+ * @version    2008-04-12 22:57
+ *
+ * Simple Pager API for Symfony PHP Framework
  */
 
 class SimplePager {
@@ -30,6 +31,7 @@ class SimplePager {
 
 		$result			= array(),
 
+		$currentStart		= 0,
 
 		$maxRecordLimit = false;
 
@@ -56,9 +58,11 @@ class SimplePager {
 		$maxRecordLimit = $this->getMaxRecordLimit();
 
 		// Count total result number
-		$count		= call_user_func(array($this->class, $this->peer_count_method_name));
+		$count		= call_user_func(array($this->class, $this->peer_count_method_name), $this->getParameterHolder());
 
 		$this->setNbResults($hasMaxRecordLimit ? min($count, $maxRecordLimit) : $count);
+
+		$offset		= 0;
 
 		if (($this->getPage() == 0 || $this->getMaxPerPage() == 0)) {
 
@@ -71,11 +75,22 @@ class SimplePager {
 
 		}
 
-		$Criteria	= array($offset, $this->getMaxPerPage());
+		$this->currentStart	= $offset;
+
+		$this->setParameter('start', $offset);
+		$this->setParameter('count', $this->getMaxPerPage());
 
 		// Retrieve result
-		$this->result	= call_user_func(array($this->class, $this->peer_method_name), $Criteria);
+		$this->result	= call_user_func(array($this->class, $this->peer_method_name), $this->getParameterHolder());
 
+	}
+
+	public function getCurrentStart() {
+		return	$this->currentStart + 1;
+	}
+
+	public function getCurrentCount() {
+		return	$this->currentStart + count($this->result);
 	}
 
 	public function getResults() {

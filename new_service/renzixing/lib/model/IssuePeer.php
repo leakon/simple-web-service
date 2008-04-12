@@ -60,22 +60,20 @@ class IssuePeer extends BaseIssuePeer
 
 	}
 
-
+	///////////////////////////////////////////////
+	// List
 	public static function listIssues($page) {
 
-		$pager = new SimplePager('IssuePeer', 3);
-
+		$pager = new SimplePager('IssuePeer', sfConfig::get('app_pager_issue_list_size'));
 		$pager->setPage($page);
 		$pager->setPeerMethod('doListLeftJoinUser');
 		$pager->setPeerCountMethod('doListCount');
 		$pager->init();
-
 		return $pager;
-
 	}
 
 
-	public static function doListLeftJoinUser($Criteria) {
+	public static function doListLeftJoinUser($parameterHolder) {
 
 		$SQL	= sprintf(	"SELECT * FROM %s AS l LEFT JOIN %s AS r "
 					. " ON l.user_id = r.id "
@@ -83,21 +81,72 @@ class IssuePeer extends BaseIssuePeer
 
 					self::TABLE_NAME,
 					UserPeer::TABLE_NAME,
-					$Criteria[0],
-					$Criteria[1]
+					$parameterHolder->get('start', 0),
+					$parameterHolder->get('count', 10)
 				);
 
 		return	SimpleDB::fetchAll($SQL);
-
 	}
 
-	public static function doListCount() {
+	public static function doListCount($parameterHolder) {
 
 		$SQL	= sprintf("SELECT COUNT(*) AS total FROM %s", self::TABLE_NAME);
-
 		$res	= SimpleDB::fetchAll($SQL);
-
 		return	isset($res[0]['total']) ? $res[0]['total'] : 0;
 	}
+
+
+	///////////////////////////////////////////////
+	// Search
+	public static function searchIssues($page) {
+
+		$pager = new SimplePager('IssuePeer', sfConfig::get('app_pager_issue_list_size'));
+
+		$keyWord = sfContext::getInstance()->getRequest()->getParameter('keyword', '');
+		$keyWord = str_replace("%", "", $keyWord);
+		$keyWord = SimpleDB::escape($keyWord);
+
+		$pager->setParameter('keyword', $keyWord);
+
+		$pager->setPage($page);
+		$pager->setPeerMethod('doSearchLeftJoinUser');
+		$pager->setPeerCountMethod('doSearchCount');
+		$pager->init();
+		return $pager;
+	}
+
+
+	public static function doSearchLeftJoinUser($parameterHolder) {
+
+		$SQL	= sprintf(	"SELECT * FROM %s AS l LEFT JOIN %s AS r "
+					. " ON l.user_id = r.id "
+					. " WHERE l.title like '%s%s%s' "
+					. " ORDER BY l.id DESC LIMIT %d, %d",
+
+					self::TABLE_NAME,
+					UserPeer::TABLE_NAME,
+					'%',
+					SimpleDB::escape(  $parameterHolder->get('keyword', 'NotFound')  ),
+					'%',
+					$parameterHolder->get('start', 0),
+					$parameterHolder->get('count', 10)
+				);
+
+		return	SimpleDB::fetchAll($SQL);
+	}
+
+	public static function doSearchCount($parameterHolder) {
+
+		$SQL	= sprintf("SELECT COUNT(*) AS total FROM %s WHERE title like '%s%s%s'",
+
+					self::TABLE_NAME,
+					'%',
+					SimpleDB::escape(  $parameterHolder->get('keyword', 'NotFound')  ),
+					'%'
+				);
+		$res	= SimpleDB::fetchAll($SQL);
+		return	isset($res[0]['total']) ? $res[0]['total'] : 0;
+	}
+
 
 }

@@ -3,6 +3,7 @@
 /**
  * Common user interface
  */
+
 class mySimpleUser extends sfBasicSecurityUser {
 
 	const
