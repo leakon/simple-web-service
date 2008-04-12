@@ -26,11 +26,13 @@ class userActions extends sfActions
 
   public function executeList()
   {
+  	$this->handleAdmin();
     $this->users = UserPeer::doSelect(new Criteria());
   }
 
   public function executeShow()
   {
+  	$this->handleAdmin();
     $this->user = UserPeer::retrieveByPk($this->getRequestParameter('id'));
     $this->forward404Unless($this->user);
   }
@@ -48,12 +50,14 @@ class userActions extends sfActions
 
   public function executeEdit()
   {
+  	$this->handleAdmin();
     $this->user = UserPeer::retrieveByPk($this->getRequestParameter('id'));
     $this->forward404Unless($this->user);
   }
 
   public function executeUpdate()
   {
+  	$this->handleAdmin();
     if (!$this->getRequestParameter('id'))
     {
       $user = new User();
@@ -77,6 +81,7 @@ class userActions extends sfActions
 
   public function executeDelete()
   {
+  	$this->handleAdmin();
     $user = UserPeer::retrieveByPk($this->getRequestParameter('id'));
 
     $this->forward404Unless($user);
@@ -87,7 +92,35 @@ class userActions extends sfActions
   }
 
 
+/*
+	public function initialize($context, $param = null) {
+		parent::initialize($context);
 
+
+		return	true;
+	}
+*/
+
+	private function handleAdmin() {
+
+		if (!$this->isAdmin()) {
+		#	var_dump('AAAADDDMMMIN');
+			return $this->redirect('user/login');
+		}
+
+	}
+
+	private function isAdmin() {
+
+		$arrAdmin	= array(
+			'leakon'	=> true,
+			'石磊'		=> true,
+		);
+
+		$userName	= $this->getUser()->getUsername();
+
+		return	isset($arrAdmin[$userName]);
+	}
 
 
 	private function redirectRefer() {
@@ -103,7 +136,7 @@ class userActions extends sfActions
 
 	public function executeIndex() {
 		$this->setLayout(false);
-		return $this->forward('user', 'login');
+		return $this->forward('user', 'list');
 	}
 
 	public function executeLogin() {
