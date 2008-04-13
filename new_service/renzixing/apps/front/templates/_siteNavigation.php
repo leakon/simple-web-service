@@ -4,7 +4,7 @@ $moduleName  = $sf_context->getModuleName();
 $actionName  = $sf_context->getActionName();
 
 $arrNav	= array(
-		'issue'	=> array('list', 'create'),
+		'issue'	=> array('list', 'create', 'involved'),
 		'user'	=> array('list', 'manage')
 	);
 
@@ -14,6 +14,7 @@ $arrStr	= array(
 				'actions'	=> array(
 							'create'	=> 'Create',
 							'list'		=> 'List',
+							'involved'	=> 'Involved',
 						),
 			),
 		'user'	=> array(

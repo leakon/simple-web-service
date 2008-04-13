@@ -24,7 +24,7 @@ $TRUNCATE	= sprintf("TRUNCATE %s", IssuePeer::TABLE_NAME);
 $res		= SimpleDB::execute($TRUNCATE);
 
 
-for ($i = 0; $i < 100; $i++) {
+for ($i = 0; $i < 500; $i++) {
 
 	$SQLInsert	= sprintf("INSERT INTO %s (title, user_id) VALUES ('%s', '%s')",
 					IssuePeer::TABLE_NAME,

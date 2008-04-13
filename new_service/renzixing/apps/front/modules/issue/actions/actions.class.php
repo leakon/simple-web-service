@@ -85,14 +85,20 @@ class issueActions extends sfActions
 
 
 	public function executeList() {
-		#    $this->issues = IssuePeer::doSelect(new Criteria());
 		// 带翻页的列表
 		$this->objPager = IssuePeer::listIssues($this->getRequestParameter('page', 1));
 
 	}
 
 	public function executeSearch() {
-		#    $this->issues = IssuePeer::doSelect(new Criteria());
+		// 带翻页的列表
+		$this->setTemplate('list');
+		$this->objPager = IssuePeer::searchIssues($this->getRequestParameter('page', 1));
+
+	}
+
+	// 与我有关的
+	public function executeInvolved() {
 		// 带翻页的列表
 		$this->setTemplate('list');
 		$this->objPager = IssuePeer::searchIssues($this->getRequestParameter('page', 1));

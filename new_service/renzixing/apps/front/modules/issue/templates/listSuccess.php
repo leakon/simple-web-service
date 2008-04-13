@@ -10,7 +10,7 @@
 
 <p id="post-search">
 
-	<?php if ($objPager->getNbResults()) : ?>
+	<?php if ('search' == $sf_context->getModuleName() && $objPager->getNbResults()) : ?>
 
 		<span class="searchResult">
 		找到 <?php echo $objPager->getNbResults() ?> 条结果
@@ -41,13 +41,19 @@
 
 <?php if ($objPager->getNbResults()) : ?>
 
+<?php
+
+#print_r($objPager->getResults());
+
+?>
+
 <?php foreach ($objPager->getResults() as $issue): ?>
 <tr id="post-<?php echo $issue['id'] ?>" class="alternate author-self status-publish" valign="top">
 
 	<td><?php echo substr($issue['created_at'], 0, 10) ?></td>
 
 	<td><strong>
-	<a class="row-title" href="#" title="<?php echo $issue['title'] ?>"><?php echo mb_strimwidth($issue['title'], 0, 80, '...', 'UTF-8') ?></a>
+	<a class="row-title" href="<?php echo url_for('issue/show?id=' . $issue['id']) ?>" title="<?php echo $issue['title'] ?>"><?php echo mb_strimwidth($issue['title'], 0, 60, '...', 'UTF-8') ?></a>
 	</strong></td>
 
 	<td><a href="#"><?php echo $issue['username'] ?></a></td>
