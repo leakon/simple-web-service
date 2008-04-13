@@ -3,10 +3,10 @@ default:
     content-type: text/html
 
   metas:
-    title:        symfony project
+    title:        任子行客服系统
     robots:       index, follow
-    description:  symfony project
-    keywords:     symfony, project
+    description:  Leakon project
+    keywords:     Leakon, project
     language:     en
 
   stylesheets:    []

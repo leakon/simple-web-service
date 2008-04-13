@@ -1,6 +1,22 @@
-all:
+#all:
+#  propel:
+#    class: sfPropelDatabase
+#    param:
+#      encoding: utf8
+#      dsn: mysql://root:123456@localhost/leakon_ns_renzixing
+#
+
+
+prod:
   propel:
-    class: sfPropelDatabase
+    class:          sfPropelDatabase
     param:
-      encoding: utf8
-      dsn: mysql://root:123456@localhost/leakon_ns_renzixing
+      dsn:          mysql://root:123456@localhost/leakon_ns_renzixing
+      encoding:     utf8
+
+dev:
+  propel:
+    class:          sfPropelDatabase
+    param:
+      dsn:          mysql://root:123456@localhost/leakon_ns_renzixing
+      encoding:     utf8

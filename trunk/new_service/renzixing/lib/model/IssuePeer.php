@@ -75,7 +75,7 @@ class IssuePeer extends BaseIssuePeer
 
 	public static function doListLeftJoinUser($parameterHolder) {
 
-		$SQL	= sprintf(	"SELECT * FROM %s AS l LEFT JOIN %s AS r "
+		$SQL	= sprintf(	"SELECT l.*, r.username AS username FROM %s AS l LEFT JOIN %s AS r "
 					. " ON l.user_id = r.id "
 					. " ORDER BY l.id DESC LIMIT %d, %d",
 
@@ -118,7 +118,7 @@ class IssuePeer extends BaseIssuePeer
 
 	public static function doSearchLeftJoinUser($parameterHolder) {
 
-		$SQL	= sprintf(	"SELECT * FROM %s AS l LEFT JOIN %s AS r "
+		$SQL	= sprintf(	"SELECT l.*, r.username AS username FROM %s AS l LEFT JOIN %s AS r "
 					. " ON l.user_id = r.id "
 					. " WHERE l.title like '%s%s%s' "
 					. " ORDER BY l.id DESC LIMIT %d, %d",
