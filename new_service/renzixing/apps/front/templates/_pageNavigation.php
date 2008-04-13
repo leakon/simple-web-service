@@ -5,6 +5,11 @@
 //	$lastPosition = floor(($navLength - 1) * 0.5) + 1;
 	$lastPosition = $navLength + 1 - $firstPosition;
 	$pageToken = $pageNavigation->getLastPage() > $navLength;	// 总页数是否大于分页条的长度？
+
+	// Output escaping settings
+	$pageUri = $sf_data->getRaw('pageUri');
+#	var_dump($pageUri);
+
 ?>
 
 <div class="tablenav">

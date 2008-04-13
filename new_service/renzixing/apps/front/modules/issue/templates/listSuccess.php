@@ -10,16 +10,16 @@
 
 <p id="post-search">
 
-	<?php if ('search' == $sf_context->getModuleName() && $objPager->getNbResults()) : ?>
+	<?php if ('search' == $sf_context->getActionName() && $objPager->getNbResults()) : ?>
 
 		<span class="searchResult">
-		找到 <?php echo $objPager->getNbResults() ?> 条结果
-		以下是第 <?php echo $objPager->getCurrentStart() ?> - <?php echo $objPager->getCurrentCount() ?> 项
+		找到 <strong><?php echo $objPager->getNbResults() ?></strong> 条结果
+		以下是第 <strong><?php echo $objPager->getCurrentStart() ?> - <?php echo $objPager->getCurrentCount() ?></strong> 项
 		</span>
 
 	<?php endif ?>
 
-	<input type="text" id="post-search-input" name="keyword" value="<?php echo htmlspecialchars($sf_request->getParameter('keyword', '')) ?>" />
+	<input type="text" id="post-search-input" name="keyword" value="<?php echo $sf_request->getParameter('keyword', '') ?>" />
 	<input type="submit" value="搜索" class="button" />
 </p>
 
@@ -29,10 +29,17 @@
 <thead>
 <tr>
 
+<!--	<th scope="col">ID</th>	-->
+
 	<th scope="col">日期</th>
 	<th scope="col">标题</th>
 	<th scope="col">提交人</th>
+
+	<th scope="col">优先级</th>
+	<th scope="col">处理部门</th>
 	<th scope="col">状态</th>
+
+	<th scope="col">操作</th>
 
 </tr>
 </thead>
@@ -47,17 +54,44 @@
 
 ?>
 
+<?php
+
+$myUserId	= $sf_user->getId();
+
+?>
+
 <?php foreach ($objPager->getResults() as $issue): ?>
 <tr id="post-<?php echo $issue['id'] ?>" class="alternate author-self status-publish" valign="top">
 
+<?php if (0) : ?>	<td><a href="<?php echo url_for('issue/show?id=' . $issue['id']) ?>"><?php echo $issue['id'] ?></a></td> <?php endif ?>
+
 	<td><?php echo substr($issue['created_at'], 0, 10) ?></td>
-
 	<td><strong>
-	<a class="row-title" href="<?php echo url_for('issue/show?id=' . $issue['id']) ?>" title="<?php echo $issue['title'] ?>"><?php echo mb_strimwidth($issue['title'], 0, 60, '...', 'UTF-8') ?></a>
+	<a class="row-title" href="<?php echo url_for('issue/show?id=' . $issue['id']) ?>" title="<?php echo $issue['title'] ?>"><?php echo mb_strimwidth($issue['title'], 0, sfConfig::get('app_issue_list_title_length'), '...', 'UTF-8') ?></a>
 	</strong></td>
-
 	<td><a href="#"><?php echo $issue['username'] ?></a></td>
-	<td><a href="#"><?php echo $issue['user_id'] ?></a></td>
+
+
+	<td>
+		<?php echo IssuePeer::getPriorityString($issue['priority']) ?>
+	</td>
+	<td>
+		<?php echo IssuePeer::getTypeString($issue['type']) ?>
+	</td>
+	<td>
+		<?php echo IssuePeer::getStatusString($issue['status']) ?>
+	</td>
+	<td>
+		<?php if ($myUserId == $issue['user_id'] && 0 == $issue['locker_id']) : ?>
+			<a href="<?php echo url_for('issue/edit?id=' . $issue['id']) ?>" class="myInvolved">编辑</a>
+		<?php else : ?>
+			<?php if (IssuePeer::STATUS_SUBMITTED == $issue['status']) : ?>
+			<?php /* 必须是 submitted 状态，才可以处理 */ ?>
+				<a href="<?php echo url_for('issue/edit?do=deal&id=' . $issue['id']) ?>">处理</a>
+			<?php endif ?>
+		<?php endif ?>
+	</td>
+
 
 </tr>
 <?php endforeach; ?>
@@ -67,7 +101,7 @@
 
 <tr id="post-0" class="alternate author-self status-publish" valign="top">
 	<td colspan="4">
-		<span class="searchResult">没有找到与 <strong><?php echo htmlspecialchars($sf_request->getParameter('keyword', '')) ?></strong> 匹配的结果！ </span>
+		<span class="searchResult">没有找到匹配的项目！ </span>
 	</td>
 </tr>
 
@@ -80,8 +114,6 @@
 
 </form>
 
-<div id="ajax-response"></div>
-
 <?php
 
 $action		= $sf_context->getActionName();
@@ -93,6 +125,7 @@ $isValidSearch	= 'search' == $action && strlen($keyword = $sf_request->getParame
 
 $pageUri	= sprintf(  "issue/%s?%s", $action, ($isValidSearch ? 'keyword=' . urlencode($keyword) . '&' : '')  );
 
+#var_dump($pageUri);
 
 echo include_partial('global/pageNavigation',
 				array(

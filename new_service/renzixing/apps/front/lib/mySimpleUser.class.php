@@ -1,7 +1,13 @@
 <?php
 
 /**
- * Common user interface
+ * Leakon
+ *
+ * @package    Symfony
+ * @author     Leakon <leakon@gmail.com>
+ * @version    2008-04-13 22:17
+ *
+ * Common user interface for Symfony PHP Framework
  */
 
 class mySimpleUser extends sfBasicSecurityUser {
@@ -10,7 +16,8 @@ class mySimpleUser extends sfBasicSecurityUser {
 		NS_MEMBER	= 'member',		// name space of member
 		PASSPORT_NAME	= 'passport',		// cookie name of passport
 		PASSPORT_TOKEN	= 'SofavPassPortTK',
-		VERSION		= '2008-04-05';
+
+		VERSION		= '2008-04-13';
 
 	// constructor
 	public function initialize($context, $parameters = null) {
@@ -23,7 +30,7 @@ class mySimpleUser extends sfBasicSecurityUser {
 
 		$status		= $session + $passport;
 
-		$GLOBALS['status_codes_glb']	= $status;
+		$GLOBALS['simple_user_status']	= $status;
 
 		switch ($status) {
 

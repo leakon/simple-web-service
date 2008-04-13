@@ -1,47 +1,17 @@
 <?php use_helper('Validation') ?>
-<?php if (0) : ?>
-
-<?php echo form_tag('user/login') ?>
-
-<?php echo input_hidden_tag('refer', $sf_request->getReferer()) ?>
-
-<ul>
-
-<?php if (isset($passwordNotMatch)) : ?>
-
-
-<li>
-	用户名和密码不匹配
-</li>
-
-<?php endif ?>
-
-<li>
-	UserName:
-	<?php echo input_tag('username', $sf_params->get('username')) ?>
-	<?php echo form_error('username') ?>
-</li>
-
-<li>
-	Password:
-	<?php echo input_password_tag('password', $sf_params->get('password')) ?>
-	<?php echo form_error('password') ?>
-</li>
-
-<li>
-	<input type="submit" value="Login" />
-</li>
-
-</form>
-
-<?php endif ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
-	<title>登陆任子行客服系统</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="/css/login.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<?php include_http_metas() ?>
+<?php include_metas() ?>
+
+<?php include_title() ?>
+
+<link rel="stylesheet" href="/css/login.css" type="text/css" />
 <link rel="stylesheet" href="/css/colors-fresh.css" type="text/css" />
+
 	<script type="text/javascript">
 		function focusit() {
 			document.getElementById('user_login').focus();
