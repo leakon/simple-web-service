@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Subclass for performing query and update operations on the 'sf_issue ' table.
  *
@@ -7,23 +8,48 @@
  *
  * @package lib.model
  */
+
+
+
 class IssuePeer extends BaseIssuePeer
 {
+
+	const
+
+		STATUS_DEFAULT		= 0,
+		STATUS_REJECTTED	= 10,
+		STATUS_SUBMITTED	= 20,
+		STATUS_TERMINATED	= 80,
+
+		VERSION			= '1';
+
 	public static function listAllStatus() {
 
 		$arrStatus	= array(
 
-			'default'	=> 0,		// 默认，作者可以编辑
-			'rejectted'	=> 0,		// 由上级驳回
-			'submitted'	=> 10,		// 已提交上级
-			'locked'	=> 20,		// 锁定，原作者不能再编辑
-			'terminated'	=> 80,		// 问题终止，任何人不能再编辑
+			'default'	=> self::STATUS_DEFAULT,		// 默认，作者可以编辑
+			'rejectted'	=> self::STATUS_REJECTTED,		// 由上级驳回
+			'submitted'	=> self::STATUS_SUBMITTED,		// 已提交上级
+			'terminated'	=> self::STATUS_TERMINATED,		// 问题终止，任何人不能再编辑
 
 		);
 
 		return	$arrStatus;
 
 	}
+
+	public static function getStatusString($intStatus) {
+
+		static	$staticArrStatus = null;
+
+		if (empty($staticArrStatus)) {
+			$staticArrStatus = array_flip(self::listAllStatus());
+		}
+
+		return	$staticArrStatus[$intStatus];
+	}
+
+
 
 	public static function getStatusBySaveType($reqSaveType) {
 
@@ -48,7 +74,7 @@ class IssuePeer extends BaseIssuePeer
 		return	$arrPriorities;
 	}
 
-	public static function priorityToString($index) {
+	public static function getPriorityString($index) {
 
 		static	$staticArrPriorities = null;
 
@@ -59,6 +85,86 @@ class IssuePeer extends BaseIssuePeer
 		return	isset($staticArrPriorities[$index]) ? $staticArrPriorities[$index] : '';
 
 	}
+
+	public static function getLevelMap($type) {
+
+		$arrMap		= array(
+
+				10	=> array(
+						'prev'	=> 10,
+						'next'	=> 20,
+					),
+				20	=> array(
+						'prev'	=> 10,
+						'next'	=> 30,
+					),
+				30	=> array(
+						'prev'	=> 20,
+						'next'	=> 30,
+					),
+
+		);
+
+		return	$arrMap[$type];
+
+	}
+
+	// 列出所有类型
+	public static function listAllTypes() {
+
+		$arrTypes	= array(
+			10	=> '办事处',		// 问题提交（办事处处理）
+			20	=> '客服中心',		// 客服中心处理（问题审核）
+			30	=> '事业部',		// 事业部回复
+		);
+
+		return	$arrTypes;
+
+
+/**
+	字段复用对应关系
+
+	updated_at			处理时间
+
+	10
+ 		title			问题摘要
+ 		description		请求详细描述
+ 		solution		办事处处理过程
+ 		extra			联系人，联系方式	(serial)
+
+ 	20
+ 		title			审核结果
+ 		description		审核说明
+ 		solution		客服中心处理过程
+
+ 	30
+ 		title			处理状态
+ 		description		问题产生原因分析
+ 		solution		处理结果具体内容
+ 		reference		相关知识点
+ 		extra			预计完成时间、项目负责人、实际完成时间
+
+
+ */
+
+	}
+
+	public static function getTypeString($index) {
+
+		static	$staticArrTypes = null;
+
+		if (empty($staticArrTypes)) {
+			$staticArrTypes = self::listAllTypes();
+		}
+
+		return	isset($staticArrTypes[$index]) ? $staticArrTypes[$index] : '';
+
+	}
+
+
+
+
+
 
 	///////////////////////////////////////////////
 	// List

@@ -145,6 +145,8 @@ class userActions extends sfActions
 
 		if ($this->getRequest()->getMethod() == sfRequest::POST) {
 
+			$this->passwordNotMatch	= true;
+
 			$reqUsername	= trim($this->getRequestParameter('username'));
 			$reqPassword	= $this->getRequestParameter('password');
 
@@ -159,9 +161,10 @@ class userActions extends sfActions
 				} else {
 
 				}
+
+				$this->getRequest()->setError('password', '用户名和密码不匹配');
 			}
 
-			$this->passwordNotMatch	= true;
 
 		} else {
 
@@ -289,6 +292,8 @@ class userActions extends sfActions
 
 	public function executeLoginAuth() {
 
+		$this->setTemplate('login');
+
 		$reqUsername	= trim($this->getRequestParameter('username'));
 		$reqPassword	= $this->getRequestParameter('password');
 
@@ -296,6 +301,11 @@ class userActions extends sfActions
 
 		if ($objUser) {
 			$this->getUser()->setLoggedIn($objUser->getId());
+			$this->forward('issue');
+		} else {
+
+		#	echo	1234132;
+		#	$this->getRequest()->setError('password', '密码错误');
 		}
 
 

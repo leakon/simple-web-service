@@ -16,7 +16,7 @@ all:
   storage:
     class: sfSessionStorage
     param:
-      session_name: passport
+      session_name: sess
 
   user:
     class: mySimpleUser

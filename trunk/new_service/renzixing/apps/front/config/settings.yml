@@ -35,6 +35,10 @@ all:
     validation_error_class:     form_error
     validation_error_id_prefix: error_for_
 
+    # Output escaping settings
+    escaping_strategy:      both        # Determines how variables are made available to templates. Accepted values: bc, both, on, off. The value off deactivates escaping completely and gives a slight boost.
+    escaping_method:   ESC_ENTITIES   # Function or helper used for escaping. Accepted values: ESC_RAW, ESC_ENTITIES, ESC_JS, ESC_JS_NO_ENTITIES.
+
 
 
 #all:

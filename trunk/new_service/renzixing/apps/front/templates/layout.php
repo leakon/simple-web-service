@@ -59,7 +59,7 @@
 
 
 <div id="footer">
-	<p><a href="http://www.leakon.com/">Lakon</a> 2008</p>
+	<p><a href="http://www.leakon.com/">Lakon</a> 2008 [<?php echo $GLOBALS['simple_user_status'] ?>]</p>
 </div>
 </body>
 </html>

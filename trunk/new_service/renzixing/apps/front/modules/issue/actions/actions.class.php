@@ -33,44 +33,7 @@ class issueActions extends sfActions
     $this->setTemplate('edit');
   }
 
-  public function executeEdit()
-  {
-    $this->issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
-    $this->forward404Unless($this->issue);
-  }
 
-  public function executeUpdate()
-  {
-    if (!$this->getRequestParameter('id'))
-    {
-      $issue = new Issue();
-    }
-    else
-    {
-      $issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
-      $this->forward404Unless($issue);
-    }
-
-
-#    var_dump($this->getRequestParameter('save_type'));
-
-
-    $issue->setId($this->getRequestParameter('id'));
-    $issue->setUserId($this->getRequestParameter('user_id'));
-    $issue->setPriority($this->getRequestParameter('priority'));
-    $issue->setTitle($this->getRequestParameter('title'));
-    $issue->setDescription($this->getRequestParameter('description'));
-    $issue->setSolution($this->getRequestParameter('solution'));
-    $issue->setReference($this->getRequestParameter('reference'));
-
-
-    $issue->setType($this->getRequestParameter('type'));
-    $issue->setStatus($this->getRequestParameter('save_type'));
-
-    $issue->save();
-
-    return $this->redirect('issue/show?id='.$issue->getId());
-  }
 
   public function executeDelete()
   {
@@ -103,6 +66,79 @@ class issueActions extends sfActions
 		$this->setTemplate('list');
 		$this->objPager = IssuePeer::searchIssues($this->getRequestParameter('page', 1));
 
+	}
+
+
+
+
+	public function executeEdit() {
+
+		$this->allIssues	= array();
+
+		$this->issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
+		$this->forward404Unless($this->issue);
+
+		$this->allIssues[$this->issue->getType()]	= $this->issue;
+
+		// Ä¬ÈÏ½ûÖ¹±à¼­
+		$this->allowEdit	= false;
+
+		if ('deal' == $this->getRequestParameter('do') && 0 == $this->issue->getLockerId()) {
+			// ¿ÉÒÔ±à¼­
+			$this->allowEdit	= true;
+			$this->issue->setLockerId($this->getUser()->getId());
+			$this->issue->save();
+
+
+			$arrLevelMap	= IssuePeer::getLevelMap($this->issue->getType());
+			$issue		= new Issue();
+
+			$issue->setType($arrLevelMap['next']);
+			$this->allIssues[$arrLevelMap['next']]	= $issue;
+
+		}
+
+
+
+	}
+
+
+
+	public function executeUpdate() {
+
+		if (!$this->getRequestParameter('id'))
+		{
+			$issue = new Issue();
+		}
+		else
+		{
+			$issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
+			$this->forward404Unless($issue);
+		}
+
+		$issue->saveEdit10($this);
+
+
+		#    var_dump($this->getRequestParameter('save_type'));
+		/*
+
+		$issue->setId($this->getRequestParameter('id'));
+		$issue->setUserId($this->getRequestParameter('user_id'));
+		$issue->setPriority($this->getRequestParameter('priority'));
+		$issue->setTitle($this->getRequestParameter('title'));
+		$issue->setDescription($this->getRequestParameter('description'));
+		$issue->setSolution($this->getRequestParameter('solution'));
+		$issue->setReference($this->getRequestParameter('reference'));
+
+
+		$issue->setType($this->getRequestParameter('type'));
+		$issue->setStatus($this->getRequestParameter('save_type'));
+
+		$issue->save();
+		*/
+
+
+		return $this->redirect('issue/show?id='.$issue->getId());
 	}
 
 }

@@ -20,5 +20,14 @@ class HelperView {
 		return	'';
 	}
 
+
+	public static function getString($var, $default = '') {
+		return	strlen($var) ? $val : $default;
+	}
+
+	public static function getArray($arr, $index, $default = '') {
+		return	isset($arr[$index]) ? $arr[$index] : $default;
+	}
+
 }
 
