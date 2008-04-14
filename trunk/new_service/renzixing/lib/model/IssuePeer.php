@@ -160,6 +160,10 @@ class IssuePeer extends BaseIssuePeer {
 	}
 
 
+	// 只有是 default 或 rejected 状态，才是编辑模式
+	public static function inEditMode($status) {
+		return	$status < self::STATUS_SUBMITTED;
+	}
 
 	///////////////////////////////////////////////
 	// Group

@@ -154,7 +154,12 @@ class userActions extends sfActions
 				$objUser	= UserPeer::checkPassword($reqUsername, $reqPassword);
 
 				if ($objUser) {
-					$this->getUser()->setLoggedIn($objUser->getId());
+
+					$sfUser	= $this->getUser();
+
+					$sfUser->setLoggedIn($objUser->getId());
+
+					$sfUser->addCredential($objUser->getRole());
 
 					return	$this->redirectRefer();
 
@@ -289,7 +294,7 @@ class userActions extends sfActions
 		return	$this->redirectRefer();
 	}
 
-
+/*
 	public function executeLoginAuth() {
 
 		$this->setTemplate('login');
@@ -318,7 +323,7 @@ class userActions extends sfActions
 
 
 
-
+*/
 
 
 

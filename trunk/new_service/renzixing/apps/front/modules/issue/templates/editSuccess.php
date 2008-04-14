@@ -13,6 +13,8 @@
 
 <?php
 
+$userId		= $sf_user->getId();
+
 $actionName	= $sf_context->getActionName();
 
 if ('create' == $actionName) {
@@ -30,19 +32,15 @@ if ('create' == $actionName) {
 
 			$issue	= $allIssues->getRaw($strType);
 
-			if ($issue->isEditable()) {
+			if ($issue->isEditable() && $userId == $issue->getUserId()) {
 
 				$partialMethod	= 'Edit';
 				$needBreak	= true;
 
-				echo	sprintf('<input type="hidden" name="type" value="%s" />', $issue->getType());
+			#	echo	sprintf('<input type="hidden" name="type" value="%s" />', $issue->getType());
 
 			} else {
 
-				$partialMethod	= 'Show';
-			}
-
-			if (!empty($justViewIssues)) {
 				$partialMethod	= 'Show';
 			}
 
@@ -51,6 +49,7 @@ if ('create' == $actionName) {
 			include_partial($partialName, array('issue' => $issue));
 
 			if ($needBreak) {
+			#	echo	33;
 				break;
 			}
 
@@ -70,5 +69,6 @@ if ('create' == $actionName) {
 
 ?>
 
+</div>
 
 </form>

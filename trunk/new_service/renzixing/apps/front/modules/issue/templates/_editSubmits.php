@@ -9,6 +9,8 @@
 <input type="button" onclick="DoSaveSubmit(<?php echo IssuePeer::STATUS_TERMINATED ?>, '终止后，就不可以再修改了，确定吗？');" value="终止" />
 <input type="hidden" name="status" value="<?php echo IssuePeer::STATUS_DEFAULT ?>" />
 
+<input type="hidden" name="type" value="<?php echo $issue->getType() ?>" />
+
 <?php if ($issue->getId()): ?>
   &nbsp;<?php
   		if (0) {

@@ -9,9 +9,6 @@
  */
 class Issue extends BaseIssue {
 
-	protected
-		$typeLevel;
-
 	// 设置此函数，可以屏蔽自动保存时间的功能
 	public function setUpdatedAt($confirm) {
 		if ($confirm === true) {
@@ -21,8 +18,28 @@ class Issue extends BaseIssue {
 
 	public function save($con = null) {
 
-		$sfUser	= sfContext::getInstance()->getUser();
+		$sfUserId	= sfContext::getInstance()->getUser()->getId();
+		$issueUserId	= $this->getUserId();
+
+		if (0 == $issueUserId || $issueUserId == $sfUserId) {
+
+			$this->setUserId($sfUserId);
+			return	parent::save();
+
+		} else {
+			sfContext::getInstance()->getController()->forward('default', 'secure');
+			exit;
+		}
+
+	}
+
+	public function saveWithOutUser() {
 		return	parent::save();
+	}
+
+	public function getType() {
+		$type	= parent::getType();
+		return	empty($type) ? IssuePeer::TYPE_AGENCY: $type;
 	}
 
 	public function getTypeString() {
@@ -44,28 +61,11 @@ class Issue extends BaseIssue {
 	// 处理 办事处
 	public function saveEditAgency($action) {
 
-	#	$this->typeLevel	= 10;
-	#	$this->setType(IssuePeer::TYPE_AGENCY);
-
-/*
-		$this->setId($action->getRequestParameter('id'));
-		$this->setUserId($action->getUser()->getId());
-		$this->setPriority($action->getRequestParameter('priority'));
-		$this->setTitle($action->getRequestParameter('title'));
-		$this->setDescription($action->getRequestParameter('description'));
-		$this->setSolution($action->getRequestParameter('solution'));
-*/
-
 		$contact	= array();
 		$contact['contact_name']	= $action->getRequestParameter('contact_name');
 		$contact['contact_value']	= $action->getRequestParameter('contact_value');
 		$this->setExtra($contact);
 
-/*
-		$this->setStatus($action->getRequestParameter('save_type'));
-		$this->statusToType($action);
-		$this->doTerminate($action);
-*/
 		$this->setUpdatedAt(true);
 		$this->save();
 	}
@@ -73,10 +73,9 @@ class Issue extends BaseIssue {
 	// 处理 客服中心
 	public function saveEditSupport($action) {
 
-
 		$contact	= array();
 		$contact['verify_result']	= $action->getRequestParameter('verify_result');
-		$contact['verify_date']	= $action->getRequestParameter('verify_date');
+		$contact['verify_date']		= $action->getRequestParameter('verify_date');
 
 		$this->setExtra($contact);
 		$this->setUpdatedAt(true);
@@ -98,6 +97,15 @@ class Issue extends BaseIssue {
 	// 得到当前条目对应的 Agency ID
 	public function getBaseId() {
 		return	$this->getParentId() > 0 ? $this->getParentId() : $this->getId();
+	}
+
+	// 只有是 default 或 rejected 状态，才是编辑模式
+	public function inEditMode() {
+		return	$this->getStatus() < IssuePeer::STATUS_SUBMITTED;
+	}
+
+	public function isEditor() {
+		return	$this->getUserId() == sfContext::getInstance()->getUser()->getId();
 	}
 
 	public function isEditable() {
@@ -137,19 +145,6 @@ class Issue extends BaseIssue {
 		}
 	}
 
-
-	public function setPrevRejected() {
-
-		$this->setStatus(IssuePeer::STATUS_REJECTTED);
-		$this->save();
-
-		$prevIssue	= $this->getFriendIssue('prev');
-		if ($prevIssue && $prevIssue->getId() != $this->getId()) {
-			$this->setPrevRejected();
-		}
-	}
-
-
 	// 根据提交的 status 信息，处理各个级别的状态
 	public function handleDecision() {
 
@@ -172,7 +167,8 @@ class Issue extends BaseIssue {
 			$prevIssue	= $this->getFriendIssue('prev');
 			if ($prevIssue) {
 				$prevIssue->setStatus(IssuePeer::STATUS_REJECTTED);
-				$prevIssue->save();
+			#	$prevIssue->save();
+				$prevIssue->saveWithOutUser();
 			}
 
 		#	$agencyIssue->setStatus(IssuePeer::STATUS_REJECTTED);
@@ -187,10 +183,24 @@ class Issue extends BaseIssue {
 			$nextIssue	= $this->getFriendIssue('next');
 			if ($nextIssue) {
 				$nextIssue->setStatus(IssuePeer::STATUS_DEFAULT);
-				$nextIssue->save();
+			#	$nextIssue->save();
+				$nextIssue->saveWithOutUser();
+				$targetIssue	= $nextIssue;
+			} else {
+
+				/*
+				$targetIssue	= new Issue();
+				$targetIssue->setParentId($this->getId());
+				$targetIssue->setType($this->getFriendType('next'));
+				*/
+
+				$targetIssue	= $this->newNextIssue();
+
+				// 不用保存
+			#	$targetIssue->save();
+
 			}
 
-			$targetIssue	= $nextIssue;
 		}
 
 
@@ -209,7 +219,20 @@ class Issue extends BaseIssue {
 			$agencyIssue->setProgress('已终止');
 		}
 
-		$agencyIssue->save();
+	#	$agencyIssue->save();
+		$agencyIssue->saveWithOutUser();
+
+	}
+
+	public function newNextIssue() {
+
+		$nextIssue	= new Issue();
+
+		$nextIssue->setUserId(sfContext::getInstance()->getUser()->getId());
+		$nextIssue->setParentId($this->getId());
+		$nextIssue->setType($this->getFriendType('next'));
+
+		return	$nextIssue;
 
 	}
 
@@ -265,48 +288,6 @@ class Issue extends BaseIssue {
 
 	}
 
-
-
-
-
-
-
-
-/*
-
-	// 根据操作的不同类型，设置不同的 type
-	protected function statusToType($action) {
-
-		$arrLevelMap	= IssuePeer::getLevelMap($this->typeLevel);
-		$saveType	= $action->getRequestParameter('save_type');
-
-	#	var_dump($arrLevelMap);
-
-		// 终止
-		if ('terminated' == $saveType) {
-			// 设置为当前处理级别
-			$this->setType($this->typeLevel);
-		}
-
-		// 提交上级
-		if ('submitted' == $saveType) {
-			// 设置为当前处理级别
-			$this->setType($arrLevelMap['next']);
-		}
-
-		// 打回下级
-		if ('rejectted' == $saveType) {
-			// 设置为当前处理级别
-			$this->setType($arrLevelMap['prev']);
-		}
-	}
-
-	public function doTerminate($action) {
-		if ('terminated' == $action->getRequestParameter('save_type')) {
-			$this->setType($this->typeLevel);
-		}
-	}
-*/
 
 
 }

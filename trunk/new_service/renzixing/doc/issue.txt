@@ -5,3 +5,13 @@ id	title	user_id	parent_id	type	created_at
 4	HP Server harddisk has phisical error.	1	0	10	2008-04-10
 5	Re:HP Server harddisk has phisical error.	25	4	20	2008-04-12
 6	Re:Re:HP Server harddisk has phisical error.	34	4	30	2008-04-13
+NULL	Test issue title 1	21	0	10	2008-04-10
+NULL	Test issue title 2	52	0	10	2008-04-10
+NULL	Test issue title 3	36	0	10	2008-04-10
+NULL	Test issue title 4	47	0	10	2008-04-10
+NULL	Test issue title 5	134	0	10	2008-04-10
+NULL	Test issue title 6	42	0	10	2008-04-10
+NULL	Test issue title 7	234	0	10	2008-04-10
+NULL	Test issue title 8	231	0	10	2008-04-10
+NULL	Test issue title 9	124	0	10	2008-04-10
+NULL	Test issue title 10	95	0	10	2008-04-10

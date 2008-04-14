@@ -81,45 +81,93 @@ class issueActions extends sfActions
 
 	}
 
-	// 编辑 or 处理 Issue
+
+	// 处理 Issue
+
+	public function executeDeal() {
+
+		$sfUserId	= $this->getUser()->getId();
+
+		$this->setTemplate('edit');
+
+		$baseId	= $this->getRequestParameter('id');
+
+		$this->allIssues	= IssuePeer::getGroupedIssue($baseId);
+
+		$baseName		= IssuePeer::getTypeString(IssuePeer::TYPE_AGENCY, 2);
+
+		// 如果没有最基本的 TYPE_AGENCY，就跳到错误页
+		$this->forward404Unless(isset($this->allIssues[$baseName]));
+
+		$prevStatus	= 0;
+
+		foreach (IssuePeer::listAllTypes() as $intType => $strType) {
+
+			$issue	= isset($this->allIssues[$strType]) ? $this->allIssues[$strType] : null;
+
+			// 存在
+			if ($issue) {
+
+				$prevStatus	= 0;
+
+				// 是否已经提交了上级单位
+				if ($issue->getStatus() == IssuePeer::STATUS_SUBMITTED) {
+					$prevStatus	= $issue->getStatus();
+					continue;
+				}
+
+				// 检查权限
+
+				// 在编辑状态中
+				if ($issue->getStatus() < IssuePeer::STATUS_SUBMITTED) {
+
+					if ($issue->getUserId() != $sfUserId) {
+						return	$this->redirect('issue/show?id='.$baseId);;
+					}
+
+					break;
+
+				}
+
+				$prevStatus	= 0;
+
+			} else {
+				// 不存在，创建并退出
+
+				// 前一个状态必须是 submitted
+				if ($prevStatus == IssuePeer::STATUS_SUBMITTED) {
+
+					$newIssue	= new Issue();
+
+					$newIssue->setUserId($sfUserId);
+					$newIssue->setParentId($baseId);
+					$newIssue->setType($intType);
+
+					$newIssue->save();
+
+					$this->allIssues[$strType]	= $newIssue;
+				}
+
+				break;
+
+			}
+
+
+		}
+
+	#	HelperView::pr(IssuePeer::listAllTypes());
+
+
+	}
+
+
+	// 编辑 Issue
 	public function executeEdit() {
 
 
 		$this->allIssues	= IssuePeer::getGroupedIssue($this->getRequestParameter('id'));
 
-		$this->issue	= $this->allIssues['Agency'];
-
-
-	#	$this->issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
-
-	#	$this->issue	= $this->allIssues[IssuePeer::TYPE_AGENCY];
-
-	#	var_dump($this->allIssues);
-
-	#	$this->forward404Unless($this->issue);
-
-	#	$this->allIssues[$this->issue->getType()]	= $this->issue;
-
-		// 默认禁止编辑
-		$this->allowEdit	= false;
-
-/*
-		if (0 && 'deal' == $this->getRequestParameter('do') && 0 == $this->issue->getLockerId()) {
-			// 可以编辑
-			$this->allowEdit	= true;
-			$this->issue->setLockerId($this->getUser()->getId());
-			$this->issue->save();
-
-
-			$arrLevelMap	= IssuePeer::getLevelMap($this->issue->getType());
-			$issue		= new Issue();
-
-			$issue->setType($arrLevelMap['next']);
-			$this->allIssues[$arrLevelMap['next']]	= $issue;
-
-		}
-*/
-
+	#	$this->issue	= $this->allIssues['Agency'];
 
 	}
 
@@ -134,21 +182,25 @@ class issueActions extends sfActions
 			$this->forward404Unless($issue);
 		}
 
+
 		// 公共部分
 		$issue->setId($this->getRequestParameter('id'));
-		$issue->setUserId($this->getUser()->getId());
 		$issue->setPriority($this->getRequestParameter('priority'));
 		$issue->setTitle($this->getRequestParameter('title'));
 		$issue->setDescription($this->getRequestParameter('description'));
 		$issue->setSolution($this->getRequestParameter('solution'));;
 		$issue->setReference($this->getRequestParameter('reference'));
 		$issue->setStatus($this->getRequestParameter('status'));
+
+
 		$issue->setType($this->getRequestParameter('type'));
 
 		$typeString	= $issue->getTypeString();
 		$method		= sprintf("saveEdit%s", $typeString);
 
+
 		$issue->$method($this);
+
 
 		$issue->handleDecision();
 
@@ -171,6 +223,7 @@ class issueActions extends sfActions
 		$issue->save();
 		*/
 
+	#	echo	231234;exit;
 
 		return $this->redirect('issue/edit?id='.$issue->getBaseId());
 
