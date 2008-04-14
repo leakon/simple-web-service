@@ -26,6 +26,12 @@
 <?php echo form_tag('user/login') ?>
 
 <?php echo input_hidden_tag('refer', $sf_request->getReferer()) ?>
+
+
+	<p align="center">
+		<img src="/images/rzx_logo.png" border="1" />
+	</p>
+
 	<p>
 		<label>Username<br />
 

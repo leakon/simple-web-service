@@ -13,15 +13,62 @@
 
 <?php
 
-#print_r($allIssues);
+$actionName	= $sf_context->getActionName();
+
+if ('create' == $actionName) {
+
+	include_partial('issue/issueEditAgency', array('issue' => $issue));
+
+} else {
+
+	// 编辑当前进度时，跳过后面的上级进度
+	$needBreak	= false;
+
+	foreach (IssuePeer::listAllTypes() as $intType => $strType) {
+
+		if ($allIssues->offsetExists($strType)) {
+
+			$issue	= $allIssues->getRaw($strType);
+
+			if ($issue->isEditable()) {
+
+				$partialMethod	= 'Edit';
+				$needBreak	= true;
+
+				echo	sprintf('<input type="hidden" name="type" value="%s" />', $issue->getType());
+
+			} else {
+
+				$partialMethod	= 'Show';
+			}
+
+			if (!empty($justViewIssues)) {
+				$partialMethod	= 'Show';
+			}
+
+			$partialName	= sprintf("issue/issue%s%s", $partialMethod, $strType);
+
+			include_partial($partialName, array('issue' => $issue));
+
+			if ($needBreak) {
+				break;
+			}
+
+		} else {
+			// 当前级别不存在，则后续级别就不再显示
+			break;
+		}
+
+
+	}
+
+
+}
+
+
+
 
 ?>
-
-<?php include_partial('issue/issueEdit10', array('issue' => $issue)) ?>
-
-
-
-
 
 
 </form>

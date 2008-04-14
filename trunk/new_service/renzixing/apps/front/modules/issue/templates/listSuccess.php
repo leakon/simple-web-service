@@ -36,7 +36,6 @@
 	<th scope="col">提交人</th>
 
 	<th scope="col">优先级</th>
-	<th scope="col">处理部门</th>
 	<th scope="col">状态</th>
 
 	<th scope="col">操作</th>
@@ -76,13 +75,10 @@ $myUserId	= $sf_user->getId();
 		<?php echo IssuePeer::getPriorityString($issue['priority']) ?>
 	</td>
 	<td>
-		<?php echo IssuePeer::getTypeString($issue['type']) ?>
+		<?php echo $issue['progress'] ?>
 	</td>
 	<td>
-		<?php echo IssuePeer::getStatusString($issue['status']) ?>
-	</td>
-	<td>
-		<?php if ($myUserId == $issue['user_id'] && 0 == $issue['locker_id']) : ?>
+		<?php if ($myUserId == $issue['user_id']) : ?>
 			<a href="<?php echo url_for('issue/edit?id=' . $issue['id']) ?>" class="myInvolved">编辑</a>
 		<?php else : ?>
 			<?php if (IssuePeer::STATUS_SUBMITTED == $issue['status']) : ?>

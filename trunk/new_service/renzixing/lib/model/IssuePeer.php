@@ -11,8 +11,7 @@
 
 
 
-class IssuePeer extends BaseIssuePeer
-{
+class IssuePeer extends BaseIssuePeer {
 
 	const
 
@@ -21,17 +20,19 @@ class IssuePeer extends BaseIssuePeer
 		STATUS_SUBMITTED	= 20,
 		STATUS_TERMINATED	= 80,
 
+		TYPE_AGENCY		= 10,		// 办事处
+		TYPE_SUPPORT		= 20,		// 客服中心
+		TYPE_DIVISION		= 30,		// 事业部
+
 		VERSION			= '1';
 
 	public static function listAllStatus() {
 
 		$arrStatus	= array(
-
-			'default'	=> self::STATUS_DEFAULT,		// 默认，作者可以编辑
-			'rejectted'	=> self::STATUS_REJECTTED,		// 由上级驳回
-			'submitted'	=> self::STATUS_SUBMITTED,		// 已提交上级
-			'terminated'	=> self::STATUS_TERMINATED,		// 问题终止，任何人不能再编辑
-
+			self::STATUS_DEFAULT,		// 默认，作者可以编辑
+			self::STATUS_REJECTTED,		// 由上级驳回
+			self::STATUS_SUBMITTED,		// 已提交上级
+			self::STATUS_TERMINATED,	// 问题终止，任何人不能再编辑
 		);
 
 		return	$arrStatus;
@@ -43,21 +44,18 @@ class IssuePeer extends BaseIssuePeer
 		static	$staticArrStatus = null;
 
 		if (empty($staticArrStatus)) {
-			$staticArrStatus = array_flip(self::listAllStatus());
+
+			$staticArrStatus	= array(
+				self::STATUS_DEFAULT	=> 'default',		// 默认，作者可以编辑
+				self::STATUS_REJECTTED	=> 'rejectted',		// 由上级驳回
+				self::STATUS_SUBMITTED	=> 'submitted',		// 已提交上级
+				self::STATUS_TERMINATED	=> 'terminated',	// 问题终止，任何人不能再编辑
+			);
 		}
 
 		return	$staticArrStatus[$intStatus];
 	}
 
-
-
-	public static function getStatusBySaveType($reqSaveType) {
-
-		$arrFind	= self::listAllStatus();
-
-		return	isset($arrFind[$reqSaveType]) ? $arrFind[$reqSaveType] : 0;
-
-	}
 
 	public static function listAllPriority() {
 
@@ -90,17 +88,17 @@ class IssuePeer extends BaseIssuePeer
 
 		$arrMap		= array(
 
-				10	=> array(
-						'prev'	=> 10,
-						'next'	=> 20,
+				self::TYPE_AGENCY	=> array(
+						'prev'	=> self::TYPE_AGENCY,
+						'next'	=> self::TYPE_SUPPORT,
 					),
-				20	=> array(
-						'prev'	=> 10,
-						'next'	=> 30,
+				self::TYPE_SUPPORT	=> array(
+						'prev'	=> self::TYPE_AGENCY,
+						'next'	=> self::TYPE_DIVISION,
 					),
-				30	=> array(
-						'prev'	=> 20,
-						'next'	=> 30,
+				self::TYPE_DIVISION	=> array(
+						'prev'	=> self::TYPE_SUPPORT,
+						'next'	=> self::TYPE_DIVISION,
 					),
 
 		);
@@ -109,60 +107,108 @@ class IssuePeer extends BaseIssuePeer
 
 	}
 
+
+	/**
+		字段复用对应关系
+
+		updated_at			处理时间
+
+		TYPE_AGENCY
+	 		title			问题摘要
+	 		description		请求详细描述
+	 		solution		办事处处理过程
+	 		extra			联系人，联系方式	(serial)
+
+	 	TYPE_SUPPORT
+	 		title			审核结果
+	 		description		审核说明
+	 		solution		客服中心处理过程
+
+	 	TYPE_DIVISION
+	 		description		问题产生原因分析
+	 		solution		处理结果具体内容
+	 		reference		相关知识点
+	 		extra			处理状态、预计完成时间、项目负责人、实际完成时间
+
+
+	 */
 	// 列出所有类型
 	public static function listAllTypes() {
-
 		$arrTypes	= array(
-			10	=> '办事处',		// 问题提交（办事处处理）
-			20	=> '客服中心',		// 客服中心处理（问题审核）
-			30	=> '事业部',		// 事业部回复
+			self::TYPE_AGENCY	=> 'Agency',		// 问题提交（办事处处理）
+			self::TYPE_SUPPORT	=> 'Support',		// 客服中心处理（问题审核）
+			self::TYPE_DIVISION	=> 'Division',		// 事业部回复
 		);
-
 		return	$arrTypes;
-
-
-/**
-	字段复用对应关系
-
-	updated_at			处理时间
-
-	10
- 		title			问题摘要
- 		description		请求详细描述
- 		solution		办事处处理过程
- 		extra			联系人，联系方式	(serial)
-
- 	20
- 		title			审核结果
- 		description		审核说明
- 		solution		客服中心处理过程
-
- 	30
- 		title			处理状态
- 		description		问题产生原因分析
- 		solution		处理结果具体内容
- 		reference		相关知识点
- 		extra			预计完成时间、项目负责人、实际完成时间
-
-
- */
-
 	}
 
-	public static function getTypeString($index) {
-
+	public static function getTypeString($index, $style = 1) {
 		static	$staticArrTypes = null;
-
 		if (empty($staticArrTypes)) {
-			$staticArrTypes = self::listAllTypes();
+			$staticArrTypes[1]	= array(
+				self::TYPE_AGENCY	=> '办事处',		// 问题提交（办事处处理）
+				self::TYPE_SUPPORT	=> '客服中心',		// 客服中心处理（问题审核）
+				self::TYPE_DIVISION	=> '事业部',		// 事业部回复
+			);
+			$staticArrTypes[2]	= array(
+				self::TYPE_AGENCY	=> 'Agency',		// 问题提交（办事处处理）
+				self::TYPE_SUPPORT	=> 'Support',		// 客服中心处理（问题审核）
+				self::TYPE_DIVISION	=> 'Division',		// 事业部回复
+			);
+		}
+		return	isset($staticArrTypes[$style][$index]) ? $staticArrTypes[$style][$index] : '';
+	}
+
+
+
+	///////////////////////////////////////////////
+	// Group
+	public static function getGroupedIssue($baseId) {
+
+		static	$staticIssueGroup = null;
+
+		if (empty($staticIssueGroup[$baseId])) {
+
+			$c	= new Criteria();
+
+			$cton1 = $c->getNewCriterion(self::ID, $baseId);		// Or，或条件 1
+			$cton2 = $c->getNewCriterion(self::PARENT_ID, $baseId);		// Or，或条件 2
+			$cton1->addOr($cton2);
+			$c->add($cton1);
+
+			$c->addAscendingOrderByColumn(self::TYPE);	// 结束时间倒序排列
+			$res	= self::doSelect($c);
+
+			foreach ($res as $issue) {
+				$arrIssues[ $issue->getTypeString() ]	= $issue;
+			}
+
+			$staticIssueGroup[$baseId]	= $arrIssues;
+
 		}
 
-		return	isset($staticArrTypes[$index]) ? $staticArrTypes[$index] : '';
+		return	$staticIssueGroup[$baseId];
+
+
+/*
+		$c	= new Criteria();
+
+		$cton1 = $c->getNewCriterion(self::ID, $baseId);		// Or，或条件 1
+		$cton2 = $c->getNewCriterion(self::PARENT_ID, $baseId);		// Or，或条件 2
+		$cton1->addOr($cton2);
+		$c->add($cton1);
+
+		$c->addAscendingOrderByColumn(self::TYPE);	// 结束时间倒序排列
+		$res	= self::doSelect($c);
+
+		foreach ($res as $issue) {
+			$arrIssues[ $issue->getTypeString() ]	= $issue;
+		}
+
+		return	$arrIssues;
+*/
 
 	}
-
-
-
 
 
 
@@ -183,6 +229,7 @@ class IssuePeer extends BaseIssuePeer
 
 		$SQL	= sprintf(	"SELECT l.*, r.username AS username FROM %s AS l LEFT JOIN %s AS r "
 					. " ON l.user_id = r.id "
+					. " WHERE l.parent_id = 0 "
 					. " ORDER BY l.id DESC LIMIT %d, %d",
 
 					self::TABLE_NAME,
@@ -196,7 +243,7 @@ class IssuePeer extends BaseIssuePeer
 
 	public static function doListCount($parameterHolder) {
 
-		$SQL	= sprintf("SELECT COUNT(*) AS total FROM %s", self::TABLE_NAME);
+		$SQL	= sprintf("SELECT COUNT(*) AS total FROM %s WHERE parent_id = 0 ", self::TABLE_NAME);
 		$res	= SimpleDB::fetchAll($SQL);
 		return	isset($res[0]['total']) ? $res[0]['total'] : 0;
 	}
@@ -226,7 +273,7 @@ class IssuePeer extends BaseIssuePeer
 
 		$SQL	= sprintf(	"SELECT l.*, r.username AS username FROM %s AS l LEFT JOIN %s AS r "
 					. " ON l.user_id = r.id "
-					. " WHERE l.title like '%s%s%s' "
+					. " WHERE l.parent_id = 0 AND l.title like '%s%s%s' "
 					. " ORDER BY l.id DESC LIMIT %d, %d",
 
 					self::TABLE_NAME,
@@ -243,7 +290,7 @@ class IssuePeer extends BaseIssuePeer
 
 	public static function doSearchCount($parameterHolder) {
 
-		$SQL	= sprintf("SELECT COUNT(*) AS total FROM %s WHERE title like '%s%s%s'",
+		$SQL	= sprintf("SELECT COUNT(*) AS total FROM %s WHERE parent_id = 0 AND title like '%s%s%s'",
 
 					self::TABLE_NAME,
 					'%',
