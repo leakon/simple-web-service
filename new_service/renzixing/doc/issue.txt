@@ -1,0 +1,7 @@
+id	title	user_id	parent_id	type	created_at
+1	IBM ThinkPad T61 DVDRW doesn't work.	2	0	10	2008-03-10
+2	Re:IBM ThinkPad T61 DVDRW doesn't work.	23	1	20	2008-03-13
+3	Re:Re:IBM ThinkPad T61 DVDRW doesn't work.	42	1	30	2008-03-15
+4	HP Server harddisk has phisical error.	1	0	10	2008-04-10
+5	Re:HP Server harddisk has phisical error.	25	4	20	2008-04-12
+6	Re:Re:HP Server harddisk has phisical error.	34	4	30	2008-04-13

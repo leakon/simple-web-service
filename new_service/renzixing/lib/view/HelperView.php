@@ -29,5 +29,17 @@ class HelperView {
 		return	isset($arr[$index]) ? $arr[$index] : $default;
 	}
 
+	public static function pr($arr) {
+		echo	'<pre>';
+		print_r($arr);
+		echo	'</pre>';
+	}
+
+	public static function getTextArea($str) {
+
+		return	nl2br($str);
+
+	}
+
 }
 

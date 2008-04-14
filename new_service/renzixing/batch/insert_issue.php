@@ -18,6 +18,18 @@ define('SF_DEBUG',       1);
 require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php');
 
 
+$filePath	= str_replace("\\", '/', SF_ROOT_DIR . '/doc/issue.txt');
+
+$TRUNCATE	= sprintf("TRUNCATE %s", IssuePeer::TABLE_NAME);
+$res		= SimpleDB::execute($TRUNCATE);
+
+$SQLLoad	= sprintf("LOAD DATA INFILE '%s' IGNORE INTO TABLE %s IGNORE 1 LINES (id,title,user_id,parent_id,type,created_at)",
+			$filePath, IssuePeer::TABLE_NAME);
+$res		= SimpleDB::execute($SQLLoad);
+
+exit;
+
+
 
 $arrLoadLines	= array();
 
@@ -42,20 +54,6 @@ $res		= SimpleDB::execute($TRUNCATE);
 $SQLLoad	= sprintf("LOAD DATA INFILE '%s' IGNORE INTO TABLE %s (user_id, created_at, title)", $filePath, IssuePeer::TABLE_NAME);
 $res		= SimpleDB::execute($SQLLoad);
 
-/*
-
-for ($i = 0; $i < 5000; $i++) {
-
-	$SQLInsert	= sprintf("INSERT INTO %s (title, user_id) VALUES ('%s', '%s')",
-					IssuePeer::TABLE_NAME,
-					SimpleDB::escape(  GenLetter(rand(20, 80))  ),
-					rand(1, 200)
-				);
-
-	$res		= SimpleDB::execute($SQLInsert);
-
-}
-*/
 
 function GenLetter($len) {
 

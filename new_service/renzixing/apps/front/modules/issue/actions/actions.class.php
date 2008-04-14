@@ -20,7 +20,7 @@ class issueActions extends sfActions
   }
 
 
-  public function executeShow()
+  public function executeShowxxxx()
   {
     $this->issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
     $this->forward404Unless($this->issue);
@@ -70,20 +70,41 @@ class issueActions extends sfActions
 
 
 
+	// 浏览 Issue
+	public function executeShow() {
+	#	$this->issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
+	#	$this->forward404Unless($this->issue);
 
+	#	$this->setTemplate('edit');
+	#	$this->justViewIssues	= true;
+		$this->allIssues	= IssuePeer::getGroupedIssue($this->getRequestParameter('id'));
+
+	}
+
+	// 编辑 or 处理 Issue
 	public function executeEdit() {
 
-		$this->allIssues	= array();
 
-		$this->issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
-		$this->forward404Unless($this->issue);
+		$this->allIssues	= IssuePeer::getGroupedIssue($this->getRequestParameter('id'));
 
-		$this->allIssues[$this->issue->getType()]	= $this->issue;
+		$this->issue	= $this->allIssues['Agency'];
+
+
+	#	$this->issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
+
+	#	$this->issue	= $this->allIssues[IssuePeer::TYPE_AGENCY];
+
+	#	var_dump($this->allIssues);
+
+	#	$this->forward404Unless($this->issue);
+
+	#	$this->allIssues[$this->issue->getType()]	= $this->issue;
 
 		// 默认禁止编辑
 		$this->allowEdit	= false;
 
-		if ('deal' == $this->getRequestParameter('do') && 0 == $this->issue->getLockerId()) {
+/*
+		if (0 && 'deal' == $this->getRequestParameter('do') && 0 == $this->issue->getLockerId()) {
 			// 可以编辑
 			$this->allowEdit	= true;
 			$this->issue->setLockerId($this->getUser()->getId());
@@ -97,7 +118,7 @@ class issueActions extends sfActions
 			$this->allIssues[$arrLevelMap['next']]	= $issue;
 
 		}
-
+*/
 
 
 	}
@@ -106,20 +127,33 @@ class issueActions extends sfActions
 
 	public function executeUpdate() {
 
-		if (!$this->getRequestParameter('id'))
-		{
+		if (!$this->getRequestParameter('id')) {
 			$issue = new Issue();
-		}
-		else
-		{
+		} else {
 			$issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
 			$this->forward404Unless($issue);
 		}
 
-		$issue->saveEdit10($this);
+		// 公共部分
+		$issue->setId($this->getRequestParameter('id'));
+		$issue->setUserId($this->getUser()->getId());
+		$issue->setPriority($this->getRequestParameter('priority'));
+		$issue->setTitle($this->getRequestParameter('title'));
+		$issue->setDescription($this->getRequestParameter('description'));
+		$issue->setSolution($this->getRequestParameter('solution'));;
+		$issue->setReference($this->getRequestParameter('reference'));
+		$issue->setStatus($this->getRequestParameter('status'));
+		$issue->setType($this->getRequestParameter('type'));
+
+		$typeString	= $issue->getTypeString();
+		$method		= sprintf("saveEdit%s", $typeString);
+
+		$issue->$method($this);
+
+		$issue->handleDecision();
 
 
-		#    var_dump($this->getRequestParameter('save_type'));
+		#    var_dump($this->getRequestParameter('status'));
 		/*
 
 		$issue->setId($this->getRequestParameter('id'));
@@ -132,13 +166,16 @@ class issueActions extends sfActions
 
 
 		$issue->setType($this->getRequestParameter('type'));
-		$issue->setStatus($this->getRequestParameter('save_type'));
+		$issue->setStatus($this->getRequestParameter('status'));
 
 		$issue->save();
 		*/
 
 
-		return $this->redirect('issue/show?id='.$issue->getId());
+		return $this->redirect('issue/edit?id='.$issue->getBaseId());
+
+
+	#	return $this->redirect('issue/show?id='.$issue->getId());
 	}
 
 }
