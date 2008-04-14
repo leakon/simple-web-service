@@ -31,14 +31,14 @@
 
 <!--	<th scope="col">ID</th>	-->
 
-	<th scope="col">日期</th>
+	<th scope="col" width="80">日期</th>
 	<th scope="col">标题</th>
-	<th scope="col">提交人</th>
+	<th scope="col" width="40">提交人</th>
 
 	<th scope="col">优先级</th>
 	<th scope="col">状态</th>
 
-	<th scope="col">操作</th>
+	<th scope="col" width="40">操作</th>
 
 </tr>
 </thead>
@@ -55,7 +55,11 @@
 
 <?php
 
-$myUserId	= $sf_user->getId();
+$myUserId		= $sf_user->getId();
+
+$userCredential		= $sf_user->listCredentials()->getRawValue();
+
+$userInManageGroup	= UserPeer::inManageGroup($userCredential);
 
 ?>
 
@@ -78,14 +82,23 @@ $myUserId	= $sf_user->getId();
 		<?php echo $issue['progress'] ?>
 	</td>
 	<td>
-		<?php if ($myUserId == $issue['user_id']) : ?>
-			<a href="<?php echo url_for('issue/edit?id=' . $issue['id']) ?>" class="myInvolved">编辑</a>
-		<?php else : ?>
-			<?php if (IssuePeer::STATUS_SUBMITTED == $issue['status']) : ?>
-			<?php /* 必须是 submitted 状态，才可以处理 */ ?>
-				<a href="<?php echo url_for('issue/edit?do=deal&id=' . $issue['id']) ?>">处理</a>
-			<?php endif ?>
-		<?php endif ?>
+		<?php
+
+			$operation	= sprintf('<a href="%s">查看</a>', url_for('issue/show?id=' . $issue['id']));
+
+			if (IssuePeer::inEditMode($issue['status']) && $issue['user_id'] == $myUserId) {
+				$operation	= sprintf('<a href="%s" class="myInvolved">编辑</a>', url_for('issue/edit?id=' . $issue['id']));
+			} else {
+
+				if ($userInManageGroup && IssuePeer::STATUS_SUBMITTED == $issue['status']) {
+					$operation	= sprintf('<a href="%s">处理</a>', url_for('issue/deal?id=' . $issue['id']));
+				}
+			}
+
+			echo	$operation;
+
+		?>
+
 	</td>
 
 
@@ -110,6 +123,7 @@ $myUserId	= $sf_user->getId();
 
 </form>
 
+</div>
 <?php
 
 $action		= $sf_context->getActionName();

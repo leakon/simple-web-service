@@ -59,4 +59,19 @@ class UserPeer extends BaseUserPeer
 	public static function encryptPassword($stringPass) {
 		return	md5($stringPass);
 	}
+
+	public static function inManageGroup($arrCredential) {
+
+		$arrManageGroup	= array('admin', 'support', 'division');
+
+		foreach ($arrCredential as $role) {
+			if (in_array($role, $arrManageGroup)) {
+				return	true;
+			}
+		}
+
+		return	false;
+
+	}
+
 }
