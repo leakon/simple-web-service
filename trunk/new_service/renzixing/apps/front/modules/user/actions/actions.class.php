@@ -161,7 +161,9 @@ class userActions extends sfActions
 
 					$sfUser->addCredential($objUser->getRole());
 
-					return	$this->redirectRefer();
+					return	$this->forward('issue', 'list');
+
+				#	return	$this->redirectRefer();
 
 				} else {
 
