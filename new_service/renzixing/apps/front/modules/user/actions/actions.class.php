@@ -161,8 +161,10 @@ class userActions extends sfActions
 
 					$sfUser->addCredential($objUser->getRole());
 
-					return	$this->forward('issue', 'list');
+					return	$this->redirect('issue');
 
+					// forward 会导致重复提交，应该用 redirect
+				#	return	$this->forward('issue', 'list');
 				#	return	$this->redirectRefer();
 
 				} else {
