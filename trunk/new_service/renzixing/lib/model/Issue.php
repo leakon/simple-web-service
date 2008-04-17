@@ -162,14 +162,29 @@ class Issue extends BaseIssue {
 
 		// Rejectted
 		// 驳回，设置 prev 的 status 为 Rejectted
+		// 然后删除本条记录和 next item
 		if (IssuePeer::STATUS_REJECTTED == $currentStatus) {
 
 			$prevIssue	= $this->getFriendIssue('prev');
 			if ($prevIssue) {
+
+
+				$string		= sprintf("[%s] %s to [%s]",
+							IssuePeer::getTypeString($this->getType()),
+							IssuePeer::getStatusString($currentStatus),
+							IssuePeer::getTypeString($prevIssue->getType())
+						);
+				$prevIssue->setProgress($string);
+
+
 				$prevIssue->setStatus(IssuePeer::STATUS_REJECTTED);
 			#	$prevIssue->save();
 				$prevIssue->saveWithOutUser();
 			}
+
+			$prevIssue->deleteForRejection();
+			return;
+
 
 		#	$agencyIssue->setStatus(IssuePeer::STATUS_REJECTTED);
 		#	$agencyIssue->save();
@@ -221,6 +236,27 @@ class Issue extends BaseIssue {
 
 	#	$agencyIssue->save();
 		$agencyIssue->saveWithOutUser();
+
+	}
+
+	// 设置为驳回，则删除针对此条 Issue 的所有后续 Issue
+	public function deleteForRejection() {
+
+		$baseId	= $this->getBaseId();
+
+		// 得到 baseId，把所有 parent_id 指向 baseId 的后续 Issue 都删除
+		$SQL	= sprintf("DELETE FROM %s WHERE %s = %d AND %s > %d",
+
+						IssuePeer::TABLE_NAME,
+						IssuePeer::PARENT_ID,
+						$baseId,
+						IssuePeer::TYPE,
+						$this->getStatus()
+				);
+
+	#	var_dump($SQL);exit;
+
+		return	SimpleDB::execute($SQL);
 
 	}
 

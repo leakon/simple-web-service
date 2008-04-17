@@ -5,7 +5,7 @@
 <?php echo submit_tag('保存') ?>
 
 <input type="button" onclick="DoSaveSubmit(<?php echo IssuePeer::STATUS_SUBMITTED ?>, '提交后，就不可以再修改了，确定吗？');" value="提交" />
-<input type="button" onclick="DoSaveSubmit(<?php echo IssuePeer::STATUS_REJECTTED ?>);" value="驳回" />
+<input type="button" onclick="DoSaveSubmit(<?php echo IssuePeer::STATUS_REJECTTED ?>, '驳回将清除您填写的所有内容，确定吗？');" value="驳回" />
 <input type="button" onclick="DoSaveSubmit(<?php echo IssuePeer::STATUS_TERMINATED ?>, '终止后，就不可以再修改了，确定吗？');" value="终止" />
 <input type="hidden" name="status" value="<?php echo IssuePeer::STATUS_DEFAULT ?>" />
 

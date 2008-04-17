@@ -49,17 +49,8 @@
 
 <?php
 
-#print_r($objPager->getResults());
-
-?>
-
-<?php
 
 $myUserId		= $sf_user->getId();
-
-$userCredential		= $sf_user->listCredentials()->getRawValue();
-
-$userInManageGroup	= UserPeer::inManageGroup($userCredential);
 
 ?>
 
@@ -72,7 +63,7 @@ $userInManageGroup	= UserPeer::inManageGroup($userCredential);
 	<td><strong>
 	<a class="row-title" href="<?php echo url_for('issue/show?id=' . $issue['id']) ?>" title="<?php echo $issue['title'] ?>"><?php echo mb_strimwidth($issue['title'], 0, sfConfig::get('app_issue_list_title_length'), '...', 'UTF-8') ?></a>
 	</strong></td>
-	<td><a href="#"><?php echo $issue['username'] ?></a></td>
+	<td><a href="#" <?php if ($issue['user_id'] == $myUserId): ?>class="mySelf"<?php endif ?>><?php echo $issue['username'] ?></a></td>
 
 
 	<td>
@@ -84,15 +75,20 @@ $userInManageGroup	= UserPeer::inManageGroup($userCredential);
 	<td>
 		<?php
 
-			$operation	= sprintf('<a href="%s">查看</a>', url_for('issue/show?id=' . $issue['id']));
+			$arrAction	= array(
+				'show'		=> sprintf('<a href="%s">查看</a>', url_for('issue/show?id=' . $issue['id'])),
+				'edit'		=> sprintf('<a href="%s" class="myInvolved">编辑</a>', url_for('issue/edit?id=' . $issue['id'])),
+				'deal'		=> sprintf('<a href="%s" class="dealIssue">处理</a>', url_for('issue/deal?id=' . $issue['id'])),
+					);
 
-			if (IssuePeer::inEditMode($issue['status']) && $issue['user_id'] == $myUserId) {
-				$operation	= sprintf('<a href="%s" class="myInvolved">编辑</a>', url_for('issue/edit?id=' . $issue['id']));
-			} else {
+			$operation	= '';
 
-				if ($userInManageGroup && IssuePeer::STATUS_SUBMITTED == $issue['status']) {
-					$operation	= sprintf('<a href="%s">处理</a>', url_for('issue/deal?id=' . $issue['id']));
+			foreach (IssuePeer::getAllowedAction($issue) as $action => $intAllowed) {
+
+				if ($intAllowed) {
+					$operation	= $arrAction[$action];
 				}
+
 			}
 
 			echo	$operation;

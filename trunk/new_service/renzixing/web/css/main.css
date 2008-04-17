@@ -1,6 +1,9 @@
 div.form_error			{font-size:12px; color:red;}
 span.searchResult		{font-size:12px;}
 span.searchResult strong	{color:red;}
-a.myInvolved			{color:red;}
+a.myInvolved, a.mySelf		{color:red; font-weight:bold;}
+a.dealIssue			{color:green; font-weight:bold;}
 
 td.formKeyColumn		{width: 120px;}
+
+body	{padding-top:20px;}

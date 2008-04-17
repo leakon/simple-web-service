@@ -306,4 +306,35 @@ class IssuePeer extends BaseIssuePeer {
 	}
 
 
+	public static function getAllowedAction($itemIssue) {
+
+		static	$staticMyUser = null, $staticUserInManageGroup, $staticUserId;
+
+		if (empty($staticMyUser)) {
+			$staticMyUser		= sfContext::getInstance()->getUser();
+			$staticUserId		= $staticMyUser->getId();
+			$userCredential		= $staticMyUser->listCredentials();
+			$staticUserInManageGroup	= UserPeer::inManageGroup($userCredential);
+		}
+
+		$arrActionList	= array(
+				'show'	=> 1,
+				'edit'	=> 0,
+				'deal'	=> 0,
+			);
+
+
+		if (self::inEditMode($itemIssue['status']) && $staticUserId == $itemIssue['user_id']) {
+			$arrActionList['edit']	= 1;
+		} else {
+			if ($staticUserInManageGroup && self::STATUS_SUBMITTED == $itemIssue['status']) {
+				$arrActionList['deal']	= 1;
+			}
+		}
+
+		return	$arrActionList;
+
+	}
+
+
 }
