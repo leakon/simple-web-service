@@ -10,18 +10,18 @@ $arrNav	= array(
 
 $arrStr	= array(
 		'issue'	=> array(
-				'module'	=> 'Issue',
+				'module'	=> '流程管理',
 				'actions'	=> array(
-							'create'	=> 'Create',
-							'list'		=> 'List',
-							'involved'	=> 'Involved',
+							'create'	=> '创建',
+							'list'		=> '列表',
+							'involved'	=> '我的流程',
 						),
 			),
 		'user'	=> array(
-				'module'	=> 'User',
+				'module'	=> '帐户管理',
 				'actions'	=> array(
-							'manage'	=> 'Manage',
-							'list'		=> 'List',
+							'manage'	=> '管理',
+							'list'		=> '列表',
 						),
 			),
 	);

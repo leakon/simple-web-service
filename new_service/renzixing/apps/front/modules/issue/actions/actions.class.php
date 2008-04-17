@@ -94,6 +94,8 @@ class issueActions extends sfActions
 
 		$this->allIssues	= IssuePeer::getGroupedIssue($baseId);
 
+	#	var_dump(count($this->allIssues));
+
 		$baseName		= IssuePeer::getTypeString(IssuePeer::TYPE_AGENCY, 2);
 
 		// 如果没有最基本的 TYPE_AGENCY，就跳到错误页
@@ -122,7 +124,8 @@ class issueActions extends sfActions
 				if ($issue->getStatus() < IssuePeer::STATUS_SUBMITTED) {
 
 					if ($issue->getUserId() != $sfUserId) {
-						return	$this->redirect('issue/show?id='.$baseId);;
+						$uri	= sprintf('issue/show?id=%s&message=%s', $baseId, 'IssueLocked');
+						return	$this->redirect($uri);
 					}
 
 					break;

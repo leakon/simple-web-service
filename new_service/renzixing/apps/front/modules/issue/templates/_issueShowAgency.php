@@ -41,7 +41,7 @@
 
 	<tr valign="top">
 		<td>请求详细描述</td>
-		<td><?php echo $issue->getDescription() ?></td>
+		<td><?php echo HelperView::getTextArea($issue->getDescription()) ?></td>
 
 	</tr>
 
