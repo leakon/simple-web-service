@@ -10,7 +10,7 @@
 
 <p id="post-search">
 
-	<?php if ('search' == $sf_context->getActionName() && $objPager->getNbResults()) : ?>
+	<?php if (1 && 'search' == $sf_context->getActionName() && $objPager->getNbResults()) : ?>
 
 		<span class="searchResult">
 		找到 <strong><?php echo $objPager->getNbResults() ?></strong> 条结果

@@ -46,8 +46,8 @@
 	</tr>
 
 	<tr valign="top">
-		<td>最后更新时间</td>
-		<td><?php echo $issue->getUpdatedAt() ?></td>
+		<td>最后更新</td>
+		<td><?php echo $userName ?> at <?php echo $issue->getUpdatedAt() ?></td>
 	</tr>
 
 </tbody>

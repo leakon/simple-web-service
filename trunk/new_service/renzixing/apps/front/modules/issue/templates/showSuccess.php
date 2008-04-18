@@ -6,35 +6,27 @@
 
 <?php
 
-$actionName	= $sf_context->getActionName();
 
-if ('create' == $actionName) {
+foreach (IssuePeer::listAllTypes() as $intType => $strType) {
 
-	include_partial('issue/issueEditAgency', array('issue' => $issue));
+	if ($allIssues->offsetExists($strType)) {
 
-} else {
+		$issue	= $allIssues->getRaw($strType);
 
-	foreach (IssuePeer::listAllTypes() as $intType => $strType) {
+		if ($issue->isShowable()) {
 
-		if ($allIssues->offsetExists($strType)) {
+			$partialName	= sprintf("issue/issueShow%s", $strType);
 
-			$issue	= $allIssues->getRaw($strType);
-
-			if ($issue->isShowable()) {
-
-				$partialName	= sprintf("issue/issueShow%s", $strType);
-
-				include_partial($partialName, array('issue' => $issue));
-
-			} else {
-
-				break;
-			}
+			include_partial($partialName, array('issue' => $issue, 'userName' => $allUsers[$issue->getUserId()]));
 
 		} else {
-			// 当前级别不存在，则后续级别就不再显示
+
 			break;
 		}
+
+	} else {
+		// 当前级别不存在，则后续级别就不再显示
+		break;
 	}
 }
 

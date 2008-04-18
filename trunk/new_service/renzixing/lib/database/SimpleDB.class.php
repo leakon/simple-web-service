@@ -73,6 +73,20 @@ class SimpleDB {
 	}
 
 
+	public static function fetchRSAll($SQL) {
+
+		$statement = self::getConnection()->prepareStatement($SQL);
+
+		$resultset = $statement->executeQuery();
+
+		$resultset->setFetchmode(ResultSet::FETCHMODE_NUM);
+	#	var_dump($resultset);exit;
+
+		return	$resultset;
+
+	}
+
+
 	public static function escape($string) {
 
 		static	$SimpleDBResourceStatic = null;

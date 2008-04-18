@@ -50,6 +50,10 @@ $arrExtra = $issue->getExtra()->getRaw('extra');
 
 	</tr>
 
+<?php
+include_partial('issue/editUploadFiles', array('issue' => $issue));
+?>
+
 </tbody>
 </table>
 
