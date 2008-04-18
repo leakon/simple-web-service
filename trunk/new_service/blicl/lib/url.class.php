@@ -20,6 +20,11 @@ class BLUrl {
 				'news_item_1'		=> true,
 				'news_item_2'		=> true,
 
+
+				'recruiting_gansu'	=> true,
+				'lottery_1'	=> true,
+				'lottery_2'	=> true,
+
 			);
 
 		}

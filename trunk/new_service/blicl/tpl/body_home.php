@@ -45,10 +45,10 @@
 	<table cellpadding="0" cellspacing="0" class="floatLeft" style="width:550px;">
 		<tr>
 			<td valign="top">
-				<img src="images/habao1.jpg" style="width:260px;" />
+				<img src="images/big2.png" style="width:260px;" />
 			</td>
 			<td valign="top">
-				<img src="images/habao2.jpg" style="width:260px;" />
+				<img src="images/big3.png" style="width:260px;" />
 			</td>
 		</tr>
 	</table>
@@ -105,60 +105,8 @@ $itemWidth	= 140;
 		<tr align="center">
 
 			<td>
-				<a href="#"><img src="images/CSL0001UC.jpg" border="0" alt="CSL0001UC" width="<?php echo $itemWidth ?>" /></a>
-				<br />
-				<strong><font color="#0088d0">激情·梦想</font></strong>
-				<br />
-				大奖：25万游戏币<br />每次：10个游戏币
-				<br />
-				<strong>[</strong>
-				<a href="#"><strong>立即体验</strong></a>
-				<strong>]</strong>
-			</td>
 
-			<td>
-				<a href="#"><img src="images/CSL0002UC.jpg" border="0" alt="CSL0001UC" width="<?php echo $itemWidth ?>" /></a>
-				<br />
-				<strong><font color="#0088d0">激情·梦想</font></strong>
-				<br />
-				大奖：25万游戏币<br />每次：10个游戏币
-				<br />
-				<strong>[</strong>
-				<a href="#"><strong>立即体验</strong></a>
-				<strong>]</strong>
-			</td>
-			<td>
-				<a href="#"><img src="images/CSL0003UC.jpg" border="0" alt="CSL0001UC" width="<?php echo $itemWidth ?>" /></a>
-				<br />
-				<strong><font color="#0088d0">激情·梦想</font></strong>
-				<br />
-				大奖：25万游戏币<br />每次：10个游戏币
-				<br />
-				<strong>[</strong>
-				<a href="#"><strong>立即体验</strong></a>
-				<strong>]</strong>
-			</td>
-			<td>
-				<a href="#"><img src="images/CSL0004UC.jpg" border="0" alt="CSL0001UC" width="<?php echo $itemWidth ?>" /></a>
-				<br />
-				<strong><font color="#0088d0">激情·梦想</font></strong>
-				<br />
-				大奖：25万游戏币<br />每次：10个游戏币
-				<br />
-				<strong>[</strong>
-				<a href="#"><strong>立即体验</strong></a>
-				<strong>]</strong>
-			</td>
-			<td>
-				<a href="#"><img src="images/CSL0005UC.jpg" border="0" alt="CSL0001UC" width="<?php echo $itemWidth ?>" /></a>
-				<br />
-				<strong><font color="#0088d0">激情·梦想</font></strong>
-				<br />
-				大奖：25万游戏币<br />每次：10个游戏币
-				<br />
-				<strong>[</strong>
-				<a href="#"><strong>立即体验</strong></a>
-				<strong>]</strong>
+				<img src="images/big1.png" style="width:740px;" />
 			</td>
 				</tr>
 			</tbody>
@@ -170,6 +118,7 @@ $itemWidth	= 140;
 
 	<div class="longLine">
 
+<?php if (0) : ?>
 	<table cellpadding="0" cellspacing="0" class="moduletable_menu">
 		<tr>
 			<th valign="top">新闻</th>
@@ -180,6 +129,7 @@ $itemWidth	= 140;
 
 	<table cellpadding="0" cellspacing="0" class="floatLeft" style="width:240px;">
 		<tr>
+
 			<td valign="top">
 
 				<marquee direction="up" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="2" scrolldelay="10" style="height:452px;">
@@ -202,8 +152,24 @@ $itemWidth	= 140;
 
 
 			</td>
+
+
+
 		</tr>
 	</table>
+<?php endif ?>
+
+	<table cellpadding="0" cellspacing="0" class="floatLeft" style="width:550px;">
+		<tr>
+			<td valign="top">
+				<img src="images/big4.png" style="width:360px;" />
+			</td>
+			<td valign="top">
+				<img src="images/big5.png" style="width:360px;" />
+			</td>
+		</tr>
+	</table>
+
 
 	<table cellpadding="0" cellspacing="0" class="floatLeft" style="width:320px;">
 		<tr>
