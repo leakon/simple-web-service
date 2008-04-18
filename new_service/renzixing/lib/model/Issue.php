@@ -57,6 +57,15 @@ class Issue extends BaseIssue {
 		return	parent::setExtra($extra);
 	}
 
+	public function getUploadFiles() {
+		return	strlen($this->upload_files) ? unserialize() : array();
+	}
+
+	public function setUploadFiles($v) {
+		$v	= serialize($v);
+		parent::setUploadFiles($v);
+	}
+
 
 	// 处理 办事处
 	public function saveEditAgency($action) {
@@ -128,6 +137,8 @@ class Issue extends BaseIssue {
 	}
 
 	public function isShowable() {
+
+		return	$this->getUserId() > 0;
 
 		$prevIssue	= $this->getFriendIssue('prev');
 		$prevId		= $prevIssue->getId();

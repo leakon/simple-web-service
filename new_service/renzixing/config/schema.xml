@@ -18,6 +18,7 @@
     <column name="solution" type="LONGVARCHAR" required="true" />
     <column name="reference" type="LONGVARCHAR" required="true" />
     <column name="extra" type="LONGVARCHAR" required="true" />
+    <column name="upload_files" type="LONGVARCHAR" required="true" />
 
     <index name="user_id">
       <index-column name="user_id" />

@@ -48,21 +48,21 @@ class issueActions extends sfActions
 
 
 	public function executeList() {
-		// ´ø·­Ò³µÄÁÐ±í
+		// å¸¦ç¿»é¡µçš„åˆ—è¡¨
 		$this->objPager = IssuePeer::listIssues($this->getRequestParameter('page', 1));
 
 	}
 
 	public function executeSearch() {
-		// ´ø·­Ò³µÄÁÐ±í
+		// å¸¦ç¿»é¡µçš„åˆ—è¡¨
 		$this->setTemplate('list');
 		$this->objPager = IssuePeer::searchIssues($this->getRequestParameter('page', 1));
 
 	}
 
-	// ÓëÎÒÓÐ¹ØµÄ
+	// ä¸Žæˆ‘æœ‰å…³çš„
 	public function executeInvolved() {
-		// ´ø·­Ò³µÄÁÐ±í
+		// å¸¦ç¿»é¡µçš„åˆ—è¡¨
 		$this->setTemplate('list');
 		$this->objPager = IssuePeer::searchIssues($this->getRequestParameter('page', 1));
 
@@ -70,19 +70,20 @@ class issueActions extends sfActions
 
 
 
-	// ä¯ÀÀ Issue
+	// æµè§ˆ Issue
 	public function executeShow() {
 	#	$this->issue = IssuePeer::retrieveByPk($this->getRequestParameter('id'));
 	#	$this->forward404Unless($this->issue);
 
 	#	$this->setTemplate('edit');
 	#	$this->justViewIssues	= true;
-		$this->allIssues	= IssuePeer::getGroupedIssue($this->getRequestParameter('id'));
+		$this->allIssues	= IssuePeer::getGroupedIssue($this->getRequestParameter('id'), $allUsers);
+		$this->allUsers		= $allUsers;
 
 	}
 
 
-	// ´¦Àí Issue
+	// å¤„ç† Issue
 
 	public function executeDeal() {
 
@@ -92,13 +93,14 @@ class issueActions extends sfActions
 
 		$baseId	= $this->getRequestParameter('id');
 
-		$this->allIssues	= IssuePeer::getGroupedIssue($baseId);
+		$this->allIssues	= IssuePeer::getGroupedIssue($baseId, $allUsers);
+		$this->allUsers		= $allUsers;
 
 	#	var_dump(count($this->allIssues));
 
 		$baseName		= IssuePeer::getTypeString(IssuePeer::TYPE_AGENCY, 2);
 
-		// Èç¹ûÃ»ÓÐ×î»ù±¾µÄ TYPE_AGENCY£¬¾ÍÌøµ½´íÎóÒ³
+		// å¦‚æžœæ²¡æœ‰æœ€åŸºæœ¬çš„ TYPE_AGENCYï¼Œå°±è·³åˆ°é”™è¯¯é¡µ
 		$this->forward404Unless(isset($this->allIssues[$baseName]));
 
 		$prevStatus	= 0;
@@ -107,20 +109,20 @@ class issueActions extends sfActions
 
 			$issue	= isset($this->allIssues[$strType]) ? $this->allIssues[$strType] : null;
 
-			// ´æÔÚ
+			// å­˜åœ¨
 			if ($issue) {
 
 				$prevStatus	= 0;
 
-				// ÊÇ·ñÒÑ¾­Ìá½»ÁËÉÏ¼¶µ¥Î»
+				// æ˜¯å¦å·²ç»æäº¤äº†ä¸Šçº§å•ä½
 				if ($issue->getStatus() == IssuePeer::STATUS_SUBMITTED) {
 					$prevStatus	= $issue->getStatus();
 					continue;
 				}
 
-				// ¼ì²éÈ¨ÏÞ
+				// æ£€æŸ¥æƒé™
 
-				// ÔÚ±à¼­×´Ì¬ÖÐ
+				// åœ¨ç¼–è¾‘çŠ¶æ€ä¸­
 				if ($issue->getStatus() < IssuePeer::STATUS_SUBMITTED) {
 
 					if ($issue->getUserId() != $sfUserId) {
@@ -135,9 +137,9 @@ class issueActions extends sfActions
 				$prevStatus	= 0;
 
 			} else {
-				// ²»´æÔÚ£¬´´½¨²¢ÍË³ö
+				// ä¸å­˜åœ¨ï¼Œåˆ›å»ºå¹¶é€€å‡º
 
-				// Ç°Ò»¸ö×´Ì¬±ØÐëÊÇ submitted
+				// å‰ä¸€ä¸ªçŠ¶æ€å¿…é¡»æ˜¯ submitted
 				if ($prevStatus == IssuePeer::STATUS_SUBMITTED) {
 
 					$newIssue	= new Issue();
@@ -164,11 +166,11 @@ class issueActions extends sfActions
 	}
 
 
-	// ±à¼­ Issue
+	// ç¼–è¾‘ Issue
 	public function executeEdit() {
 
-
-		$this->allIssues	= IssuePeer::getGroupedIssue($this->getRequestParameter('id'));
+		$this->allIssues	= IssuePeer::getGroupedIssue($this->getRequestParameter('id'), $allUsers);
+		$this->allUsers		= $allUsers;
 
 	#	$this->issue	= $this->allIssues['Agency'];
 
@@ -186,7 +188,7 @@ class issueActions extends sfActions
 		}
 
 
-		// ¹«¹²²¿·Ö
+		// å…¬å…±éƒ¨åˆ†
 		$issue->setId($this->getRequestParameter('id'));
 		$issue->setPriority($this->getRequestParameter('priority'));
 		$issue->setTitle($this->getRequestParameter('title'));
@@ -201,11 +203,69 @@ class issueActions extends sfActions
 		$typeString	= $issue->getTypeString();
 		$method		= sprintf("saveEdit%s", $typeString);
 
-
 		$issue->$method($this);
 
 
 		$issue->handleDecision();
+
+
+
+		// Upload å¼€å§‹
+		$baseId		= $issue->getId();
+		$fileName	= $this->getRequest()->getFileName('file');
+
+		$arrNames	= array();
+		if (is_array($fileName)) {
+			$arrNames	= $fileName;
+		} else {
+			$arrNames[0]	= $fileName;
+		}
+
+	#	$baseId
+
+		$uploadDir	= sfConfig::get('sf_upload_dir') . '/' . $baseId . '/';
+		if (!file_exists($uploadDir)) {
+			mkdir($uploadDir);
+		}
+
+		// èŽ·å–æ—§çš„æ–‡ä»¶åˆ—è¡¨
+		$arrUploadFiles	= $issue->getUploadFiles();
+
+		foreach ($arrNames as $key => $name) {
+
+			$name		= trim($name);
+			if (0 == strlen($name)) {
+				continue;
+			}
+
+			$name		= urlencode($name);
+			$targetFile	= $uploadDir . $name;
+
+			if (file_exists($targetFile)) {
+			#	$targetFile	= date('Ymd') . '_' . $this->getUser()->getId() . '_' . $targetFile;
+				unlink($targetFile);
+			}
+
+			if (!in_array($name, $arrUploadFiles)) {
+				$arrUploadFiles[] = $name;
+			}
+
+			$this->getRequest()->moveFile(sprintf('file[%d]', $key), $targetFile);
+		}
+		$issue->getUploadFiles($arrUploadFiles);
+
+		$issue->$method($this);
+		// Upload ç»“æŸ
+
+
+
+	#	var_dump($fileName);
+	#	exit;
+
+	#
+
+	#	$this->redirect('media/show?filename='.$fileName);
+
 
 
 		#    var_dump($this->getRequestParameter('status'));
@@ -232,6 +292,17 @@ class issueActions extends sfActions
 
 
 	#	return $this->redirect('issue/show?id='.$issue->getId());
+	}
+
+
+	public function handleErrorUpdate() {
+
+	#	$this->setTemplate('edit');
+	#	$this->allIssues	= IssuePeer::getGroupedIssue($this->getRequestParameter('id'), $allUsers);
+	#	$this->allUsers		= $allUsers;
+
+	#	$this->redirect(HelperView::getRefer());
+		return sfView::SUCCESS;
 	}
 
 }

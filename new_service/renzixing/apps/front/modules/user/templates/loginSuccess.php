@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="/css/login.css" type="text/css" />
 <link rel="stylesheet" href="/css/colors-fresh.css" type="text/css" />
 
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+
+
 	<script type="text/javascript">
 		function focusit() {
 			document.getElementById('user_login').focus();
@@ -60,10 +63,9 @@
 		</label>
 	</p>
 
-
-	<p class="submit">
-		<input type="submit" name="wp-submit" id="wp-submit" value="登陆" tabindex="100" />
-	</p>
+		<p class="submitLogin">
+			<input type="submit" name="wp-submit" id="wp-submit" class="button" value="登陆" tabindex="100" />
+		</p>
 </form>
 
 </div>

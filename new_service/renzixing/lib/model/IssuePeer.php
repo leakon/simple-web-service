@@ -167,12 +167,51 @@ class IssuePeer extends BaseIssuePeer {
 
 	///////////////////////////////////////////////
 	// Group
-	public static function getGroupedIssue($baseId) {
+	public static function getGroupedIssue($baseId, &$groupedUser = null) {
 
 		static	$staticIssueGroup = null;
 
 		if (empty($staticIssueGroup[$baseId])) {
 
+		#	$SQL	= sprintf(	"SELECT l.*, r.username AS username FROM %s AS l LEFT JOIN %s AS r "
+			$SQL	= sprintf(	"SELECT l.*, r.username AS username FROM %s AS l LEFT JOIN %s AS r "
+						. " ON l.user_id = r.id "
+						. " WHERE l.id = %d OR l.parent_id = %d "
+						. " ORDER BY l.type",
+
+						self::TABLE_NAME,
+						UserPeer::TABLE_NAME,
+						$baseId,
+						$baseId
+					);
+
+			$rs	= SimpleDB::fetchRSAll($SQL);
+
+		#	while ($rs->next()) {
+		#		print_r($rs);
+		#	}
+		#	exit;
+
+			$res	= self::populateObjects($rs);
+
+			$groupedUser	= array();
+
+
+			$rs->seek(0);
+			foreach ($res as $resultObj) {
+				$rs->next();
+			#	$groupedUser[$resultObj->getUserId()]	= $rs->getString('username');
+
+
+				$row	= $rs->getRow();
+
+				$groupedUser[$resultObj->getUserId()]	= $row[14];
+			}
+
+		#	var_dump($groupedUser);
+
+
+/*
 			$c	= new Criteria();
 
 			$cton1 = $c->getNewCriterion(self::ID, $baseId);		// Or，或条件 1
@@ -180,11 +219,18 @@ class IssuePeer extends BaseIssuePeer {
 			$cton1->addOr($cton2);
 			$c->add($cton1);
 
+
+		#	$c->addSelectColumn(UserPeer::USERNAME);
+		#	$c->addJoin(self::USER_ID, UserPeer::ID);
+
+
 			$c->addAscendingOrderByColumn(self::TYPE);	// 结束时间倒序排列
 			$res	= self::doSelect($c);
+*/
 
 			foreach ($res as $issue) {
 				$arrIssues[ $issue->getTypeString() ]	= $issue;
+			#	$arrIssues[ IssuePeer::getTypeString($issue['type'], 2) ]	= $issue;
 			}
 
 			$staticIssueGroup[$baseId]	= $arrIssues;
