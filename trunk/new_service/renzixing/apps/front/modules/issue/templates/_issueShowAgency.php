@@ -50,5 +50,9 @@
 		<td><?php echo $userName ?> at <?php echo $issue->getUpdatedAt() ?></td>
 	</tr>
 
+<?php
+include_partial('issue/editUploadFiles', array('issue' => $issue));
+?>
+
 </tbody>
 </table>
