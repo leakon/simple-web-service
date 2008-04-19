@@ -58,7 +58,7 @@ class Issue extends BaseIssue {
 	}
 
 	public function getUploadFiles() {
-		return	strlen($this->upload_files) ? unserialize() : array();
+		return	strlen($this->upload_files) ? unserialize($this->upload_files) : array();
 	}
 
 	public function setUploadFiles($v) {

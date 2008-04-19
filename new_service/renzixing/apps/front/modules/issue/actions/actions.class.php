@@ -231,6 +231,21 @@ class issueActions extends sfActions
 		// 获取旧的文件列表
 		$arrUploadFiles	= $issue->getUploadFiles();
 
+		// 选择删除的文件列表
+		$arrDeleteList	= $this->getRequestParameter('delete_files', array());
+
+		foreach ($arrUploadFiles as $key => $filename) {
+
+			if (in_array($filename, $arrDeleteList)) {
+				unset($arrUploadFiles[$key]);
+				$targetFile	= $uploadDir . $filename;
+				if (file_exists($targetFile)) {
+					unlink($targetFile);
+				}
+			}
+		}
+
+
 		foreach ($arrNames as $key => $name) {
 
 			$name		= trim($name);
@@ -252,7 +267,11 @@ class issueActions extends sfActions
 
 			$this->getRequest()->moveFile(sprintf('file[%d]', $key), $targetFile);
 		}
-		$issue->getUploadFiles($arrUploadFiles);
+
+
+
+
+		$issue->setUploadFiles($arrUploadFiles);
 
 		$issue->$method($this);
 		// Upload 结束
@@ -303,6 +322,36 @@ class issueActions extends sfActions
 
 	#	$this->redirect(HelperView::getRefer());
 		return sfView::SUCCESS;
+	}
+
+
+	public function executeDown() {
+
+		$baseId		= $this->getRequestParameter('baseid');
+		$fileName	= $this->getRequestParameter('filename');
+
+		$uploadDir	= sfConfig::get('sf_upload_dir') . '/' . $baseId . '/';
+		$filePath	= $uploadDir . $fileName;
+
+		$decodedFilename	= urldecode($fileName);
+
+		if (file_exists($filePath)) {
+
+			$saveFileName	= mb_convert_encoding($decodedFilename, 'GBK', 'UTF-8');
+
+			header("Content-type: application/octet-stream");
+			header("Content-Disposition: attachment; filename=\"".$saveFileName."\"");
+			header("Content-Length: ".filesize($filePath));
+
+			readfile($filePath, "r");
+
+		} else {
+
+			$this->forward404();
+		}
+
+		return sfView::NONE;
+
 	}
 
 }
