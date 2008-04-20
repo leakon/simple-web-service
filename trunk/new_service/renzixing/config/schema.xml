@@ -36,6 +36,92 @@
   </table>
 
 
+  <table name="rzx_comment" phpName="Comment" idMethod="native">
+    <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+    <column name="created_at" type="TIMESTAMP" required="true" default="2000-01-01 00:00:00" />
+    <column name="user_id" type="INTEGER" required="true" default="0" />
+    <column name="parent_id" type="INTEGER" required="true" default="0" />
+    <column name="comment_body" type="LONGVARCHAR" required="true" />
+
+    <index name="user_id">
+      <index-column name="user_id" />
+    </index>
+    <index name="parent_id">
+      <index-column name="parent_id" />
+    </index>
+
+  </table>
+
+
+
+
+  <table name="rzx_customer" phpName="Customer" idMethod="native">
+    <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+    <column name="created_at" type="TIMESTAMP" required="true" default="2000-01-01 00:00:00" />
+
+    <column name="name" type="CHAR" size="255" required="true" default="" />
+    <column name="area" type="CHAR" size="255" required="true" default="" />
+    <column name="city" type="CHAR" size="255" required="true" default="" />
+
+    <column name="first_contact" type="CHAR" size="255" required="true" default="" />
+    <column name="first_phone_a" type="CHAR" size="255" required="true" default="" />
+    <column name="first_phone_b" type="CHAR" size="255" required="true" default="" />
+    <column name="first_phone_c" type="CHAR" size="255" required="true" default="" />
+
+    <column name="second_contact" type="CHAR" size="255" required="true" default="" />
+    <column name="second_phone_a" type="CHAR" size="255" required="true" default="" />
+    <column name="second_phone_b" type="CHAR" size="255" required="true" default="" />
+    <column name="second_phone_c" type="CHAR" size="255" required="true" default="" />
+
+    <column name="address" type="CHAR" size="255" required="true" default="" />
+    <column name="post_code" type="CHAR" size="255" required="true" default="" />
+
+    <unique name="name">
+      <unique-column name="name" />
+    </unique>
+
+  </table>
+
+
+
+  <table name="rzx_product" phpName="Product" idMethod="native">
+    <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+    <column name="created_at" type="TIMESTAMP" required="true" default="2000-01-01 00:00:00" />
+
+    <column name="ordered_at" type="TIMESTAMP" required="true" default="2000-01-01 00:00:00" />
+    <column name="installed_at" type="TIMESTAMP" required="true" default="2000-01-01 00:00:00" />
+    <column name="completed_at" type="TIMESTAMP" required="true" default="2000-01-01 00:00:00" />
+
+    <column name="warranty_begin" type="TIMESTAMP" required="true" default="2000-01-01 00:00:00" />
+    <column name="warranty_end" type="TIMESTAMP" required="true" default="2000-01-01 00:00:00" />
+
+    <column name="sale_contact" type="CHAR" size="255" required="true" default="" />
+    <column name="sale_phone" type="CHAR" size="255" required="true" default="" />
+
+    <column name="name" type="CHAR" size="255" required="true" default="" />
+    <column name="customer_id" type="INTEGER" required="true" default="0" />
+    <column name="user_id" type="INTEGER" required="true" default="0" />
+
+    <column name="style" type="CHAR" size="255" required="true" default="" />
+    <column name="use_type" type="CHAR" size="255" required="true" default="" />
+    <column name="amount" type="INTEGER" required="true" default="0" />
+
+    <column name="install_detail" type="LONGVARCHAR" required="true" />
+
+    <unique name="name">
+      <unique-column name="name" />
+    </unique>
+
+  </table>
+
+  <table name="rzx_maintance" phpName="Maintance" idMethod="native">
+    <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+    <column name="created_at" type="TIMESTAMP" required="true" default="2000-01-01 00:00:00" />
+    <column name="user_id" type="INTEGER" required="true" default="0" />
+    <column name="maintance_detail" type="LONGVARCHAR" required="true" />
+  </table>
+
+
   <table name="rzx_user" phpName="User" idMethod="native">
     <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
     <column name="created_at" type="TIMESTAMP" required="true" default="2000-01-01 00:00:00" />

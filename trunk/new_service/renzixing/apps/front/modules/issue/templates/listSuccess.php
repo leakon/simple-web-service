@@ -119,7 +119,6 @@ $myUserId		= $sf_user->getId();
 
 </form>
 
-</div>
 <?php
 
 $action		= $sf_context->getActionName();
@@ -140,3 +139,5 @@ echo include_partial('global/pageNavigation',
 				)
 			) ?>
 
+
+</div>

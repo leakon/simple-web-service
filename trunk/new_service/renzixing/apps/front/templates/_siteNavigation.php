@@ -4,8 +4,11 @@ $moduleName  = $sf_context->getModuleName();
 $actionName  = $sf_context->getActionName();
 
 $arrNav	= array(
-		'issue'	=> array('list', 'create', 'involved'),
-		'user'	=> array('list', 'manage')
+		'issue'		=> array('list', 'create', 'involved'),
+		'customer'	=> array('list', 'create'),
+		'product'	=> array('list', 'create'),
+		'maintance'	=> array('list', 'create'),
+		'user'		=> array('list', 'manage'),
 	);
 
 $arrStr	= array(
@@ -15,6 +18,27 @@ $arrStr	= array(
 							'create'	=> '创建',
 							'list'		=> '列表',
 							'involved'	=> '我的流程',
+						),
+			),
+		'customer'	=> array(
+				'module'	=> '客户管理',
+				'actions'	=> array(
+							'create'	=> '创建',
+							'list'		=> '列表',
+						),
+			),
+		'product'	=> array(
+				'module'	=> '产品管理',
+				'actions'	=> array(
+							'create'	=> '创建',
+							'list'		=> '列表',
+						),
+			),
+		'maintance'	=> array(
+				'module'	=> '维护信息',
+				'actions'	=> array(
+							'create'	=> '创建',
+							'list'		=> '列表',
 						),
 			),
 		'user'	=> array(
