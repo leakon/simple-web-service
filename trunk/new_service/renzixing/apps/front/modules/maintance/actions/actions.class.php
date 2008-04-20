@@ -56,8 +56,9 @@ class maintanceActions extends sfActions
     }
 
     $maintance->setId($this->getRequestParameter('id'));
-    $maintance->setUserId($this->getRequestParameter('user_id'));
-    $maintance->setMaintanceDetail($this->getRequestParameter('maintance_detail'));
+    $maintance->setUserId($this->getUser()->getId());
+#    $maintance->setMaintanceDetail($this->getRequestParameter('maintance_detail'));
+    $maintance->setMaintanceDetail($this->getRequestParameter('m'));
 
     $maintance->save();
 

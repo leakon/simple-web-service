@@ -8,6 +8,8 @@
 
 <?php echo object_input_hidden_tag($product, 'getId') ?>
 
+<input type="hidden" name="customer_id" value="<?php echo $sf_request->getParameter('customer_id', 0) ?>" />
+
 <table>
 <tbody>
 <tr>
@@ -61,18 +63,6 @@
   <th>Name*:</th>
   <td><?php echo object_input_tag($product, 'getName', array (
   'size' => 80,
-)) ?></td>
-</tr>
-<tr>
-  <th>Customer*:</th>
-  <td><?php echo object_input_tag($product, 'getCustomerId', array (
-  'size' => 7,
-)) ?></td>
-</tr>
-<tr>
-  <th>User*:</th>
-  <td><?php echo object_input_tag($product, 'getUserId', array (
-  'size' => 7,
 )) ?></td>
 </tr>
 <tr>
