@@ -67,9 +67,9 @@
 
 <br class="clear" />
 
-<?php echo link_to('添加新产品', 'product/create?id='.$customer->getId(), 'target=_blank') ?>
+<?php echo link_to('添加新产品', 'product/create?customer_id='.$customer->getId(), 'target=_blank') ?>
 &nbsp;
-<?php echo link_to('添加维护信息', 'maintance/create?id='.$customer->getId(), 'target=_blank') ?>
+<?php echo link_to('添加维护信息', 'maintance/create?customer_id='.$customer->getId(), 'target=_blank') ?>
 
 <hr />
 
@@ -93,6 +93,7 @@
 		<th scope="col">安装日期</th>
 		<th scope="col">完工日期</th>
 		<th scope="col">使用类型</th>
+		<th scope="col">编辑</th>
 	</tr>
 
 </thead>
@@ -101,13 +102,14 @@
 <?php foreach ($arrProducts as $product) : ?>
 
 	<tr valign="top">
-		<td><?php echo $product->getName() ?></td>
+		<td><?php echo link_to($product->getName(), 'product/show?id=' . $product->getId(), 'target=_bliank') ?></td>
 		<td><?php echo $product->getStyle() ?></td>
 		<td><?php echo $product->getAmount() ?></td>
 		<td><?php echo substr($product->getOrderedAt(), 0, 10) ?></td>
 		<td><?php echo substr($product->getOrderedAt(), 0, 10) ?></td>
 		<td><?php echo substr($product->getOrderedAt(), 0, 10) ?></td>
 		<td><?php echo $product->getUseType() ?></td>
+      		<td><?php echo link_to('编辑', 'product/edit?id=' . $product->getId(), 'target=_bliank') ?></td>
 	</tr>
 
 <?php endforeach ?>

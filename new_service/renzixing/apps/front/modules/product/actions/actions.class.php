@@ -150,12 +150,15 @@ class productActions extends sfActions
     $product->setSaleContact($this->getRequestParameter('sale_contact'));
     $product->setSalePhone($this->getRequestParameter('sale_phone'));
     $product->setName($this->getRequestParameter('name'));
-    $product->setCustomerId($this->getRequestParameter('customer_id'));
-    $product->setUserId($this->getRequestParameter('user_id'));
     $product->setStyle($this->getRequestParameter('style'));
     $product->setUseType($this->getRequestParameter('use_type'));
     $product->setAmount($this->getRequestParameter('amount'));
     $product->setInstallDetail($this->getRequestParameter('install_detail'));
+
+
+    $product->setCustomerId($this->getRequestParameter('customer_id'));
+    $product->setUserId($this->getUser()->getId());
+
 
     $product->save();
 

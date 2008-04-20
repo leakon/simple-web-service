@@ -18,6 +18,7 @@
 	<th scope="col">联系人</th>
 	<th scope="col">地址</th>
 	<th scope="col">邮编</th>
+	<th scope="col">编辑</th>
 
 </tr>
 </thead>
@@ -59,6 +60,9 @@
 
       <td><?php echo $customer->getAddress() ?></td>
       <td><?php echo $customer->getPostCode() ?></td>
+
+
+      <td><?php echo link_to('编辑', 'customer/edit?id=' . $customer->getId()) ?></td>
 
 
 </tr>
