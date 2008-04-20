@@ -20,7 +20,7 @@
 
 	// previous
 	if ($pageNavigation->getPage() > 1) {
-		$strLink	.= link_to('&laquo; Previous', $pageUri.'page='.$pageNavigation->getPreviousPage(), array('class' => 'prev page-numbers'));
+		$strLink	.= link_to('&laquo; 上一页', $pageUri.'page='.$pageNavigation->getPreviousPage(), array('class' => 'prev page-numbers'));
 	}
 	// first
 	if ($pageNavigation->getPage() > $firstPosition && $pageToken) {
@@ -45,7 +45,7 @@
 
 	// next
 	if ($pageNavigation->getPage() < $pageNavigation->getLastPage()) {
-		$strLink	.= link_to('Next &raquo;', $pageUri.'page='.$pageNavigation->getNextPage(), array('class' => 'next page-numbers'));
+		$strLink	.= link_to('下一页 &raquo;', $pageUri.'page='.$pageNavigation->getNextPage(), array('class' => 'next page-numbers'));
 	}
 
 	echo	$strLink;
