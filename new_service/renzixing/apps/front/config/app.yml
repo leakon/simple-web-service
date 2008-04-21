@@ -1,6 +1,6 @@
 # default values
 all:
   pager:
-    issue_list_size: 20
+    issue_list_size: 5
   issue:
     list_title_length: 50
