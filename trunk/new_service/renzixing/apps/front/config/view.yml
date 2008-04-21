@@ -11,7 +11,7 @@ default:
 
   stylesheets:    []
 
-  javascripts:    [prototype]
+  javascripts:    []
 
   has_layout:     on
-  layout:         layout
+  layout:         layout_joomla
