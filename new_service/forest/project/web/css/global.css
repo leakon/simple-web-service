@@ -1,14 +1,14 @@
-/* È«¾ÖCSS¶¨Òå */
-body{margin:0 auto;padding:0;background:#FFF;color:#333;font:12px 'ËÎÌå';text-align:center;}
-body > div{margin-right:auto;margin-left:auto;text-align:center; } 
+/* å…¨å±€CSSå®šä¹‰ */
+body{margin:0 auto;padding:0;background:#FFF;color:#333;font:12px 'å®‹ä½“';text-align:center;}
+body > div{margin-right:auto;margin-left:auto;text-align:center; }
 div,form,ul,ol,li,span,p,dl,dt,dd,img{margin:0;padding:0;border:0;}
 h1,h2,h3,h4,h5,h6{margin:0;padding:0;font-size:12px;font-weight:normal;}
 ul,ol,li{list-style:none}
 table,td,input,textarea{font-size:12px}
-/* Á´½ÓÑÕÉ« */
+/* é“¾æ¥é¢œè‰² */
 a{color:#333;text-decoration:none;}
 a:hover{color:#5cac25;text-decoration:underline;}
-/* ±êÌâ */
+/* æ ‡é¢˜ */
 h2{text-align:right;}
 h2 span{float:left;font-weight: bold;}
 
@@ -18,27 +18,27 @@ h2 span{float:left;font-weight: bold;}
 .pp,.pt,.list12 ul,.list14 ul,.area{width:100%;margin:0 auto;}
 .pp:after,.pt:after,.area:after,.clear:after{content:".";display:block;visibility:hidden;height:0;clear:both;}
 .pp{text-align:center;}
-.pp img{display:block;margin:0 auto;}	/*×éÍ¼ÄÚÍ¼Æ¬ÊôĞÔ*/
+.pp img{display:block;margin:0 auto;}	/*ç»„å›¾å†…å›¾ç‰‡å±æ€§*/
 .pp span{display:block;}
 .pt{color:#666;line-height:20px;text-align:left;}
-.pt div{float:left;margin:0 10px 0 0;}			/*Í¼ÎÄ»ìÅÅ*/
+.pt div{float:left;margin:0 10px 0 0;}			/*å›¾æ–‡æ··æ’*/
 .pt p{clear:none}
-/* ÎÄ×ÖÁĞ±íÊôĞÔ */
+/* æ–‡å­—åˆ—è¡¨å±æ€§ */
 .list14 li,.list12 li{padding:3px 0;color:#333;font-size:12px;line-height:16px;text-align:left;}
 .list14 li{padding:4px 0;font-size:14px;}
-/* ¸¡¶¯ÊôĞÔ */
+/* æµ®åŠ¨å±æ€§ */
 .left,.center,.l{display:inline;float:left;}
 .right,.r{float:right;}
 .fontArial{font-family:'Arial'}
-.b{font-weight:bold;}/* ¼Ó´Ö */
+.b{font-weight:bold;}/* åŠ ç²— */
 .blank5,.blank8,.blank10{font-size:1px;}
 .blank5{height:5px;}
 .blank8{height:8px;}
 .blank10{height:10px;}
-.more{text-align:right;}/* ¸ü¶à */
-.area{width:950px;}/*Ò³ÃæÊôĞÔ */
-li.nodot{background:none!important;padding-left:0px!important;}/* È¥µôÁĞ±íÇ°×º */
-/* ±ê×¼Í· */
+.more{text-align:right;}/* æ›´å¤š */
+.area{width:950px;}/*é¡µé¢å±æ€§ */
+li.nodot{background:none!important;padding-left:0px!important;}/* å»æ‰åˆ—è¡¨å‰ç¼€ */
+/* æ ‡å‡†å¤´ */
 #indexNav,#channelNav{height:22px;margin:4px auto;background:#fff;color:#000;text-align:left;}
 #channelNav{background:#EFEBEF;}
 #indexNav ul,#channelNav ul{padding-right:6px;}
