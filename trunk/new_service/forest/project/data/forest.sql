@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 01, 2009 at 01:56 AM
+-- Generation Time: Apr 07, 2009 at 12:17 AM
 -- Server version: 5.0.45
 -- PHP Version: 5.2.3
 
@@ -23,15 +23,18 @@ CREATE TABLE `articles` (
   `id` int(11) NOT NULL auto_increment,
   `category_id` int(11) NOT NULL default '0',
   `view_cnt` int(11) NOT NULL default '0',
+  `order_num` int(11) NOT NULL default '0',
   `published` int(11) NOT NULL default '1',
-  `created_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL default '1980-01-01 00:00:00',
   `title` char(255) NOT NULL,
   `pic` char(255) NOT NULL,
   `keyword` char(255) NOT NULL,
   `view_group` char(255) NOT NULL,
+  `vol_num` char(255) NOT NULL,
+  `vol_num_all` char(255) NOT NULL,
   `detail` mediumtext NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -46,7 +49,3 @@ CREATE TABLE `categories` (
   `name` char(255) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
-
-
-
-

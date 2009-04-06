@@ -31,12 +31,7 @@ class adminActions extends sfActions
 
 		$this->categoryItem		= new Table_categories($categoryId);
 
-		$objSubCategory			= new Table_categories();
-		$objSubCategory->parent_id	= $categoryId;
-
-		$this->arrCategories		= SofavDB_Record::matchAll($objSubCategory);
-
-
+		$this->arrCategories		= Table_categories::getByParent($categoryId);
 
 	}
 
@@ -115,6 +110,19 @@ class adminActions extends sfActions
 
 		$refer	= $request->getParameter('refer', '');
 		return	$this->redirect($refer);
+
+	}
+
+
+	public function executeConn(sfWebRequest $request) {
+
+
+	//	$conn		= mssql_connect('192.168.10.131:1433', 'sa', '123456');
+		$conn		= mssql_connect('192.168.10.131', 'forest', '123456');
+
+	//	var_dump($conn);
+
+		return	$this->renderText('');
 
 	}
 

@@ -2,7 +2,7 @@
 
 /**
  * SofavDB_Table class: articles
- * auto generated at 2009-04-01 00:33:37
+ * auto generated at 2009-04-05 13:49:21
  */
 
 class Table_articles extends SofavDB_Table {
@@ -14,12 +14,15 @@ class Table_articles extends SofavDB_Table {
 			$arrColumns	= array(
 						'category_id',
 						'view_cnt',
+						'order_num',
 						'published',
 						'created_at',
 						'title',
 						'pic',
 						'keyword',
 						'view_group',
+						'vol_num',
+						'vol_num_all',
 						'detail',
 					);
 

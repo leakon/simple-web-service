@@ -64,4 +64,7 @@ class S {
 		return		$str;
 	}
 
+	public static function curr($bool, $class = 'current') {
+		return	$bool ? $class : '';
+	}
 }
