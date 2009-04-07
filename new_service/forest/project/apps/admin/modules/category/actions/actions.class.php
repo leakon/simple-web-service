@@ -1,27 +1,8 @@
 <?php
 
-/**
- * admin actions.
- *
- * @package    forest
- * @subpackage admin
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 12479 2008-10-31 10:54:40Z fabien $
- */
-class adminActionsXXX extends sfActions
-{
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('admin', 'category');
-  }
+class categoryActions extends sfActions {
 
-
-	public function executeCategory(sfWebRequest $request) {
+	public function executeIndex(sfWebRequest $request) {
 
 		$categoryId			= (int) $request->getParameter('id', 0);
 
@@ -34,7 +15,7 @@ class adminActionsXXX extends sfActions
 
 	}
 
-	public function executeEditCategory(sfWebRequest $request) {
+	public function executeSub(sfWebRequest $request) {
 
 		$categoryId			= (int) $request->getParameter('id', 0);
 
@@ -44,7 +25,7 @@ class adminActionsXXX extends sfActions
 
 	}
 
-	public function executeSaveCategory(sfWebRequest $request) {
+	public function executeSave(sfWebRequest $request) {
 
 		$categoryId		= (int) $request->getParameter('id', 0);
 		$parentId		= (int) $request->getParameter('parent_id', 0);
@@ -71,7 +52,7 @@ class adminActionsXXX extends sfActions
 	}
 
 
-	public function executeDeleteCategory(sfWebRequest $request) {
+	public function executeDelete(sfWebRequest $request) {
 
 		$categoryId		= (int) $request->getParameter('id', 0);
 
@@ -88,7 +69,7 @@ class adminActionsXXX extends sfActions
 	}
 
 
-	public function executeSaveCategoryOrder(sfWebRequest $request) {
+	public function executeSaveOrder(sfWebRequest $request) {
 
 	#	Debug::pre($_POST);
 
@@ -111,19 +92,4 @@ class adminActionsXXX extends sfActions
 		return	$this->redirect($refer);
 
 	}
-
-
-	public function executeConn(sfWebRequest $request) {
-
-
-	//	$conn		= mssql_connect('192.168.10.131:1433', 'sa', '123456');
-		$conn		= mssql_connect('192.168.10.131', 'forest', '123456');
-
-	//	var_dump($conn);
-
-		return	$this->renderText('');
-
-	}
-
-
 }
