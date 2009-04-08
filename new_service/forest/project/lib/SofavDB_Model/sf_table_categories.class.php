@@ -45,4 +45,21 @@ class Table_categories extends SofavDB_Table {
 
 	}
 
+
+	public static function getAll() {
+
+		$objCategory			= new Table_categories();
+		$critera			= new SofavDB_Criteria('');
+		$arrCategories			= SofavDB_Record::findAll($objCategory, $critera, false);
+
+		$arrRet		= array();
+		foreach ($arrCategories as $key => $val) {
+
+			$arrRet[$val['id']]	= $val;
+
+		}
+
+		return	$arrRet;
+
+	}
 }
