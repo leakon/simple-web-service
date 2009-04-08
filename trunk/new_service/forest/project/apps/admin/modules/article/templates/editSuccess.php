@@ -112,9 +112,12 @@ function onChangeTopCategory(objSelect, topCatId, subCatId) {
 
 
 
-<form name="theform" id="searchForm" method="get" action="<?php echo url_for('article/index') ?>">
+<form name="theform" id="searchForm" method="get" action="<?php echo url_for('article/save') ?>">
 
-<table>
+<input type="hidden" name="id" value="<?php echo $articleItem->id ?>" />
+<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
+
+<table border="1" width="100%">
 <tr>
 	<td>一级分类</td>
 	<td>
@@ -149,18 +152,74 @@ function onChangeTopCategory(objSelect, topCatId, subCatId) {
 
 	</td>
 </tr>
+
+
+
 <tr>
-	<td>查询词</td>
+	<td>标题</td>
 	<td>
-		<input type="text" name="kw" value="<?php echo S::E($strKW) ?>" />
+		<input type="text" name="title" value="<?php echo S::E($articleItem->title) ?>" />
+	</td>
+</tr>
+<tr>
+	<td>图片</td>
+	<td>
+		<input type="text" name="pic" value="<?php echo S::E($articleItem->pic) ?>" />
+
+		<input type="file" name="upload_pic" />
+	</td>
+</tr>
+<tr>
+	<td>时间</td>
+	<td>
+		<input type="text" name="created_at" value="<?php echo S::E($articleItem->created_at) ?>" />
+	</td>
+</tr>
+<tr>
+	<td>关键字</td>
+	<td>
+		<input type="text" name="keyword" value="<?php echo S::E($articleItem->keyword) ?>" />
 	</td>
 </tr>
 
 <tr>
+	<td>信息内容</td>
+	<td height="500">
+
+		<?php
+
+		$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
+		$editorInclude		= $webDir . "fckeditor/fckeditor.php";
+		require_once($editorInclude);
+
+		$oFCKeditor		= new FCKeditor('detail') ;
+		$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+		$oFCKeditor->Width	= '100%';
+		$oFCKeditor->Height	= '100%';
+		$oFCKeditor->Value	= $articleItem->detail;
+		$oFCKeditor->Config	= array(
+						'AutoDetectLanguage'	=> false,
+						'DefaultLanguage'	=> 'zh-cn'
+					);
+		$oFCKeditor->Create() ;
+
+		?>
+
+		<?php if (0) : ?>
+		<textarea name="detail"><?php echo S::E($articleItem->detail) ?>"</textarea>
+		<?php endif ?>
+
+	</td>
+</tr>
+
+
+
+
+<tr>
 	<td>&nbsp;</td>
 	<td>
-		<input type="submit" value="查询" />
-		<a href="<?php echo url_for('article/index') ?>">重新搜索</a>
+		<input type="submit" value="保存" />
+		<a href="<?php echo url_for('article/index') ?>?top_category=<?php echo $topCateId ?>&sub_category=<?php echo $subCateId ?>&kw=">取消</a>
 	</td>
 </tr>
 
@@ -168,59 +227,6 @@ function onChangeTopCategory(objSelect, topCatId, subCatId) {
 </table>
 
 </form>
-
-
-
-
-<?php if (isset($arrResult)) : ?>
-
-<table>
-<tr>
-	<td>序号</td>
-	<td>全选</td>
-	<td>信息标题</td>
-	<td>一级分类</td>
-	<td>二级分类</td>
-	<td>添加时间</td>
-	<td>浏览次数</td>
-	<td>编辑</td>
-	<td>删除</td>
-</tr>
-<?php foreach ($arrResult as $key => $val) : ?>
-<tr>
-<?php
-
-$cateId		= $val['category_id'];
-$parentId	= $arrAllCategories[$cateId]['parent_id'];
-
-?>
-	<td><?php echo ($pager->getPage() - 1) * $pageSize + $key + 1 ?></td>
-	<td><input type="checkbox" name="checked_item[<?php echo $val['id'] ?>]" value="<?php echo $val['id'] ?>" /></td>
-	<td><a href="<?php echo url_for('/article/show?id=' . $val['id']) ?>" target="_blank"><?php echo S::E($val['title']) ?></a></td>
-	<td><?php echo $arrAllCategories[$cateId]['name'] ?></td>
-	<td><?php echo $arrAllCategories[$parentId]['name'] ?></td>
-	<td><?php echo $val['created_at'] ?></td>
-	<td><?php echo $val['view_cnt'] ?></td>
-	<td><a href="<?php echo url_for('article/edit?id=' . $val['id']) ?>" target="_blank">编辑</a></td>
-	<td><a href="javascript:;" onclick="FormDel('id_delete_form', <?php echo $val['id'] ?>)">删除</a></td>
-</tr>
-
-
-<?php endforeach ?>
-
-
-</table>
-
-<?php
-
-$uri	= $pager->getPageUri();
-$action	= $sf_context->getActionName();
-
-include_partial('global/pager', array('pager' => $pager, 'pageUri' => $uri));
-
-?>
-
-<?php endif ?>
 
 
 
