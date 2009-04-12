@@ -1,12 +1,21 @@
 
 <?php
 
+$arrOptionNoPic	= array(
+			'has_pic'	=> false
+		);
+
+
 	Custom_Homepage::setDataConf($arrDataConf);
 
 #	Debug::pr($arrDataConf);
 
 
-	function showTD($name) {
+	function showTD($name, $option = array()) {
+
+		if (!isset($option['has_pic'])) {
+			$option['has_pic']	= true;
+		}
 
 		$arr	= Custom_Homepage::genCategorySelect($name);
 
@@ -17,7 +26,7 @@
 		$str	.= '<p>' . $arr['top'] . '</p>';
 		$str	.= '<p>' . $arr['sub'] . '</p>';
 
-		if (isset($arr['pic'])) {
+		if ($option['has_pic'] && isset($arr['pic'])) {
 			$str	.= '<p>' . $arr['pic'] . '</p>';
 		}
 
@@ -27,13 +36,49 @@
 
 ?>
 
+
 <form method="post" action="<?php echo url_for('portal/save') ?>">
+
+<p>
+<input type="submit" value="保存" />
+</p>
+
 <input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
 
 <div id="contentBox">
 
-	<table border="1" class="left">
+<div class="left">
+	<table border="1" class="leftCol">
+
+	<tr>
+		<td>
+			<?php
+				echo	showTD('focus', $arrOptionNoPic);
+			?>
+		</td>
+		<td>
+			<?php
+				echo	showTD('head', $arrOptionNoPic);
+			?>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<?php
+				echo	showTD('news_1');
+			?>
+		</td>
+		<td>
+			<?php
+				echo	showTD('news_2');
+			?>
+		</td>
+	</tr>
+
+
+
 	<tr>
 		<td>
 			<?php
@@ -71,28 +116,68 @@
 		</td>
 	</tr>
 
-	<tr>
-		<td>
-			<input type="submit" value="保存" />
-		</td>
-		<td>&nbsp;</td>
-	</tr>
 
 	</table>
 
+</div>
 
 
 
 
+<?php
 
 
+#	Debug::pr($arrDataConf);
 
-	<table border="1" class="right">
+?>
+
+<div class="right">
+	<table border="1">
 	<tr>
-		<td>3</td>
+		<td>
+			<?php echo checkbox_tag( 'use_user', 1, isset($arrDataConf['block']['use_user'] ), array('id' => 'id_use_user')) ?>
+			<label for="id_use_user">开启用户注册/登录</labbel>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?php
+				echo	showTD('scroll_1', $arrOptionNoPic);
+			?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?php
+				echo	showTD('scroll_2', $arrOptionNoPic);
+			?>
+		</td>
+	</tr>
+
+
+	<tr>
+		<td>
+			<?php
+				echo	showTD('side_1');
+			?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?php
+				echo	showTD('side_2');
+			?>
+		</td>
 	</tr>
 	</table>
 </div>
+
+</div>
+
+<p>
+<input type="submit" value="保存" />
+</p>
 
 </form>
 

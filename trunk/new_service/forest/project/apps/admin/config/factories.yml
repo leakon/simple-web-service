@@ -31,6 +31,24 @@ all:
       generate_shortest_url:            true
       extra_parameters_as_query_string: true
 
+  user:
+    class: UserSession
+    param:
+      timeout:         1800
+      logging:         %SF_LOGGING_ENABLED%
+      use_flash:       true
+      default_culture: %SF_DEFAULT_CULTURE%
+
+  storage:
+    class: sfSessionStorage
+    param:
+      session_name: forest2009
+      auto_start:   1
+
+      session_cookie_lifetime: 1800
+      session_cookie_path:     /
+
+
 #all:
 #  controller:
 #    class: sfFrontWebController

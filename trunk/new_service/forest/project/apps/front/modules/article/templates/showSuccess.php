@@ -65,7 +65,7 @@
 
             <h3><?php echo S::E($articleItem->title) ?></h3>
 
-            <div class="subInfo"> <span>来源：生物谷</span><span>浏览次数：902</span> <span>发布日期：2008-09-10</span> </div>
+            <div class="subInfo"> <span>浏览次数：<?php echo $articleItem->view_cnt ?></span> <span>发布日期：<?php echo substr($articleItem->published_at, 0, 10); ?></span> </div>
 
 
 	<div>
@@ -77,7 +77,7 @@
 
 
 
-            <div class="goTop"><span><a href="#"></a></span>
+            <div class="goTop"><span><a href="#"><img src="/images/topBtn.png" border="0" /></a></span>
                 <p></p>
             </div>
           </div>

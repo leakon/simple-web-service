@@ -22,8 +22,14 @@ class portalActions extends sfActions {
 
 			$subId		= isset($val['sub']) ? $val['sub'] : $this->defaultCategoryId;
 
+			$total		= 5;
+
+			if ('cate_head' == $key) {
+				$total		= 7;
+			}
+
 			if (empty($this->arrDataRes[$subId])) {
-				$this->arrDataRes[$subId]	= Table_articles::getByCategory($subId, 5);
+				$this->arrDataRes[$subId]	= Table_articles::getByCategory($subId, $total);
 			}
 
 		}

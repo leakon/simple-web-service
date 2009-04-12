@@ -61,7 +61,10 @@
 #left660 .blockA #box660 .pt .l_pic{width:65px; height:auto; display:block; text-align:center;}
 #left660 .blockA #box660 .pt .l_pic img{border:1px solid #a4ce84; padding:2px;}
 #left660 .blockA #box660 .pt .l_pic span{font-weight:bold; color:#5cac25;}
-#left660 .blockA #box660 .pt ul{float:right;}
+
+/* Leakon 20090412 */
+#left660 .blockA #box660 .pt ul{float:right; float:left;}
+
 #left660 .blockA #box660 .pt ul li{background:url(/images/dot3x3.png) no-repeat left center; text-indent:10px;}
 
 #left660 .blockA .box320{width:320px; height:auto; overflow:hidden; float:left;}
@@ -136,6 +139,10 @@
 .right .textBlock p{width:630px; height:auto; margin:0 auto 20px auto; line-height:22px; text-align:left; display:block;}
 
 .right .textBlock .goTop span{width:56px; height:19px; display:block; background:url(/images/topBtn.png) no-repeat; float:right; margin:0 20px 0 0;}
+
+
+div.search		{float:left;}
+
 
 /*友情链接*/
 .ft_l{width:30px; height:115px; background:url(/images/flink_left30x115.png) no-repeat; float:left;}

@@ -58,7 +58,7 @@ class articleActions extends sfActions {
 			$stateCount	= $sqlWhere;
 					// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
 					// 用于选取记录，这里可以指定字段，并加上排序字段
-			$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY created_at DESC';
+			$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY published_at DESC';
 
 			$pager		= new Simple_Pager();
 			$pager->setCount($stateCount)->setLimit($stateLimit);

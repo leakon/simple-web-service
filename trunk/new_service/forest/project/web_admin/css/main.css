@@ -1,0 +1,23 @@
+
+
+div#pagerLink a.current		{font-weight:bold; color:red;}
+
+
+table td			{font-size:12px; padding:4px 8px;}
+table td.col_name		{width:90px; text-align:right;}
+
+input.input_text		{width:640px; font-size:12px; padding:2px;}
+
+p.article_image img		{border:1px solid black;}
+
+div#contentBox			{overflow:auto; zoom:1;}
+div#contentBox div.left		{float:left; width:60%;}
+div#contentBox div.right	{float:right; width:30%;}
+
+div#contentBox table			{width:100%;}
+div#contentBox table.leftCol td		{width:50%;}
+
+div#contentBox table td			{line-height:28px;}
+
+div.loginForm			{width:300px; margin:0 auto;}
+
