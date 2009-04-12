@@ -17,6 +17,7 @@ class Table_articles extends SofavDB_Table {
 						'order_num',
 						'published',
 						'created_at',
+						'published_at',
 						'title',
 						'pic',
 						'keyword',
@@ -27,6 +28,25 @@ class Table_articles extends SofavDB_Table {
 					);
 
 		$this->hasColumns($arrColumns);
+
+	}
+
+
+	public static function getByCategory($categoryId = 0, $limit = 10) {
+
+		$objArticle			= new Table_articles();
+		$objArticle->category_id	= $categoryId;
+
+		$arrWhere			= array(
+							'category_id'	=> $categoryId
+						);
+
+		$critera			= new SofavDB_Criteria(' WHERE @where ORDER BY published_at DESC LIMIT 0, ' . $limit);
+		$critera->bind($arrWhere, 'AND', '@where');
+
+		$arrArticles			= SofavDB_Record::findAll($objArticle, $critera, false);
+
+		return	$arrArticles;
 
 	}
 

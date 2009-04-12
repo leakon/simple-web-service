@@ -1,22 +1,59 @@
 <?php
 
-/**
- * portal actions.
- *
- * @package    forest
- * @subpackage portal
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 12479 2008-10-31 10:54:40Z fabien $
- */
-class portalActions extends sfActions
-{
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('default', 'module');
-  }
+class portalActions extends sfActions {
+
+	public function preExecute() {
+
+		$this->objConf		= new Custom_Conf();
+
+	}
+
+	public function executeIndex(sfWebRequest $request) {
+
+		$this->arrDataConf	= $this->objConf->getConf();
+
+	}
+
+	public function executeSave(sfWebRequest $request) {
+
+
+		$arrParameters		= $request->getParameterHolder()->getAll();
+
+	#	Debug::pre($arrParameters);
+
+		$arrFields		= array(
+						'block_1'		=> 1,
+						'block_2'		=> 1,
+						'block_3'		=> 1,
+						'block_4'		=> 1,
+						'block_5'		=> 1,
+						'block_6'		=> 1,
+		);
+
+
+		$arrSavedForm		= array();
+
+
+		foreach ($arrFields as $key => $v) {
+
+			$fieldName	= 'cate_' . $key;
+
+			if (isset($arrParameters[$fieldName]['top']) && isset($arrParameters[$fieldName]['sub'])) {
+
+				$arrSavedForm[$fieldName]	= $arrParameters[$fieldName];
+
+			}
+
+		}
+
+	#	Debug::pre($arrSavedForm);
+
+		$this->objConf->setConf('block', $arrSavedForm);
+
+		$refer	= $request->getParameter('refer', '');
+		return	$this->redirect($refer);
+
+	}
+
+
 }

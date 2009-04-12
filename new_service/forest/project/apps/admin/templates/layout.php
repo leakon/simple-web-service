@@ -5,6 +5,32 @@
     <?php include_metas() ?>
     <?php include_title() ?>
     <link rel="shortcut icon" href="/favicon.ico" />
+
+
+
+<script type="text/javascript">
+
+<?php
+
+$tableCategory		= new Table_categories();
+$criteria		= new SofavDB_Criteria();
+$resAll			= SofavDB_Record::findAll($tableCategory, $criteria);
+
+$arrCategories		= array();
+foreach ($resAll as $objCategory) {
+	$arrCategories[]	= sprintf('[%d,%d,"%s"]', $objCategory->id, $objCategory->parent_id, S::E($objCategory->name));
+}
+
+#	Debug::pr($arrCategories);
+
+echo	sprintf('var arrAllCategories	= [%s];', implode(',', $arrCategories));
+
+?>
+
+</script>
+
+
+
   </head>
   <body>
     <?php echo $sf_content ?>

@@ -126,21 +126,83 @@ class articleActions extends sfActions {
 	public function executeSave(sfWebRequest $request) {
 
 		$this->articleId		= $request->getParameter('id', 0);
+		$this->subCategoryId		= $request->getParameter('sub_category', 0);
 
-		if ($this->articleId) {
+		if ($this->subCategoryId) {
 
-			$this->articleItem		= new Table_articles($this->articleId);
+			$this->articleItem			= new Table_articles($this->articleId);
 
-			$this->articleItem->detail	= $request->getParameter('detail', '');
+			$this->articleItem->category_id		= $this->subCategoryId;
+			$this->articleItem->published_at	= $request->getParameter('published_at', '1980-01-01 00:00:00');
+			$this->articleItem->title		= $request->getParameter('title', '');
+			$this->articleItem->pic			= $request->getParameter('pic', '');
+			$this->articleItem->keyword		= $request->getParameter('keyword', '');
+			$this->articleItem->view_group		= $request->getParameter('view_group', '');
+			$this->articleItem->vol_num		= $request->getParameter('vol_num', '');
+			$this->articleItem->vol_num_all		= $request->getParameter('vol_num_all', '');
+			$this->articleItem->detail		= $request->getParameter('detail', '');
+
+		//	$this->articleItem->view_cnt		= $request->getParameter('view_cnt', '');
+			$this->articleItem->order_num		= $request->getParameter('order_num', '');
 
 			$this->articleItem->save();
 
+			$uploadFile				= $this->saveUploadImage($this->articleItem->id);
+
+			if ($uploadFile) {
+				$this->articleItem->pic		= $uploadFile;
+				$this->articleItem->save();
+			}
 
 		}
 
 		$refer	= $request->getParameter('refer', '');
 		return	$this->redirect($refer);
 
+	}
+
+
+	private function saveUploadImage($articleId) {
+
+			$webImagePath		= false;
+
+		#	Debug::pre($_FILES);
+
+			$filePath		= isset($_FILES['upload_pic']['tmp_name']) ?
+							$_FILES['upload_pic']['tmp_name'] : 'NULL';
+
+			if (file_exists($filePath)) {
+
+				$arrNamePart		= explode('.', $_FILES['upload_pic']['name']);
+				$extName		= array_pop($arrNamePart);
+
+				/*
+				$webImagePath		= sprintf('/uploads/article_images/%08d_%s_%d.%s',
+									$articleId,
+									date('Ymd_His'),
+									rand(1000, 9999),
+									$extName
+								);
+				*/
+
+				$webImagePath		= sprintf('/uploads/article_images/%08d.%s',
+									$articleId,
+									$extName
+								);
+
+				$serverImagePath	= sfConfig::get('sf_web_dir') . $webImagePath;
+
+				// remove existing file
+
+				if (file_exists($serverImagePath)) {
+					unlink($serverImagePath);
+				}
+
+				$bool			= move_uploaded_file($filePath, $serverImagePath);
+
+			}
+
+			return	$webImagePath;
 
 	}
 
