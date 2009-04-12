@@ -6,8 +6,10 @@
  * @package     SofavDB
  * @subpackage  Manager
  * @link        www.leakon.com
- * @version     2009-01-07
+ * @version     2009-04-011
  * @author      Leakon <leakon@gmail.com>
+ *
+ * @notice	add default empty string to $conf['user'] and $conf['pass']
  */
 class SofavDB_Manager {
 
@@ -67,6 +69,14 @@ class SofavDB_Manager {
 								isset($arrConf['port']) ? $arrConf['port'] : '3306',
 								isset($arrConf['db']) ? $arrConf['db'] : ''
 							);
+
+			if (!isset($arrConf['user'])) {
+				$arrConf['user']	= '';
+			}
+
+			if (!isset($arrConf['pass'])) {
+				$arrConf['pass']	= '';
+			}
 
 			return	$arrConf;
 

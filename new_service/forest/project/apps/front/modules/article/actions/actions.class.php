@@ -1,31 +1,20 @@
 <?php
 
-/**
- * article actions.
- *
- * @package    forest
- * @subpackage article
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 12479 2008-10-31 10:54:40Z fabien $
- */
-class articleActions extends sfActions
-{
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('default', 'module');
-  }
+class articleActions extends sfActions {
+
+	public function preExecute() {
+		$this->pageSize		= 20;
+	}
+
+
+	public function executeIndex(sfWebRequest $request) {
+		$this->forward('default', 'module');
+	}
 
 
 	public function executeShow(sfWebRequest $request) {
 
-
 		$this->arrNavPath		= array();
-
 
 		$this->reqArticleId		= (int) $request->getParameter('id', 0);
 
@@ -36,7 +25,6 @@ class articleActions extends sfActions
 			$this->articleItem->view_cnt++;
 			$this->articleItem->save();
 		}
-
 
 		$this->categoryItem		= new Table_categories($this->intSubCateId);
 		$this->topCategoryId		= $this->categoryItem->parent_id;
@@ -60,4 +48,80 @@ class articleActions extends sfActions
 
 
 	}
+
+	public function executeSearch(sfWebRequest $request) {
+
+
+		$this->strKW		= S::KW($request->getParameter('kw', ''));
+
+
+		if (strlen($this->strKW)) {
+
+			$this->pager		= $this->getArticleByLike($this->strKW, $request);
+
+		} else {
+
+			$this->pager		= new Simple_Pager();
+
+		}
+
+		$this->arrResult		= $this->pager->getResults();
+
+
+		$this->arrAllCategories		= Table_categories::getAll();
+
+	}
+
+
+	private function getArticleByLike($word, $request) {
+
+			$categoryId		= 0;
+
+			$parameter		= array(
+				'word_1'	=> '%' . $word . '%',
+				'word_2'	=> '%' . $word . '%',
+				'word_3'	=> '%' . $word . '%',
+			);
+
+			$tableArticle	= new Table_articles();
+
+			// use like
+			$templateWhere	= 'FROM %s WHERE (title LIKE :word_1 OR detail LIKE :word_2 OR keyword LIKE :word_3) ';
+
+			if ($categoryId > 0) {
+				$parameter['category_id']	= $categoryId;
+				$templateWhere			.= ' AND category_id = :category_id ';
+			}
+
+			$sqlWhere	= sprintf($templateWhere, $tableArticle->getTableName());
+
+					// "FROM ... WHERE ..." (without SELECT)
+					// 用于生成 COUNT(*) 的 SQL 语句，统计符合条件的记录总数，注意是从 FROM 开始
+			$stateCount	= $sqlWhere;
+					// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
+					// 用于选取记录，这里可以指定字段，并加上排序字段
+			$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY published_at DESC';
+
+			$pager		= new Simple_Pager();
+			$pager->setCount($stateCount)->setLimit($stateLimit);
+			$pager->setParameter($parameter);
+
+			$page		= (int) $request->getParameter('page', 1);
+			$pager->init($page, $this->pageSize);
+
+			return	$pager;
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 }

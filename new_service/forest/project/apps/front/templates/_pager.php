@@ -1,4 +1,6 @@
 
+
+
 <?php if ($pager->haveToPaginate()): ?>
 <?php
 	$navLength = 10;
@@ -9,7 +11,11 @@
 	$pageToken = 1;
 ?>
 
-<div id="pagerLink" >
+
+<div class="pageBar">
+
+
+	<div id="pagerLink" >
 
   <?php
   	// first
@@ -50,6 +56,9 @@
   	}
   ?>
 
+	</div>
+
 
 </div>
+
 <?php endif ?>
