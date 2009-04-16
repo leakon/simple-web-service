@@ -1,4 +1,6 @@
 
+<div class="itemtitle"><h3>管理友情链接</h3></div>
+
 <?php
 
 
@@ -8,7 +10,7 @@
 <form method="post" action="<?php echo url_for('portal/saveFriend') ?>">
 
 <p>
-<input type="submit" value="保存" />
+<input type="submit" value="保存" class="btn" />
 </p>
 
 <input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
@@ -19,7 +21,7 @@
 <div class="left">
 
 
-	<table border="1">
+	<table border="0" >
 
 	<tr>
 		<td>
@@ -65,7 +67,7 @@
 </div>
 
 <p>
-<input type="submit" value="保存" />
+<input type="submit" value="保存" class="btn" />
 </p>
 
 </form>

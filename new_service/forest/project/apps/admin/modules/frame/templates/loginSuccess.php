@@ -56,7 +56,7 @@ if ($sf_user->hasFlash('loginSuccess')) {
 		<td>&nbsp;
 		</td>
 		<td>
-			<input type="submit" value="登录" />
+			<input type="submit" value="登录" class="btn" />
 		</td>
 	</tr>
 

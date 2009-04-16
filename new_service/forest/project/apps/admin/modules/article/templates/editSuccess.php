@@ -1,10 +1,19 @@
 
+<div class="itemtitle"><h3>编辑文章</h3></div>
+
+
+<?php
+if ($sf_user->hasFlash('article_saved_ok')) {
+	echo	$sf_user->getFlash('article_saved_ok') ? '<p>保存成功</p>' : '<p>保存失败</p>';
+}
+?>
+
 <form name="theform" id="searchForm" method="post" action="<?php echo url_for('article/save') ?>" enctype="multipart/form-data">
 
 <input type="hidden" name="id" value="<?php echo $articleItem->id ?>" />
 <input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
-<table border="1" width="100%">
+<table border="0" width="100%" class="tb tb2">
 <tr>
 	<td class="col_name">一级分类</td>
 	<td>
@@ -80,7 +89,17 @@
 <tr>
 	<td class="col_name">时间</td>
 	<td>
-		<input type="text" class="input_text" name="published_at" value="<?php echo S::E($articleItem->published_at) ?>" />
+		<?php
+
+		$date		= substr((string) $articleItem->published_at, 0, 10);
+		if ('' == $date) {
+			$date	= date('Y-m-d');
+		}
+
+		echo input_date_tag('published_at', $date, array('rich' => true, 'readonly' => 'readonly', 'lang' => 'zh_CN'))
+
+		?>
+
 	</td>
 </tr>
 <tr>
@@ -126,7 +145,7 @@
 <tr>
 	<td class="col_name">&nbsp;</td>
 	<td>
-		<input type="submit" value="保存" />
+		<input type="submit" value="保存" class="btn" />
 		<a href="<?php echo url_for('article/index') ?>?top_category=<?php echo $topCateId ?>&sub_category=<?php echo $subCateId ?>&kw=">取消</a>
 	</td>
 </tr>

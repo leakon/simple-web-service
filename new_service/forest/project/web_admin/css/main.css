@@ -11,13 +11,20 @@ input.input_text		{width:640px; font-size:12px; padding:2px;}
 p.article_image img		{border:1px solid black;}
 
 div#contentBox			{overflow:auto; zoom:1;}
-div#contentBox div.left		{float:left; width:60%;}
-div#contentBox div.right	{float:right; width:30%;}
+div#contentBox div.left		{float:left; width:64%;}
+div#contentBox div.right	{float:right; width:34%;}
 
 div#contentBox table			{width:100%;}
 div#contentBox table.leftCol td		{width:50%;}
 
-div#contentBox table td			{line-height:28px;}
+div#contentBox table td				{line-height:32px; padding:8px;}
+div#contentBox table td img			{border:1px solid black; margin:2px 2px 2px 36px;}
+div#contentBox table td .admin_pic_url		{width:200px; padding:4px;}
+
 
 div.loginForm			{width:300px; margin:0 auto;}
 
+
+body				{padding:0; margin:0;}
+
+div#pagerLink			{margin:8px 16px; padding:4px;}

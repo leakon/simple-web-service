@@ -45,7 +45,7 @@ all:
       session_name: forest2009
       auto_start:   1
 
-      session_cookie_lifetime: 1800
+      session_cookie_lifetime: 7200
       session_cookie_path:     /
 
 

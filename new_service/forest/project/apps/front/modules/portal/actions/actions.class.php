@@ -29,7 +29,7 @@ class portalActions extends sfActions {
 			}
 
 			if (empty($this->arrDataRes[$subId])) {
-				$this->arrDataRes[$subId]	= Table_articles::getByCategory($subId, $total);
+				$this->arrDataRes[$subId]	= Table_articles::getByCategory($subId, $total, array('published' => 1));
 			}
 
 		}

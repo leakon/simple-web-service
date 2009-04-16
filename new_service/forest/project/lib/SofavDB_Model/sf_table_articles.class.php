@@ -31,8 +31,11 @@ class Table_articles extends SofavDB_Table {
 
 	}
 
+	public function isPublished() {
+		return	$this->published == 1;
+	}
 
-	public static function getByCategory($categoryId = 0, $limit = 10) {
+	public static function getByCategory($categoryId = 0, $limit = 10, $option = null) {
 
 		$objArticle			= new Table_articles();
 		$objArticle->category_id	= $categoryId;
@@ -40,6 +43,10 @@ class Table_articles extends SofavDB_Table {
 		$arrWhere			= array(
 							'category_id'	=> $categoryId
 						);
+
+		if (isset($option['published'])) {
+			$arrWhere['published']	= $option['published'];
+		}
 
 		$critera			= new SofavDB_Criteria(' WHERE @where ORDER BY published_at DESC LIMIT 0, ' . $limit);
 		$critera->bind($arrWhere, 'AND', '@where');
