@@ -32,6 +32,53 @@ class articleActions extends sfActions {
 
 	}
 
+	public function executeAudit(sfWebRequest $request) {
+
+		$this->topCateId	= $request->getParameter('top_category', 0);
+		$this->subCateId	= $request->getParameter('sub_category', 0);
+		$this->strKW		= S::KW($request->getParameter('kw', ''));
+
+		$option			= array(
+						'published'	=> 0,
+					);
+		$this->pager		= $this->getArticleByTotal($this->subCateId, $request, $option);
+
+
+		$this->arrResult		= $this->pager->getResults();
+
+
+		$this->arrAllCategories		= Table_categories::getAll();
+
+	}
+
+	public function executePublish(sfWebRequest $request) {
+
+		$arrItems	= (array) $request->getParameter('checked_item', array());
+		$publish	= (int) $request->getParameter('publish', -1);
+
+		if ($publish > -1 && count($arrItems)) {
+
+			foreach ($arrItems as $articleId) {
+
+				$objArticle		= new Table_articles($articleId);
+
+				if ($objArticle->id) {
+					$objArticle->published	= $publish;
+					$objArticle->save();
+				}
+
+			}
+
+		}
+
+		$refer	= $request->getParameter('refer', '');
+		return	$this->redirect($refer);
+
+	#	Debug::pr($publish);
+	#	Debug::pre($arrItems);
+
+	}
+
 
 	private function getArticleByLike($categoryId, $word, $request) {
 
@@ -71,18 +118,23 @@ class articleActions extends sfActions {
 
 	}
 
-	private function getArticleByTotal($categoryId, $request) {
+	private function getArticleByTotal($categoryId, $request, $option = NULL) {
 
 			$parameter		= array();
 
 			$tableArticle	= new Table_articles();
 
 			// use like
-			$templateWhere	= 'FROM %s  ';
+			$templateWhere	= 'FROM %s WHERE 1 ';
 
 			if ($categoryId > 0) {
 				$parameter['category_id']	= $categoryId;
-				$templateWhere			.= ' WHERE category_id = :category_id ';
+				$templateWhere			.= ' AND category_id = :category_id ';
+			}
+
+			if (isset($option['published'])) {
+				$parameter['published']	= $option['published'];
+				$templateWhere			.= ' AND published = :published ';
 			}
 
 			$sqlWhere	= sprintf($templateWhere, $tableArticle->getTableName());
@@ -105,6 +157,29 @@ class articleActions extends sfActions {
 
 	}
 
+	public function executeNew(sfWebRequest $request) {
+
+		$this->setTemplate('edit');
+
+
+		$this->arrAllCategories		= Table_categories::getAll();
+
+		$this->arrAllCategories[0]	= array(
+							'id'		=> 0,
+							'parent_id'	=> 0
+						);
+
+		$this->articleId		= $request->getParameter('id', 0);
+
+		$this->articleItem		= new Table_articles($this->articleId);
+
+		$this->subCateId		= (int) $this->articleItem->category_id;
+
+		$this->arrSubCategory		= $this->arrAllCategories[$this->subCateId];
+
+		$this->topCateId		= $this->arrAllCategories[$this->arrSubCategory['parent_id']]['id'];
+
+	}
 
 	public function executeEdit(sfWebRequest $request) {
 
@@ -123,10 +198,28 @@ class articleActions extends sfActions {
 
 	}
 
+
+	public function executeDelete(sfWebRequest $request) {
+
+		$this->articleId		= $request->getParameter('id', 0);
+		$this->articleItem		= new Table_articles($this->articleId);
+
+		if ($this->articleItem->id) {
+			$this->articleItem->delete();
+		}
+
+
+		$refer	= $request->getParameter('refer', '');
+		return	$this->redirect($refer);
+
+	}
+
 	public function executeSave(sfWebRequest $request) {
 
 		$this->articleId		= $request->getParameter('id', 0);
 		$this->subCategoryId		= $request->getParameter('sub_category', 0);
+
+		$boolIsNewArticle		= $this->articleId == 0;
 
 		if ($this->subCategoryId) {
 
@@ -154,6 +247,13 @@ class articleActions extends sfActions {
 				$this->articleItem->save();
 			}
 
+
+		}
+
+		$this->getUser()->setFlash('article_saved_ok', true);
+
+		if ($boolIsNewArticle && $this->articleItem->id) {
+			return	$this->redirect('article/edit?id=' . $this->articleItem->id);
 		}
 
 		$refer	= $request->getParameter('refer', '');

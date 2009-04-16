@@ -68,7 +68,7 @@ class Custom_Homepage {
 
 
 		$arrRet['pic']	= sprintf(
-						'配图：<input type="text" name="cate_%s[pic]" id="id_cate_pic_%s" value="%s" />'
+						'配图：<input type="text" name="cate_%s[pic]" id="id_cate_pic_%s" class="admin_pic_url" value="%s" />'
 						. ''
 						. '<p><img src="%s" /></p>',
 

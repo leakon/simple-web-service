@@ -22,6 +22,14 @@ class articleActions extends sfActions {
 		$this->intSubCateId		= $this->articleItem->category_id;
 
 		if ($this->articleItem->id) {
+
+			if (!$this->articleItem->isPublished()) {
+
+			#	Debug::pre($this->articleItem);
+
+				return	$this->redirect('/');
+			}
+
 			$this->articleItem->view_cnt++;
 			$this->articleItem->save();
 		}
@@ -86,7 +94,7 @@ class articleActions extends sfActions {
 			$tableArticle	= new Table_articles();
 
 			// use like
-			$templateWhere	= 'FROM %s WHERE (title LIKE :word_1 OR detail LIKE :word_2 OR keyword LIKE :word_3) ';
+			$templateWhere	= 'FROM %s WHERE published = 1 AND ( title LIKE :word_1 OR detail LIKE :word_2 OR keyword LIKE :word_3) ';
 
 			if ($categoryId > 0) {
 				$parameter['category_id']	= $categoryId;

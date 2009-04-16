@@ -8,7 +8,7 @@
 <form method="post" action="<?php echo url_for('portal/savePass') ?>">
 
 <p>
-<input type="submit" value="保存" />
+<input type="submit" value="保存" class="btn" />
 </p>
 
 <input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
@@ -25,10 +25,10 @@ if ($sf_user->hasFlash('newPasswordOK')) {
 }
 ?>
 
-	<table border="1">
+	<table border="0">
 
 	<tr>
-		<td>旧密码
+		<td width="60">旧密码
 		</td>
 		<td>
 			<input type="password" name="old_pass" value=""  />
@@ -59,7 +59,7 @@ if ($sf_user->hasFlash('newPasswordOK')) {
 </div>
 
 <p>
-<input type="submit" value="保存" />
+<input type="submit" value="保存" class="btn" />
 </p>
 
 </form>

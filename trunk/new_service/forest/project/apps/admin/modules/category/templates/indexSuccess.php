@@ -1,3 +1,6 @@
+
+<div class="itemtitle"><h3>管理分类</h3></div>
+
 <?php
 
 $urlTopList	= '<a href="' . url_for('category/index') . '">返回一级分类列表</a>';
@@ -18,7 +21,7 @@ $urlTopList	= '<a href="' . url_for('category/index') . '">返回一级分类列
 	排列顺序：<input type="text" name="order_num" value="<?php echo $categoryItem->order_num ?>" />
 	<br />
 
-	<input type="submit" id="id_form_submit" value="保存" />
+	<input type="submit" id="id_form_submit" value="保存"  class="btn" />
 
 	<?php echo $urlTopList ?>
 
@@ -57,7 +60,7 @@ if ($isTopCategory) {
 	<?php endif; ?>
 	分类名称：<input type="text" name="name" value="" />
 
-	<input type="submit" id="id_form_submit" value="添加" />
+	<input type="submit" id="id_form_submit" value="添加"  class="btn" />
 
 	<?php echo $urlTopList ?>
 
@@ -71,7 +74,7 @@ if ($isTopCategory) {
 
 <form name="theForm" id="id_category_edit" action="<?php echo url_for('category/saveOrder') ?>" method="post">
 <input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
-<table>
+<table border="0" class="">
 
 	<?php foreach ($arrCategories as $key => $oneCategory) : ?>
 
@@ -90,7 +93,7 @@ if ($isTopCategory) {
 
 </table>
 <p>
-	<input type="submit" value="保存排列顺序" />
+	<input type="submit" value="保存排列顺序" class="btn" />
 	<?php echo $urlTopList ?>
 </p>
 </form>

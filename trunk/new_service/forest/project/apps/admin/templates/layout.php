@@ -4,6 +4,11 @@
     <?php include_http_metas() ?>
     <?php include_metas() ?>
     <?php include_title() ?>
+
+    <script src="/admin/js/mootools-1.2.1-core-nc.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/admin/css/admincp.css" type="text/css" media="all" />
+
+
     <link rel="shortcut icon" href="/favicon.ico" />
 
 
@@ -31,8 +36,16 @@ echo	sprintf('var arrAllCategories	= [%s];', implode(',', $arrCategories));
 
 
 
-  </head>
-  <body>
-    <?php echo $sf_content ?>
-  </body>
+</head>
+<body>
+
+	<div class="container" id="cpcontainer">
+
+	<?php echo $sf_content ?>
+
+
+	</div>
+
+
+</body>
 </html>

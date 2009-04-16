@@ -23,8 +23,12 @@ $arrOptionNoPic	= array(
 
 		$str	.= '<h3>' . $name . '</h3>';
 
-		$str	.= '<p>' . $arr['top'] . '</p>';
-		$str	.= '<p>' . $arr['sub'] . '</p>';
+	#	$str	.= '<p>' . $arr['top'] . '</p>';
+	#	$str	.= '<p>' . $arr['sub'] . '</p>';
+
+		$str	.= '分类：' . $arr['top'] . '';
+		$str	.= ' &nbsp; ';
+		$str	.= '' . $arr['sub'] . '';
 
 		if ($option['has_pic'] && isset($arr['pic'])) {
 			$str	.= '<p>' . $arr['pic'] . '</p>';
@@ -35,12 +39,12 @@ $arrOptionNoPic	= array(
 	}
 
 ?>
-
+<div class="itemtitle"><h3>首页设置</h3></div>
 
 <form method="post" action="<?php echo url_for('portal/save') ?>">
 
 <p>
-<input type="submit" value="保存" />
+<input type="submit" value="保存" class="btn" />
 </p>
 
 <input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
@@ -49,7 +53,7 @@ $arrOptionNoPic	= array(
 <div id="contentBox">
 
 <div class="left">
-	<table border="1" class="leftCol">
+	<table border="0" class="leftCol tb tb2">
 
 	<tr>
 		<td>
@@ -132,7 +136,7 @@ $arrOptionNoPic	= array(
 ?>
 
 <div class="right">
-	<table border="1">
+	<table border="0" class="tb tb2">
 	<tr>
 		<td>
 			<?php echo checkbox_tag( 'use_user', 1, isset($arrDataConf['block']['use_user'] ), array('id' => 'id_use_user')) ?>
@@ -176,7 +180,7 @@ $arrOptionNoPic	= array(
 </div>
 
 <p>
-<input type="submit" value="保存" />
+<input type="submit" value="保存" class="btn" />
 </p>
 
 </form>

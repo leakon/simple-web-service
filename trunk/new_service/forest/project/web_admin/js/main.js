@@ -1,20 +1,20 @@
-function $(s) {
+function $XXX(s) {
 	return	document.getElementById(s) || null;
-}
+};
 
 function SubmitForm(formId) {
 	var objForm	= $(formId);
 	if (objForm) {
 		objForm.submit();
 	}
-}
+};
 
 function SubmitConfirmForm(formId) {
 	var objForm	= $(formId);
 	if (objForm && window.confirm('确定要删除吗？')) {
 		objForm.submit();
 	}
-}
+};
 
 function FormDel(formId, intId) {
 	var objForm	= $(formId);
@@ -27,7 +27,7 @@ function FormDel(formId, intId) {
 		objForm.id.value = intId;
 		objForm.submit();
 	}
-}
+};
 
 
 
@@ -114,8 +114,66 @@ function ChangeCategory(objTopSelect, objSubSelect, topCatId, subCatId) {
 	}, 10);
 
 
-}
+};
 
+
+var ItemFormCheck	= new Class({
+
+	_checkForm:	false,
+	_arrCheckBoxes:	[],
+
+	initialize:	function(formId, property) {
+
+				var __THIS__	= this;
+
+				if ($defined(formId)) {
+					this._checkForm		= $(formId);
+				} else {
+					return;
+				}
+
+				__THIS__._arrCheckBoxes	= this._checkForm.getElements('input.item_checkbox');
+
+			//	return;
+
+			//	alert(__THIS__._arrCheckBoxes);
+
+
+				var btnCheckAll		= $(property['btn_all']);
+				var btnClearAll		= $(property['btn_clear']);
+
+
+				// check all
+				btnCheckAll.addEvent('click', function() {
+								__THIS__._arrCheckBoxes.each(function(one) {one.checked = true;});
+							});
+
+				// clear
+				btnClearAll.addEvent('click', function(event) {
+								__THIS__._arrCheckBoxes.each(function(one) {one.checked = false;});
+							});
+
+
+			},
+
+	hasCheckedOnes:	function() {
+		return	this._arrCheckBoxes.some(function(one) {return one.checked;});
+	}
+
+});
+
+
+
+function ItemPublish(p) {
+
+	var objForm		= $('id_item_form');
+
+	objForm.publish.value	= p;
+
+	objForm.submit();
+
+
+}
 
 
 
