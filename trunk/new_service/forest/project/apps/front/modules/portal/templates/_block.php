@@ -16,7 +16,7 @@ $boxClass		= $pos == 'left' ? 'box320' : 'box330';
 
 
           <div class="<?php echo $boxClass ?>">
-            <h3><?php echo S::E($categoryItem->name) ?><span class="more"><a href="<?php echo url_for('category/list?id=' . $categoryId) ?>" target="_blank">更多&gt;&gt;</a></span></h3>
+            <h3><span class="title"><?php echo S::E($categoryItem->name) ?></span><a href="<?php echo url_for('category/list?id=' . $categoryId) ?>" target="_blank">更多&gt;&gt;</a></h3>
 
 	<?php if ($picUrl) : ?>
 
