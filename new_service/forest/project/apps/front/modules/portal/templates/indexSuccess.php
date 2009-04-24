@@ -28,6 +28,46 @@
 ?>
 
 
+
+
+<script type="text/javascript">
+
+function Search_Form(objForm) {
+
+	var localForm		= '<?php echo url_for('article/search') ?>';
+	var baiduForm		= 'http://www.baidu.com/s';
+
+	var sFrom		= '';
+
+	for (var i = 0; i < objForm.search_from.length; i++) {
+		if (objForm.search_from[i].checked) {
+			sFrom	= objForm.search_from[i].value;
+		}
+	}
+
+	if (sFrom == 'baidu') {
+
+		objForm.wd.disabled	= false;
+		objForm.ie.disabled	= false;
+		objForm.wd.value	= objForm.kw.value;
+		objForm.action		= baiduForm;
+
+	} else {
+
+		objForm.ie.disabled	= true;
+		objForm.wd.disabled	= true;
+		objForm.action		= localForm;
+
+	}
+
+	return	true;
+
+
+}
+
+</script>
+
+
   <div id="sandwich">
 
     <div class="container">
@@ -175,7 +215,14 @@ document.write('</object>');
         </div><!-- end focusBox -->
 
 
+        <div class="blank10"></div>
 
+
+
+
+
+
+        <div class="ad"><a href="#" target="_blank"><img src="/images/ad660.jpg" width="660" height="100" /></a></div>
         <div class="blank10"></div>
 
         <div class="blockA">
@@ -214,8 +261,6 @@ document.write('</object>');
 		$arrArticles_2		= $data[$categoryId_2];
 
 	?>
-
-
 
 
           <h3 id="title660"><?php echo S::E($parentCategory->name) ?><span class="more"><a href="<?php echo url_for('category/list?id=' . $parentCategory->id) ?>" target="_blank">更多&gt;&gt;</a></span></h3>
@@ -282,6 +327,9 @@ document.write('</object>');
 
         <div class="blank10"></div>
 
+
+        <div class="ad"><a href="#" target="_blank"><img src="/images/ad660.jpg" width="660" height="100" /></a></div>
+        <div class="blank10"></div>
 
 
 
@@ -377,20 +425,23 @@ document.write('</object>');
 
         <?php endif ?>
 
-        <fieldset>
-            <legend>搜索本站</legend>
-		    <form method="get" id="searchform" action="<?php echo url_for('article/search') ?>" target="_blank">
-	          <p>
-                <label for="s">
-                  <input name="kw" id="s" size="20" value="" class="input-style" type="text">
-                  <input value="" class="submit-style" type="submit">
-                </label>
-              </p>
-            </form>
-
-		</fieldset>
-
-
+	<fieldset>
+		<legend>搜索本站</legend>
+		<form method="get" id="searchform" action="<?php echo url_for('article/search') ?>" target="_blank" onsubmit="Search_Form(this)">
+		<input type="hidden" name="wd" value="" disabled="disabled" />
+		<input type="hidden" name="ie" value="utf-8" disabled="disabled" />
+		<p>
+		<label for="s">
+		<input name="kw" id="s" size="20" value="" class="input-style" type="text">
+		<input value="" class="submit-style" type="submit">
+		</label>
+		</p>
+		<p>
+			&nbsp;&nbsp;<input name="search_from" type="radio" value="local" id="search_local" checked="checked" /><label for="search_local">站内</label>
+			&nbsp;&nbsp;<input name="search_from" type="radio" value="baidu" id="search_baidu" /><label for="search_baidu">百度</label>
+		</p>
+		</form>
+	</fieldset>
 
 
 	<?php
