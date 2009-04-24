@@ -95,6 +95,7 @@ class articleActions extends sfActions {
 
 			// use like
 			$templateWhere	= 'FROM %s WHERE published = 1 AND ( title LIKE :word_1 OR detail LIKE :word_2 OR keyword LIKE :word_3) ';
+		#	$templateWhere	= 'FROM %s WHERE published = 1 AND ( title LIKE :word_1 OR detail LIKE :word_2) ';
 
 			if ($categoryId > 0) {
 				$parameter['category_id']	= $categoryId;

@@ -28,6 +28,8 @@ html, body,
 
 <li><a href="<?php echo url_for('portal/password') ?>" target="main">修改密码</a></li>
 
+<li><a href="<?php echo url_for('portal/advertise') ?>" target="main">广告管理</a></li>
+
 <li><a href="<?php echo url_for('frame/signOut') ?>" target="main">退出</a></li>
 
 

@@ -45,6 +45,10 @@ class portalActions extends sfActions {
 				'cate_block_6'		=> 1,
 
 				'use_user'		=> 1,
+				'index_ad_1'		=> 1,
+				'index_ad_2'		=> 1,
+				'index_ad_1_link'	=> 1,
+				'index_ad_2_link'	=> 1,
 
 				'cate_scroll_1'		=> 1,
 				'cate_scroll_2'		=> 1,
@@ -117,6 +121,50 @@ class portalActions extends sfActions {
 
 
 		$this->objConf->setConf('help', $arrSavedForm);
+
+		$refer	= $request->getParameter('refer', '');
+		return	$this->redirect($refer);
+
+	}
+
+	public function executeAdvertise(sfWebRequest $request) {
+
+		$this->arrDataConf	= $this->objConf->getConf();
+	}
+
+	public function executeSaveAdvertise(sfWebRequest $request) {
+
+		$arrParameters		= $request->getParameterHolder()->getAll();
+
+	#	Debug::pre($arrParameters);
+
+		$arrFields		= array(
+
+				'article_ad_1'		=> 1,
+				'article_ad_2'		=> 1,
+				'article_ad_1_link'	=> 1,
+				'article_ad_2_link'	=> 1,
+
+		);
+
+		$arrData		= $this->objConf->getConf();
+	#	$arrSavedForm		= array();
+		$arrSavedForm		=& $arrData['block'];
+
+		foreach ($arrFields as $fieldName => $v) {
+
+		#	if (isset($arrParameters[$fieldName]['top']) && isset($arrParameters[$fieldName]['sub'])) {
+			if (isset($arrParameters[$fieldName])) {
+				$arrSavedForm[$fieldName]	= $arrParameters[$fieldName];
+
+			}
+
+		}
+
+	#	Debug::pre($arrSavedForm);
+	#	Debug::pre($arrData);
+
+		$this->objConf->setConf('block', $arrSavedForm);
 
 		$refer	= $request->getParameter('refer', '');
 		return	$this->redirect($refer);

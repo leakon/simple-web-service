@@ -25,6 +25,11 @@
 
     <div class="container">
 
+        <div class="left">
+          <div class="sideAd"><a href="#" target="_blank"><img src="/images/ad220x180.png" width="220" height="180" /></a></div>
+          <div class="blank10"></div>
+          <div class="sideAd"><a href="#" target="_blank"><img src="/images/ad220x180.png" width="220" height="180" /></a></div>
+        </div>
 
         <div class="right search">
 
