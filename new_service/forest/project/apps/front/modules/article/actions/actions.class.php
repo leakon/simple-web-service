@@ -59,6 +59,8 @@ class articleActions extends sfActions {
 
 	public function executeSearch(sfWebRequest $request) {
 
+		$this->objConf			= new Custom_Conf();
+		$this->arrDataConf	= $this->objConf->getConf();
 
 		$this->strKW		= S::KW($request->getParameter('kw', ''));
 

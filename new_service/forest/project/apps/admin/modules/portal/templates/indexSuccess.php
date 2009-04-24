@@ -128,14 +128,6 @@ $arrOptionNoPic	= array(
 		</td>
 	</tr>
 
-	<tr>
-		<td colspan="2">
-			<?php
-				echo	showADBanner('index_ad_2');
-			?>
-		</td>
-	</tr>
-
 
 	<tr>
 		<td>
@@ -150,6 +142,14 @@ $arrOptionNoPic	= array(
 		</td>
 	</tr>
 
+
+	<tr>
+		<td colspan="2">
+			<?php
+				echo	showADBanner('index_ad_2');
+			?>
+		</td>
+	</tr>
 
 
 	<tr>

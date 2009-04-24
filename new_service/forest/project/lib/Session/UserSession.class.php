@@ -21,6 +21,10 @@ class UserSession extends SimpleSymfonyUser {
 			$arrUserInfo			= array();
 			$arrUserInfo['id']		= 1;
 			$arrUserInfo['username']	= 'admin';
+		} else {
+
+			$userRecord		= new Table_users($userId);
+			$arrUserInfo		= $userRecord->toArray();
 		}
 
 		$arrRet			= array(
