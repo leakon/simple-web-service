@@ -98,7 +98,7 @@ class categoryActions extends sfActions
 		$objPager		= new SofavDB_Pager($tableArticle);
 
 		$where			= array('category_id' => $categoryId, 'published' => 1);
-		$order			= array('created_at' => 'DESC');
+		$order			= array('published_at' => 'DESC');
 
 		$objPager->init($page, $size, array('where' => $where, 'order' => $order));
 

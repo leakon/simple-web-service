@@ -168,6 +168,8 @@ function ItemPublish(p) {
 
 	var objForm		= $('id_item_form');
 
+	objForm.action		= '/admin/article/publish';
+
 	objForm.publish.value	= p;
 
 	objForm.submit();
@@ -175,6 +177,18 @@ function ItemPublish(p) {
 
 }
 
+function ItemPrivate(p) {
+
+	var objForm		= $('id_item_form');
+
+	objForm.action		= '/admin/article/private';
+
+	objForm.is_private.value	= p;
+
+	objForm.submit();
+
+
+}
 
 
 
