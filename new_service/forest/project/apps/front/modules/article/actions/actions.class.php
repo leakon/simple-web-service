@@ -4,6 +4,7 @@ class articleActions extends sfActions {
 
 	public function preExecute() {
 		$this->pageSize		= 20;
+		$this->userId	= $this->getUser()->getId();
 	}
 
 
@@ -29,6 +30,15 @@ class articleActions extends sfActions {
 
 				return	$this->redirect('/');
 			}
+
+
+			if ($this->articleItem->is_private && !$this->userId) {
+				return	$this->forward('account', 'private');
+			#	return	$this->redirect('account/private');
+			}
+
+
+
 
 			$this->articleItem->view_cnt++;
 			$this->articleItem->save();

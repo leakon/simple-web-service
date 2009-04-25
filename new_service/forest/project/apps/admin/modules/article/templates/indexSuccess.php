@@ -62,6 +62,7 @@
 <form id="id_item_form" action="<?php echo url_for('article/publish') ?>" name="item_publish_form" method="post">
 
 <input type="hidden" name="publish" value="-1" />
+<input type="hidden" name="is_private" value="-1" />
 <input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
 <?php if (isset($arrResult)) : ?>
@@ -71,6 +72,11 @@
 	<td colspan="10">
 		<input type="button" value="审核通过" class="btn" onclick="ItemPublish(1);" />
 		<input type="button" value="取消审核" class="btn" onclick="ItemPublish(0);" />
+
+		&nbsp;&nbsp;
+
+		<input type="button" value="设为公开" class="btn" onclick="ItemPrivate(0);" />
+		<input type="button" value="设为私有" class="btn" onclick="ItemPrivate(1);" />
 	</td>
 </tr>
 <tr>
@@ -78,6 +84,7 @@
 	<td><a href="javascript:;" id="id_check_all">全选</a>/<a href="javascript:;" id="id_clear_all">取消</a></td>
 	<td>信息标题</td>
 	<td>审核状态</td>
+	<td>访问权限</td>
 	<td>一级分类</td>
 	<td>二级分类</td>
 	<td>添加时间</td>
@@ -99,6 +106,7 @@ $parentId	= $arrAllCategories[$cateId]['parent_id'];
 
 	<td><a href="<?php echo url_for('/article/show?id=' . $val['id']) ?>" target="_blank"><?php echo S::E($val['title']) ?></a></td>
 	<td><?php echo $val['published'] ? '审核通过' : '未审核' ?></td>
+	<td><?php echo $val['is_private'] ? '私有' : '公开' ?></td>
 	<td><?php echo $arrAllCategories[$parentId]['name'] ?></td>
 	<td><?php echo $arrAllCategories[$cateId]['name'] ?></td>
 	<td><?php echo $val['published_at'] ?></td>

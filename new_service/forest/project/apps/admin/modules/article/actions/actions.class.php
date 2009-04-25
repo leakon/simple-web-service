@@ -78,6 +78,33 @@ class articleActions extends sfActions {
 	#	Debug::pre($arrItems);
 
 	}
+	public function executePrivate(sfWebRequest $request) {
+
+		$arrItems	= (array) $request->getParameter('checked_item', array());
+		$is_private	= (int) $request->getParameter('is_private', -1);
+
+		if ($is_private > -1 && count($arrItems)) {
+
+			foreach ($arrItems as $articleId) {
+
+				$objArticle		= new Table_articles($articleId);
+
+				if ($objArticle->id) {
+					$objArticle->is_private	= $is_private;
+					$objArticle->save();
+				}
+
+			}
+
+		}
+
+		$refer	= $request->getParameter('refer', '');
+		return	$this->redirect($refer);
+
+	#	Debug::pr($publish);
+	#	Debug::pre($arrItems);
+
+	}
 
 
 	private function getArticleByLike($categoryId, $word, $request) {
@@ -234,6 +261,7 @@ class articleActions extends sfActions {
 			$this->articleItem->vol_num		= $request->getParameter('vol_num', '');
 			$this->articleItem->vol_num_all		= $request->getParameter('vol_num_all', '');
 			$this->articleItem->detail		= $request->getParameter('detail', '');
+			$this->articleItem->is_private		= $request->getParameter('is_private', '');
 
 		//	$this->articleItem->view_cnt		= $request->getParameter('view_cnt', '');
 			$this->articleItem->order_num		= $request->getParameter('order_num', '');

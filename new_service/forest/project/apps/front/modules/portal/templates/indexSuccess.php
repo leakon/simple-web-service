@@ -460,7 +460,22 @@ document.write('</object>');
 
       	<?php if (isset($arrDataConf['block']['use_user'])) : ?>
 
-        <input name="" type="button" class="loginBtn" value="" onclick="window.location='<?php echo url_for('account/signIn') ?>'" />
+		<?php if ($sf_user->getId()) : ?>
+
+			<div style="margin:4px 0; text-align:center;">
+				<a href="<?php echo url_for('account/setting') ?>">修改密码</a>
+			</div>
+
+        	<?php else : ?>
+
+        		<input name="" type="button" class="loginBtn" value="" onclick="window.location='<?php echo url_for('account/signIn') ?>'" />
+
+
+			<div style="margin:4px 0; text-align:center;">
+				<a href="<?php echo url_for('account/signUp') ?>">用户注册</a>
+			</div>
+
+        	<?php endif ?>
 
         <div class="blank5"></div>
 

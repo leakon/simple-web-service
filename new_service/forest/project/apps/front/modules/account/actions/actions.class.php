@@ -12,7 +12,8 @@ class accountActions extends sfActions
 {
 	public function preExecute() {
 
-		$this->setLayout(false);
+	#	$this->setLayout(false);
+		$this->userId	= $this->getUser()->getId();
 
 	}
 
@@ -29,7 +30,7 @@ class accountActions extends sfActions
 
 	public function executeSignIn(sfWebRequest $request) {
 
-
+		$this->getResponse()->setTitle('用户登陆 中国林业生物质能源网');
 
 	}
 
@@ -81,7 +82,7 @@ class accountActions extends sfActions
 		return	$this->redirect('account/signIn?msg=pass_error');
 
 
-	#	$this->redirect('accounts/index?msg=loginFailed');
+	#	$this->redirect('account/index?msg=loginFailed');
 
 		$parameters	= array(
 					'msg'		=> 'loginFailed',
@@ -112,6 +113,9 @@ class accountActions extends sfActions
 
 		}
 
+		return	$this->redirect('/?msg=loggedIn');
+
+
 		$refer	= $request->getParameter('refer', '');
 		return	$this->redirect($refer);
 
@@ -121,6 +125,53 @@ class accountActions extends sfActions
 
 		$this->forward('account', 'signUp');
 
+	}
+
+	public function executePrivate(sfWebRequest $request) {
+
+		$this->getResponse()->setTitle('需要登陆 中国林业生物质能源网');
+
+	}
+
+	public function executeSetting(sfWebRequest $request) {
+
+		$this->getResponse()->setTitle('修改密码 中国林业生物质能源网');
+
+	}
+
+	public function executeSavePassword($request) {
+
+		$old_pass	= $request->getParameter('old_pass', '');
+		$password	= $request->getParameter('password', '');
+		$confirm	= $request->getParameter('confirm', '');
+
+		$tableUser	= new Table_users($this->userId);
+
+		$dbPassword	= $tableUser->password;
+		$oldPassword	= $tableUser->setPassword($old_pass);
+
+		if ($tableUser->id && $dbPassword == $oldPassword) {
+
+			$tableUser->setPassword($password);
+
+			$this->getUser()->setFlash('message', $tableUser->save());
+
+			return	$this->redirect('account/setting?msg=savePassOK');
+
+
+		} else {
+
+
+			$request->setError('old_pass', '原始密码不正确');
+
+			return	$this->forward('account', 'setting');
+
+		}
+
+	}
+
+	public function handleErrorSavePassword() {
+		$this->forward('account', 'setting');
 	}
 
 }

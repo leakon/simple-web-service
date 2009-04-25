@@ -103,6 +103,23 @@ if ($sf_user->hasFlash('article_saved_ok')) {
 	</td>
 </tr>
 <tr>
+	<td class="col_name">公开属性</td>
+	<td>
+		<label>
+		<?php
+			echo radiobutton_tag('is_private', 0, 0 == $articleItem->is_private);
+		?>
+		公开</label>
+
+		<label>
+		<?php
+			echo radiobutton_tag('is_private', 1, 1 == $articleItem->is_private);
+		?>
+		私有</label>
+
+	</td>
+</tr>
+<tr>
 	<td class="col_name">关键字</td>
 	<td>
 		<input type="text" class="input_text" name="keyword" value="<?php echo S::E($articleItem->keyword) ?>" />
@@ -147,6 +164,7 @@ if ($sf_user->hasFlash('article_saved_ok')) {
 	<td>
 		<input type="submit" value="保存" class="btn" />
 		<a href="<?php echo url_for('article/index') ?>?top_category=<?php echo $topCateId ?>&sub_category=<?php echo $subCateId ?>&kw=">取消</a>
+		<a href="/article/show/id/<?php echo $articleItem->id ?>" target="_blank">预览</a>
 	</td>
 </tr>
 
