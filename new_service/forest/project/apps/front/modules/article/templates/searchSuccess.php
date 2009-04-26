@@ -150,3 +150,9 @@
 
 
   </div><!-- end sandwich -->
+
+
+<?php
+
+#	Debug::pr(SofavDB_Debug_PDO::getTimer());
+

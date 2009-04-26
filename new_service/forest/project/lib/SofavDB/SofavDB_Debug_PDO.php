@@ -31,8 +31,10 @@ class SofavDB_Debug_PDO extends PDO {
  * @package     SofavDB
  * @subpackage  Debug_PDO_Statement
  * @link        www.leakon.com
- * @version     2009-01-07
+ * @version     2009-04-26
  * @author      Leakon <leakon@gmail.com>
+ *
+ * @notice	add sql_2 and bind field to getTimer, show real sql sent to MySQL
  */
 class SofavDB_Debug_PDO_Statement {
 
@@ -50,6 +52,7 @@ class SofavDB_Debug_PDO_Statement {
 		}
 
 		$this->sqlPrepare	= $sqlToPrepare;
+
 	}
 
 	public function __call($method, $arguments) {
@@ -62,6 +65,8 @@ class SofavDB_Debug_PDO_Statement {
 
 		if ('execute' == $method) {
 			$arrTimer['sql']	= '[' . $ret . '] ' . $this->sqlPrepare;
+			$arrTimer['sql_2']	= $arrTimer['sql'];
+			$arrTimer['bind']	= isset($arguments[0]) ? $arguments[0] : array();
 		}
 
 		self::$arrTimerLog[]	= $arrTimer;
@@ -72,6 +77,8 @@ class SofavDB_Debug_PDO_Statement {
 	public static function getTimer($detail = false) {
 
 		if (count(self::$arrTimerLog)) {
+
+			$conn		= SofavDB_Manager::getConnection();
 
 			$arrLog		= self::$arrTimerLog;
 
@@ -87,6 +94,12 @@ class SofavDB_Debug_PDO_Statement {
 				$eachTime			= sprintf('%4.6f', $arrTimer['end'] - $arrTimer['begin']);
 				$arrLog[$key]['time']		= number_format($eachTime * 1000, 3, '.', ',') . ' ms';
 				$totalTime			+= $eachTime;
+
+				foreach ($arrLog[$key]['bind'] as $bindKey => $bindValue) {
+
+					$arrLog[$key]['sql_2']	= str_replace(':' . $bindKey, $conn->quote($bindValue), $arrLog[$key]['sql_2']);
+
+				}
 
 				if (!$detail) {
 					unset($arrLog[$key]['begin']);
