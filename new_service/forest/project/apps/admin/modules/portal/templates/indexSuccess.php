@@ -75,9 +75,9 @@ $arrOptionNoPic	= array(
 
 
 			if ('swf' == $ext) {
-				$str	.= sprintf('<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="660" height="100"><param name="movie" value="%s"><param name="quality" value="high"><param name="menu" value="false"><param name="wmode" value="opaque"><param name="FlashVars" value=""><embed src="%s" wmode="opaque" flashvars="" false="" quality="high" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" width="660" height="100"></object></p>', $imgSrc, $imgSrc);
+				$str	.= sprintf('<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="220" height="33"><param name="movie" value="%s"><param name="quality" value="high"><param name="menu" value="false"><param name="wmode" value="opaque"><param name="FlashVars" value=""><embed src="%s" wmode="opaque" flashvars="" false="" quality="high" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" width="220" height="33"></object></p>', $imgSrc, $imgSrc);
 			} else {
-				$str	.= sprintf('<p><a href="%s" target="_blank"><img src="%s" width="660" height="100" /></a></p>', $imgLink, $imgSrc);
+				$str	.= sprintf('<p><a href="%s" target="_blank"><img src="%s" width="220" height="33" /></a></p>', $imgLink, $imgSrc);
 			}
 
 		}
