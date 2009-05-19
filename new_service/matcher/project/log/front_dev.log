@@ -1,0 +1,34 @@
+May 19 20:24:32 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+May 19 20:24:32 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+May 19 20:24:32 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+May 19 20:24:32 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 19 20:24:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 19 20:24:32 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+May 19 20:24:32 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+May 19 20:24:32 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+May 19 20:24:32 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\symfony\sofav_2008_2\stable\symfony-1.2.4\lib/controller/default/templates/indexSuccess.php"
+May 19 20:24:32 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\symfony\sofav_2008_2\stable\symfony-1.2.4\lib\controller\default\templates/defaultLayout.php"
+May 19 20:24:32 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\symfony\sofav_2008_2\stable\symfony-1.2.4\lib\controller\default\templates/defaultLayout.php"
+May 19 20:24:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+May 19 20:24:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 19 20:24:32 symfony [info] {sfWebDebugLogger} Configuration 133.92 ms (10)
+May 19 20:24:32 symfony [info] {sfWebDebugLogger} Action "default/index" 20.60 ms (1)
+May 19 20:24:32 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 145.64 ms (1)
+May 19 20:24:32 symfony [info] {sfWebResponse} Send content (29810 o)
+May 19 20:24:44 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+May 19 20:24:44 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+May 19 20:24:44 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+May 19 20:24:44 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+May 19 20:24:44 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+May 19 20:24:44 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+May 19 20:24:44 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+May 19 20:24:44 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+May 19 20:24:44 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\symfony\sofav_2008_2\stable\symfony-1.2.4\lib/controller/default/templates/indexSuccess.php"
+May 19 20:24:44 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\symfony\sofav_2008_2\stable\symfony-1.2.4\lib\controller\default\templates/defaultLayout.php"
+May 19 20:24:44 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\symfony\sofav_2008_2\stable\symfony-1.2.4\lib\controller\default\templates/defaultLayout.php"
+May 19 20:24:44 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+May 19 20:24:44 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+May 19 20:24:44 symfony [info] {sfWebDebugLogger} Configuration 319.39 ms (9)
+May 19 20:24:44 symfony [info] {sfWebDebugLogger} Action "default/index" 6.63 ms (1)
+May 19 20:24:44 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 41.94 ms (1)
+May 19 20:24:44 symfony [info] {sfWebResponse} Send content (30098 o)

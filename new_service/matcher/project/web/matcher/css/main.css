@@ -1,0 +1,50 @@
+
+body			{font-size:12px;}
+
+ul			{margin:0; padding:0;}
+li			{list-style:none; }
+
+.floatBox		{clear:both; overflow:auto; zoom:1;}
+.float			{float:left;}
+.f_right		{float:right;}
+.relative		{position:relative;}
+.absolute		{position:absolute;}
+.gray_text		{color:#999;}
+.margin_v_12		{margin:12px 0;}
+.margin_h_8		{margin:0 8px;}
+.margin_h_18		{margin:0 18px;}
+.hl_light_green		{color:#E0FF92;}
+.bold_text		{font-weight:bold;}
+.tiny_display		{width:0px; height:0px; overflow:hidden;}
+
+p			{margin:0; padding:0;}
+
+div#header		{background:#FF9900; height:40px; width:776px; border:1px solid black; color:white; padding:12px;}
+
+div#mainBody		{width:802px;}
+
+div#pagerLink		{text-align:center;}
+div#pagerLink span		{color:red; font-weight:bold;}
+
+
+table#mainTable			{width:802px; background:#000; border:0;}
+table#mainTable th,
+table#mainTable td		{background:#FFF; vertical-align:top; padding:12px;}
+table#mainTable td.menu		{width:100px;}
+table#mainTable td.menu li		{margin:0 0 8px 0;}
+
+
+table#mainTable div.contentBox				{xborder:1px solid red;}
+table#mainTable div.contentBox div.boxHeader			{clear:both;}
+table#mainTable div.contentBox div.boxBody			{clear:both;}
+
+
+table#mainTable div.contentBox table.item_list			{width:100%; background:#000; margin:8px 0;}
+table#mainTable div.contentBox table.item_list thead th		{background:#D7D7D7;}
+table#mainTable div.contentBox table.item_list th,
+table#mainTable div.contentBox table.item_list td		{line-height:18px;}
+
+table#mainTable div.contentBox table.item_list th.num		{text-align:left; width:50px;}
+table#mainTable div.contentBox table.item_list th.brand		{}
+table#mainTable div.contentBox table.item_list th.edit		{width:60px;}
+table#mainTable div.contentBox table.item_list td.edit		{text-align:center;}
