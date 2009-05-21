@@ -14,7 +14,7 @@
 
 	<div class="boxHeader">
 
-		<h3>修改<?php echo $brandName ?> - <?php echo S::E($dataItem->name) ?></h3>
+		<h3>修改<?php echo $brandName ?></h3>
 
 		<div class="">
 
@@ -24,32 +24,17 @@
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
-			<table>
-			<tr>
-				<td>商品类型</td>
-				<td>
-					<select name="product_id">
-					<?php
-						echo	options_for_select($arrProducts, $dataItem->product_id);
-					?>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>标签</td>
-				<td>
-					<input type="text" id="id_add_input" name="name" value="<?php echo S::E($dataItem->name) ?>" />
-				</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>
-					<input type="submit" id="id_form_submit" value="保存" />
+			<input type="text" id="id_add_input_min" name="min" value="<?php echo $dataItem->min ?>" size="5" />
 
-					<a href="<?php echo url_for($strModuleName . '/index') ?>" id="id_clear_add_input">取消</a>
-				</td>
-			</tr>
-			</table>
+			至
+
+			<input type="text" id="id_add_input_max" name="max" value="<?php echo $dataItem->max ?>" size="5" />
+
+			<input type="submit" id="id_form_submit" value="保存" />
+
+			<a href="javascript:;" id="id_clear_add_input">取消</a>
+
+			<a href="<?php echo url_for($strModuleName . '/index') ?>">返回列表</a>
 
 			</form>
 
@@ -67,6 +52,18 @@
 <script type="text/javascript">
 
 $('id_form_submit').disabled	= false;
+
+$('id_clear_add_input').addEvent('click', function() {
+	$('id_add_input_min').set('value', '');
+	$('id_add_input_max').set('value', '');
+	$('id_add_input_weight').set('value', '');
+	$('id_tag_exist').set('html', '');
+	var objTagError	= $('id_tag_error');
+	if (objTagError) {
+		objTagError.set('html', '');
+	}
+});
+
 
 </script>
 

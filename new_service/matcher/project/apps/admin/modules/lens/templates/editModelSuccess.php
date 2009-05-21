@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template of [camera/styleSuccess]
+ * Template of [lens/editModelSuccess]
  *
  */
 
@@ -21,7 +21,6 @@
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
-
 			<table>
 			<tr>
 				<td>选择品牌</td>
@@ -34,11 +33,11 @@
 				</td>
 			</tr>
 			<tr>
-				<td>选择类型</td>
+				<td>选择口径</td>
 				<td>
-					<select name="style_id">
+					<select name="caliber_id">
 					<?php
-						echo	options_for_select($arrStyles, $dataItem->style_id);
+						echo	options_for_select($arrStyles, $dataItem->caliber_id);
 					?>
 					</select>
 				</td>

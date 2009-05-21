@@ -59,19 +59,24 @@ class Table_data_model extends SofavDB_Table {
 	 */
 	public static function getOption($arrResult, $key, $val) {
 
-		$arrRet		= array();
-
-		foreach ($arrResult as $record) {
-
-			if (isset($record[$key]) && isset($record[$val])) {
-
-				$arrRet[$record[$key]]	= $record[$val];
-
-			}
-
-		}
-
-		return	$arrRet;
+		return		Array_Util::ColToPlain($arrResult, $key, $val);
 
 	}
+
+
+	public static function getTags($productId) {
+
+		$arrWhere		= array();
+		$arrWhere['type']	= MatcherConstant::BRAND_TYPE_TAG;		// ±êÇ©
+		$arrWhere['product_id']	= $productId;					// ²úÆ·ID
+		$arrResult		= Table_data_model::getResult($arrWhere);
+
+		$arrTags		= self::getOption($arrResult, 'id', 'name');
+
+		return			$arrTags;
+
+	}
+
+
+
 }

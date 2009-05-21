@@ -11,4 +11,23 @@ class ProjectConfiguration extends sfProjectConfiguration
 #    $this->enableAllPluginsExcept(array('sfDoctrinePlugin', 'sfCompat10Plugin'));
     $this->enableAllPluginsExcept(array('sfDoctrinePlugin', 'sfPropelPlugin'));
   }
+
+
+
+	public static function getUploadDir() {
+
+		$webDir		= sfConfig::get('sf_web_dir');
+
+		$uploadDir	= $webDir . '/matcher/uploads/';
+
+		return		$uploadDir;
+
+
+	}
+
+	public static function getWebUploadDir() {
+
+		return		'/matcher/uploads/';
+
+	}
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template of [camera/styleSuccess]
+ * Template of [stand/modelSuccess]
  *
  */
 
@@ -15,12 +15,14 @@
 
 		<div class="">
 
-			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/save') ?>" method="post">
+			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/saveCom') ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="from" value="model" />
 			<input type="hidden" name="id" value="<?php echo $dataItem->id ?>" />
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
+
+			添加新<?php echo $brandName ?>
 
 			<table>
 			<tr>
@@ -28,17 +30,7 @@
 				<td>
 					<select name="product_id">
 					<?php
-						echo	options_for_select($arrProducts, $dataItem->product_id);
-					?>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>选择类型</td>
-				<td>
-					<select name="style_id">
-					<?php
-						echo	options_for_select($arrStyles, $dataItem->style_id);
+						echo	options_for_select($arrProducts, 1);
 					?>
 					</select>
 				</td>
@@ -50,9 +42,62 @@
 				</td>
 			</tr>
 			<tr>
+				<td>链接</td>
+				<td>
+					<input type="text" id="id_add_input_link" name="link" value="<?php echo S::E($dataItem->link) ?>" />
+				</td>
+			</tr>
+			<tr>
+				<td>图片</td>
+				<td>
+					<input type="file" id="id_add_input_pic" name="pic" value="<?php echo S::E($dataItem->pic) ?>" />
+
+					<?php
+
+						if (strlen($dataItem->pic)) {
+
+							echo	sprintf('<p><img src="%s" class="list_img" alt="" /></p>',
+									$webUploadDir . $dataItem->pic,
+									$webUploadDir . $dataItem->pic
+									);
+
+							echo	sprintf('%s<input type="text" id="id_add_input_pic_save" name="pic_save" value="%s" size="36" />',
+									$webUploadDir, S::E($dataItem->pic)
+									);
+
+
+						}
+
+					?>
+				</td>
+			</tr>
+			<tr>
+				<td>标签</td>
+				<td>
+					<?php
+
+					#	Debug::pr($arrTags);
+
+						echo	MyHelp::showTagInput($arrTags, $dataItem->id);
+
+					?>
+
+				</td>
+			</tr>
+			<tr>
 				<td>重量</td>
 				<td>
 					<input type="text" id="id_add_input_weight" name="weight" value="<?php echo S::E($dataItem->weight) ?>" size="10" /> Kg
+				</td>
+			</tr>
+			<tr>
+				<td>价格区间</td>
+				<td>
+					<select name="caliber_id">
+					<?php
+						echo	options_for_select($arrStyles, 1);
+					?>
+					</select>
 				</td>
 			</tr>
 			<tr>
