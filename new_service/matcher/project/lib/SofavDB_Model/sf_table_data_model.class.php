@@ -27,7 +27,12 @@ class Table_data_model extends SofavDB_Table {
 						'min',
 						'max',
 						'detail',
-						'serial',
+						'ext_vol_type',
+						'ext_vol_long',
+						'ext_vol_wide',
+						'ext_vol_flash',
+						'ext_vol_notebook',
+						'ext_vol_accessory',
 					);
 
 		$this->hasColumns($arrColumns);

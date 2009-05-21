@@ -66,9 +66,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td>重量</td>
+				<td>口径</td>
 				<td>
-					<input type="text" id="id_add_input_weight" name="weight" value="<?php echo S::E($dataItem->weight) ?>" size="10" /> Kg
+					<input type="text" id="id_add_input_caliber" name="caliber" value="<?php echo S::E($dataItem->caliber) ?>" size="10" /> mm
 				</td>
 			</tr>
 			<tr>
@@ -108,10 +108,10 @@
 	<thead>
 		<tr>
 			<th width="100"><input type="checkbox" id="id_check_all" value="" />品牌</th>
-			<th width="">图片</th>
 			<th width="">型号</th>
+			<th width="">图片</th>
 			<th width="">标签</th>
-			<th width="60">承重（Kg）</th>
+			<th width="60">口径（mm）</th>
 			<th width="">链接</th>
 			<th width="">价格区间</th>
 			<th class="edit">操作</th>
@@ -136,6 +136,7 @@
 
 ?>
 			</td>
+			<td><?php echo S::E($dataItem['style']) ?></td>
 			<td>
 				<?php
 
@@ -152,7 +153,6 @@
 				?>
 
 			</td>
-			<td><?php echo S::E($dataItem['style']) ?></td>
 			<td>
 				<?php
 
@@ -161,7 +161,7 @@
 				?>
 				&nbsp;
 			</td>
-			<td><?php echo S::E($dataItem['weight']) ?></td>
+			<td><?php echo S::E($dataItem['caliber']) ?></td>
 			<td><a href="<?php echo S::E($dataItem['link']) ?>" target="_blank"><?php echo S::E($dataItem['link']) ?></a></td>
 			<td><?php echo $arrStyles[$dataItem['price_id']] ?></td>
 			<td class="edit tag_edit">

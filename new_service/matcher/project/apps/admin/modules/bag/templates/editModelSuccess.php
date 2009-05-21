@@ -82,9 +82,19 @@
 				</td>
 			</tr>
 			<tr>
-				<td>重量</td>
+				<td>容量</td>
 				<td>
-					<input type="text" id="id_add_input_weight" name="weight" value="<?php echo S::E($dataItem->weight) ?>" size="10" /> Kg
+
+					<?php
+
+					#	Debug::pr($dataItem);
+
+					#	$dataItem->ext_vol_type	= 200;
+					#	$dataItem->ext_vol_accessory	= '1';
+
+						echo	MyHelp::showBagType($dataItem);
+					?>
+
 				</td>
 			</tr>
 			<tr>

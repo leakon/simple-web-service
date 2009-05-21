@@ -54,4 +54,107 @@ class MyHelp {
 
 	}
 
+
+	public static function showBagType($objItem) {
+
+		$arrRet			= array();
+
+		// 默认选取 A 类型的摄影包
+		$radioCheckValue	= isset($objItem->ext_vol_type) ? $objItem->ext_vol_type : MatcherConstant::BAG_VOL_A;
+
+		foreach (MatcherConstant::getVolumns() as $key_1 => $val_1) {
+
+			$arrRet[]	= sprintf(''
+						. '<input %s type="radio" name="ext_vol_type" value="%s" id="id_vol_type_%s" />'
+						. '<label for="id_vol_type_%s">%s</label> &nbsp; &nbsp; ' . "\n",
+						($radioCheckValue == $key_1 ? 'checked="checked"' : ''),
+						$key_1, $key_1, $key_1, $val_1
+					);
+
+		}
+
+		$arrRet[]	= '<br />';
+
+		foreach (MatcherConstant::getVolumnType() as $key_1 => $val_1) {
+
+
+			if ($key_1 == MatcherConstant::BAG_VOL_ACCESSORY) {
+				// 附件是 checkbox
+
+				// $val_1 是字段名
+				$checked	= isset($objItem->$key_1) && '1' == $objItem->$key_1;
+
+				$arrRet[]	= sprintf('<label for="id_vol_%s">%s</label>'
+						. '<input type="checkbox" name="%s" value="1" id="id_vol_%s" %s />'
+						. ' &nbsp; &nbsp; ' . "\n",
+						$key_1, $val_1,
+						$key_1, $key_1,
+						($checked ? 'checked="checked"' : '')
+
+
+					);
+
+			} else {
+
+				// $val_1 是字段名
+				$value		= isset($objItem->$key_1) ? $objItem->$key_1 : '';
+
+				$arrRet[]	= sprintf('<label for="id_vol_%s">%s</label>'
+						. '<input type="text" name="%s" value="%s" id="id_vol_%s" size="4" />'
+						. '&nbsp; &nbsp;  ' . "\n",
+						$key_1, $val_1,
+						$key_1, $value, $key_1
+
+					);
+			}
+
+		}
+
+		return	implode('', $arrRet);
+
+	}
+
+	public static function showBagInlineType($itemRecord, $sepChar = ', ') {
+
+		$arrRet			= array();
+
+		$arrResult		= MatcherConstant::getVolumns();
+
+		if (isset($itemRecord['ext_vol_type'])) {
+
+			$key			= $itemRecord['ext_vol_type'];
+
+			$arrRet[]		= isset($arrResult[$key]) ? ('[' . $arrResult[$key] . ']') : '';
+
+		}
+
+		foreach (MatcherConstant::getVolumnType() as $key_1 => $val_1) {
+
+			if ($key_1 == MatcherConstant::BAG_VOL_ACCESSORY) {
+
+				if (isset($itemRecord[$key_1])) {
+
+					$arrRet[]	= sprintf('%s', $val_1);
+
+				}
+
+
+			} else {
+
+				if (isset($itemRecord[$key_1])) {
+
+					$arrRet[]	= sprintf('%s:%d', $val_1, $itemRecord[$key_1]);
+
+				}
+
+			}
+
+		}
+
+	#	Debug::pr($arrRet);
+
+		return	implode($sepChar, $arrRet);
+
+	}
+
 }

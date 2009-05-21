@@ -55,12 +55,12 @@
 	  					</li>
 	  					<li><a href="<?php echo url_for('bag/index') ?>">摄影包</a>
 	  						<ul class="indent">
-	  							<li><a href="<?php echo url_for('camera/index') ?>">添加新摄影包</a></li>
+	  							<li><a href="<?php echo url_for('bag/model') ?>">摄影包型号管理</a></li>
 	  						</ul>
 	  					</li>
 	  					<li><a href="<?php echo url_for('filter/index') ?>">滤镜</a>
 	  						<ul class="indent">
-	  							<li><a href="<?php echo url_for('camera/index') ?>">添加新滤镜</a></li>
+	  							<li><a href="<?php echo url_for('filter/model') ?>">滤镜型号管理</a></li>
 	  						</ul>
 	  					</li>
 	  					<li><a href="<?php echo url_for('holder/index') ?>">云台</a>
@@ -68,7 +68,7 @@
 	  							<li><a href="<?php echo url_for('holder/model') ?>">云台型号管理</a></li>
 	  						</ul>
 	  					</li>
-	  					<li><a href="<?php echo url_for('holder/index') ?>">用户管理</a></li>
+	  					<li><a href="#<?php echo url_for('holder/index') ?>">用户管理</a></li>
 	  					<li><a href="<?php echo url_for('tag/index') ?>">标签管理</a></li>
 	  					<li><a href="<?php echo url_for('price/index') ?>">价格区间</a></li>
 
