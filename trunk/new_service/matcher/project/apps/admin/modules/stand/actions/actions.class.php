@@ -21,7 +21,7 @@ class standActions extends BaseBrandActions
 
 
 		$arrWhere		= array();
-		$arrWhere['type']	= MatcherConstant::BRAND_TYPE_PRICE;		// 镜头口径
+		$arrWhere['type']	= MatcherConstant::BRAND_TYPE_PRICE;		// 价格区间
 		$arrResult		= Table_data_model::getResult($arrWhere);
 
 		$arrMin			= Table_data_model::getOption($arrResult, 'id', 'min');

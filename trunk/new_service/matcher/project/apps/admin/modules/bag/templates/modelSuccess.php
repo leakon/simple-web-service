@@ -25,7 +25,7 @@
 
 			<table>
 			<tr>
-				<td>选择品牌</td>
+				<td>品牌</td>
 				<td>
 					<select name="product_id">
 					<?php
@@ -66,9 +66,17 @@
 				</td>
 			</tr>
 			<tr>
-				<td>重量</td>
+				<td>容量</td>
 				<td>
-					<input type="text" id="id_add_input_weight" name="weight" value="<?php echo S::E($dataItem->weight) ?>" size="10" /> Kg
+
+					<?php
+
+					#	$dataItem->ext_vol_type	= 200;
+					#	$dataItem->ext_vol_accessory	= '1';
+
+						echo	MyHelp::showBagType($dataItem);
+					?>
+
 				</td>
 			</tr>
 			<tr>
@@ -108,10 +116,10 @@
 	<thead>
 		<tr>
 			<th width="100"><input type="checkbox" id="id_check_all" value="" />品牌</th>
-			<th width="">图片</th>
 			<th width="">型号</th>
+			<th width="">图片</th>
 			<th width="">标签</th>
-			<th width="60">承重（Kg）</th>
+			<th width="">容量</th>
 			<th width="">链接</th>
 			<th width="">价格区间</th>
 			<th class="edit">操作</th>
@@ -136,6 +144,7 @@
 
 ?>
 			</td>
+			<td><?php echo S::E($dataItem['style']) ?></td>
 			<td>
 				<?php
 
@@ -152,7 +161,6 @@
 				?>
 
 			</td>
-			<td><?php echo S::E($dataItem['style']) ?></td>
 			<td>
 				<?php
 
@@ -161,7 +169,7 @@
 				?>
 				&nbsp;
 			</td>
-			<td><?php echo S::E($dataItem['weight']) ?></td>
+			<td><?php echo MyHelp::showBagInlineType($dataItem, ', ') ?>&nbsp;</td>
 			<td><a href="<?php echo S::E($dataItem['link']) ?>" target="_blank"><?php echo S::E($dataItem['link']) ?></a></td>
 			<td><?php echo $arrStyles[$dataItem['price_id']] ?></td>
 			<td class="edit tag_edit">

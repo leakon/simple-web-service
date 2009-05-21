@@ -82,9 +82,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td>重量</td>
+				<td>口径</td>
 				<td>
-					<input type="text" id="id_add_input_weight" name="weight" value="<?php echo S::E($dataItem->weight) ?>" size="10" /> Kg
+					<input type="text" id="id_add_input_caliber" name="caliber" value="<?php echo S::E($dataItem->caliber) ?>" size="10" /> mm
 				</td>
 			</tr>
 			<tr>
