@@ -36,12 +36,41 @@
 	  		<tr>
 	  			<td class="menu">
 	  				<ul>
-	  					<li><a href="<?php echo url_for('camera/index') ?>">相机</a></li>
-	  					<li><a href="<?php echo url_for('lens/index') ?>">镜头</a></li>
-	  					<li><a href="<?php echo url_for('stand/index') ?>">脚架</a></li>
-	  					<li><a href="<?php echo url_for('bag/index') ?>">摄影包</a></li>
-	  					<li><a href="<?php echo url_for('filter/index') ?>">滤镜</a></li>
-	  					<li><a href="<?php echo url_for('holder/index') ?>">云台</a></li>
+	  					<li><a href="<?php echo url_for('camera/index') ?>">相机品牌管理</a>
+	  						<ul class="indent">
+	  							<li><a href="<?php echo url_for('camera/style') ?>">相机类型管理</a></li>
+	  							<li><a href="<?php echo url_for('camera/model') ?>">相机型号管理</a></li>
+	  						</ul>
+	  					</li>
+	  					<li><a href="<?php echo url_for('lens/index') ?>">镜头</a>
+	  						<ul class="indent">
+	  							<li><a href="<?php echo url_for('caliber/index') ?>">镜头口径管理</a></li>
+	  							<li><a href="<?php echo url_for('camera/index') ?>">镜头型号管理</a></li>
+	  						</ul>
+	  					</li>
+	  					<li><a href="<?php echo url_for('stand/index') ?>">脚架</a>
+	  						<ul class="indent">
+	  							<li><a href="<?php echo url_for('camera/index') ?>">添加新脚架</a></li>
+	  						</ul>
+	  					</li>
+	  					<li><a href="<?php echo url_for('bag/index') ?>">摄影包</a>
+	  						<ul class="indent">
+	  							<li><a href="<?php echo url_for('camera/index') ?>">添加新摄影包</a></li>
+	  						</ul>
+	  					</li>
+	  					<li><a href="<?php echo url_for('filter/index') ?>">滤镜</a>
+	  						<ul class="indent">
+	  							<li><a href="<?php echo url_for('camera/index') ?>">添加新滤镜</a></li>
+	  						</ul>
+	  					</li>
+	  					<li><a href="<?php echo url_for('holder/index') ?>">云台</a>
+	  						<ul class="indent">
+	  							<li><a href="<?php echo url_for('camera/index') ?>">添加新云台</a></li>
+	  						</ul>
+	  					</li>
+	  					<li><a href="<?php echo url_for('holder/index') ?>">用户管理</a></li>
+	  					<li><a href="<?php echo url_for('tag/index') ?>">标签管理</a></li>
+	  					<li><a href="<?php echo url_for('price/index') ?>">价格区间</a></li>
 
 
 	  				</ul>

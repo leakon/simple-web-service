@@ -8,7 +8,7 @@ class lensActions extends BaseBrandActions
 
 		$this->type		= MatcherConstant::BRAND_TYPE_LENS;
 
-		$this->brandName	= '镜头';
+		$this->brandName	= '镜头品牌';
 
 	}
 

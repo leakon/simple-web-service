@@ -1,22 +1,18 @@
 <?php
 
-/**
- * price actions.
- *
- * @package    matcher
- * @subpackage price
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 12479 2008-10-31 10:54:40Z fabien $
- */
-class priceActions extends sfActions
+class priceActions extends BaseBrandActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('default', 'module');
-  }
+	public function preExecute() {
+
+		parent::preExecute();
+
+		$this->type		= MatcherConstant::BRAND_TYPE_PRICE;
+
+		$this->brandName	= '价格区间';
+
+		$this->strCName		= '区间';		// 中文名，默认是品牌
+
+		$this->useGlobalTemplate	= false;
+	}
+
 }

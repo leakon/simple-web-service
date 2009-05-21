@@ -1,22 +1,17 @@
 <?php
 
-/**
- * tag actions.
- *
- * @package    matcher
- * @subpackage tag
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 12479 2008-10-31 10:54:40Z fabien $
- */
-class tagActions extends sfActions
+class tagActions extends BaseBrandActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('default', 'module');
-  }
+	public function preExecute() {
+
+		parent::preExecute();
+
+		$this->type		= MatcherConstant::BRAND_TYPE_TAG;
+
+		$this->brandName	= '标签';
+
+		$this->useGlobalTemplate	= false;
+
+	}
+
 }

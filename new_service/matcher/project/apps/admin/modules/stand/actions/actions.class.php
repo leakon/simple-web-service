@@ -8,7 +8,7 @@ class standActions extends BaseBrandActions
 
 		$this->type		= MatcherConstant::BRAND_TYPE_STAND;
 
-		$this->brandName	= '脚架';
+		$this->brandName	= '脚架品牌';
 
 	}
 

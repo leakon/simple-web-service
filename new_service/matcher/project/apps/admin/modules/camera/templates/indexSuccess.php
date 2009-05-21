@@ -14,16 +14,16 @@
 
 	<div class="boxHeader">
 
-		<h3><?php echo $brandName ?>品牌管理</h3>
+		<h3><?php echo $brandName ?>管理</h3>
 
 		<div class="f_right formAddTag">
 
-			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/add') ?>" method="post">
+			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/save') ?>" method="post">
 			<input type="hidden" name="from" value="index" />
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
-				添加新品牌 <input type="text" id="id_add_input" name="name" value="<?php echo S::E($dataItem->name) ?>" />
+				添加新<?php echo $brandName ?> <input type="text" id="id_add_input" name="name" value="<?php echo S::E($dataItem->name) ?>" />
 
 				<input type="submit" id="id_form_submit" value="添加" />
 
@@ -51,7 +51,7 @@
 	<thead>
 		<tr>
 			<th class="num"><input type="checkbox" id="id_check_all" value="" />序列</th>
-			<th class="brand">品牌</th>
+			<th class="brand"><?php echo $strCName ?></th>
 			<th class="edit">操作</th>
 		</tr>
 	</thead>
@@ -84,7 +84,7 @@
 
 	<?php else : ?>
 
-	对不起，没有找到符合条件的品牌。
+	对不起，没有找到符合条件的<?php echo $brandName ?>。
 
 	<?php endif ?>
 

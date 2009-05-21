@@ -1,12 +1,9 @@
 <?php
 
 /**
- * Template of [tag/listSuccess]
+ * Template of [camera/styleSuccess]
  *
  */
-
-#var_dump($type);
-#var_dump($strModuleName);
 
 ?>
 
@@ -19,21 +16,21 @@
 		<div class="f_right formAddTag">
 
 			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/save') ?>" method="post">
-			<input type="hidden" name="from" value="index" />
+			<input type="hidden" name="from" value="style" />
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
-			<?php echo $brandName ?>
+				添加新<?php echo $brandName ?> <input type="text" id="id_add_input" name="name" value="" size="10" />
+				<?php echo $brandName ?>说明 <input type="text" id="id_add_input_detail" name="detail" value="" size="10"  />
 
-			<input type="text" id="id_add_input_min" name="min" value="" size="5" />
+				<input type="submit" id="id_form_submit" value="添加" />
 
-			至
+				<a href="javascript:;" id="id_clear_add_input">取消</a>
 
-			<input type="text" id="id_add_input_max" name="max" value="" size="5" />
-
-			<input type="submit" id="id_form_submit" value="添加" />
-
-			<a href="javascript:;" id="id_clear_add_input">取消</a>
+				<span class="inline_error" id="id_tag_exist"></span>
+				<?php if ($sf_request->hasError('name')): ?>
+				<span class="inline_error" id="id_tag_error"><?php echo $sf_request->getError('name') ?></span>
+				<?php endif; ?>
 
 			</form>
 
@@ -52,7 +49,8 @@
 	<thead>
 		<tr>
 			<th class="num"><input type="checkbox" id="id_check_all" value="" />序列</th>
-			<th class="brand"><?php echo $strCName ?></th>
+			<th class="brand">类型</th>
+			<th>类型说明</th>
 			<th class="edit">操作</th>
 		</tr>
 	</thead>
@@ -73,9 +71,10 @@
 
 ?>
 			</td>
-			<td><?php echo S::E($dataItem['min']) ?> - <?php echo S::E($dataItem['max']) ?></td>
+			<td><?php echo S::E($dataItem['name']) ?></td>
+			<td><?php echo S::E($dataItem['detail']) ?></td>
 			<td class="edit tag_edit">
-				<a href="<?php echo url_for($strModuleName . '/edit?id=' . $dataItem['id']) ?>" class="tag_rn_btn">修改</a>
+				<a href="<?php echo url_for($strModuleName . '/editStyle?id=' . $dataItem['id']) ?>" class="tag_rn_btn">修改</a>
 				<a href="javascript:;" onclick="FormDel('tag_delete_form', <?php echo $dataItem['id'] ?>);">删除</a>
 			</td>
 		</tr>
@@ -119,8 +118,7 @@ include_partial('global/pager', array('pager' => $pager, 'pageUri' => url_for($s
 $('id_form_submit').disabled	= false;
 
 $('id_clear_add_input').addEvent('click', function() {
-	$('id_add_input_min').set('value', '');
-	$('id_add_input_max').set('value', '');
+	$('id_add_input').set('value', '');
 	$('id_tag_exist').set('html', '');
 	var objTagError	= $('id_tag_error');
 	if (objTagError) {

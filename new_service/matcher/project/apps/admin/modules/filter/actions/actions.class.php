@@ -8,7 +8,7 @@ class filterActions extends BaseBrandActions
 
 		$this->type		= MatcherConstant::BRAND_TYPE_FILTER;
 
-		$this->brandName	= '滤镜';
+		$this->brandName	= '滤镜品牌';
 
 	}
 

@@ -8,7 +8,7 @@ class holderActions extends BaseBrandActions
 
 		$this->type		= MatcherConstant::BRAND_TYPE_HOLDER;
 
-		$this->brandName	= '云台';
+		$this->brandName	= '云台品牌';
 
 	}
 

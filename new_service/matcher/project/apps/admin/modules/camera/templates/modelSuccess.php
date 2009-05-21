@@ -1,12 +1,9 @@
 <?php
 
 /**
- * Template of [tag/listSuccess]
+ * Template of [camera/styleSuccess]
  *
  */
-
-#var_dump($type);
-#var_dump($strModuleName);
 
 ?>
 
@@ -16,24 +13,58 @@
 
 		<h3><?php echo $brandName ?>管理</h3>
 
-		<div class="f_right formAddTag">
+		<div class="">
 
 			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/save') ?>" method="post">
-			<input type="hidden" name="from" value="index" />
+			<input type="hidden" name="from" value="model" />
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
-			<?php echo $brandName ?>
 
-			<input type="text" id="id_add_input_min" name="min" value="" size="5" />
+			添加新<?php echo $brandName ?>
 
-			至
+			<table>
+			<tr>
+				<td>选择品牌</td>
+				<td>
+					<select name="product_id">
+					<?php
+						echo	options_for_select($arrProducts, 1);
+					?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>选择类型</td>
+				<td>
+					<select name="style_id">
+					<?php
+						echo	options_for_select($arrStyles, 1);
+					?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>型号</td>
+				<td>
+					<input type="text" id="id_add_input_style" name="style" value="<?php echo S::E($dataItem->style) ?>" />
+				</td>
+			</tr>
+			<tr>
+				<td>重量</td>
+				<td>
+					<input type="text" id="id_add_input_weight" name="weight" value="<?php echo S::E($dataItem->weight) ?>" size="10" /> Kg
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<input type="submit" id="id_form_submit" value="添加" />
 
-			<input type="text" id="id_add_input_max" name="max" value="" size="5" />
-
-			<input type="submit" id="id_form_submit" value="添加" />
-
-			<a href="javascript:;" id="id_clear_add_input">取消</a>
+					<a href="javascript:;" id="id_clear_add_input">取消</a>
+				</td>
+			</tr>
+			</table>
 
 			</form>
 
@@ -51,8 +82,10 @@
 	<table class="item_list tag_list" cellspacing="1" id="id_tag_list_box">
 	<thead>
 		<tr>
-			<th class="num"><input type="checkbox" id="id_check_all" value="" />序列</th>
-			<th class="brand"><?php echo $strCName ?></th>
+			<th width="150"><input type="checkbox" id="id_check_all" value="" />品牌</th>
+			<th width="">类型</th>
+			<th width="">型号</th>
+			<th width="60">重量</th>
 			<th class="edit">操作</th>
 		</tr>
 	</thead>
@@ -71,11 +104,15 @@
 	echo		sprintf('<input type="checkbox" name="checked_folder[%d]" value="%d" class="item_checkbox" /> %d',
 				$dataItem['id'], $dataItem['id'], $idx++);
 
+	echo		$arrProducts[$dataItem['product_id']];
+
 ?>
 			</td>
-			<td><?php echo S::E($dataItem['min']) ?> - <?php echo S::E($dataItem['max']) ?></td>
+			<td><?php echo		$arrStyles[$dataItem['style_id']] ?></td>
+			<td><?php echo S::E($dataItem['style']) ?></td>
+			<td><?php echo S::E($dataItem['weight']) ?></td>
 			<td class="edit tag_edit">
-				<a href="<?php echo url_for($strModuleName . '/edit?id=' . $dataItem['id']) ?>" class="tag_rn_btn">修改</a>
+				<a href="<?php echo url_for($strModuleName . '/editModel?id=' . $dataItem['id']) ?>" class="tag_rn_btn">修改</a>
 				<a href="javascript:;" onclick="FormDel('tag_delete_form', <?php echo $dataItem['id'] ?>);">删除</a>
 			</td>
 		</tr>
@@ -119,8 +156,8 @@ include_partial('global/pager', array('pager' => $pager, 'pageUri' => url_for($s
 $('id_form_submit').disabled	= false;
 
 $('id_clear_add_input').addEvent('click', function() {
-	$('id_add_input_min').set('value', '');
-	$('id_add_input_max').set('value', '');
+	$('id_add_input_style').set('value', '');
+	$('id_add_input_weight').set('value', '');
 	$('id_tag_exist').set('html', '');
 	var objTagError	= $('id_tag_error');
 	if (objTagError) {
