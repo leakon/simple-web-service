@@ -5,14 +5,21 @@ class BaseBrandActions extends sfActions {
 	public function preExecute() {
 
 		$this->type		= 0;
-		$this->dataClass	= 'Table_data_brand';
+	#	$this->dataClass	= 'Table_data_brand';
+		$this->dataClass	= 'Table_data_model';
 		$this->strModuleName	= $this->getContext()->getModuleName();
+
+		$this->strCName		= '品牌';		// 中文名，默认是品牌
+
+		$this->useGlobalTemplate	= true;
+
+
+		$this->arrProducts	= MatcherConstant::getProducts();
+
 
 	}
 
-	public function executeIndex(sfWebRequest $request) {
-
-		$this->setTemplate('index', 'camera');
+	protected function getIndexData(sfWebRequest $request) {
 
 		$tableDataTag		= new $this->dataClass();
 
@@ -36,10 +43,17 @@ class BaseBrandActions extends sfActions {
 
 	}
 
-	public function executeAdd($request) {
+	public function executeIndex(sfWebRequest $request) {
 
-	#	$arrParameters		= $request->getParameterHolder()->getAll();
-	#	Debug::pre($arrParameters);
+		if ($this->useGlobalTemplate) {
+			$this->setTemplate('index', 'camera');
+		}
+
+		$this->getIndexData($request);
+
+	}
+
+	public function executeAdd($request) {
 
 		$tagName		= $request->getParameter('name', '');
 		$tagType		= (int) $request->getParameter('type', 0);
@@ -68,19 +82,42 @@ class BaseBrandActions extends sfActions {
 
 		}
 
-		//		'tag/list'
-		$this->redirect($this->strModuleName . '/index?added=' . ($bool ? '1' : '0'));
+		$parameters		= array();
+	#	$parameters['saved']	= intval($bool);
+
+		$refer			= $request->getParameter('refer');
+		$refer			= false;
+
+		return	ActionsUtil::redirect($this->strModuleName . '/index', $parameters, $refer);
 
 	}
 
-	/**
-	 * 删除 tag
-	 *
-	 * 删除流程：
-	 * 1、删除关系映射 sf_map_item_tag
-	 * 2、更新缓存 sf_cache_item
-	 * 3、删除数据 sf_data_tag
-	 */
+	public function executeSave($request) {
+
+		ActionsUtil::needPOST($request);		// 必须是 POST 方法
+
+		$arrParameters		= $request->getParameterHolder()->getAll();
+
+		$bool			= false;
+		$tagId			= (int) $request->getParameter('id', 0);
+		$tagItem		= new $this->dataClass($tagId);
+
+		$tagItem->fromArray($arrParameters);
+
+		$bool			= $tagItem->save();
+
+		$parameters		= array();
+	#	$parameters['saved']	= intval($bool);
+
+		$refer			= $request->getParameter('refer');
+	#	$refer			= false;
+
+		$uri			= sprintf('%s/%s', $this->strModuleName, $request->getParameter('from', 'index'));
+
+		return	ActionsUtil::redirect($uri, $parameters, $refer);
+
+	}
+
 	public function executeDelete($request) {
 
 		ActionsUtil::needPOST($request);		// 必须是 POST 方法
@@ -101,15 +138,19 @@ class BaseBrandActions extends sfActions {
 
 			$result			= $bool ? 'Success' : 'Failure';
 
-			$this->redirect($this->strModuleName . '/index');
+		#	$this->redirect($this->strModuleName . '/index');
 		}
 
+		$parameters		= array();
+	#	$parameters['deleted']	= intval($bool);
+
+		$refer			= $request->getParameter('refer');
+	#	$refer			= false;
+
+		return	ActionsUtil::redirect($this->strModuleName . '/index', $parameters, $refer);
 	}
 
-
-	public function executeEdit($request) {
-
-		$this->setTemplate('edit', 'camera');
+	protected function getEditData(sfWebRequest $request) {
 
 		$_data_class		= $this->dataClass;
 
@@ -119,45 +160,17 @@ class BaseBrandActions extends sfActions {
 
 	}
 
+	public function executeEdit($request) {
 
-	/**
-	 * 修改 tag
-	 *
-	 * 修改流程：
-	 * 1、更新 tag，在 sf_data_tag 表
-	 * 2、逐一更新映射关系中对应的 item 缓存，在 sf_map_item_tag 表
-	 */
-	public function executeSave($request) {
-
-		ActionsUtil::needPOST($request);		// 必须是 POST 方法
-
-		$bool			= false;
-		$tagId			= (int) $request->getParameter('id', 0);
-		$tagName		= $request->getParameter('name', '');
-		$_data_class		= $this->dataClass;
-
-		if ($tagId) {
-
-			$tagItem		= new $_data_class($tagId);
-
-			if ($tagItem->id) {
-
-				$tagItem->name		= $tagName;
-				$bool			= $tagItem->save();
-
-			}
-
+		if ($this->useGlobalTemplate) {
+			$this->setTemplate('edit', 'camera');
 		}
 
-		$parameters		= array();
-		$parameters['saved']	= intval($bool);
+		$this->getEditData($request);
 
-		$refer			= $request->getParameter('refer');
-		$refer			= false;
-
-		return	ActionsUtil::redirect($this->strModuleName . '/index', $parameters, $refer);
 
 	}
+
 
 
 }

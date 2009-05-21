@@ -55,8 +55,10 @@ class ActionsUtil {
 			$urlPrefix	= sfContext::getInstance()->getController()->genUrl($uri);
 
 			$location	= $urlPrefix;
-			$location	.= (true === strpos($urlPrefix, '?')) ? '&' : '?';
-			$location	.= $queryString;
+			if (strlen($queryString)) {
+				$location	.= (true === strpos($urlPrefix, '?')) ? '&' : '?';
+				$location	.= $queryString;
+			}
 		}
 
 		header('Location: ' . $location);

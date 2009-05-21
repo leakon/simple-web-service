@@ -16,8 +16,10 @@ li			{list-style:none; }
 .hl_light_green		{color:#E0FF92;}
 .bold_text		{font-weight:bold;}
 .tiny_display		{width:0px; height:0px; overflow:hidden;}
+.w200			{width:200px;}
 
 p			{margin:0; padding:0;}
+ul.indent		{margin:4px 0 4px 12px;}
 
 div#header		{background:#FF9900; height:40px; width:776px; border:1px solid black; color:white; padding:12px;}
 
@@ -29,7 +31,7 @@ div#pagerLink span		{color:red; font-weight:bold;}
 
 table#mainTable			{width:802px; background:#000; border:0;}
 table#mainTable th,
-table#mainTable td		{background:#FFF; vertical-align:top; padding:12px;}
+table#mainTable td		{background:#FFF; vertical-align:top; padding:6px;}
 table#mainTable td.menu		{width:100px;}
 table#mainTable td.menu li		{margin:0 0 8px 0;}
 

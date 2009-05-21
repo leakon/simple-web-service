@@ -8,7 +8,7 @@ class bagActions extends BaseBrandActions
 
 		$this->type		= MatcherConstant::BRAND_TYPE_BAG;
 
-		$this->brandName	= '摄影包';
+		$this->brandName	= '摄影包品牌';
 
 	}
 
