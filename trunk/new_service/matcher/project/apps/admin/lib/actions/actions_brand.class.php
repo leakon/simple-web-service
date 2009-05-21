@@ -16,6 +16,8 @@ class BaseBrandActions extends sfActions {
 
 		$this->arrProducts	= MatcherConstant::getProducts();
 
+		$this->webUploadDir	= ProjectConfiguration::getWebUploadDir();
+
 
 	}
 
@@ -117,6 +119,99 @@ class BaseBrandActions extends sfActions {
 		return	ActionsUtil::redirect($uri, $parameters, $refer);
 
 	}
+
+	// 保存多字段表单
+	// Com	= complicated
+	public function executeSaveCom($request) {
+
+		ActionsUtil::needPOST($request);		// 必须是 POST 方法
+
+		$arrParameters		= $request->getParameterHolder()->getAll();
+
+		########################
+		#### Upload Pic
+		########################
+		$webFilePath		= '';
+		$hasFile		= isset($_FILES['pic']['name']);
+		if ($hasFile && file_exists($_FILES['pic']['tmp_name'])) {
+
+			$uploadDir		= ProjectConfiguration::getUploadDir();		// 上传目录
+			$picDate		= date('Ymd');
+			$storeDir		= $uploadDir . $picDate;
+			if (!file_exists($storeDir)) {
+				mkdir($storeDir);
+			}
+
+			$picName		= MyPic::formatPicFileName($_FILES['pic']['name']);
+			$storeFilePath		= $storeDir . '/' . $picName;		// 存储路径
+			$webFilePath		= $picDate . '/' . $picName;		// 访问路径
+
+			move_uploaded_file($_FILES['pic']['tmp_name'], $storeFilePath);
+
+		}
+
+		$arrParameters['pic']	= $webFilePath;
+		// 在编辑界面，使用 pic_save 字段保存图片地址
+		if (isset($arrParameters['pic_save'])) {
+			$arrParameters['pic']	= $arrParameters['pic_save'];
+		}
+		########################
+		########################
+
+
+
+
+
+
+
+		/*
+		Debug::pr($_FILES);
+		Debug::pr($picName);
+		Debug::pr($uploadDir);
+		Debug::pre($arrParameters);
+		*/
+
+
+		$bool			= false;
+		$tagId			= (int) $request->getParameter('id', 0);
+		$tagItem		= new $this->dataClass($tagId);
+
+		$tagItem->fromArray($arrParameters);
+
+		$bool			= $tagItem->save();
+
+
+		########################
+		#### Save Tag Map
+		########################
+
+			if (isset($arrParameters['checked_tags'])) {
+
+				$mapItemTag		= new Model_Map_Base('Table_map_tag', $tagItem->id, 'item_id', 'tag_id');
+				$arrRes			= $mapItemTag->update($arrParameters['checked_tags'], false);
+
+			}
+
+		########################
+		########################
+
+
+
+
+
+		$parameters		= array();
+	#	$parameters['saved']	= intval($bool);
+
+		$refer			= $request->getParameter('refer');
+	#	$refer			= false;
+
+		$uri			= sprintf('%s/%s', $this->strModuleName, $request->getParameter('from', 'index'));
+
+		return	ActionsUtil::redirect($uri, $parameters, $refer);
+
+	}
+
+
 
 	public function executeDelete($request) {
 

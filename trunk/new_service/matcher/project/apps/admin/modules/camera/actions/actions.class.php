@@ -59,7 +59,7 @@ class cameraActions extends BaseBrandActions
 
 		$this->brandName		= '相机型号';
 
-		$this->type			= MatcherConstant::BRAND_TYPE_CAMERA_Model;
+		$this->type			= MatcherConstant::BRAND_TYPE_CAMERA_MODEL;
 
 		$this->getIndexData($request);
 
@@ -74,7 +74,7 @@ class cameraActions extends BaseBrandActions
 
 		$this->brandName		= '相机型号';
 
-		$this->type			= MatcherConstant::BRAND_TYPE_CAMERA_Model;
+		$this->type			= MatcherConstant::BRAND_TYPE_CAMERA_MODEL;
 
 		$this->getEditData($request);
 

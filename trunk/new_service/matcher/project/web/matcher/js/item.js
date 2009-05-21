@@ -239,6 +239,10 @@ var SimpleFormCheck	= new Class({
 					return;
 				}
 
+				if (!this._objForm) {
+					return;
+				}
+
 				var __THIS__	= this;
 
 				// 初始化样式表

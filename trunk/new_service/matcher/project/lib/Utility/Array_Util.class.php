@@ -6,11 +6,11 @@
  * @package     Sofav
  * @subpackage  Array_Util
  * @link        www.leakon.com
- * @version     2009-05-04
+ * @version     2009-05-21
  * @author      Leakon <leakon@gmail.com>
  * @description	与 PHP 多维数组相关的工具集
  *
- * @notice	setup
+ * @notice	add ColToPlain，按字段生成一维数组
  */
 class Array_Util {
 
@@ -136,6 +136,30 @@ class Array_Util {
 		}
 
 		return	$intCountChecked;
+	}
+
+
+	/**
+	 * 按字段，生成一维数组，或生成用于 html option 的数组
+	 * 遍历 $arrResult，选其中的 2 个字段分别作为 key 和 val
+	 * 生成新数组
+	 */
+	public static function ColToPlain(&$arrResult, $key, $val) {
+
+		$arrRet		= array();
+
+		foreach ($arrResult as $record) {
+
+			if (isset($record[$key]) && isset($record[$val])) {
+
+				$arrRet[$record[$key]]	= $record[$val];
+
+			}
+
+		}
+
+		return	$arrRet;
+
 	}
 
 }

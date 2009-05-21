@@ -45,12 +45,12 @@
 	  					<li><a href="<?php echo url_for('lens/index') ?>">镜头</a>
 	  						<ul class="indent">
 	  							<li><a href="<?php echo url_for('caliber/index') ?>">镜头口径管理</a></li>
-	  							<li><a href="<?php echo url_for('camera/index') ?>">镜头型号管理</a></li>
+	  							<li><a href="<?php echo url_for('lens/model') ?>">镜头型号管理</a></li>
 	  						</ul>
 	  					</li>
 	  					<li><a href="<?php echo url_for('stand/index') ?>">脚架</a>
 	  						<ul class="indent">
-	  							<li><a href="<?php echo url_for('camera/index') ?>">添加新脚架</a></li>
+	  							<li><a href="<?php echo url_for('stand/model') ?>">脚架型号管理</a></li>
 	  						</ul>
 	  					</li>
 	  					<li><a href="<?php echo url_for('bag/index') ?>">摄影包</a>
@@ -65,7 +65,7 @@
 	  					</li>
 	  					<li><a href="<?php echo url_for('holder/index') ?>">云台</a>
 	  						<ul class="indent">
-	  							<li><a href="<?php echo url_for('camera/index') ?>">添加新云台</a></li>
+	  							<li><a href="<?php echo url_for('holder/model') ?>">云台型号管理</a></li>
 	  						</ul>
 	  					</li>
 	  					<li><a href="<?php echo url_for('holder/index') ?>">用户管理</a></li>

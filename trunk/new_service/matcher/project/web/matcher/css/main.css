@@ -20,6 +20,7 @@ li			{list-style:none; }
 
 p			{margin:0; padding:0;}
 ul.indent		{margin:4px 0 4px 12px;}
+img.list_img		{border:1px solid black; margin:2px;}
 
 div#header		{background:#FF9900; height:40px; width:776px; border:1px solid black; color:white; padding:12px;}
 
