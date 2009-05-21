@@ -92,7 +92,7 @@ function SetHome(obj){
       <div id="top189">
         <div id="topbar">
           <div class="timebar"><?php echo date('Y年n月j日') ?></div>
-          <div class="funcLink"><?php if ($sf_user->getId()) {echo $sf_user->getUsername() . ' | <a href="'. url_for('account/signOut') .'">退出</a> | ';} ?><a href="#" onclick="SetHome(this)">设为首页</a> | <a href="#" onclick="AddFavorite()">加入收藏</a><?php if (0) : ?> | <a href="#">中英</a> - <a href="#">English</a><?php endif ?></div>
+          <div class="funcLink"><?php if ($sf_user->getId()) {echo $sf_user->getUsername() . ' | <a href="'. url_for('account/signOut') .'">退出</a> | ';} ?><a href="#" onclick="SetHome(this)">设为首页</a> | <a href="#" onclick="AddFavorite()">加入收藏</a> | <a href="#">English</a></div>
         </div>
         <div id="infoBlock"></div>
 
