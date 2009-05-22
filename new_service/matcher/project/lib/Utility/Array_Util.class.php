@@ -162,4 +162,36 @@ class Array_Util {
 
 	}
 
+	/**
+	 * 按字段，生成多维数组
+	 * 遍历 $arrResult，选其中的 1 个字段分别作为 key，多个字段作为子数组
+	 * 生成新数组
+	 */
+	public static function ColToCom(&$arrResult, $key, $arrVal) {
+
+		$arrRet		= array();
+
+		foreach ($arrResult as $record) {
+
+			if (isset($record[$key])) {
+
+				$arrTmp		= array();
+
+				foreach ($arrVal as $val) {
+
+					if (isset($record[$val])) {
+						$arrTmp[$val]	= $record[$val];
+					}
+
+				}
+
+				$arrRet[$record[$key]]	= $arrTmp;
+
+			}
+
+		}
+
+		return	$arrRet;
+
+	}
 }

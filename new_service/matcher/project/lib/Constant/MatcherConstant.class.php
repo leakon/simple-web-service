@@ -98,4 +98,36 @@ class MatcherConstant {
 
 	}
 
+	public static function getAllTypes() {
+
+		$arr	= array(
+				self::BRAND_TYPE_CAMERA,
+				self::BRAND_TYPE_CAMERA_STYLE,
+				self::BRAND_TYPE_CAMERA_MODEL,
+				self::BRAND_TYPE_LENS,
+				self::BRAND_TYPE_LENS_MODEL,
+				self::BRAND_TYPE_STAND,
+				self::BRAND_TYPE_STAND_MODEL,
+				self::BRAND_TYPE_BAG,
+				self::BRAND_TYPE_BAG_MODEL,
+				self::BRAND_TYPE_FILTER,
+				self::BRAND_TYPE_FILTER_MODEL,
+				self::BRAND_TYPE_HOLDER,
+				self::BRAND_TYPE_HOLDER_MODEL,
+				self::BRAND_TYPE_CALIBER,
+				self::BRAND_TYPE_PRICE,
+				self::BRAND_TYPE_TAG,
+			);
+
+		$arrRet		= array();
+
+		foreach ($arr as $val) {
+			$arrRet[$val]	= $val;
+		}
+
+		return	$arrRet;
+
+	}
+
+
 }
