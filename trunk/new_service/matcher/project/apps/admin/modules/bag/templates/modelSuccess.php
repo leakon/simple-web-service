@@ -207,13 +207,6 @@ include_partial('global/pager', array('pager' => $pager, 'pageUri' => url_for($s
 
 <script type="text/javascript">
 
-
-//var tagRename		= new SofavTagRename({'form_id':'id_tag_list_box'});
-
-
-
-//var formItem		= new TagEditForm();
-
 $('id_form_submit').disabled	= false;
 
 $('id_clear_add_input').addEvent('click', function() {

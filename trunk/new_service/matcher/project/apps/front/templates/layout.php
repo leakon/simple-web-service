@@ -5,6 +5,14 @@
     <?php include_metas() ?>
     <?php include_title() ?>
     <link rel="shortcut icon" href="/favicon.ico" />
+
+<script type="text/javascript" src="/matcher/js/mootools-1.2.1-core-nc.js"></script>
+<script type="text/javascript" src="/matcher/js/main.js"></script>
+<script type="text/javascript" src="/matcher/js/item.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/matcher/css/main.css" />
+
+
   </head>
   <body>
     <?php echo $sf_content ?>

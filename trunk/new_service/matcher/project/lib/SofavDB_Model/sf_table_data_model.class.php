@@ -64,7 +64,12 @@ class Table_data_model extends SofavDB_Table {
 	 */
 	public static function getOption($arrResult, $key, $val) {
 
-		return		Array_Util::ColToPlain($arrResult, $key, $val);
+		if (is_array($val)) {
+			return	Array_Util::ColToCom($arrResult, $key, $val);
+		} else {
+
+			return	Array_Util::ColToPlain($arrResult, $key, $val);
+		}
 
 	}
 

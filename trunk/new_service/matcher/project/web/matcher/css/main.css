@@ -51,3 +51,22 @@ table#mainTable div.contentBox table.item_list th.num		{text-align:left; width:5
 table#mainTable div.contentBox table.item_list th.brand		{}
 table#mainTable div.contentBox table.item_list th.edit		{width:60px;}
 table#mainTable div.contentBox table.item_list td.edit		{text-align:center;}
+
+
+
+
+
+
+div#mainContent		{background:#F2F2F2; border:1px solid #C9C9C9; width:800px; padding:32px;}
+div.logo		{vertical-align:middle; overflow:auto; zoom:1;}
+div.logo img		{float:left;}
+div.logo h2		{margin:12px 0 12px 80px;}
+
+table.tbl_selector td		{padding:4px;}
+select.se_selector		{width:160px; height:120px;}
+
+
+
+
+
+
