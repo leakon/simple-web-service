@@ -10,7 +10,7 @@
  * @author      Leakon <leakon@gmail.com>
  * @description	与 PHP 多维数组相关的工具集
  *
- * @notice	add ColToCom，按字段生成多维数组
+ * @notice	增加排序标志位 $sort_flags
  */
 class Array_Util {
 
@@ -194,4 +194,86 @@ class Array_Util {
 		return	$arrRet;
 
 	}
+
+
+	/**
+	 * 按集合中数组的字段进行排序
+	 */
+	public static function sortColumn(&$arrRecords, $colName, $reverse = false, $sort_flags = false) {
+
+		$arrOrder	= array();
+
+		foreach (array_keys($arrRecords) as $key) {
+			$arrOrder[$key]		= $arrRecords[$key][$colName];
+		}
+
+		if (false === $sort_flags) {
+
+			if ($reverse) {
+				arsort($arrOrder);	// 降序
+			} else {
+				asort($arrOrder);	// 升序
+			}
+
+		} else {
+
+			if ($reverse) {
+				arsort($arrOrder, $sort_flags);	// 降序
+			} else {
+				asort($arrOrder, $sort_flags);	// 升序
+			}
+
+		}
+
+		$arrRet		= array();
+
+		foreach (array_keys($arrOrder) as $key) {
+			$arrRet[$key]		= $arrRecords[$key];
+		}
+
+		return	$arrRet;
+
+	}
+
+	/**
+	 * 按集合中对象的字段进行排序
+	 */
+	public static function sortProperty(&$arrRecords, $propertyName, $reverse = false, $sort_flags = false) {
+
+		$arrOrder	= array();
+
+		foreach (array_keys($arrRecords) as $key) {
+			$arrOrder[$key]		= $arrRecords[$key]->$propertyName;
+		}
+
+		if (false === $sort_flags) {
+
+			if ($reverse) {
+				arsort($arrOrder);	// 降序
+			} else {
+				asort($arrOrder);	// 升序
+			}
+
+		} else {
+
+			if ($reverse) {
+				arsort($arrOrder, $sort_flags);	// 降序
+			} else {
+				asort($arrOrder, $sort_flags);	// 升序
+			}
+
+		}
+
+		$arrRet		= array();
+
+		foreach (array_keys($arrOrder) as $key) {
+			$arrRet[$key]		= $arrRecords[$key];
+		}
+
+		return	$arrRet;
+
+	}
+
+
+
 }

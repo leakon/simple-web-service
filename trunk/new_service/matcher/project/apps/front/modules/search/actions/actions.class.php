@@ -30,12 +30,6 @@ class searchActions extends sfActions {
 		$this->arrOption		= $this->getAllOption();
 		$this->getResult($request);
 
-		$arrParameters		= $request->getParameterHolder()->getAll();
-
-		$from			= $request->getParameter('from', '');
-		if ($from == 'result') {
-			Debug::pre($arrParameters);
-		}
 
 	}
 
@@ -51,6 +45,24 @@ class searchActions extends sfActions {
 
 
 	protected function getResult(sfWebRequest $request) {
+
+		$arrParameters		= $request->getParameterHolder()->getAll();
+
+		$from			= $request->getParameter('from', '');
+		if ($from == 'result') {
+			Debug::pre($arrParameters);
+		}
+
+
+
+
+
+
+
+
+
+
+
 
 		$tableDataTag		= new $this->dataClass();
 
@@ -73,24 +85,31 @@ class searchActions extends sfActions {
 
 		$arrOptions			= array();
 
-		// 相机品牌
+		// 鐩告満鍝佺墝
 		$arrOptions['camera']		= $this->getFormOption(MatcherConstant::BRAND_TYPE_CAMERA);
-		// 相机型号
+		// 鐩告満鍨嬪彿
 		$arrOptions['camera_model']	= $this->getFormOption(MatcherConstant::BRAND_TYPE_CAMERA_MODEL, 'id', array('product_id', 'style'));
 
-		// 镜头品牌
+		// 闀滃ご鍝佺墝
 		$arrOptions['lens']		= $this->getFormOption(MatcherConstant::BRAND_TYPE_LENS);
-		// 镜头型号
+		// 闀滃ご鍨嬪彿
 		$arrOptions['lens_model']	= $this->getFormOption(MatcherConstant::BRAND_TYPE_LENS_MODEL, 'id', array('product_id', 'style'));
 
 		$price				= array();
 		$price['price_min']		= $this->getFormOption(MatcherConstant::BRAND_TYPE_PRICE, 'id', 'min');
 		$price['price_max']		= $this->getFormOption(MatcherConstant::BRAND_TYPE_PRICE, 'id', 'max');
 
-		$arrOptions['price']		= array();
+	#	Debug::pr($price['price_min']);
+
+		asort($price['price_min'], SORT_NUMERIC);
+	#	$price['price_min']		= Array_Util::sortColumn($price['price_min'], 'id');
+
+		$arrOptions['price']		= array(0 => '鍏ㄩ儴');
 		foreach ($price['price_min'] as $id => $min) {
 			$arrOptions['price'][$id]	= sprintf('%d - %d', $min, $price['price_max'][$id]);
 		}
+
+
 
 	#	$arrProducts		= MatcherConstant::getProducts();
 

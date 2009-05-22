@@ -292,6 +292,7 @@ var MatcherSelect	= new Class({
 				}
 
 				// IE6, 不能正常选择下级关联菜单，默认选择第一个
+				// Browser.Engine.trident4  == true (IE6)
 				if (false !== subSelectValue) {
 					var formField	= __THIS__._keyFrom + '_model_id';
 					__THIS__._objForm[formField].value	= subSelectValue;
