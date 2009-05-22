@@ -6,11 +6,11 @@
  * @package     Sofav
  * @subpackage  Array_Util
  * @link        www.leakon.com
- * @version     2009-05-21
+ * @version     2009-05-22
  * @author      Leakon <leakon@gmail.com>
  * @description	与 PHP 多维数组相关的工具集
  *
- * @notice	add ColToPlain，按字段生成一维数组
+ * @notice	add ColToCom，按字段生成多维数组
  */
 class Array_Util {
 

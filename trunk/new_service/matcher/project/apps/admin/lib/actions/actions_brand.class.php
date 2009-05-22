@@ -5,7 +5,6 @@ class BaseBrandActions extends sfActions {
 	public function preExecute() {
 
 		$this->type		= 0;
-	#	$this->dataClass	= 'Table_data_brand';
 		$this->dataClass	= 'Table_data_model';
 		$this->strModuleName	= $this->getContext()->getModuleName();
 
