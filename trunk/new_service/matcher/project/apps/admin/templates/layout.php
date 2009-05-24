@@ -23,6 +23,10 @@
 		</div>
 
 		<div>
+			<span id="user_status">
+				hello <?php echo $sf_user->getUsername() ?>,
+				<a href="<?php echo url_for('user/logout') ?>">退出</a>
+			</span>
 			<h3><a href="/matcher/admin/">PPT Matcher</a></h3>
 		</div>
 
@@ -68,9 +72,10 @@
 	  							<li><a href="<?php echo url_for('holder/model') ?>">云台型号管理</a></li>
 	  						</ul>
 	  					</li>
-	  					<li><a href="#<?php echo url_for('holder/index') ?>">用户管理</a></li>
 	  					<li><a href="<?php echo url_for('tag/index') ?>">标签管理</a></li>
 	  					<li><a href="<?php echo url_for('price/index') ?>">价格区间</a></li>
+	  					<li><a href="<?php echo url_for('user/list') ?>">用户管理</a></li>
+	  					<li><a href="<?php echo url_for('user/password') ?>">修改用户密码</a></li>
 
 
 	  				</ul>

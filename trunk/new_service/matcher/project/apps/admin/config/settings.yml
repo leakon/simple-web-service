@@ -20,6 +20,14 @@ test:
     etag:                   off
 
 all:
+
+  .actions:
+    login_module:           user   # To be called when a non-authenticated user
+    login_action:           index     # Tries to access a secure page
+
+    error_404_module:       user   # To be called when a 404 error is raised
+    error_404_action:       error  # Or when the requested URL doesn't match any route
+
   .settings:
     # Form security secret (CSRF protection)
     csrf_secret:       false     # Unique secret to enable CSRF protection or false to disable
