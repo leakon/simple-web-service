@@ -1,6 +1,3 @@
-var runMode;
-runMode	= '/front_dev.php';
-runMode	= '';
 
 function SubmitForm(formId) {
 	var objForm	= $(formId);
@@ -65,36 +62,61 @@ var MatcherTab		= new Class({
 
 				var objBag	= $('id_tab_bag');
 				objBag.addEvent('click', function() {
-							__THIS__.clearCont();
+							__THIS__.clearCont(this);
 							__THIS__.setCont_2('bag');
 						});
 
 				var objStand	= $('id_tab_stand');
 				objStand.addEvent('click', function() {
-							__THIS__.clearCont();
+							__THIS__.clearCont(this);
 							__THIS__.setCont_4('stand');
 						});
 				var objHolder	= $('id_tab_holder');
 				objHolder.addEvent('click', function() {
-							__THIS__.clearCont();
+							__THIS__.clearCont(this);
 							__THIS__.setCont_4('holder');
 						});
 				var objFilter	= $('id_tab_filter');
 				objFilter.addEvent('click', function() {
-							__THIS__.clearCont();
-							__THIS__.setCont_2('filter');
+							__THIS__.clearCont(this);
+						//	__THIS__.setCont_2('filter');
+							__THIS__.setCont_2_b('filter');
 						});
 
+				var selectType	= 'bag';
+				var selectLink	= objBag;
+
+				var valueOfForm	= this._objForm['type'].value;
+
+				if (valueOfForm) {
+					selectType	= valueOfForm;
+					selectLink	= $('id_tab_' + valueOfForm);
+				}
+
 				// default
-				__THIS__.clearCont();
-				__THIS__.setCont_2('bag');
-				__THIS__._objForm.type.value	= 'bag';
+				__THIS__.clearCont(selectLink);
+				__THIS__._objForm.type.value	= selectType;
+				if ('bag' == selectType || 'filter' == selectType) {
+					__THIS__.setCont_2(selectType);
+				} else {
+					__THIS__.setCont_4(selectType);
+				}
 
 			},
 
-	clearCont:	function() {
+	clearCont:	function(objLink) {
 				$('id_product_1').setStyle('display', 'none');
 				$('id_product_2').setStyle('display', 'none');
+				$('id_product_3').setStyle('display', 'none');
+
+				var arr	= ['bag', 'stand', 'holder', 'filter'];
+				var sid	= '';
+				for (var i = 0; i < arr.length; i++) {
+					sid	= 'id_tab_' + arr[i];
+					$(sid).removeClass('current');
+				}
+				objLink.addClass('current');
+
 			},
 
 	setCont_2:	function(tt) {
@@ -107,6 +129,14 @@ var MatcherTab		= new Class({
 
 	setCont_4:	function(tt) {
 				var obj		= $('id_product_2');
+				obj.setStyle('display', '');
+				this.showLink(tt);
+				this.showTags(tt);
+				this._objForm.type.value	= tt;
+			},
+
+	setCont_2_b:	function(tt) {
+				var obj		= $('id_product_3');
 				obj.setStyle('display', '');
 				this.showLink(tt);
 				this.showTags(tt);
@@ -133,7 +163,8 @@ var MatcherTab		= new Class({
 										'type':		'radio',
 										'name':		'product',
 										'value':	strKey,
-										'id':		'id_product_' + strKey
+										'id':		'id_product_' + strKey,
+										'checked':	glbFormProduct == strKey
 									});
 
 						objLabel	= new Element('label', {
@@ -169,7 +200,8 @@ var MatcherTab		= new Class({
 										'type':		'checkbox',
 										'name':		'checked_product['+strKey+']',
 										'value':	strKey,
-										'id':		'id_tag_' + strKey
+										'id':		'id_tag_' + strKey,
+										'checked':	$defined(glbFormTags[strKey])
 									});
 
 						objLabel	= new Element('label', {
@@ -221,13 +253,21 @@ var MatcherSelect	= new Class({
 
 				if ($defined(this._data[this._keyFrom]) && $defined(this._data[this._keyTo])) {
 
+					var strField	= this._keyFrom + '_id';
+					var valueOfForm	= this._objForm[strField].value;
+
+					if (valueOfForm) {
+						this.showToSelect(valueOfForm);
+					}
+
 					var strKey, objEl;
 
 					for (strKey in this._data[this._keyFrom]) {
 
 						objEl	= new Element('option', {
 											'value':	strKey,
-											'html':		this._data[this._keyFrom][strKey]
+											'html':		this._data[this._keyFrom][strKey],
+											'selected':	valueOfForm == strKey
 										});
 
 						selectFrom.adopt(objEl);
@@ -250,6 +290,13 @@ var MatcherSelect	= new Class({
 
 					this._tdFrom.adopt(selectFrom);
 
+
+
+					// highlight
+
+
+
+
 				}
 
 			},
@@ -265,9 +312,16 @@ var MatcherSelect	= new Class({
 
 				var subSelectValue	= false;
 
+				var strField		= this._keyTo + '_id';
+				var valueOfForm		= this._objForm[strField].value;
+				if (valueOfForm) {
+					subSelectValue	= valueOfForm;
+				}
+
 				for (strKey in this._data[this._keyTo]) {
 
 					if ($defined(this._data[this._keyTo][strKey]['product_id'])) {
+
 
 						eachProdId	= this._data[this._keyTo][strKey]['product_id'];
 
@@ -275,7 +329,8 @@ var MatcherSelect	= new Class({
 
 							objEl	= new Element('option', {
 												'value':	strKey,
-												'html':		this._data[this._keyTo][strKey]['style']
+												'html':		this._data[this._keyTo][strKey]['style'],
+												'selected':	valueOfForm == strKey
 											});
 
 							// IE6, 不能正常选择下级关联菜单，默认选择第一个

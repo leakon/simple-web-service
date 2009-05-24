@@ -31,12 +31,14 @@ class MatcherConstant {
 		BRAND_TYPE_PRICE		= 800,	// 价格区间
 		BRAND_TYPE_TAG			= 900,	// 标签
 
+		/*
 		// 容量
 		BAG_VOL_A			= 100,
 		BAG_VOL_B			= 200,
 		BAG_VOL_C			= 300,
 		BAG_VOL_D			= 400,
 		BAG_VOL_E			= 500,
+		*/
 
 		BAG_VOL_TYPE			= 'ext_vol_type',		// A - E
 		BAG_VOL_LONG			= 'ext_vol_long',		// 长焦
@@ -68,6 +70,17 @@ class MatcherConstant {
 
 	public static function getVolumns() {
 
+
+		$arrWhere		= array();
+		$arrWhere['type']	= MatcherConstant::BRAND_TYPE_CAMERA_STYLE;		// 相机型号
+		$arrResult		= Table_data_model::getResult($arrWhere);
+		$arrCameraTypes		= Table_data_model::getOption($arrResult, 'id', 'name');
+
+		asort($arrCameraTypes);
+
+		return		$arrCameraTypes;
+
+		/*
 		$arrRet		= array(
 
 				self::BAG_VOL_A		=> 'A',
@@ -79,6 +92,7 @@ class MatcherConstant {
 				);
 
 		return		$arrRet;
+		*/
 
 	}
 

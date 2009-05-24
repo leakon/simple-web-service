@@ -55,6 +55,14 @@ table#mainTable div.contentBox table.item_list th.edit		{width:60px;}
 table#mainTable div.contentBox table.item_list td.edit		{text-align:center;}
 
 
+table#id_list_result_box 				{background:#CCC;}
+table#id_list_result_box th,
+table#id_list_result_box td 				{background:#FFF; padding:4px;}
+
+table#id_list_result_box		{width:780px;}
+
+div.product a.current			{color:red; font-weight:bold;}
+div.div_result		{margin:12px 0;}
 
 span#user_status	{float:right;}
 

@@ -8,14 +8,13 @@
 
 	<div class="condition">
 
-		<form id="search_form" action="<?php echo url_for('search/result') ?>" method="get" target="_blank">
+		<form id="search_form" action="<?php echo url_for('search/result') ?>" method="get">
 		<input type="hidden" name="from" value="result" />
-		<input type="hidden" name="type" value="" />
-		<input type="hidden" name="camera_id" value="" />
-		<input type="hidden" name="camera_model_id" value="" />
-		<input type="hidden" name="lens_id" value="" />
-		<input type="hidden" name="lens_model_id" value="" />
-		<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
+		<input type="hidden" name="type" value="<?php echo $sf_request->getParameter('type', '') ?>" />
+		<input type="hidden" name="camera_id" value="<?php echo $sf_request->getParameter('camera_id', '') ?>" />
+		<input type="hidden" name="camera_model_id" value="<?php echo $sf_request->getParameter('camera_model_id', '') ?>" />
+		<input type="hidden" name="lens_id" value="<?php echo $sf_request->getParameter('lens_id', '') ?>" />
+		<input type="hidden" name="lens_model_id" value="<?php echo $sf_request->getParameter('lens_model_id', '') ?>" />
 
 		<div class="product">
 			<table>
@@ -60,6 +59,20 @@
 				</table>
 			</div>
 
+			<div id="id_product_3" style="display:none">
+				<table class="tbl_selector col_2">
+				<tr>
+					<td width="50%">1. 选择您的镜头品牌</td>
+					<td width="50%">2. 选择您的镜头型号</td>
+				</tr>
+				<tr>
+					<td id="select_2_1_lens"></td>
+					<td id="select_2_2_lens"></td>
+				</tr>
+				</table>
+			</div>
+
+
 		</div>
 
 		<div class="div_button">
@@ -85,7 +98,7 @@
 				<td>
 				<select name="price_id">
 				<?php
-					echo	options_for_select($arrOption['price'], 1);
+					echo	options_for_select($arrOption['price'], $sf_request->getParameter('price_id', 0));
 				?>
 				</select>
 
@@ -100,79 +113,35 @@
 	</div>
 
 
+	<?php if ($showResult) : ?>
+
+
+
 	<div class="div_result">
 
 <?php if (isset($arrResult)) : ?>
 
 	<?php if (count($arrResult)) : ?>
-	<table class="item_list tag_list" cellspacing="1" id="id_tag_list_box">
-	<thead>
-		<tr>
-			<th width="100"><input type="checkbox" id="id_check_all" value="" />品牌</th>
-			<th width="">图片</th>
-			<th width="">型号</th>
-			<th width="">标签</th>
-			<th width="60">承重（Kg）</th>
-			<th width="">链接</th>
-			<th width="">价格区间</th>
-			<th class="edit">操作</th>
-		</tr>
-	</thead>
-	<tbody>
+
 
 		<?php
 
-		$idx	= ($pager->getPage() - 1) * $pager->getMaxPerPage() + 1 ;
+			$name				= $partialName . 'Result';
+			$arrRefer			= array();
+			$arrRefer['arrResult']		= $arrResult;
+			$arrRefer['arrOption']		= $arrOption;
+			$arrRefer['webUploadDir']	= $webUploadDir;
+			$arrRefer['partial_name']	= $partialName;
+
+			if ($name == 'holderResult') {
+				$name = 'standResult';
+			}
+
+
+			include_partial($name, $arrRefer);
 
 		?>
-		<?php foreach ($arrResult as $dataItem) : ?>
-		<tr>
-			<td>
-<?php
 
-	echo		sprintf('<input type="checkbox" name="checked_folder[%d]" value="%d" class="item_checkbox" />',
-				$dataItem['id'], $dataItem['id']);
-
-	echo		$arrProducts[$dataItem['product_id']];
-
-?>
-			</td>
-			<td>
-				<?php
-
-					if (strlen($dataItem['pic'])) {
-
-						echo	sprintf('<img src="%s" class="list_img" alt="" />', $webUploadDir . $dataItem['pic']);
-
-					} else {
-
-						echo	'&nbsp;';
-
-					}
-
-				?>
-
-			</td>
-			<td><?php echo S::E($dataItem['style']) ?></td>
-			<td>
-				<?php
-
-					echo	MyHelp::showInlineTag($arrTags, $dataItem['id'], ', ');
-
-				?>
-				&nbsp;
-			</td>
-			<td><?php echo S::E($dataItem['weight']) ?></td>
-			<td><a href="<?php echo S::E($dataItem['link']) ?>" target="_blank"><?php echo S::E($dataItem['link']) ?></a></td>
-			<td><?php echo $arrStyles[$dataItem['price_id']] ?></td>
-			<td class="edit tag_edit">
-				<a href="<?php echo url_for($strModuleName . '/editModel?id=' . $dataItem['id']) ?>" class="tag_rn_btn">修改</a>
-				<a href="javascript:;" onclick="FormDel('tag_delete_form', <?php echo $dataItem['id'] ?>);">删除</a>
-			</td>
-		</tr>
-		<?php endforeach ?>
-	</tbody>
-	</table>
 
 	<?php else : ?>
 
@@ -193,6 +162,8 @@ include_partial('global/pager', array('pager' => $pager, 'pageUri' => url_for($s
 
 	</div><!-- EndOf div.div_result -->
 
+	<?php endif ?>
+
 
 </div>
 
@@ -209,7 +180,11 @@ include_partial('global/pager', array('pager' => $pager, 'pageUri' => url_for($s
 <script type="text/javascript">
 
 <?php
-echo	sprintf("var arrOption	= %s", $strJSONOption);
+echo	sprintf("var arrOption	= %s;", $strJSONOption);
+
+echo	sprintf("var glbFormProduct	= %d;", $sf_request->getParameter('product', 0));
+
+echo	sprintf("var glbFormTags	= %s", json_encode((array) $sf_request->getParameter('checked_product', array())));
 ?>
 
 var objForm		= $('search_form');
@@ -232,6 +207,18 @@ cfgOption		= {
 				'key_to':	'camera_model'
 			};
 var objColumn_2		= new MatcherSelect(cfgOption);
+
+cfgOption		= {
+				'data':		arrOption,
+				'form':		objForm,
+				'td_from':	'select_2_1_lens',
+				'td_to':	'select_2_2_lens',
+				'key_from':	'lens',
+				'key_to':	'lens_model'
+			};
+var objColumn_2_b		= new MatcherSelect(cfgOption);
+
+///////////////////////////////////////////////////////
 
 cfgOption		= {
 				'data':		arrOption,
@@ -260,4 +247,10 @@ var objColumn_4_2		= new MatcherSelect(cfgOption);
 
 
 </script>
+
+
+<?php
+
+#	Debug::pr(SofavDB_Debug_PDO::getTimer());
+
 

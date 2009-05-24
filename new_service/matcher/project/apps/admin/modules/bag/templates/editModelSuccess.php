@@ -27,7 +27,7 @@
 				<td>
 					<select name="product_id">
 					<?php
-						echo	options_for_select($arrProducts, $dataItem->id);
+						echo	options_for_select($arrProducts, $dataItem->product_id);
 					?>
 					</select>
 				</td>
