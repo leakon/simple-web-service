@@ -6,21 +6,21 @@ class UserSession extends SimpleSymfonyUser {
 
 		$cookieConf	= array(
 					'path'		=> '/',
-					'domain'	=> '.mysofav.com'
+					'domain'	=> '.kk.com'
 				),
 
-		$cookieName	= 'sofav2008',			// SimpleCookie，不要与 storage 的 session_name 搞混，这一点很重要！！！
-		$cookieToken	= 'sofav2008/Symfony';		// 命名空间
+		$cookieName	= 'matcher',			// SimpleCookie，不要与 storage 的 session_name 搞混，这一点很重要！！！
+		$cookieToken	= 'matcher/Symfony';		// 命名空间
 
 	public function getUserInfo($userId) {
 
-		$userRecord		= new Sofav_Data_User($userId);
+		$userRecord		= new Table_data_user($userId);
 		$arrUserInfo		= $userRecord->toArray();
 
 		$arrRet			= array(
-						'id'		=> $arrUserInfo['id'],
-						'username'	=> $arrUserInfo['username'],
-						'mail'		=> $arrUserInfo['mail']
+						'id'		=> isset($arrUserInfo['id']) ? $arrUserInfo['id'] : 0,
+						'username'	=> isset($arrUserInfo['username']) ? $arrUserInfo['username'] : '',
+						'mail'		=> isset($arrUserInfo['mail']) ? $arrUserInfo['mail'] : ''
 					);
 
 		return	$arrRet;
