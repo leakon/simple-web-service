@@ -60,7 +60,8 @@ class MyHelp {
 		$arrRet			= array();
 
 		// 默认选取 A 类型的摄影包
-		$radioCheckValue	= isset($objItem->ext_vol_type) ? $objItem->ext_vol_type : MatcherConstant::BAG_VOL_A;
+	#	$radioCheckValue	= isset($objItem->ext_vol_type) ? $objItem->ext_vol_type : MatcherConstant::BAG_VOL_A;
+		$radioCheckValue	= isset($objItem->ext_vol_type) ? $objItem->ext_vol_type : 0;
 
 		foreach (MatcherConstant::getVolumns() as $key_1 => $val_1) {
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 24, 2009 at 03:31 PM
+-- Generation Time: May 25, 2009 at 12:48 AM
 -- Server version: 5.0.45
 -- PHP Version: 5.2.3
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `data_model` (
   `caliber` char(255) NOT NULL,
   `detail` char(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=115 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=128 ;
 
 --
 -- Dumping data for table `data_model`
@@ -77,18 +77,18 @@ INSERT INTO `data_model` (`id`, `product_id`, `price_id`, `caliber_id`, `style_i
 (27, 0, 0, 0, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 12:32:27', '20', '', '', '', '', ''),
 (28, 0, 0, 0, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 12:32:33', '10', '', '', '', '', ''),
 (29, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 12:33:10', '佳能', '', '', '', '', ''),
-(30, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:18:30', '111', '', '', '', '', '222'),
-(31, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:18:58', '111', '', '', '', '', '复方法'),
-(32, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:19:10', '223', '', '', '', '', '非法'),
-(33, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:20:20', 'AAS', '', '', '', '', '分'),
-(34, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:21:19', '丰富', '', '', '', '', '234214'),
-(35, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:21:24', '134', '', '', '', '', '4放'),
-(36, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:21:30', '34放', '', '', '', '', '司法的四本'),
-(37, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:21:39', '钱二分二', '', '', '', '', '人人他'),
-(38, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:37:12', '34放1299', '', '', '', '', '司法的四本'),
-(39, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:37:24', 'gregw', '', '', '', '', '司法的四本'),
-(42, 29, 0, 0, 32, 130, 34, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 17:18:16', '', '方法', '', '', '', ''),
-(43, 6, 0, 0, 30, 130, 1234, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 17:19:14', '', '23人发的', '', '', '', ''),
+(115, 6, 0, 0, 38, 130, 23, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:30:58', '', '美能达 BB', '', '', '', ''),
+(116, 6, 0, 0, 37, 130, 42, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:31:11', '', '美能达 CC', '', '', '', ''),
+(117, 109, 0, 0, 36, 130, 41, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:31:22', '', '尼康 DD', '', '', '', ''),
+(118, 110, 0, 0, 35, 130, 21, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:32:11', '', '卡西欧 521', '', '', '', ''),
+(119, 112, 0, 0, 37, 130, 14, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:32:24', '', '松下 CC 133', '', '', '', ''),
+(35, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:21:24', 'E', '', '', '', '', 'EEE'),
+(36, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:21:30', 'D', '', '', '', '', 'DD'),
+(37, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:21:39', 'C', '', '', '', '', 'CCC'),
+(38, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:37:12', 'B', '', '', '', '', 'BBB'),
+(39, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 16:37:24', 'A', '', '', '', '', 'AAAA'),
+(42, 29, 0, 0, 37, 130, 34, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 17:18:16', '', '佳能 CC 52', '', '', '', ''),
+(43, 6, 0, 0, 36, 130, 12, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 17:19:14', '', '美能达 D 12', '', '', '', ''),
 (44, 0, 0, 0, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 17:40:04', '50', '', '', '', '', ''),
 (45, 0, 0, 0, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 17:40:09', '100', '', '', '', '', ''),
 (46, 0, 0, 0, 0, 700, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 17:40:12', '200', '', '', '', '', ''),
@@ -151,14 +151,22 @@ INSERT INTO `data_model` (`id`, `product_id`, `price_id`, `caliber_id`, `style_i
 (104, 400, 0, 0, 0, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 23:40:38', 'bag1', '', '', '', '', ''),
 (105, 400, 0, 0, 0, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 23:40:43', 'bag2', '', '', '', '', ''),
 (106, 400, 0, 0, 0, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-21 23:40:48', 'bag3', '', '', '', '', ''),
-(107, 99, 23, 0, 0, 430, 0, 0, 0, 300, 43, 44, 45, 46, 1, '2009-05-22 00:22:37', '', '1111', '2222fe', '20090522/20090522-002237-6800.gif', '77', ''),
-(108, 101, 62, 0, 0, 430, 0, 0, 0, 500, 55, 66, 77, 88, 1, '2009-05-22 00:52:28', '', '高级货', '223355古古怪怪', '20090522/20090522-005228-7951.gif', '', ''),
+(107, 101, 23, 0, 0, 430, 0, 0, 0, 36, 43, 44, 45, 46, 1, '2009-05-22 00:22:37', '', '1111方法', 'http://www.google.com', '20090522/20090522-002237-6800.gif', '77', ''),
+(108, 99, 62, 0, 0, 430, 0, 0, 0, 35, 55, 66, 77, 88, 1, '2009-05-22 00:52:28', '', '高级货', 'http://www.baidu.com', '20090522/20090522-005228-7951.gif', '', ''),
 (109, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-22 11:31:24', '尼康', '', '', '', '', ''),
 (110, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-22 11:31:33', '卡西欧', '', '', '', '', ''),
 (111, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-22 11:31:44', 'SONY', '', '', '', '', ''),
 (112, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-22 11:31:52', '松下', '', '', '', '', ''),
 (113, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-22 11:32:19', '柯达', '', '', '', '', ''),
-(114, 29, 0, 0, 32, 130, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-22 16:46:31', '', '佳能型号2', '', '', '', '');
+(114, 29, 0, 0, 39, 130, 20, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-22 16:46:31', '', '佳能型号2', '', '', '', ''),
+(120, 111, 0, 0, 35, 130, 26, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:32:57', '', 'SONY 84 EE', '', '', '', ''),
+(121, 111, 0, 0, 36, 130, 9813, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:33:09', '', 'SONY DDD', '', '', '', ''),
+(122, 112, 0, 0, 35, 130, 46, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:33:33', '', 'PANASONIC', '', '', '', ''),
+(123, 113, 0, 0, 38, 130, 421, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:34:03', '', '柯达哒 EEE', '', '', '', ''),
+(124, 113, 0, 0, 39, 130, 1333, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:34:25', '', '5824EECC', '', '', '', ''),
+(125, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-24 16:40:23', 'F', '', '', '', '', 'FFFFFF'),
+(126, 93, 24, 0, 0, 530, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-25 00:45:54', '', '滤镜 500 Kg', 'http://www.xuebaobao.com', '20090525/20090525-004634-8417.gif', '500', ''),
+(127, 94, 23, 0, 0, 530, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2009-05-25 00:47:56', '', '滤镜2 200Kg', 'http://www.sina.com.cn', '20090525/20090525-004756-6434.gif', '200', '');
 
 -- --------------------------------------------------------
 
@@ -175,18 +183,15 @@ CREATE TABLE IF NOT EXISTS `data_session` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `sess_id` (`sess_id`),
   KEY `sess_time` (`sess_time`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `data_session`
 --
 
 INSERT INTO `data_session` (`id`, `user_id`, `sess_time`, `sess_id`, `sess_data`) VALUES
-(17, 6, 1243150264, 'd601300fc7c3f2e8acdb311bb615b28c', 'symfony/user/sfUser/lastRequest|i:1243150263;symfony/user/sfUser/authenticated|b:1;symfony/user/sfUser/credentials|a:1:{i:0;s:6:"member";}symfony/user/sfUser/attributes|a:3:{s:25:"symfony/user/sfUser/flash";a:0:{}s:32:"symfony/user/sfUser/flash/remove";a:0:{}s:6:"member";a:3:{s:2:"id";s:1:"6";s:8:"username";s:5:"admin";s:4:"mail";s:0:"";}}symfony/user/sfUser/culture|s:2:"en";'),
-(16, 0, 1243150142, 'c1f1e643682dde8047edba5e2a33a8c0', 'symfony/user/sfUser/lastRequest|i:1243150142;symfony/user/sfUser/authenticated|b:0;symfony/user/sfUser/credentials|a:0:{}symfony/user/sfUser/attributes|a:2:{s:25:"symfony/user/sfUser/flash";a:0:{}s:32:"symfony/user/sfUser/flash/remove";a:0:{}}symfony/user/sfUser/culture|s:2:"en";'),
-(15, 6, 1243150016, '22ce1e8949d0cfdefb57d02ce0038ab3', 'symfony/user/sfUser/lastRequest|i:1243150016;symfony/user/sfUser/authenticated|b:1;symfony/user/sfUser/credentials|a:1:{i:0;s:6:"member";}symfony/user/sfUser/attributes|a:3:{s:25:"symfony/user/sfUser/flash";a:0:{}s:32:"symfony/user/sfUser/flash/remove";a:0:{}s:6:"member";a:3:{s:2:"id";s:1:"6";s:8:"username";s:5:"admin";s:4:"mail";s:0:"";}}symfony/user/sfUser/culture|s:2:"en";'),
-(14, 0, 1243150009, '2c644cdf63526558a6fd9c8ec80aeac3', 'symfony/user/sfUser/lastRequest|i:1243150009;symfony/user/sfUser/authenticated|b:0;symfony/user/sfUser/credentials|a:0:{}symfony/user/sfUser/attributes|a:2:{s:25:"symfony/user/sfUser/flash";a:0:{}s:32:"symfony/user/sfUser/flash/remove";a:0:{}}symfony/user/sfUser/culture|s:2:"en";'),
-(13, 1, 1243150002, '7dedc6fa2fbf72168f41c993f41e2e3a', 'symfony/user/sfUser/lastRequest|i:1243150001;symfony/user/sfUser/authenticated|b:1;symfony/user/sfUser/credentials|a:1:{i:0;s:6:"member";}symfony/user/sfUser/attributes|a:3:{s:6:"member";a:3:{s:2:"id";s:1:"1";s:8:"username";s:5:"admin";s:4:"mail";s:0:"";}s:25:"symfony/user/sfUser/flash";a:0:{}s:32:"symfony/user/sfUser/flash/remove";a:0:{}}symfony/user/sfUser/culture|s:2:"en";');
+(20, 0, 1243181594, 'e05c56113be6252efa82eb57916f0933', 'symfony/user/sfUser/lastRequest|i:1243181594;symfony/user/sfUser/authenticated|b:0;symfony/user/sfUser/credentials|a:0:{}symfony/user/sfUser/attributes|a:3:{s:25:"symfony/user/sfUser/flash";a:0:{}s:32:"symfony/user/sfUser/flash/remove";a:0:{}s:6:"member";a:3:{s:2:"id";s:1:"1";s:8:"username";s:5:"admin";s:4:"mail";s:0:"";}}symfony/user/sfUser/culture|s:2:"en";'),
+(21, 1, 1243183677, '509ec5db5fd54e9776f4d6891b291744', 'symfony/user/sfUser/lastRequest|i:1243183677;symfony/user/sfUser/authenticated|b:1;symfony/user/sfUser/credentials|a:1:{i:0;s:6:"member";}symfony/user/sfUser/attributes|a:3:{s:25:"symfony/user/sfUser/flash";a:0:{}s:32:"symfony/user/sfUser/flash/remove";a:0:{}s:6:"member";a:3:{s:2:"id";s:1:"1";s:8:"username";s:5:"admin";s:4:"mail";s:0:"";}}symfony/user/sfUser/culture|s:2:"en";');
 
 -- --------------------------------------------------------
 
@@ -226,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `map_tag` (
   `item_id` int(11) NOT NULL default '0',
   `tag_id` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `map_tag`
@@ -252,4 +257,10 @@ INSERT INTO `map_tag` (`id`, `item_id`, `tag_id`) VALUES
 (17, 107, 104),
 (18, 107, 106),
 (19, 108, 105),
-(20, 108, 106);
+(20, 108, 106),
+(21, 126, 89),
+(22, 126, 91),
+(23, 126, 92),
+(24, 127, 88),
+(25, 127, 89),
+(26, 127, 91);

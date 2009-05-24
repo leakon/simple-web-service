@@ -10,6 +10,7 @@ class bagActions extends BaseBrandActions
 
 		$this->brandName	= '摄影包品牌';
 
+
 	}
 
 
