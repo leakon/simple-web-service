@@ -1,0 +1,8 @@
+index:
+  is_secure: off
+
+authorize:
+  is_secure: off
+
+error:
+  is_secure: off

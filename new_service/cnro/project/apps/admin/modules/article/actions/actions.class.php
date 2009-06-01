@@ -275,7 +275,10 @@ class articleActions extends sfActions {
 		$this->getUser()->setFlash('article_saved_ok', true);
 
 		if ($boolIsNewArticle && $this->articleItem->id) {
-			return	$this->redirect('article/edit?id=' . $this->articleItem->id);
+		#	return	$this->redirect('article/edit?id=' . $this->articleItem->id);
+
+			$action		= ($this->articleItem->type == CnroConstant::ARTICLE_TYPE_PRODUCT) ? 'editProduct' : 'edit';
+			return	$this->redirect('article/'.$action.'?id=' . $this->articleItem->id);
 		}
 
 		$refer	= $request->getParameter('refer', '');

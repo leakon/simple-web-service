@@ -16,6 +16,9 @@ class Table_users extends SofavDB_Table {
 						'username',
 						'password',
 						'mail',
+						'question',
+						'answer',
+						'birthday',
 						'created_at',
 					);
 
