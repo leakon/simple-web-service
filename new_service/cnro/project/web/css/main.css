@@ -1,0 +1,8 @@
+
+div.category_box		{clear:both;}
+
+ul.category_list li ul		{margin-left:24px;}
+
+a.selected_category		{color:red; font-weight:bold;}
+
+div.container table td.col_category div.category_box			{width:400px; height:200px; overflow:auto; line-height:20px; padding:8px;}
