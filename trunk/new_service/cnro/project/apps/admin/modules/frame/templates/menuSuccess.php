@@ -35,6 +35,8 @@ html, body,
 
 <li><a href="<?php echo url_for('portal/advertise') ?>" target="main">广告管理</a></li>
 
+<li><a href="<?php echo url_for('user/index') ?>" target="main">管理员列表</a></li>
+
 <li><a href="<?php echo url_for('frame/signOut') ?>" target="main">退出</a></li>
 
 
