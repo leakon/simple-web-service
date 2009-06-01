@@ -1,0 +1,6 @@
+login:
+  is_secure: off
+
+doLogin:
+  is_secure: off
+
