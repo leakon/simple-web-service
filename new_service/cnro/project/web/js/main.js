@@ -246,7 +246,7 @@ var SimpleSelectTree	= new Class({
 
 				var myRequest		= new Request({
 						method:		'get',
-						url:		'/category/json?' + arrParam.join('&'),
+						url:		'/cn/category/json?' + arrParam.join('&'),
 						data:		{},
 						onSuccess:	function(responseText) {
 									var objResponse	= JSON.decode(responseText);

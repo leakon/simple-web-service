@@ -25,8 +25,6 @@ if ($reqCategoryId) {
 }
 
 
-
-
 $objConf	= new Custom_Conf();
 $arrConf_HELP	= $objConf->getConf('help');
 
@@ -106,7 +104,7 @@ function SetHome(obj){
       </div>
 
       <div class="header">
-        <h1><a href="/"><img src="/images/logo_ch.png" width="385" height="60" alt="CNRO 森罗-氮气应用专家" /></a></h1>
+        <h1><a href="/cn"><img src="/images/logo_ch.png" width="385" height="60" alt="CNRO 森罗-氮气应用专家" /></a></h1>
         <div class="searchBar">
 
 
@@ -114,7 +112,7 @@ function SetHome(obj){
 
 
 
-          	<form method="get" id="searchform" action="/article/search" target="_blank" onsubmit="Search_Form(this)">
+          	<form method="get" id="searchform" action="<?php echo url_for('article/search') ?>" target="_blank">
 
           		<input name="kw" value="<?php echo S::E($sf_request->getParameter('kw', '')) ?>" type="text" class="in195" /><input type="submit" value="" class="btn75" />
 

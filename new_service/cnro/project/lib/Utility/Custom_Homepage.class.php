@@ -29,6 +29,48 @@ class Custom_Homepage {
 
 	}
 
+	public static function genIndexBlock($name) {
+
+		$arrFields	= array('link', 'pic', 'desc');
+
+		foreach ($arrFields as $type) {
+
+			if (!isset(self::$conf['block'][$name][$type])) {
+				self::$conf['block'][$name][$type]	= '';
+			}
+
+		}
+
+		$arrRet		= array();
+		$arrRet['link']	= sprintf(
+						'链接：<input type="text" name="%s[link]" value="%s" '
+						. ' class="admin_block_link" />'
+						. '',
+						$name, S::E(self::$conf['block'][$name]['link'])
+					);
+
+		$arrRet['pic']	= sprintf(
+						'配图：<input type="text" name="%s[pic]" value="%s" '
+						. ' size="20"  class="admin_pic_url" />'
+						. ''
+						. '<p><img src="%s" /></p>',
+						$name, S::E(self::$conf['block'][$name]['pic']),
+						S::E(self::$conf['block'][$name]['pic'])
+					);
+
+		$arrRet['desc']	= sprintf(
+						'描述：<textarea name="%s[desc]" '
+						. ' class="admin_block_desc" />%s</textarea>'
+						. '',
+						$name, S::E(self::$conf['block'][$name]['desc'])
+					);
+
+		return	$arrRet;
+
+	}
+
+
+
 
 	public static function genCategorySelect($name) {
 

@@ -14,8 +14,9 @@ class portalActions extends sfActions {
 
 	public function executeIndex(sfWebRequest $request) {
 
-		$this->arrDataConf	= $this->objConf->getConf();
+		$this->arrDataConf_Block	= $this->objConf->getConf('block');
 
+/*
 		$this->arrDataRes	= array();
 
 		foreach ($this->arrDataConf['block'] as $key => $val) {
@@ -33,6 +34,7 @@ class portalActions extends sfActions {
 			}
 
 		}
+*/
 
 
 	}

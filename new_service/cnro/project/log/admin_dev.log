@@ -12493,3 +12493,1385 @@ Jun 02 10:25:10 symfony [info] {sfWebDebugLogger} Configuration 114.66 ms (9)
 Jun 02 10:25:10 symfony [info] {sfWebDebugLogger} Action "frame/menu" 23.28 ms (1)
 Jun 02 10:25:10 symfony [info] {sfWebDebugLogger} View "Success" for "frame/menu" 136.58 ms (1)
 Jun 02 10:25:11 symfony [info] {sfWebResponse} Send content (32880 o)
+Jun 02 14:44:40 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:44:40 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:44:40 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:44:40 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:44:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:44:40 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:44:40 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:44:40 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:44:40 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:44:40 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:44:40 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:44:40 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:44:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:44:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:44:40 symfony [info] {sfWebDebugLogger} Configuration 918.29 ms (9)
+Jun 02 14:44:40 symfony [info] {sfWebDebugLogger} Action "portal/index" 29.01 ms (1)
+Jun 02 14:44:40 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 153.16 ms (1)
+Jun 02 14:44:40 symfony [info] {sfWebResponse} Send content (34974 o)
+Jun 02 14:44:41 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:44:41 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:44:41 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:44:41 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:44:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:44:41 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:44:41 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:44:41 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:44:41 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:44:41 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:44:41 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:44:41 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:44:41 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:44:41 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:44:41 symfony [info] {sfWebDebugLogger} Configuration 112.03 ms (9)
+Jun 02 14:44:41 symfony [info] {sfWebDebugLogger} Action "portal/index" 20.32 ms (1)
+Jun 02 14:44:41 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 127.05 ms (1)
+Jun 02 14:44:41 symfony [info] {sfWebResponse} Send content (35018 o)
+Jun 02 14:45:06 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:45:06 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:45:06 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:45:06 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:45:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:45:06 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:45:06 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:45:06 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:45:06 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:45:06 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:45:06 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:06 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:45:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:45:06 symfony [info] {sfWebDebugLogger} Configuration 107.76 ms (9)
+Jun 02 14:45:06 symfony [info] {sfWebDebugLogger} Action "portal/index" 22.89 ms (1)
+Jun 02 14:45:06 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 134.91 ms (1)
+Jun 02 14:45:06 symfony [info] {sfWebResponse} Send content (34973 o)
+Jun 02 14:45:07 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:45:07 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:45:07 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:45:07 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:45:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:45:07 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:45:07 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:45:07 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:45:07 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:45:07 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:45:07 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:07 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:45:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:45:08 symfony [info] {sfWebDebugLogger} Configuration 124.37 ms (9)
+Jun 02 14:45:08 symfony [info] {sfWebDebugLogger} Action "portal/index" 58.49 ms (1)
+Jun 02 14:45:08 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 131.14 ms (1)
+Jun 02 14:45:08 symfony [info] {sfWebResponse} Send content (35049 o)
+Jun 02 14:45:50 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:45:50 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:45:50 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:45:50 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:45:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:45:50 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:45:50 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:45:50 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:45:50 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:45:50 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:45:50 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:50 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:45:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:45:50 symfony [info] {sfWebDebugLogger} Configuration 99.01 ms (9)
+Jun 02 14:45:50 symfony [info] {sfWebDebugLogger} Action "portal/index" 24.17 ms (1)
+Jun 02 14:45:50 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 138.06 ms (1)
+Jun 02 14:45:50 symfony [info] {sfWebResponse} Send content (34981 o)
+Jun 02 14:45:51 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:45:51 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:45:51 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:45:51 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:45:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:45:51 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:45:51 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:45:51 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:45:51 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:45:51 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:45:52 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:52 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:52 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:45:52 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:45:52 symfony [info] {sfWebDebugLogger} Configuration 127.75 ms (9)
+Jun 02 14:45:52 symfony [info] {sfWebDebugLogger} Action "portal/index" 38.26 ms (1)
+Jun 02 14:45:52 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 155.22 ms (1)
+Jun 02 14:45:52 symfony [info] {sfWebResponse} Send content (35058 o)
+Jun 02 14:45:53 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:45:53 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:45:53 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:45:53 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:45:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:45:53 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:45:53 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:45:53 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:45:53 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:45:53 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:45:53 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:53 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:45:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:45:53 symfony [info] {sfWebDebugLogger} Configuration 113.89 ms (9)
+Jun 02 14:45:53 symfony [info] {sfWebDebugLogger} Action "portal/index" 27.93 ms (1)
+Jun 02 14:45:53 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 141.17 ms (1)
+Jun 02 14:45:54 symfony [info] {sfWebResponse} Send content (35037 o)
+Jun 02 14:45:55 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:45:55 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:45:55 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:45:55 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:45:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:45:55 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:45:55 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:45:55 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:45:55 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:45:55 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:45:55 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:55 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:45:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:45:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:45:55 symfony [info] {sfWebDebugLogger} Configuration 133.81 ms (9)
+Jun 02 14:45:55 symfony [info] {sfWebDebugLogger} Action "portal/index" 25.20 ms (1)
+Jun 02 14:45:55 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 150.64 ms (1)
+Jun 02 14:45:55 symfony [info] {sfWebResponse} Send content (35081 o)
+Jun 02 14:46:07 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:46:07 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:46:07 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:46:07 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:46:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:46:08 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:46:08 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:46:08 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:46:08 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:46:08 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:46:08 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:08 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:46:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:46:08 symfony [info] {sfWebDebugLogger} Configuration 99.63 ms (9)
+Jun 02 14:46:08 symfony [info] {sfWebDebugLogger} Action "portal/index" 30.14 ms (1)
+Jun 02 14:46:08 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 142.03 ms (1)
+Jun 02 14:46:08 symfony [info] {sfWebResponse} Send content (35045 o)
+Jun 02 14:46:09 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:46:09 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:46:09 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:46:09 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:46:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:46:09 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:46:09 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:46:09 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:46:09 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:46:09 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:46:09 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:09 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:46:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:46:09 symfony [info] {sfWebDebugLogger} Configuration 129.37 ms (9)
+Jun 02 14:46:09 symfony [info] {sfWebDebugLogger} Action "portal/index" 25.14 ms (1)
+Jun 02 14:46:09 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 251.61 ms (1)
+Jun 02 14:46:09 symfony [info] {sfWebResponse} Send content (35090 o)
+Jun 02 14:46:19 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:46:19 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:46:19 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:46:19 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:46:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:46:19 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:46:19 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:46:19 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:46:19 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:46:19 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:46:19 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:19 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:46:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:46:19 symfony [info] {sfWebDebugLogger} Configuration 91.76 ms (9)
+Jun 02 14:46:19 symfony [info] {sfWebDebugLogger} Action "portal/index" 24.71 ms (1)
+Jun 02 14:46:19 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 146.28 ms (1)
+Jun 02 14:46:19 symfony [info] {sfWebResponse} Send content (35045 o)
+Jun 02 14:46:20 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:46:20 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:46:20 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:46:20 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:46:20 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:46:20 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:46:20 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:46:20 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:46:20 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:46:21 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:46:21 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:21 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:46:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:46:21 symfony [info] {sfWebDebugLogger} Configuration 108.47 ms (9)
+Jun 02 14:46:21 symfony [info] {sfWebDebugLogger} Action "portal/index" 23.96 ms (1)
+Jun 02 14:46:21 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 227.30 ms (1)
+Jun 02 14:46:21 symfony [info] {sfWebResponse} Send content (35090 o)
+Jun 02 14:46:35 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:46:35 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:46:35 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:46:35 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:46:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:46:35 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:46:35 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:46:35 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:46:35 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:46:35 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:46:35 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:35 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:46:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:46:35 symfony [info] {sfWebDebugLogger} Configuration 114.83 ms (9)
+Jun 02 14:46:35 symfony [info] {sfWebDebugLogger} Action "portal/index" 23.46 ms (1)
+Jun 02 14:46:35 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 153.68 ms (1)
+Jun 02 14:46:35 symfony [info] {sfWebResponse} Send content (35046 o)
+Jun 02 14:46:36 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:46:36 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:46:36 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:46:36 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:46:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:46:36 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:46:36 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:46:36 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:46:36 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:46:37 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:46:37 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:37 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:46:37 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:46:37 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:46:37 symfony [info] {sfWebDebugLogger} Configuration 175.31 ms (9)
+Jun 02 14:46:37 symfony [info] {sfWebDebugLogger} Action "portal/index" 23.66 ms (1)
+Jun 02 14:46:37 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 163.66 ms (1)
+Jun 02 14:46:37 symfony [info] {sfWebResponse} Send content (35090 o)
+Jun 02 14:48:30 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:48:30 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:48:30 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:48:30 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:48:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:48:30 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:48:30 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:48:30 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:48:30 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:48:30 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:48:30 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:48:30 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:48:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:48:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:48:30 symfony [info] {sfWebDebugLogger} Configuration 102.86 ms (9)
+Jun 02 14:48:30 symfony [info] {sfWebDebugLogger} Action "portal/index" 26.48 ms (1)
+Jun 02 14:48:30 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 141.96 ms (1)
+Jun 02 14:48:31 symfony [info] {sfWebResponse} Send content (35046 o)
+Jun 02 14:48:32 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:48:32 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:48:32 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:48:32 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:48:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:48:32 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:48:32 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:48:32 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:48:32 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:48:32 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:48:32 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:48:32 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:48:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:48:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:48:32 symfony [info] {sfWebDebugLogger} Configuration 118.54 ms (9)
+Jun 02 14:48:32 symfony [info] {sfWebDebugLogger} Action "portal/index" 52.82 ms (1)
+Jun 02 14:48:32 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 177.75 ms (1)
+Jun 02 14:48:32 symfony [info] {sfWebResponse} Send content (35090 o)
+Jun 02 14:49:20 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:49:20 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:49:20 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:49:20 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:49:20 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:49:20 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:49:20 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:49:20 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:49:20 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:49:20 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:49:20 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:49:20 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:49:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:49:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:49:20 symfony [info] {sfWebDebugLogger} Configuration 115.21 ms (9)
+Jun 02 14:49:20 symfony [info] {sfWebDebugLogger} Action "portal/index" 22.87 ms (1)
+Jun 02 14:49:20 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 131.20 ms (1)
+Jun 02 14:49:20 symfony [info] {sfWebResponse} Send content (35046 o)
+Jun 02 14:49:21 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:49:21 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:49:21 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:49:21 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:49:22 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:49:22 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:49:22 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:49:22 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:49:22 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:49:22 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:49:22 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:49:22 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:49:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:49:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:49:22 symfony [info] {sfWebDebugLogger} Configuration 138.64 ms (9)
+Jun 02 14:49:22 symfony [info] {sfWebDebugLogger} Action "portal/index" 81.41 ms (1)
+Jun 02 14:49:22 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 141.54 ms (1)
+Jun 02 14:49:22 symfony [info] {sfWebResponse} Send content (35091 o)
+Jun 02 14:50:28 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:50:28 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:50:28 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:50:28 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:50:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:50:28 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:50:28 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:50:28 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:50:28 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:50:29 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:50:29 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:50:29 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:50:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:50:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:50:29 symfony [info] {sfWebDebugLogger} Configuration 108.63 ms (9)
+Jun 02 14:50:29 symfony [info] {sfWebDebugLogger} Action "portal/index" 21.60 ms (1)
+Jun 02 14:50:29 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 134.72 ms (1)
+Jun 02 14:50:29 symfony [info] {sfWebResponse} Send content (34991 o)
+Jun 02 14:50:30 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:50:30 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:50:30 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:50:30 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:50:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:50:30 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:50:30 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:50:30 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:50:30 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:50:30 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:50:30 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:50:30 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:50:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:50:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:50:30 symfony [info] {sfWebDebugLogger} Configuration 130.94 ms (9)
+Jun 02 14:50:30 symfony [info] {sfWebDebugLogger} Action "portal/index" 20.57 ms (1)
+Jun 02 14:50:30 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 149.71 ms (1)
+Jun 02 14:50:30 symfony [info] {sfWebResponse} Send content (35067 o)
+Jun 02 14:50:32 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:50:32 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:50:32 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:50:32 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:50:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:50:32 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:50:32 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:50:32 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:50:32 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:50:32 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:50:32 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:50:32 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:50:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:50:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:50:32 symfony [info] {sfWebDebugLogger} Configuration 115.64 ms (9)
+Jun 02 14:50:32 symfony [info] {sfWebDebugLogger} Action "portal/index" 24.45 ms (1)
+Jun 02 14:50:32 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 140.79 ms (1)
+Jun 02 14:50:32 symfony [info] {sfWebResponse} Send content (35046 o)
+Jun 02 14:50:33 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:50:33 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:50:34 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:50:34 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:50:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:50:34 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:50:34 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:50:34 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:50:34 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:50:34 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:50:34 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:50:34 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:50:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:50:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:50:34 symfony [info] {sfWebDebugLogger} Configuration 118.31 ms (9)
+Jun 02 14:50:34 symfony [info] {sfWebDebugLogger} Action "portal/index" 24.56 ms (1)
+Jun 02 14:50:34 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 136.30 ms (1)
+Jun 02 14:50:34 symfony [info] {sfWebResponse} Send content (35090 o)
+Jun 02 14:51:45 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:51:45 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:51:45 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:51:45 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:51:46 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:51:46 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:51:46 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:51:46 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:51:46 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:51:46 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:51:46 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:51:46 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:51:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:51:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:51:46 symfony [info] {sfWebDebugLogger} Configuration 109.98 ms (9)
+Jun 02 14:51:46 symfony [info] {sfWebDebugLogger} Action "portal/index" 24.91 ms (1)
+Jun 02 14:51:46 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 145.31 ms (1)
+Jun 02 14:51:46 symfony [info] {sfWebResponse} Send content (35166 o)
+Jun 02 14:51:47 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:51:47 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:51:47 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:51:47 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:51:47 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:51:47 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:51:47 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:51:47 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:51:47 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:51:47 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:51:47 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:51:47 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:51:47 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:51:47 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:51:47 symfony [info] {sfWebDebugLogger} Configuration 110.75 ms (9)
+Jun 02 14:51:47 symfony [info] {sfWebDebugLogger} Action "portal/index" 34.40 ms (1)
+Jun 02 14:51:47 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 129.61 ms (1)
+Jun 02 14:51:47 symfony [info] {sfWebResponse} Send content (35210 o)
+Jun 02 14:51:54 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:51:54 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:51:54 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:51:54 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:51:54 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:51:54 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:51:54 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:51:54 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:51:54 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:51:54 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:51:54 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:51:54 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:51:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:51:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:51:54 symfony [info] {sfWebDebugLogger} Configuration 120.92 ms (9)
+Jun 02 14:51:54 symfony [info] {sfWebDebugLogger} Action "portal/index" 23.95 ms (1)
+Jun 02 14:51:54 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 143.48 ms (1)
+Jun 02 14:51:54 symfony [info] {sfWebResponse} Send content (35166 o)
+Jun 02 14:51:55 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:51:55 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:51:55 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:51:55 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:51:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:51:56 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:51:56 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:51:56 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:51:56 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:51:56 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:51:56 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:51:56 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:51:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:51:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:51:56 symfony [info] {sfWebDebugLogger} Configuration 155.18 ms (9)
+Jun 02 14:51:56 symfony [info] {sfWebDebugLogger} Action "portal/index" 39.88 ms (1)
+Jun 02 14:51:56 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 188.68 ms (1)
+Jun 02 14:51:56 symfony [info] {sfWebResponse} Send content (35210 o)
+Jun 02 14:51:58 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:51:58 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:51:58 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:51:58 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:51:58 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:51:58 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:51:58 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:51:58 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:51:58 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:51:58 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:51:58 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:51:58 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:51:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:51:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:51:58 symfony [info] {sfWebDebugLogger} Configuration 111.79 ms (9)
+Jun 02 14:51:58 symfony [info] {sfWebDebugLogger} Action "portal/index" 22.80 ms (1)
+Jun 02 14:51:58 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 145.62 ms (1)
+Jun 02 14:51:58 symfony [info] {sfWebResponse} Send content (35166 o)
+Jun 02 14:51:59 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:51:59 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:51:59 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:51:59 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:51:59 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:51:59 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:51:59 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:51:59 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:51:59 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:52:00 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:52:00 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:52:00 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:52:00 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:52:00 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:52:00 symfony [info] {sfWebDebugLogger} Configuration 114.89 ms (9)
+Jun 02 14:52:00 symfony [info] {sfWebDebugLogger} Action "portal/index" 35.49 ms (1)
+Jun 02 14:52:00 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 157.41 ms (1)
+Jun 02 14:52:00 symfony [info] {sfWebResponse} Send content (35210 o)
+Jun 02 14:52:05 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:52:05 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:52:05 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:52:05 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:52:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:52:05 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:52:05 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:52:05 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:52:05 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:52:05 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:52:05 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:52:05 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:52:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:52:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:52:05 symfony [info] {sfWebDebugLogger} Configuration 106.99 ms (9)
+Jun 02 14:52:05 symfony [info] {sfWebDebugLogger} Action "portal/index" 29.33 ms (1)
+Jun 02 14:52:05 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 133.65 ms (1)
+Jun 02 14:52:05 symfony [info] {sfWebResponse} Send content (35166 o)
+Jun 02 14:52:06 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:52:06 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:52:06 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:52:06 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:52:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:52:07 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:52:07 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:52:07 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:52:07 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:52:07 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:52:07 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:52:07 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:52:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:52:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:52:07 symfony [info] {sfWebDebugLogger} Configuration 124.18 ms (9)
+Jun 02 14:52:07 symfony [info] {sfWebDebugLogger} Action "portal/index" 25.17 ms (1)
+Jun 02 14:52:07 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 150.60 ms (1)
+Jun 02 14:52:07 symfony [info] {sfWebResponse} Send content (35210 o)
+Jun 02 14:53:07 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:07 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:07 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:07 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:07 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:07 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:07 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:07 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:07 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:07 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:07 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:07 symfony [info] {sfWebDebugLogger} Configuration 108.17 ms (9)
+Jun 02 14:53:07 symfony [info] {sfWebDebugLogger} Action "portal/index" 28.13 ms (1)
+Jun 02 14:53:07 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 137.93 ms (1)
+Jun 02 14:53:07 symfony [info] {sfWebResponse} Send content (35301 o)
+Jun 02 14:53:08 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:08 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:08 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:08 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:09 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:09 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:09 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:09 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:09 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:09 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:09 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:09 symfony [info] {sfWebDebugLogger} Configuration 190.93 ms (9)
+Jun 02 14:53:09 symfony [info] {sfWebDebugLogger} Action "portal/index" 23.45 ms (1)
+Jun 02 14:53:09 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 161.70 ms (1)
+Jun 02 14:53:09 symfony [info] {sfWebResponse} Send content (35345 o)
+Jun 02 14:53:13 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:13 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:13 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:13 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:13 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:13 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:13 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:13 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:14 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:14 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:14 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:14 symfony [info] {sfWebDebugLogger} Configuration 107.41 ms (9)
+Jun 02 14:53:14 symfony [info] {sfWebDebugLogger} Action "portal/index" 23.28 ms (1)
+Jun 02 14:53:14 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 144.02 ms (1)
+Jun 02 14:53:14 symfony [info] {sfWebResponse} Send content (35246 o)
+Jun 02 14:53:15 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:15 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:15 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:15 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:15 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:15 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:15 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:15 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:15 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:15 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:15 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:15 symfony [info] {sfWebDebugLogger} Configuration 126.47 ms (9)
+Jun 02 14:53:15 symfony [info] {sfWebDebugLogger} Action "portal/index" 44.92 ms (1)
+Jun 02 14:53:15 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 129.13 ms (1)
+Jun 02 14:53:15 symfony [info] {sfWebResponse} Send content (35322 o)
+Jun 02 14:53:20 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:20 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:20 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:20 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:20 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:20 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:20 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:20 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:20 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:20 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:20 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:20 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:20 symfony [info] {sfWebDebugLogger} Configuration 107.42 ms (9)
+Jun 02 14:53:20 symfony [info] {sfWebDebugLogger} Action "portal/index" 22.99 ms (1)
+Jun 02 14:53:20 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 135.74 ms (1)
+Jun 02 14:53:20 symfony [info] {sfWebResponse} Send content (35246 o)
+Jun 02 14:53:21 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:21 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:21 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:21 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:21 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:21 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:21 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:21 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:21 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:21 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:21 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:21 symfony [info] {sfWebDebugLogger} Configuration 134.33 ms (9)
+Jun 02 14:53:21 symfony [info] {sfWebDebugLogger} Action "portal/index" 68.10 ms (1)
+Jun 02 14:53:21 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 141.39 ms (1)
+Jun 02 14:53:22 symfony [info] {sfWebResponse} Send content (35323 o)
+Jun 02 14:53:31 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:31 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:31 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:31 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:31 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:31 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:31 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:31 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:31 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:31 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:31 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:31 symfony [info] {sfWebDebugLogger} Configuration 108.87 ms (9)
+Jun 02 14:53:31 symfony [info] {sfWebDebugLogger} Action "portal/index" 21.01 ms (1)
+Jun 02 14:53:31 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 128.45 ms (1)
+Jun 02 14:53:31 symfony [info] {sfWebResponse} Send content (35301 o)
+Jun 02 14:53:33 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:33 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:33 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:33 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:33 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:33 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:33 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:33 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:33 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:33 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:33 symfony [info] {sfWebDebugLogger} Configuration 211.14 ms (9)
+Jun 02 14:53:33 symfony [info] {sfWebDebugLogger} Action "portal/index" 31.04 ms (1)
+Jun 02 14:53:33 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 226.06 ms (1)
+Jun 02 14:53:33 symfony [info] {sfWebResponse} Send content (35345 o)
+Jun 02 14:53:42 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:42 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:42 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:42 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:42 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:42 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:42 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:42 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:42 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:42 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:42 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:42 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:42 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:42 symfony [info] {sfWebDebugLogger} Configuration 114.81 ms (9)
+Jun 02 14:53:42 symfony [info] {sfWebDebugLogger} Action "portal/index" 24.76 ms (1)
+Jun 02 14:53:42 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 155.10 ms (1)
+Jun 02 14:53:42 symfony [info] {sfWebResponse} Send content (35301 o)
+Jun 02 14:53:43 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:43 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:43 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:43 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:43 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:43 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:43 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:43 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:43 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:43 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:43 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:43 symfony [info] {sfWebDebugLogger} Configuration 181.65 ms (9)
+Jun 02 14:53:43 symfony [info] {sfWebDebugLogger} Action "portal/index" 22.51 ms (1)
+Jun 02 14:53:43 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 257.76 ms (1)
+Jun 02 14:53:43 symfony [info] {sfWebResponse} Send content (35345 o)
+Jun 02 14:53:47 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:47 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:47 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:47 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:47 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:47 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:47 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:47 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:47 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:47 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:47 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:47 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:47 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:47 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:47 symfony [info] {sfWebDebugLogger} Configuration 118.72 ms (9)
+Jun 02 14:53:47 symfony [info] {sfWebDebugLogger} Action "portal/index" 21.64 ms (1)
+Jun 02 14:53:47 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 126.36 ms (1)
+Jun 02 14:53:47 symfony [info] {sfWebResponse} Send content (35301 o)
+Jun 02 14:53:48 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:53:48 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:53:48 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:53:48 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:53:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:53:49 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:53:49 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:53:49 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:53:49 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:53:49 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:53:49 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:49 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:53:49 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:53:49 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:53:49 symfony [info] {sfWebDebugLogger} Configuration 166.99 ms (9)
+Jun 02 14:53:49 symfony [info] {sfWebDebugLogger} Action "portal/index" 40.09 ms (1)
+Jun 02 14:53:49 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 123.28 ms (1)
+Jun 02 14:53:49 symfony [info] {sfWebResponse} Send content (35345 o)
+Jun 02 14:54:23 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:54:23 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:54:23 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:54:23 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:54:23 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:54:23 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:54:23 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:54:23 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:54:23 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:54:23 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:54:23 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:54:23 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:54:23 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:54:23 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:54:23 symfony [info] {sfWebDebugLogger} Configuration 112.06 ms (9)
+Jun 02 14:54:23 symfony [info] {sfWebDebugLogger} Action "portal/index" 23.77 ms (1)
+Jun 02 14:54:23 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 149.77 ms (1)
+Jun 02 14:54:23 symfony [info] {sfWebResponse} Send content (35301 o)
+Jun 02 14:54:24 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:54:24 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:54:24 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:54:24 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:54:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:54:24 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:54:24 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:54:24 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:54:24 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:54:24 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:54:24 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:54:24 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:54:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:54:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:54:25 symfony [info] {sfWebDebugLogger} Configuration 110.87 ms (9)
+Jun 02 14:54:25 symfony [info] {sfWebDebugLogger} Action "portal/index" 29.94 ms (1)
+Jun 02 14:54:25 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 179.37 ms (1)
+Jun 02 14:54:25 symfony [info] {sfWebResponse} Send content (35345 o)
+Jun 02 14:54:51 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:54:51 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:54:51 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:54:51 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 14:54:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:54:51 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:54:51 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:54:51 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:54:51 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 14:54:51 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:54:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 14:54:51 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:54:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:54:51 symfony [info] {sfWebDebugLogger} Configuration 90.13 ms (8)
+Jun 02 14:54:51 symfony [info] {sfWebDebugLogger} Action "portal/save" 34.51 ms (1)
+Jun 02 14:54:51 symfony [info] {sfWebResponse} Send content (26197 o)
+Jun 02 14:54:52 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:54:52 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:54:52 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:54:52 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:54:52 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:54:52 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:54:52 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:54:52 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:54:52 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:54:52 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:54:52 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:54:52 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:54:52 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:54:52 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:54:52 symfony [info] {sfWebDebugLogger} Configuration 89.72 ms (9)
+Jun 02 14:54:52 symfony [info] {sfWebDebugLogger} Action "portal/index" 22.21 ms (1)
+Jun 02 14:54:52 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 147.76 ms (1)
+Jun 02 14:54:52 symfony [info] {sfWebResponse} Send content (35245 o)
+Jun 02 14:54:53 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:54:53 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:54:53 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:54:53 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:54:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:54:53 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:54:53 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:54:53 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:54:53 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:54:53 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:54:53 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:54:53 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:54:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:54:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:54:53 symfony [info] {sfWebDebugLogger} Configuration 179.10 ms (9)
+Jun 02 14:54:53 symfony [info] {sfWebDebugLogger} Action "portal/index" 20.79 ms (1)
+Jun 02 14:54:53 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 187.40 ms (1)
+Jun 02 14:54:53 symfony [info] {sfWebResponse} Send content (35290 o)
+Jun 02 14:54:56 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:54:56 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:54:56 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:54:56 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 14:54:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:54:56 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:54:56 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:54:56 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:54:56 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 14:54:56 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:54:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 14:54:56 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:54:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:54:56 symfony [info] {sfWebDebugLogger} Configuration 84.61 ms (8)
+Jun 02 14:54:56 symfony [info] {sfWebDebugLogger} Action "portal/save" 29.95 ms (1)
+Jun 02 14:54:56 symfony [info] {sfWebResponse} Send content (26197 o)
+Jun 02 14:56:16 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:16 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:16 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:16 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 14:56:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:16 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:16 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:16 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:16 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 14:56:16 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:56:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 14:56:16 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:56:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:16 symfony [info] {sfWebDebugLogger} Configuration 127.23 ms (8)
+Jun 02 14:56:16 symfony [info] {sfWebDebugLogger} Action "portal/save" 25.56 ms (1)
+Jun 02 14:56:16 symfony [info] {sfWebResponse} Send content (26230 o)
+Jun 02 14:56:16 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:16 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:16 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:16 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:56:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:16 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:16 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:16 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:16 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:56:16 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:56:16 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:16 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:56:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:16 symfony [info] {sfWebDebugLogger} Configuration 96.26 ms (9)
+Jun 02 14:56:16 symfony [info] {sfWebDebugLogger} Action "portal/index" 21.25 ms (1)
+Jun 02 14:56:16 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 155.64 ms (1)
+Jun 02 14:56:17 symfony [info] {sfWebResponse} Send content (35375 o)
+Jun 02 14:56:18 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:18 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:18 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:18 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:56:18 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:18 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:18 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:18 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:18 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:56:18 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:56:18 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:18 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:56:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:18 symfony [info] {sfWebDebugLogger} Configuration 97.97 ms (9)
+Jun 02 14:56:18 symfony [info] {sfWebDebugLogger} Action "portal/index" 26.66 ms (1)
+Jun 02 14:56:18 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 154.57 ms (1)
+Jun 02 14:56:18 symfony [info] {sfWebResponse} Send content (35377 o)
+Jun 02 14:56:20 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:20 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:20 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:20 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 14:56:20 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:20 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:20 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:20 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:20 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 14:56:20 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:56:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 14:56:20 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:56:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:20 symfony [info] {sfWebDebugLogger} Configuration 82.34 ms (8)
+Jun 02 14:56:20 symfony [info] {sfWebDebugLogger} Action "portal/save" 23.56 ms (1)
+Jun 02 14:56:20 symfony [info] {sfWebResponse} Send content (26197 o)
+Jun 02 14:56:20 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:20 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:20 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:20 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:56:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:21 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:21 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:21 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:21 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:56:21 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:56:21 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:21 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:56:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:21 symfony [info] {sfWebDebugLogger} Configuration 108.30 ms (9)
+Jun 02 14:56:21 symfony [info] {sfWebDebugLogger} Action "portal/index" 19.68 ms (1)
+Jun 02 14:56:21 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 135.92 ms (1)
+Jun 02 14:56:21 symfony [info] {sfWebResponse} Send content (35376 o)
+Jun 02 14:56:22 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:22 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:22 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:22 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:56:22 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:22 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:22 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:22 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:22 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:56:22 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:56:22 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:22 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:56:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:22 symfony [info] {sfWebDebugLogger} Configuration 177.04 ms (9)
+Jun 02 14:56:22 symfony [info] {sfWebDebugLogger} Action "portal/index" 56.72 ms (1)
+Jun 02 14:56:22 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 184.58 ms (1)
+Jun 02 14:56:22 symfony [info] {sfWebResponse} Send content (35346 o)
+Jun 02 14:56:34 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:34 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:34 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:34 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 14:56:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:34 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:34 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:34 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:34 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 14:56:34 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:56:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 14:56:34 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:56:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:34 symfony [info] {sfWebDebugLogger} Configuration 82.90 ms (8)
+Jun 02 14:56:34 symfony [info] {sfWebDebugLogger} Action "portal/save" 24.58 ms (1)
+Jun 02 14:56:34 symfony [info] {sfWebResponse} Send content (26187 o)
+Jun 02 14:56:35 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:35 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:35 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:35 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:56:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:35 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:35 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:35 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:35 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:56:35 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:56:35 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:35 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:56:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:35 symfony [info] {sfWebDebugLogger} Configuration 106.36 ms (9)
+Jun 02 14:56:35 symfony [info] {sfWebDebugLogger} Action "portal/index" 21.85 ms (1)
+Jun 02 14:56:35 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 138.52 ms (1)
+Jun 02 14:56:35 symfony [info] {sfWebResponse} Send content (35383 o)
+Jun 02 14:56:36 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:36 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:36 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:36 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:56:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:36 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:36 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:36 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:36 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:56:36 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:56:36 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:36 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:56:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:36 symfony [info] {sfWebDebugLogger} Configuration 137.87 ms (9)
+Jun 02 14:56:36 symfony [info] {sfWebDebugLogger} Action "portal/index" 24.51 ms (1)
+Jun 02 14:56:36 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 204.07 ms (1)
+Jun 02 14:56:37 symfony [info] {sfWebResponse} Send content (35353 o)
+Jun 02 14:56:50 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:50 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:50 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:50 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 14:56:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:50 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:50 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:50 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:50 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 14:56:50 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:56:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 14:56:50 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:56:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:50 symfony [info] {sfWebDebugLogger} Configuration 87.52 ms (8)
+Jun 02 14:56:50 symfony [info] {sfWebDebugLogger} Action "portal/save" 23.72 ms (1)
+Jun 02 14:56:50 symfony [info] {sfWebResponse} Send content (26251 o)
+Jun 02 14:56:50 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:50 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:50 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:50 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:56:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:50 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:50 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:50 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:50 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:56:50 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:56:50 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:50 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:56:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:50 symfony [info] {sfWebDebugLogger} Configuration 99.95 ms (9)
+Jun 02 14:56:50 symfony [info] {sfWebDebugLogger} Action "portal/index" 21.74 ms (1)
+Jun 02 14:56:50 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 142.85 ms (1)
+Jun 02 14:56:51 symfony [info] {sfWebResponse} Send content (35494 o)
+Jun 02 14:56:52 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:56:52 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:56:52 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:56:52 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:56:52 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:56:52 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:56:52 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:56:52 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:56:52 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:56:52 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:56:52 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:52 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:56:52 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:56:52 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:56:52 symfony [info] {sfWebDebugLogger} Configuration 204.35 ms (9)
+Jun 02 14:56:52 symfony [info] {sfWebDebugLogger} Action "portal/index" 44.02 ms (1)
+Jun 02 14:56:52 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 143.40 ms (1)
+Jun 02 14:56:52 symfony [info] {sfWebResponse} Send content (35465 o)
+Jun 02 14:57:06 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:57:06 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:57:06 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:57:06 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 14:57:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:57:06 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:57:06 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:57:06 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:57:06 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 14:57:06 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:57:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 14:57:06 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:57:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:57:06 symfony [info] {sfWebDebugLogger} Configuration 101.89 ms (8)
+Jun 02 14:57:06 symfony [info] {sfWebDebugLogger} Action "portal/save" 24.49 ms (1)
+Jun 02 14:57:06 symfony [info] {sfWebResponse} Send content (26300 o)
+Jun 02 14:57:07 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:57:07 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:57:07 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:57:07 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:57:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:57:07 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:57:07 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:57:07 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:57:07 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:57:07 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:57:07 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:57:07 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:57:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:57:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:57:07 symfony [info] {sfWebDebugLogger} Configuration 113.97 ms (9)
+Jun 02 14:57:07 symfony [info] {sfWebDebugLogger} Action "portal/index" 22.20 ms (1)
+Jun 02 14:57:07 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 142.43 ms (1)
+Jun 02 14:57:07 symfony [info] {sfWebResponse} Send content (35519 o)
+Jun 02 14:57:08 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:57:08 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:57:08 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:57:08 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:57:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:57:08 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:57:08 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:57:08 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:57:08 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:57:08 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:57:08 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:57:08 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:57:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:57:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:57:08 symfony [info] {sfWebDebugLogger} Configuration 125.46 ms (9)
+Jun 02 14:57:08 symfony [info] {sfWebDebugLogger} Action "portal/index" 23.08 ms (1)
+Jun 02 14:57:08 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 259.63 ms (1)
+Jun 02 14:57:09 symfony [info] {sfWebResponse} Send content (35489 o)
+Jun 02 14:57:13 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:57:13 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:57:13 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:57:13 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 14:57:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:57:13 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:57:13 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:57:13 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:57:13 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 14:57:13 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:57:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 14:57:13 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 14:57:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:57:13 symfony [info] {sfWebDebugLogger} Configuration 83.51 ms (8)
+Jun 02 14:57:13 symfony [info] {sfWebDebugLogger} Action "portal/save" 25.14 ms (1)
+Jun 02 14:57:13 symfony [info] {sfWebResponse} Send content (26239 o)
+Jun 02 14:57:14 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:57:14 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:57:14 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:57:14 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:57:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:57:14 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:57:14 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:57:14 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:57:14 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:57:14 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:57:14 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:57:14 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:57:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:57:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:57:14 symfony [info] {sfWebDebugLogger} Configuration 113.76 ms (9)
+Jun 02 14:57:14 symfony [info] {sfWebDebugLogger} Action "portal/index" 22.67 ms (1)
+Jun 02 14:57:14 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 136.12 ms (1)
+Jun 02 14:57:14 symfony [info] {sfWebResponse} Send content (35483 o)
+Jun 02 14:57:15 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:57:15 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:57:15 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:57:15 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:57:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:57:15 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:57:15 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:57:15 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:57:15 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:57:15 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:57:15 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:57:15 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:57:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:57:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:57:15 symfony [info] {sfWebDebugLogger} Configuration 108.61 ms (9)
+Jun 02 14:57:15 symfony [info] {sfWebDebugLogger} Action "portal/index" 21.50 ms (1)
+Jun 02 14:57:15 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 236.46 ms (1)
+Jun 02 14:57:15 symfony [info] {sfWebResponse} Send content (35453 o)
+Jun 02 14:59:32 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:59:32 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:59:32 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:59:32 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:59:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:59:32 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:59:32 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:59:32 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:59:32 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:59:32 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:59:32 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:59:32 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:59:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:59:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:59:32 symfony [info] {sfWebDebugLogger} Configuration 96.79 ms (9)
+Jun 02 14:59:32 symfony [info] {sfWebDebugLogger} Action "portal/index" 30.12 ms (1)
+Jun 02 14:59:32 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 136.74 ms (1)
+Jun 02 14:59:32 symfony [info] {sfWebResponse} Send content (35482 o)
+Jun 02 14:59:34 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 14:59:34 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 14:59:34 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 14:59:34 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 14:59:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 14:59:34 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 14:59:34 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 14:59:34 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 14:59:34 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 14:59:34 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 14:59:34 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:59:34 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 14:59:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 14:59:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 14:59:34 symfony [info] {sfWebDebugLogger} Configuration 148.77 ms (9)
+Jun 02 14:59:34 symfony [info] {sfWebDebugLogger} Action "portal/index" 29.55 ms (1)
+Jun 02 14:59:34 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 311.82 ms (1)
+Jun 02 14:59:34 symfony [info] {sfWebResponse} Send content (35485 o)
+Jun 02 15:01:02 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:01:02 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:01:02 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:01:02 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:01:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:01:02 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 15:01:02 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:01:02 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:01:02 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:01:02 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 15:01:02 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:01:02 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:01:02 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:01:02 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:01:02 symfony [info] {sfWebDebugLogger} Configuration 111.03 ms (9)
+Jun 02 15:01:02 symfony [info] {sfWebDebugLogger} Action "portal/index" 28.84 ms (1)
+Jun 02 15:01:02 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 145.25 ms (1)
+Jun 02 15:01:02 symfony [info] {sfWebResponse} Send content (35483 o)
+Jun 02 15:01:04 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:01:04 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:01:04 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:01:04 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:01:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:01:04 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 15:01:04 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:01:04 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:01:04 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:01:04 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 15:01:04 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:01:04 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:01:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:01:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:01:04 symfony [info] {sfWebDebugLogger} Configuration 119.67 ms (9)
+Jun 02 15:01:04 symfony [info] {sfWebDebugLogger} Action "portal/index" 24.30 ms (1)
+Jun 02 15:01:04 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 236.36 ms (1)
+Jun 02 15:01:04 symfony [info] {sfWebResponse} Send content (35485 o)
+Jun 02 15:03:28 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:03:28 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:03:28 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:03:28 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 15:03:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:03:28 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 15:03:28 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:03:28 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:03:28 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 15:03:28 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 15:03:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 15:03:28 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 15:03:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:03:28 symfony [info] {sfWebDebugLogger} Configuration 84.59 ms (8)
+Jun 02 15:03:28 symfony [info] {sfWebDebugLogger} Action "portal/save" 25.69 ms (1)
+Jun 02 15:03:28 symfony [info] {sfWebResponse} Send content (28138 o)
+Jun 02 15:03:29 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:03:29 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:03:29 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:03:29 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:03:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:03:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 15:03:29 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:03:29 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:03:29 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:03:29 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 15:03:29 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:03:29 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:03:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:03:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:03:29 symfony [info] {sfWebDebugLogger} Configuration 116.02 ms (9)
+Jun 02 15:03:29 symfony [info] {sfWebDebugLogger} Action "portal/index" 21.41 ms (1)
+Jun 02 15:03:29 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 144.96 ms (1)
+Jun 02 15:03:29 symfony [info] {sfWebResponse} Send content (36500 o)
+Jun 02 15:03:30 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:03:30 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:03:30 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:03:30 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:03:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:03:30 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 15:03:30 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:03:30 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:03:30 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:03:30 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 15:03:30 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:03:30 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:03:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:03:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:03:30 symfony [info] {sfWebDebugLogger} Configuration 172.03 ms (9)
+Jun 02 15:03:30 symfony [info] {sfWebDebugLogger} Action "portal/index" 26.11 ms (1)
+Jun 02 15:03:30 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 190.53 ms (1)
+Jun 02 15:03:30 symfony [info] {sfWebResponse} Send content (36470 o)
+Jun 02 15:04:02 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:04:02 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:04:02 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:04:02 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 15:04:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:04:03 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 15:04:03 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:04:03 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:04:03 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 15:04:03 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 15:04:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 15:04:03 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 15:04:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:04:03 symfony [info] {sfWebDebugLogger} Configuration 91.06 ms (8)
+Jun 02 15:04:03 symfony [info] {sfWebDebugLogger} Action "portal/save" 33.27 ms (1)
+Jun 02 15:04:03 symfony [info] {sfWebResponse} Send content (28354 o)
+Jun 02 15:04:03 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:04:03 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:04:03 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:04:03 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:04:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:04:03 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 15:04:03 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:04:03 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:04:03 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:04:03 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 15:04:03 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:04:03 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:04:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:04:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:04:03 symfony [info] {sfWebDebugLogger} Configuration 120.83 ms (9)
+Jun 02 15:04:03 symfony [info] {sfWebDebugLogger} Action "portal/index" 20.73 ms (1)
+Jun 02 15:04:03 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 142.75 ms (1)
+Jun 02 15:04:03 symfony [info] {sfWebResponse} Send content (36602 o)
+Jun 02 15:04:04 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:04:04 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:04:04 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:04:04 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:04:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:04:04 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 15:04:04 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:04:04 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:04:04 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:04:04 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 15:04:05 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:04:05 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:04:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:04:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:04:05 symfony [info] {sfWebDebugLogger} Configuration 143.75 ms (9)
+Jun 02 15:04:05 symfony [info] {sfWebDebugLogger} Action "portal/index" 34.46 ms (1)
+Jun 02 15:04:05 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 159.41 ms (1)
+Jun 02 15:04:05 symfony [info] {sfWebResponse} Send content (36572 o)
+Jun 02 15:04:53 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:04:53 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:04:53 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:04:53 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /portal/save with parameters array (  'module' => 'portal',  'action' => 'save',)
+Jun 02 15:04:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:04:53 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 15:04:53 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:04:53 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:04:53 symfony [info] {portalActions} Call "portalActions->executeSave()"
+Jun 02 15:04:53 symfony [info] {sfFrontWebController} Redirect to "http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 15:04:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 02 15:04:53 symfony [info] {sfWebResponse} Send header "Location: http://cnro.kk.com/admin/admin_dev.php/portal"
+Jun 02 15:04:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:04:53 symfony [info] {sfWebDebugLogger} Configuration 102.71 ms (8)
+Jun 02 15:04:53 symfony [info] {sfWebDebugLogger} Action "portal/save" 26.05 ms (1)
+Jun 02 15:04:53 symfony [info] {sfWebResponse} Send content (28435 o)
+Jun 02 15:04:54 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:04:54 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:04:54 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:04:54 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /portal with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:04:54 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:04:54 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 02 15:04:54 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:04:54 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:04:54 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:04:54 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\modules/portal/templates/indexSuccess.php"
+Jun 02 15:04:54 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:04:54 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\admin\templates/layout.php"
+Jun 02 15:04:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:04:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:04:54 symfony [info] {sfWebDebugLogger} Configuration 96.87 ms (9)
+Jun 02 15:04:54 symfony [info] {sfWebDebugLogger} Action "portal/index" 23.87 ms (1)
+Jun 02 15:04:54 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 156.75 ms (1)
+Jun 02 15:04:54 symfony [info] {sfWebResponse} Send content (36777 o)
