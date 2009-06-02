@@ -28,8 +28,8 @@ $arrOptionNoPic	= array(
 	#	$str	.= '<p>' . $arr['sub'] . '</p>';
 
 		$str	.= '分类：' . $arr['top'] . '';
-		$str	.= ' &nbsp; ';
-		$str	.= '' . $arr['sub'] . '';
+		$str	.= '';
+		$str	.= '' . $arr['path'] . '';
 
 		if ($option['has_pic'] && isset($arr['pic'])) {
 			$str	.= '<p>' . $arr['pic'] . '</p>';
@@ -90,6 +90,27 @@ $arrOptionNoPic	= array(
 
 ?>
 <div class="itemtitle"><h3>首页设置</h3></div>
+
+
+<form method="get" id="show_category_form" action="#">
+选中的分类ID：<br />
+<input type="text" name="category_id" value="" id="form_category_id" />
+</form>
+
+<!-- 树形分类预览 Begin -->
+<div id="article_category" class="category_box"></div>
+<script type="text/javascript">
+var objConf		= {
+				'box_id':		'article_category',
+				'category_type':	'<?php echo CnroConstant::CATEGORY_TYPE_ALL ?>',
+				'form_id':		'show_category_form',
+				'form_field':		'form_category_id'
+			}
+var objSelectTree	= new SimpleSelectTree(objConf);
+</script>
+<!-- 树形分类预览 End -->
+
+
 
 <form method="post" action="<?php echo url_for('portal/save') ?>">
 

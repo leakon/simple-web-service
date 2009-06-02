@@ -85,6 +85,78 @@ class portalActions extends sfActions {
 		return	$this->redirect($refer);
 
 	}
+	public function executeMessage(sfWebRequest $request) {
+
+		$this->arrConf_Message	= $this->objConf->getConf('message');
+
+	}
+
+	public function executeSaveMessage(sfWebRequest $request) {
+
+		$this->arrConf_Message	= $this->objConf->getConf('message');
+
+		$arrParameters		= $request->getParameterHolder()->getAll();
+
+		if (isset($this->arrConf_Message)) {
+			$this->arrConf_Message	= $this->arrConf_Message ? '0' : '1';
+		}
+
+
+
+		$this->objConf->setConf('message', $this->arrConf_Message);
+
+		$refer	= $request->getParameter('refer', '');
+		return	$this->redirect($refer);
+
+	}
+
+	public function executeFilter(sfWebRequest $request) {
+
+		$this->arrConf_Filter	= $this->objConf->getConf('filter');
+
+	}
+
+	public function executeSaveFilter(sfWebRequest $request) {
+
+		$this->arrConf_Filter	= $this->objConf->getConf('filter');
+
+		$arrParameters		= $request->getParameterHolder()->getAll();
+
+		if (isset($arrParameters['add_words'])) {
+			foreach ($arrParameters['add_words'] as $word) {
+				$word				= trim($word);
+				if (strlen($word)) {
+					$md5				= md5($word);
+					$this->arrConf_Filter[$md5]	= $word;
+				}
+			}
+		} else {
+
+		#	Debug::pre($arrParameters);
+		}
+
+		if (isset($arrParameters['delete_words'])) {
+
+			foreach ($arrParameters['delete_words'] as $word) {
+				$word				= trim($word);
+				if (strlen($word)) {
+					$md5				= md5($word);
+					if (isset($this->arrConf_Filter[$md5])) {
+						unset($this->arrConf_Filter[$md5]);
+					}
+				}
+			}
+
+		}
+
+
+		$this->objConf->setConf('filter', $this->arrConf_Filter);
+
+		$refer	= $request->getParameter('refer', '');
+		return	$this->redirect($refer);
+
+	}
+
 
 	public function executeFriend(sfWebRequest $request) {
 

@@ -101,12 +101,12 @@
 <?php if (isset($arrResult)) : ?>
 
 	<?php if (count($arrResult)) : ?>
-	<table class="item_list tag_list" cellspacing="1" id="id_tag_list_box">
+	<table class="tables" cellspacing="1" id="id_tag_list_box" border="1">
 	<thead>
 		<tr>
-			<th class="num"><input type="checkbox" id="id_check_all" value="" /></th>
+			<th class=""><input type="checkbox" id="id_check_all" value="" /></th>
 			<th class="">姓名</th>
-			<th class="edit">操作</th>
+			<th class="">操作</th>
 		</tr>
 	</thead>
 	<tbody>

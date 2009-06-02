@@ -30,19 +30,25 @@ if ($reqCategoryId) {
 $objConf	= new Custom_Conf();
 $arrConf_HELP	= $objConf->getConf('help');
 
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <?php include_http_metas() ?>
-    <?php include_metas() ?>
-    <?php include_title() ?>
-    <link rel="shortcut icon" href="/favicon.ico" />
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CNRO - Welcome to CNRO 天津市森罗科技发展有限责任公司</title>
+<link href="/css/style.css" type="text/css" rel="stylesheet" />
+<link href="/css/global1.3.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="/css/superfish.css" media="screen">
+		<script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="/js/hoverIntent.js"></script>
+		<script type="text/javascript" src="/js/superfish.js"></script>
+		<script type="text/javascript">
 
+		// initialise plugins
+		jQuery(function(){
+			jQuery('ul.sf-menu').superfish();
+		});
 
-    <script src="/js/mootools-1.2.1-core-nc.js" type="text/javascript"></script>
-    <script src="/js/main.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="/css/main.css" type="text/css" media="all" />
+		</script>
 
 <SCRIPT LANGUAGE="JavaScript">
 <!--
@@ -86,82 +92,69 @@ function SetHome(obj){
 </SCRIPT>
 
 
+</head>
 
-  </head>
-  <body>
-
-<div id="wrapper">
-
-  <div id="header">
+<body>
+  <div id="wrapper">
     <div class="container">
-      <div id="top189">
-        <div id="topbar">
-          <div class="timebar"><?php echo date('Y年n月j日') ?></div>
-          <div class="funcLink"><?php if ($sf_user->getId()) {echo $sf_user->getUsername() . ' | <a href="'. url_for('account/signOut') .'">退出</a> | ';} ?><a href="#" onclick="SetHome(this)">设为首页</a> | <a href="#" onclick="AddFavorite()">加入收藏</a> | <a href="#">English</a></div>
+
+      <div class="topbar">
+        <div class="topNav">
+          <a href="#" target="_blank">英文版</a>  |  <a href="#" target="_blank">网站地图</a>  |  <a href="#" target="_blank">联系我们</a>
         </div>
-        <div id="infoBlock"></div>
+
+      </div>
+
+      <div class="header">
+        <h1><a href="/"><img src="/images/logo_ch.png" width="385" height="60" alt="CNRO 森罗-氮气应用专家" /></a></h1>
+        <div class="searchBar">
+
+
+
+
+
+
+          	<form method="get" id="searchform" action="/article/search" target="_blank" onsubmit="Search_Form(this)">
+
+          		<input name="kw" value="<?php echo S::E($sf_request->getParameter('kw', '')) ?>" type="text" class="in195" /><input type="submit" value="" class="btn75" />
+
+
+		</form>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+      <div class="mainBody">
+
+        <div class="banner137"><img src="/images/banner942x137.jpg" width="942" height="137" /></div>
+
+  <div class="mainNav">
+  <ul class="sf-menu">
 
         	<?php include_partial('global/topNav', array('cateId' => $cateId)) ?>
 
+</ul>
+</div>
+
+   		 <?php echo $sf_content ?>
 
       </div>
-      <!-- end top189 -->
-    </div>
-    <!-- end container -->
-  </div><!-- end header -->
-
-
-
-
-
-    <?php echo $sf_content ?>
-
-
-
-
-
-<?php if (isset($arrConf_HELP) && count($arrConf_HELP)): ?>
-  <div class="container">
-      <div class="ft_l"></div>
-        <div class="ft_m">
-         <p>
-         	<?php
-
-         	foreach ($arrConf_HELP['friend_text'] as $key => $val) {
-
-			$link		= $arrConf_HELP['friend_link'][$key];
-
-         		if (isset($val) && strlen($val) && isset($link) && strlen($link)) {
-         			echo	sprintf('<a href="%s" target="_blank">%s</a>', $arrConf_HELP['friend_link'][$key], S::E($val));
-         		}
-
-         	}
-
-         	?>
-         </p>
-        </div>
-        <div class="ft_r"></div>
-    </div>
-  <div class="blank10"></div>
-<?php endif ?>
-
-
-
-
-  <div id="footer">
-    <div class="container">
-      <p><span>主办单位：国家林业局林木生物质能源领导小组办公室</span><span>工作信箱:<a href="mailto:sfaeo@sina.com">sfaeo@sina.com</a></span><span> 技术支持: <a href="mailto:webmaster@fbioenergy.gov.cn">webmaster@fbioenergy.gov.cn</a></span></p>
-      <div class="blank10"></div>
-      <p> 京ICP备06065631号 </p>
+      <div class="footer">
+        <a href="#" target="_blank">英文版</a>   |   <a href="#" target="_blank">网站地图</a>   |   <a href="#" target="_blank">联系我们</a>   |   <a href="#" target="_blank">&copy; 2009 Tianjin CNRO  Company</a>
+      </div>
     </div>
   </div>
-  <!-- end footer -->
 
-
-</div><!-- end wrapper -->
-
-
-
-
-  </body>
+</body>
 </html>

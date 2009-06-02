@@ -18,7 +18,7 @@
 
 		<div class="">
 
-			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/save') ?>" method="post">
+			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/saveProfile') ?>" method="post">
 			<input type="hidden" name="from" value="edit" />
 			<input type="hidden" name="id" value="<?php echo $dataItem->id ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />

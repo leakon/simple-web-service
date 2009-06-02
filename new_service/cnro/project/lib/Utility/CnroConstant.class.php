@@ -3,6 +3,8 @@
 class CnroConstant {
 
 	const
+		CATEGORY_TYPE_ALL		= -1982,	// 所有分类
+
 		CATEGORY_TYPE_NEWS		= 100,		// 信息分类
 		CATEGORY_TYPE_PRODUCT		= 200,		// 产品分类
 		CATEGORY_TYPE_PROD_RANGE	= 220,		// 产品应用范围

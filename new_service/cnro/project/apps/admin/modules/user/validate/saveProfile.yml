@@ -1,0 +1,6 @@
+fields:
+
+  confirm:
+    sfCompareValidator:
+      check:          password
+      compare_error:  两次输入的密码不一致

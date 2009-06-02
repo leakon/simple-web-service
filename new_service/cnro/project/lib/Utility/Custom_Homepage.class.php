@@ -32,16 +32,12 @@ class Custom_Homepage {
 
 	public static function genCategorySelect($name) {
 
+
 		$top		= 0;
-		$sub		= 0;
 		$pic		= '';
 
 		if (isset(self::$conf['block']['cate_' . $name]['top'])) {
 			$top	= self::$conf['block']['cate_' . $name]['top'];
-		}
-
-		if (isset(self::$conf['block']['cate_' . $name]['sub'])) {
-			$sub	= self::$conf['block']['cate_' . $name]['sub'];
 		}
 
 		if (isset(self::$conf['block']['cate_' . $name]['pic'])) {
@@ -50,22 +46,12 @@ class Custom_Homepage {
 
 		$arrRet		= array();
 		$arrRet['top']	= sprintf(
-						'<select name="cate_%s[top]" onchange="ChangeCategory(this, $(\'id_cate_sub_%s\'))"'
-						. ' id="id_cate_top_%s">'
-						. '<option value="0">请选择</option>'
-						. '%s</select>',
-						$name, $name, $name, self::getTopOptions($top)
+						'<input type="text" name="cate_%s[top]" value="%s" '
+						. ' id="id_cate_top_%s" size="8" /> <br />'
+						. ''
+						. '',
+						$name, $top, $top
 					);
-
-		$arrRet['sub']	= sprintf(
-						'<select name="cate_%s[sub]" id="id_cate_sub_%s">'
-						. '</select>'
-						. '<script type="text/javascript">'
-						. 'ChangeCategory($(\'id_cate_top_%s\'), $(\'id_cate_sub_%s\')'
-						. ', %d, %d);</script>',
-						$name, $name, $name, $name, $top, $sub
-					);
-
 
 		$arrRet['pic']	= sprintf(
 						'配图：<input type="text" name="cate_%s[pic]" id="id_cate_pic_%s" class="admin_pic_url" value="%s" />'
@@ -74,6 +60,29 @@ class Custom_Homepage {
 
 						$name, $name, $pic, $pic
 					);
+
+
+		$arrCategoryPath		= Table_categories::getCategoryPath($top);
+
+		$lastCatId	= 0;
+		$lastCatName	= '一级分类';
+		$arrPath	= array();
+		if (count($arrCategoryPath)) {
+
+			foreach ($arrCategoryPath as $catId => $cateInfo) {
+
+				$arrPath[]	= sprintf('<span id="id_cate_%d">%s</span>',
+								$cateInfo['id'],
+								S::E($cateInfo['name'])
+							);
+				$lastCatId	= $cateInfo['id'];
+				$lastCatName	= S::E($cateInfo['name']);
+
+			}
+		}
+
+		$arrRet['path']	= '路径：' . implode(' &gt; ', $arrPath);
+
 
 		return	$arrRet;
 
