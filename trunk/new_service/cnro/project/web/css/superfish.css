@@ -1,0 +1,39 @@
+
+/*** ESSENTIAL STYLES ***/
+.sf-menu{margin:0;padding:0;list-style:none;}
+.sf-menu li {float:left; position:relative;}
+.sf-menu li a{padding:0 20px 0 20px;  font-weight:bold; float:left; height:30px; line-height:30px; display:block; position:relative; color:#fff;}
+
+.sf-menu li:hover ul,.sf-menu li.sfHover ul {left:0;top:34px; /* match top ul list item height */z-index:99;}
+
+
+.sf-menu li a:hover{color:#fff; display:block; background:url(/images/mainNav_bg1x34_hover.png) no-repeat;}
+.sf-menu li ul {position:absolute; padding:0 0 10px 0;}
+.sf-menu li ul li{width:120px; height:30px; line-height:30px; margin:0; *margin:-3px 0 0 0; border-bottom:1px solid #ccc; padding:0; background:#666; float:none;}
+.sf-menu li ul li a{font-weight:normal; margin:0; padding:0 0 0 10px;  color:#fff;}
+.sf-menu li ul li a:hover{ background:none; text-decoration:underline; color:#fff;}
+/*** arrows **/
+
+.sf-sub-indicator {
+	position:		absolute;
+	display:		block;
+	right:			0;
+	top:			1.05em; /* IE6 only */
+	width:			10px;
+	height:			10px;
+	text-indent: 	-999em;
+	overflow:		hidden;
+	background:		url('/images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+}
+
+
+
+/*** shadows for all but IE6 ***/
+.sf-shadow ul {
+	background:	url('/images/shadow.png') no-repeat bottom right;
+	padding: 0 8px 9px 0;
+
+}
+.sf-shadow ul.sf-shadow-off {
+	background: transparent;
+}

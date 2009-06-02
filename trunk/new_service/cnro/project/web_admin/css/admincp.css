@@ -361,3 +361,20 @@ h3{ margin-bottom:10px; font-size:14px; color:#09C; }
 .mt0{margin-top:0}
 .header, .header td, .header th{ border-top: 1px dotted #DEEFFB; font-weight: 700; }
 .smallefont{font-size: 11px}
+
+
+
+
+
+
+div#contentBox table.index_conf		{xwidth:300px;}
+div#contentBox table.right_6_pic	{xwidth:400px;}
+
+div#contentBox table.index_td td	{width:140px; vertical-align:top;}
+div#contentBox table.index_td td.single_cell	{width:260px; vertical-align:top;}
+div#contentBox table.index_td td .admin_block_link	{width:200px; }
+div#contentBox table.index_td td .admin_pic_url		{width:200px; }
+div#contentBox table.index_td td .admin_block_desc	{width:200px; }
+
+div#contentBox table.leftCol td 	{width:140px;}
+

@@ -6,12 +6,10 @@ class portalActions extends sfActions {
 
 		$this->objConf		= new Custom_Conf();
 
-
 		$this->arrConf_PASS	= $this->objConf->getConf('password');
 		if (!isset($this->arrConf_PASS['password'])) {
 			$this->objConf->setConf('password', array('password' => 'admin'));
 		}
-
 
 	}
 
@@ -21,59 +19,38 @@ class portalActions extends sfActions {
 
 	}
 
-
 	public function executeSave(sfWebRequest $request) {
-
 
 		$arrParameters		= $request->getParameterHolder()->getAll();
 
-	#	Debug::pre($arrParameters);
-
 		$arrFields		= array(
 
-				'cate_focus'			=> 1,
-				'cate_head'			=> 1,
+				'block_1'		=> 1,
+				'block_2'		=> 1,
+				'block_3'		=> 1,
 
-				'cate_news_1'		=> 1,
-				'cate_news_2'		=> 1,
-
-				'cate_block_1'		=> 1,
-				'cate_block_2'		=> 1,
-				'cate_block_3'		=> 1,
-				'cate_block_4'		=> 1,
-				'cate_block_5'		=> 1,
-				'cate_block_6'		=> 1,
-
-				'use_user'		=> 1,
-				'index_ad_1'		=> 1,
-				'index_ad_2'		=> 1,
-				'index_ad_1_link'	=> 1,
-				'index_ad_2_link'	=> 1,
-
-				'cate_scroll_1'		=> 1,
-				'cate_scroll_2'		=> 1,
-
-				'cate_side_1'		=> 1,
-				'cate_side_2'		=> 1,
-
-				'friend_total'		=> 1,
-				'friend_text'		=> 1,
-				'friend_link'		=> 1,
+				'image_1'		=> 1,
+				'image_2'		=> 1,
+				'image_3'		=> 1,
+				'image_4'		=> 1,
+				'image_5'		=> 1,
+				'image_6'		=> 1,
 
 		);
 
-
-
 		$arrSavedForm		= array();
-
 
 		foreach ($arrFields as $fieldName => $v) {
 
+			$arrSavedForm[$fieldName]	= $arrParameters[$fieldName];
+
+			/*
 		#	if (isset($arrParameters[$fieldName]['top']) && isset($arrParameters[$fieldName]['sub'])) {
 			if (isset($arrParameters[$fieldName])) {
-				$arrSavedForm[$fieldName]	= $arrParameters[$fieldName];
+			#	$arrSavedForm[$fieldName]	= $arrParameters[$fieldName];
 
 			}
+			*/
 
 		}
 
@@ -85,6 +62,7 @@ class portalActions extends sfActions {
 		return	$this->redirect($refer);
 
 	}
+
 	public function executeMessage(sfWebRequest $request) {
 
 		$this->arrConf_Message	= $this->objConf->getConf('message');
@@ -177,10 +155,7 @@ class portalActions extends sfActions {
 
 		);
 
-
-
 		$arrSavedForm		= array();
-
 
 		foreach ($arrFields as $fieldName => $v) {
 
@@ -190,7 +165,6 @@ class portalActions extends sfActions {
 			}
 
 		}
-
 
 		$this->objConf->setConf('help', $arrSavedForm);
 
@@ -259,7 +233,6 @@ class portalActions extends sfActions {
 
 		if ($this->arrConf_PASS['password'] == $old_pass && $password == $confirm) {
 
-
 			$arrParameters		= $request->getParameterHolder()->getAll();
 
 
@@ -280,17 +253,14 @@ class portalActions extends sfActions {
 
 			}
 
-
 			$this->objConf->setConf('password', $arrSavedForm);
 
 
 			$this->getUser()->setFlash('newPasswordOK', true);
 
-
 		} else {
 
 			$this->getUser()->setFlash('newPasswordOK', false);
-
 
 		}
 

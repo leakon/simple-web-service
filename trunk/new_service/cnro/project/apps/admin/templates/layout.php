@@ -41,6 +41,7 @@ echo	sprintf('var arrAllCategories	= [%s];', implode(',', $arrCategories));
 </head>
 <body>
 
+
 	<div class="container" id="cpcontainer">
 
 	<?php echo $sf_content ?>

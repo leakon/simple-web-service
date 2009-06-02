@@ -1476,3 +1476,90 @@ Jun 02 12:29:06 symfony [info] {sfWebDebugLogger} Action "category/list" 54.67 m
 Jun 02 12:29:06 symfony [info] {sfWebDebugLogger} View "Success" for "category/list" 191.62 ms (1)
 Jun 02 12:29:06 symfony [info] {sfWebDebugLogger} Partial "global/_topNav" 54.94 ms (1)
 Jun 02 12:29:06 symfony [info] {sfWebResponse} Send content (39164 o)
+Jun 02 15:06:40 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:06:40 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:06:40 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:06:40 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:06:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:06:40 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:06:40 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:06:40 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:06:40 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\modules/portal/templates/indexSuccess.php"
+Jun 02 15:06:59 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:06:59 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:06:59 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:06:59 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:07:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:07:00 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:07:00 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:07:00 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:07:00 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\modules/portal/templates/indexSuccess.php"
+Jun 02 15:07:00 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/layout.php"
+Jun 02 15:07:00 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/layout.php"
+Jun 02 15:07:00 symfony [info] {sfPartialView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/_topNav.php"
+Jun 02 15:07:00 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:07:00 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:07:00 symfony [info] {sfWebDebugLogger} Configuration 105.64 ms (9)
+Jun 02 15:07:00 symfony [info] {sfWebDebugLogger} Action "portal/index" 29.17 ms (1)
+Jun 02 15:07:00 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 183.82 ms (1)
+Jun 02 15:07:00 symfony [info] {sfWebDebugLogger} Partial "global/_topNav" 68.24 ms (1)
+Jun 02 15:07:00 symfony [info] {sfWebResponse} Send content (40087 o)
+Jun 02 15:07:12 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:07:12 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:07:12 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:07:12 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:07:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:07:12 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:07:12 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:07:12 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:07:12 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\modules/portal/templates/indexSuccess.php"
+Jun 02 15:07:13 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/layout.php"
+Jun 02 15:07:13 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/layout.php"
+Jun 02 15:07:13 symfony [info] {sfPartialView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/_topNav.php"
+Jun 02 15:07:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:07:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:07:13 symfony [info] {sfWebDebugLogger} Configuration 105.43 ms (9)
+Jun 02 15:07:13 symfony [info] {sfWebDebugLogger} Action "portal/index" 24.16 ms (1)
+Jun 02 15:07:13 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 204.75 ms (1)
+Jun 02 15:07:13 symfony [info] {sfWebDebugLogger} Partial "global/_topNav" 75.52 ms (1)
+Jun 02 15:07:13 symfony [info] {sfWebResponse} Send content (38983 o)
+Jun 02 15:07:35 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:07:35 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:07:35 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:07:35 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'portal',  'action' => 'index',)
+Jun 02 15:07:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:07:35 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:07:35 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:07:35 symfony [info] {portalActions} Call "portalActions->executeIndex()"
+Jun 02 15:07:35 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\modules/portal/templates/indexSuccess.php"
+Jun 02 15:07:35 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/layout.php"
+Jun 02 15:07:35 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/layout.php"
+Jun 02 15:07:35 symfony [info] {sfPartialView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/_topNav.php"
+Jun 02 15:07:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:07:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:07:36 symfony [info] {sfWebDebugLogger} Configuration 116.02 ms (9)
+Jun 02 15:07:36 symfony [info] {sfWebDebugLogger} Action "portal/index" 22.66 ms (1)
+Jun 02 15:07:36 symfony [info] {sfWebDebugLogger} View "Success" for "portal/index" 198.90 ms (1)
+Jun 02 15:07:36 symfony [info] {sfWebDebugLogger} Partial "global/_topNav" 69.64 ms (1)
+Jun 02 15:07:36 symfony [info] {sfWebResponse} Send content (39691 o)
+Jun 02 15:07:46 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Jun 02 15:07:46 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Jun 02 15:07:46 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Jun 02 15:07:46 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /category/list/id/1000004 with parameters array (  'id' => '1000004',  'module' => 'category',  'action' => 'list',)
+Jun 02 15:07:46 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 02 15:07:46 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Jun 02 15:07:46 symfony [info] {sfFilterChain} Executing filter "sfValidationExecutionFilter"
+Jun 02 15:07:46 symfony [info] {categoryActions} Call "categoryActions->executeList()"
+Jun 02 15:07:46 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\modules/category/templates/listSuccess.php"
+Jun 02 15:07:46 symfony [info] {sfPartialView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/_pager.php"
+Jun 02 15:07:46 symfony [info] {sfPHPView} Decorate content with "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/layout.php"
+Jun 02 15:07:46 symfony [info] {sfPHPView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/layout.php"
+Jun 02 15:07:46 symfony [info] {sfPartialView} Render "D:\Leakon\code\project\new_service\cnro\project\apps\front\templates/_topNav.php"
+Jun 02 15:07:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 02 15:07:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 02 15:07:46 symfony [info] {sfWebDebugLogger} Configuration 104.58 ms (9)
+Jun 02 15:07:46 symfony [info] {sfWebDebugLogger} Action "category/list" 60.57 ms (1)
+Jun 02 15:07:46 symfony [info] {sfWebDebugLogger} View "Success" for "category/list" 218.04 ms (1)
+Jun 02 15:07:46 symfony [info] {sfWebDebugLogger} Partial "global/_pager" 3.70 ms (1)
+Jun 02 15:07:46 symfony [info] {sfWebDebugLogger} Partial "global/_topNav" 51.76 ms (1)
+Jun 02 15:07:46 symfony [info] {sfWebResponse} Send content (41695 o)

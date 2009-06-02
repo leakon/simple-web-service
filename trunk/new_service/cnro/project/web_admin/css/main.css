@@ -11,8 +11,8 @@ input.input_text		{width:640px; font-size:12px; padding:2px;}
 p.article_image img		{border:1px solid black;}
 
 div#contentBox			{overflow:auto; zoom:1;}
-div#contentBox div.left		{float:left; width:64%;}
-div#contentBox div.right	{float:right; width:34%;}
+div#contentBox div.left		{float:left; xwidth:64%;}
+div#contentBox div.right	{float:right; xwidth:34%;}
 
 div#contentBox table			{width:100%;}
 div#contentBox table.leftCol td		{width:50%;}
