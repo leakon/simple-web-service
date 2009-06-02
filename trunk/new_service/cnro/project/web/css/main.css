@@ -8,3 +8,9 @@ a.selected_category		{color:red; font-weight:bold;}
 div.container table td.col_category div.category_box			{width:400px; height:200px; overflow:auto; line-height:20px; padding:8px;}
 
 .form_error			{display:block; color:red; font-weight:bold;}
+
+li.sep				{height:1px; border-top:1px solid black; padding:0; margin:4px 0; overflow:hidden; line-height:2px;}
+
+div.itemtitle			{display:block; clear:both; overflow:auto;  width:400px; margin:18px 0;}
+div.itemtitle h3		{clear:both;}
+

@@ -9,12 +9,8 @@ class articleActions extends sfActions {
 
 	public function executeIndex(sfWebRequest $request) {
 
-
-	#	$this->topCateId	= $request->getParameter('top_category', 0);
-	#	$this->subCateId	= $request->getParameter('sub_category', 0);
 		$this->categoryId		= $request->getParameter('category_id', 0);
 		$this->strKW		= S::KW($request->getParameter('kw', ''));
-
 
 		if (strlen($this->strKW)) {
 
@@ -28,6 +24,26 @@ class articleActions extends sfActions {
 
 		$this->arrResult		= $this->pager->getResults();
 
+		$this->arrAllCategories		= Table_categories::getAll();
+
+	}
+
+	public function executeListProduct(sfWebRequest $request) {
+
+		$this->categoryId		= $request->getParameter('category_id', 0);
+		$this->strKW		= S::KW($request->getParameter('kw', ''));
+
+		if (strlen($this->strKW)) {
+
+			$this->pager		= $this->getArticleByLike($this->categoryId, $this->strKW, $request);
+
+		} else {
+
+			$this->pager		= $this->getArticleByTotal($this->categoryId, $request);
+
+		}
+
+		$this->arrResult		= $this->pager->getResults();
 
 		$this->arrAllCategories		= Table_categories::getAll();
 

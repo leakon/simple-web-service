@@ -6,10 +6,10 @@
  * @package     SofavDB
  * @subpackage  Table
  * @link        www.leakon.com
- * @version     2009-02-23
+ * @version     2009-06-02
  * @author      Leakon <leakon@gmail.com>
  *
- * @notice	add new method getConnectionName()
+ * @notice	isModified add a parameter to tell whether the specific column is modified.
  */
 abstract class SofavDB_Table {
 
@@ -266,8 +266,12 @@ abstract class SofavDB_Table {
 		return	$arrProperty;
 	}
 
-	protected function isModified() {
-		return	count($this->arrModifiedColumns);
+	protected function isModified($key = false) {
+		if ($key) {
+			return	isset($this->arrModifiedColumns[$key]);
+		} else {
+			return	count($this->arrModifiedColumns);
+		}
 	}
 
 	/**

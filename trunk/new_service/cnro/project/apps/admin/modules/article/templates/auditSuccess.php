@@ -21,8 +21,7 @@
 	<td><a href="javascript:;" id="id_check_all">全选</a>/<a href="javascript:;" id="id_clear_all">取消</a></td>
 	<td>信息标题</td>
 	<td>审核状态</td>
-	<td>一级分类</td>
-	<td>二级分类</td>
+	<td>分类</td>
 	<td>添加时间</td>
 	<td>浏览次数</td>
 	<td>编辑</td>
@@ -40,7 +39,6 @@ $parentId	= $arrAllCategories[$cateId]['parent_id'];
 	<td><input type="checkbox" name="checked_item[<?php echo $val['id'] ?>]" value="<?php echo $val['id'] ?>" class="item_checkbox" /></td>
 	<td><a href="<?php echo url_for('/article/show?id=' . $val['id']) ?>" target="_blank"><?php echo S::E($val['title']) ?></a></td>
 	<td><?php echo $val['published'] ? '审核通过' : '未审核' ?></td>
-	<td><?php echo $arrAllCategories[$parentId]['name'] ?></td>
 	<td><?php echo $arrAllCategories[$cateId]['name'] ?></td>
 	<td><?php echo $val['published_at'] ?></td>
 	<td><?php echo $val['view_cnt'] ?></td>

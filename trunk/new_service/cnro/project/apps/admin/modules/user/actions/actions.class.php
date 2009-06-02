@@ -126,6 +126,16 @@ class userActions extends sfActions {
 
 	}
 
+	public function executeSaveProfile($request) {
+		$this->executeSave($request);
+	}
+
+	public function handleErrorSaveProfile() {
+		$request	= $this->getRequest();
+		$from		= $request->getParameter('from', 'list');
+		$this->forward('user', $from);
+	}
+
 	public function executeSave($request) {
 
 		ActionsUtil::needPOST($request);		// 必须是 POST 方法
@@ -135,6 +145,12 @@ class userActions extends sfActions {
 		$bool			= false;
 		$tagId			= (int) $request->getParameter('id', 0);
 		$tagItem		= new $this->dataClass($tagId);
+
+		if (isset($arrParameters['password']) && 0 == strlen($arrParameters['password'])) {
+			unset($arrParameters['password']);
+		}
+
+	#	Debug::pr($arrParameters);
 
 		$tagItem->fromArray($arrParameters);
 

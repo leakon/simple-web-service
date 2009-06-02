@@ -9,9 +9,9 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css, global.css, style.css]
+  stylesheets:    []
 
-  javascripts:    [main.js]
+  javascripts:    []
 
   has_layout:     on
   layout:         layout

@@ -1,5 +1,5 @@
 
-		<h3 class="login">Matcher 后台管理系统</h3>
+		<h3 class="login">后台管理系统</h3>
 
 		<form name="login_form" id="login_form" action="<?php echo url_for('user/Authorize') ?>" method="post">
 		<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />

@@ -1,9 +1,5 @@
 
-  <div id="sandwich">
-
-    <div class="container">
-      <div id="breadCrumb">
-        <div class="bcL"></div>
+        <div class="breadCrumb">
 
         <?php
 
@@ -17,20 +13,14 @@
 
 
         ?>
-	<div class="bcM"><a href="/">首页</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?> </div>
-        <div class="bcR"></div>
-      </div><!-- end breadCrumb -->
-    </div>
+
+            <a href="/">首页</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
+          </div><!-- end breadCrumb -->
 
 
-
-
-    <div class="container">
-
-        <div class="left">
-          <div class="sidebar">
-            <div class="top"></div>
-            <ul class="subNav">
+        <div class="content944">
+          <div class="sideNav">
+            <ul class="">
 		<?php
 
 		$arrSubCateTitle	= array();
@@ -52,54 +42,34 @@
 
 		?>
             </ul>
-            <div class="bot"></div>
+
+          </div><!-- end sideNav -->
+
+
+          <div class="rightC">
+
+		<h3><?php echo S::E($articleItem->title) ?></h3>
+
+		<div class="subInfo"> <span>浏览次数：<?php echo $articleItem->view_cnt ?></span> <span>发布日期：<?php echo substr($articleItem->published_at, 0, 10); ?></span> </div>
+
+		<?php if ($articleItem->pic) : ?>
+		<div>
+			<img src="<?php echo $articleItem->pic ?>" />
+		</div>
+		<?php endif ?>
+
+
+		<div>
+
+			<?php echo $articleItem->detail ?>
+
+		</div>
+
           </div>
-          <!-- end sidebar -->
-        </div>
-        <!-- end left -->
 
-
-        <div class="right">
-          <div class="top"></div>
-          <div class="textBlock">
-
-            <h3><?php echo S::E($articleItem->title) ?></h3>
-
-            <div class="subInfo"> <span>浏览次数：<?php echo $articleItem->view_cnt ?></span> <span>发布日期：<?php echo substr($articleItem->published_at, 0, 10); ?></span> </div>
-
-
-	<?php if ($articleItem->pic) : ?>
-	<div>
-		<img src="<?php echo $articleItem->pic ?>" />
-	</div>
-	<?php endif ?>
-
-
-	<div>
-
-		<?php echo $articleItem->detail ?>
-
-	</div>
+        </div><!-- end content944 -->
 
 
 
 
-            <div class="goTop"><span><a href="#"><img src="/images/topBtn.png" border="0" /></a></span>
-                <p></p>
-            </div>
-          </div>
-          <!-- end textBlock -->
-          <div class="bot"></div>
-        </div>
-
-
-
-
-
-    </div><!-- end container -->
-    <div class="blank10"></div>
-
-
-
-  </div><!-- end sandwich -->
 

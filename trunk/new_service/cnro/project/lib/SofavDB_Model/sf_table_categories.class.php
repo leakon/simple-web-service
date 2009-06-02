@@ -26,11 +26,14 @@ class Table_categories extends SofavDB_Table {
 	public static function getByParent($parentId = 0, $arrConf = false) {
 
 		$limit		= isset($arrConf['limit']) ? $arrConf['limit'] : 10;
-		$type		= isset($arrConf['type']) ? $arrConf['type'] : 0;
+		$type		= isset($arrConf['type']) ? $arrConf['type'] : CnroConstant::CATEGORY_TYPE_ALL;
 
 		$objCategory			= new Table_categories();
 		$objCategory->parent_id		= $parentId;
-		$objCategory->type		= $type;
+		// show all category
+		if (CnroConstant::CATEGORY_TYPE_ALL != $type) {
+			$objCategory->type		= $type;
+		}
 
 
 		$arrCategories			= SofavDB_Record::matchAll($objCategory);
