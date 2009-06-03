@@ -3,11 +3,19 @@
 
         <?php
 
+		$strSideBarNavTitle	= '';
+		$reqCategoryId		= (int) $sf_request->getParameter('id', 0);
+
         	$arrNavHtml	= array();
 
         	foreach ($arrNavPath as $obj) {
 
         		$arrNavHtml[]	= sprintf('<a href="%s">%s</a>', url_for('category/list?id=' . $obj->id), $obj->name);
+
+			if ($reqCategoryId == $obj->id) {
+				$strSideBarNavTitle	= $obj->name;
+			}
+
 
         	}
 
@@ -19,6 +27,7 @@
 
         <div class="content944">
           <div class="sideNav">
+            <h3><?php echo S::E($strSideBarNavTitle) ?></h3>
             <ul class="">
 		<?php
 

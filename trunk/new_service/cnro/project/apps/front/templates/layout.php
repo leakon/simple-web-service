@@ -12,6 +12,7 @@ if ($reqCategoryId) {
 
 	$cateId			= $categoryItem->parent_id;
 
+
 	if ($cateId) {
 
 
@@ -23,6 +24,14 @@ if ($reqCategoryId) {
 	}
 
 }
+
+$override_category_id	= sfConfig::get('override_category_id', false);
+
+if (false !== $override_category_id) {
+	$cateId		= $override_category_id;
+}
+
+
 
 
 $objConf	= new Custom_Conf();
@@ -104,7 +113,7 @@ function SetHome(obj){
       </div>
 
       <div class="header">
-        <h1><a href="/cn"><img src="/images/logo_ch.png" width="385" height="60" alt="CNRO 森罗-氮气应用专家" /></a></h1>
+        <h1><a href="<?php echo url_for('/') ?>"><img src="/images/logo_ch.png" width="385" height="60" alt="CNRO 森罗-氮气应用专家" /></a></h1>
         <div class="searchBar">
 
 
@@ -135,7 +144,27 @@ function SetHome(obj){
 
       <div class="mainBody">
 
+	<?php
+
+	$strModuleName	= $sf_context->getModuleName();
+	$strActionName	= $sf_context->getActionName();
+
+
+	?>
+
+	<?php if ($strModuleName == 'portal' && $strActionName == 'index') : ?>
+
+
+        <div class="flash300"><img src="/images/flash944x300.jpg" width="944" height="300" /></div>
+
+        <?php else : ?>
+
+
         <div class="banner137"><img src="/images/banner942x137.jpg" width="942" height="137" /></div>
+
+
+	<?php endif ?>
+
 
   <div class="mainNav">
   <ul class="sf-menu">

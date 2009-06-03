@@ -16,27 +16,82 @@ class portalActions extends sfActions {
 
 		$this->arrDataConf_Block	= $this->objConf->getConf('block');
 
-/*
-		$this->arrDataRes	= array();
+	}
 
-		foreach ($this->arrDataConf['block'] as $key => $val) {
 
-			$subId		= isset($val['sub']) ? $val['sub'] : $this->defaultCategoryId;
+	public function executePartner(sfWebRequest $request) {
 
-			$total		= 5;
+		sfConfig::set('override_category_id', -1);
 
-			if ('cate_head' == $key) {
-				$total		= 7;
-			}
+		$this->arrDataConf_Block	= $this->objConf->getConf('block');
 
-			if (empty($this->arrDataRes[$subId])) {
-				$this->arrDataRes[$subId]	= Table_articles::getByCategory($subId, $total, array('published' => 1));
-			}
+	}
+
+	public function executeContact(sfWebRequest $request) {
+
+		sfConfig::set('override_category_id', -1);
+
+		$this->arrDataConf_Block	= $this->objConf->getConf('block');
+
+	}
+
+	public function executeSaveMessage(sfWebRequest $request) {
+
+		ActionsUtil::needPOST($request);		// 必须是 POST 方法
+
+
+		$this->arrConf_Filter	= $this->objConf->getConf('filter');
+
+	#	Debug::pre($this->arrConf_Filter);
+
+
+		$arrParameters		= $request->getParameterHolder()->getAll();
+
+		foreach ($this->arrConf_Filter as $filterWord) {
+
+			$arrParameters['title']		= str_replace($filterWord, '*', $arrParameters['title']);
+			$arrParameters['message']	= str_replace($filterWord, '*', $arrParameters['message']);
 
 		}
+
+
+
+		if (isset($_SESSION['auth_code']) && isset($arrParameters['verify_code'])
+			&& $_SESSION['auth_code'] == $arrParameters['verify_code'])
+		{
+
+		} else {
+		#	die('请输入正确的验证码');
+			return	$this->redirect('portal/contact?result=code_error');
+		}
+
+	#	var_dump($_SESSION['auth_code']);
+	#	Debug::pre($arrParameters);
+
+		$bool			= false;
+		$tagItem		= new Table_messages();
+
+		$arrParameters['remote_addr']	= $_SERVER['REMOTE_ADDR'];
+
+		$tagItem->fromArray($arrParameters);
+
+		$bool			= $tagItem->save();
+
+		return	$this->redirect('portal/contact?result=success');
+
+/*
+		$parameters		= array();
+
+		$refer			= $request->getParameter('refer');
+	#	$refer			= false;
+
+		$uri			= sprintf('%s/%s', $this->strModuleName, $request->getParameter('from', 'index'));
+
+		return	ActionsUtil::redirect($uri, $parameters, $refer);
 */
 
 
 	}
+
 
 }

@@ -63,9 +63,59 @@ class portalActions extends sfActions {
 
 	}
 
+
+	private function getArticleByTotal($request, $option = NULL) {
+
+			$parameter		= array();
+
+			$tableArticle	= new Table_messages();
+
+			// use like
+			$templateWhere	= 'FROM %s WHERE 1 ';
+
+			$sqlWhere	= sprintf($templateWhere, $tableArticle->getTableName());
+
+					// "FROM ... WHERE ..." (without SELECT)
+					// 用于生成 COUNT(*) 的 SQL 语句，统计符合条件的记录总数，注意是从 FROM 开始
+			$stateCount	= $sqlWhere;
+					// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
+					// 用于选取记录，这里可以指定字段，并加上排序字段
+			$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY id DESC';
+
+			$pager		= new Simple_Pager();
+			$pager->setCount($stateCount)->setLimit($stateLimit);
+			$pager->setParameter($parameter);
+
+			$page		= (int) $request->getParameter('page', 1);
+			$pager->init($page, $this->pageSize);
+
+			return	$pager;
+
+	}
+
+	public function executeDeleteMessage(sfWebRequest $request) {
+
+		$this->articleId		= $request->getParameter('id', 0);
+		$this->articleItem		= new Table_messages($this->articleId);
+
+		if ($this->articleItem->id) {
+			$this->articleItem->delete();
+		}
+
+		$refer	= $request->getParameter('refer', '');
+		return	$this->redirect($refer);
+
+	}
+
+
 	public function executeMessage(sfWebRequest $request) {
 
+		$this->pageSize		= 15;
+
 		$this->arrConf_Message	= $this->objConf->getConf('message');
+
+		$this->pager		= $this->getArticleByTotal($request);
+		$this->arrResult	= $this->pager->getResults();
 
 	}
 
