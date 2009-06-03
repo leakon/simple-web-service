@@ -96,3 +96,40 @@
 #wrapper .container .mainBody .content944 .rightC .pagebar a.now{font-weight:bold; text-decoration:underline; color:#1c74bb;}
 #wrapper .container .mainBody .content944 .rightC .pagebar .next{color:#1c74bb; margin:0 10px 0 10px;}
 #wrapper .container .mainBody .content944 .rightC .pagebar .total{color:#1c74bb; margin:0 0 0 20px;}
+
+#wrapper .container .mainBody .content944 .rightC .pp{width:700px; height:auto; overflow:hidden; padding:10px;}
+#wrapper .container .mainBody .content944 .rightC .pp li{float:left; width:200px; height:auto; overflow:hidden; margin:0 15px 20px 15px; }
+#wrapper .container .mainBody .content944 .rightC .pp li img{border:2px solid #ccc; display:block; width:194px; height:146px; margin-bottom:5px;}
+#wrapper .container .mainBody .content944 .rightC .pp li a:hover img{display:block; border:2px solid #1c74bb;}
+#wrapper .container .mainBody .content944 .rightC .pp li span a{color:#1c74bb; font-weight:bold;}
+#wrapper .container .mainBody .content944 .rightC .pp li span a:hover{color:#a2c1de; text-decoration:none;}
+
+#wrapper .container .mainBody .content944 .rightC .l495{width:465px; height:auto; overflow:hidden; border-right:1px solid #ccc; float:left; margin:0 0 0 10px; padding-bottom:50px;}
+#wrapper .container .mainBody .content944 .rightC .l495 dl{width:465px; height:auto; overflow:hidden; margin-bottom:10px;}
+#wrapper .container .mainBody .content944 .rightC .l495 dl dt{display:block; float:left; padding:3px 0 0 0; width:65px;}
+#wrapper .container .mainBody .content944 .rightC .l495 dl dd{display:block; float:left;}
+#wrapper .container .mainBody .content944 .rightC .l495 dl dd input{width:211px; height:20px; border:1px solid #e3e3e3; background:#fafafa;}
+#wrapper .container .mainBody .content944 .rightC .l495 dl dd textarea{width:307px; height:98px; border:1px solid #e3e3e3; background:#fff;}
+#wrapper .container .mainBody .content944 .rightC .l495 dl dd .verify{width:55px; height:20px; border:1px solid #e3e3e3; background:#fff; float:left;}
+#wrapper .container .mainBody .content944 .rightC .l495 dl dd .verify_pic{margin:2px 0 0 10px; display:block; float:left;}
+#wrapper .container .mainBody .content944 .rightC .l495 .btn55{width:55px; height:30px; border:none; background:url(/images/submit55x30.gif) no-repeat; margin:10px 0 0 65px; cursor:pointer;}
+
+#wrapper .container .mainBody .content944 .rightC .r240{width:230px; height:auto; overflow:hidden; float:right; padding:0 0 0 10px;}
+#wrapper .container .mainBody .content944 .rightC .r240 h3{color:#1c74bb; font-size:14px; font-weight:bold; margin:10px 0 20px 0;}
+#wrapper .container .mainBody .content944 .rightC .r240 p{line-height:20px; font-size:12px;}
+
+#wrapper .container .mainBody .content944 .rightD{width:740px; height:auto; padding-bottom:50px; overflow:hidden; float:right; border-top:5px solid #d7d7d7; background:#fff;}
+#wrapper .container .mainBody .content944 .rightD .title{font-size:16px; font-weight:bold; padding:10px 0 10px 20px; border-bottom:1px solid #ccc; margin-bottom:20px; color:#1c74bb;}
+#wrapper .container .mainBody .content944 .rightD .product_list{width:720px; height:auto; overflow:hidden; margin:0 0 0 10px;}
+#wrapper .container .mainBody .content944 .rightD .product_list li{float:left; width:215px; height:auto; overflow:hidden; padding-bottom:15px; border-bottom:1px solid #d7d7d7; margin:0 15px 30px 5px;}
+#wrapper .container .mainBody .content944 .rightD .product_list li .tit{font-weight:bold; color:#333; display:block; margin:0 0 15px 10px;}
+#wrapper .container .mainBody .content944 .rightD .product_list li div{display:block; margin-bottom:10px; padding:0 0 0 10px;}
+#wrapper .container .mainBody .content944 .rightD .product_list li p{line-height:22px; padding:0 20px 0 15px;}
+#wrapper .container .mainBody .content944 .rightD .product_list li .more{ display:block; text-align:right; margin:10px 20px 0 0;}
+#wrapper .container .mainBody .content944 .rightD .product_list li .more a{color:#1c74bb; font-weight:bold; }
+
+#wrapper .container .mainBody .content944 .rightD .pagebar{width:680px; border-top:1px solid #eee; margin:20px 0 0 20px; padding:10px 10px 20px 0; text-align:right;}
+#wrapper .container .mainBody .content944 .rightD .pagebar a{padding:5px;}
+#wrapper .container .mainBody .content944 .rightD .pagebar a.now{font-weight:bold; text-decoration:underline; color:#1c74bb;}
+#wrapper .container .mainBody .content944 .rightD .pagebar .next{color:#1c74bb; margin:0 10px 0 10px;}
+#wrapper .container .mainBody .content944 .rightD .pagebar .total{color:#1c74bb; margin:0 0 0 20px;}

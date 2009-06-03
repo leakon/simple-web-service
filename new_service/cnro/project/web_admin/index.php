@@ -1,7 +1,7 @@
 <?php
 
 	$evn_dev	= '';
-#	$evn_dev	= 'admin_dev.php/';
+	$evn_dev	= 'admin_dev.php/';
 
 ?>
 <html>

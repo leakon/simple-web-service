@@ -16,6 +16,7 @@ class Table_categories extends SofavDB_Table {
 						'parent_id',
 						'order_num',
 						'name',
+						'pic',
 						'description',
 					);
 

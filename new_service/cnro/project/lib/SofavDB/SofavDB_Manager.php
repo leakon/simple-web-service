@@ -6,10 +6,10 @@
  * @package     SofavDB
  * @subpackage  Manager
  * @link        www.leakon.com
- * @version     2009-04-011
+ * @version     2009-06-03
  * @author      Leakon <leakon@gmail.com>
  *
- * @notice	add default empty string to $conf['user'] and $conf['pass']
+ * @notice	use Exception instead of die()
  */
 class SofavDB_Manager {
 
@@ -36,7 +36,8 @@ class SofavDB_Manager {
 				}
 
 			} catch (PDOException $e) {
-				die('[SofavDB_Manager] Connection failed: ' . $e->getMessage());
+			#	die('[SofavDB_Manager] Connection failed: ' . $e->getMessage());
+				throw new Exception('[SofavDB_Manager] Connection failed: ' . $e->getMessage());
 			}
 			if (isset($conf['encoding'])) {
 				$conn->exec('SET NAMES ' . $conf['encoding']);
