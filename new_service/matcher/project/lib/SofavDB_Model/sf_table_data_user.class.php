@@ -26,7 +26,9 @@ class Table_data_user extends SofavDB_Table {
 	}
 
 	public function beforeSave() {
-		return	$this->password		= $this->setPassword($this->password);
+		if ($this->isModified('password')) {
+			return	$this->password		= $this->setPassword($this->password);
+		}
 	}
 
 	public function setPassword($password) {

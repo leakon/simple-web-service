@@ -1,22 +1,8 @@
 
-	<table class="item_list tag_list result" cellspacing="1" id="id_list_result_box">
-	<thead>
-		<tr>
-			<th width="">品牌</th>
-			<th width="">型号</th>
-			<th width="">图片</th>
-			<th width="">标签</th>
-			<th width="">链接</th>
-			<th width="">价格区间</th>
-		</tr>
-	</thead>
-	<tbody>
-
 		<?php foreach ($arrResult as $dataItem) : ?>
-		<tr>
-			<td><?php echo S::E($arrOption['products']['bag'][$dataItem['product_id']]) ?></td>
-			<td><?php echo S::E($dataItem['style']) ?></td>
-			<td>
+	<ul>
+	<li class="li1">
+
 				<?php
 
 					if (strlen($dataItem['pic'])) {
@@ -31,18 +17,19 @@
 
 				?>
 
-			</td>
-			<td>
+		</li>
+	<li class="li2"><?php echo S::E($dataItem['style']) ?></li>
+	<li class="li3">
+
 				<?php
 
-					echo	MyHelp::showInlineTag($arrOption['tags']['bag'], $dataItem['id'], ', ');
+					echo	MyHelp::showBagVolume($dataItem);
+
 
 				?>
-				&nbsp;
-			</td>
-			<td><a href="<?php echo S::E($dataItem['link']) ?>" target="_blank"><?php echo S::E($dataItem['link']) ?></a></td>
-			<td><?php echo $arrOption['price'][$dataItem['price_id']] ?></td>
-		</tr>
+	</li>
+	</ul>
+
 		<?php endforeach ?>
-	</tbody>
-	</table>
+
+

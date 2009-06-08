@@ -18,7 +18,7 @@
 
 		<div class="">
 
-			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/save') ?>" method="post">
+			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/saveProfile') ?>" method="post">
 			<input type="hidden" name="from" value="edit" />
 			<input type="hidden" name="id" value="<?php echo $dataItem->id ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
@@ -69,7 +69,7 @@
 			<tr>
 				<td>&nbsp;</td>
 				<td>
-					<input type="submit" id="id_form_submit" value="添加" />
+					<input type="submit" id="id_form_submit" value="保存" />
 
 					<a href="<?php echo url_for('user/list') ?>" id="id_clear_add_input">取消</a>
 				</td>

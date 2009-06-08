@@ -33,6 +33,13 @@ class Table_data_model extends SofavDB_Table {
 						'ext_vol_flash',
 						'ext_vol_notebook',
 						'ext_vol_accessory',
+
+						'ext_vol_slr',		// å•å
+						'ext_vol_small',	// å°å‹æ•°ç 
+						'ext_vol_card',		// å¡ç‰‡æœº
+						'ext_vol_standard',	// æ ‡å‡†å˜ç„¦
+						'ext_vol_pro',		// ä¸“ä¸šå˜ç„¦
+						'ext_vol_stand',	// è„šæ¶
 					);
 
 		$this->hasColumns($arrColumns);
@@ -58,9 +65,9 @@ class Table_data_model extends SofavDB_Table {
 	}
 
 	/**
-	 * Éú³ÉÓÃÓÚ option µÄÊı×é
-	 * ±éÀú $arrResult£¬Ñ¡ÆäÖĞµÄ 2 ¸ö×Ö¶Î·Ö±ğ×÷Îª key ºÍ val
-	 * Éú³ÉĞÂÊı×é
+	 * ç”Ÿæˆç”¨äº option çš„æ•°ç»„
+	 * éå† $arrResultï¼Œé€‰å…¶ä¸­çš„ 2 ä¸ªå­—æ®µåˆ†åˆ«ä½œä¸º key å’Œ val
+	 * ç”Ÿæˆæ–°æ•°ç»„
 	 */
 	public static function getOption($arrResult, $key, $val) {
 
@@ -77,8 +84,8 @@ class Table_data_model extends SofavDB_Table {
 	public static function getTags($productId) {
 
 		$arrWhere		= array();
-		$arrWhere['type']	= MatcherConstant::BRAND_TYPE_TAG;		// ±êÇ©
-		$arrWhere['product_id']	= $productId;					// ²úÆ·ID
+		$arrWhere['type']	= MatcherConstant::BRAND_TYPE_TAG;		// æ ‡ç­¾
+		$arrWhere['product_id']	= $productId;					// äº§å“ID
 		$arrResult		= Table_data_model::getResult($arrWhere);
 
 		$arrTags		= self::getOption($arrResult, 'id', 'name');
