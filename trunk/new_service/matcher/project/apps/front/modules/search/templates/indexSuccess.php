@@ -12,10 +12,10 @@
 <!--滑动开始-->
 <div class="movoewer fun">
 <ul>
-<li class="btu_off"><a href="javascript:;" id="id_tab_bag"><span>摄影包</span></a></li>
-<li class="btu_off"><a href="javascript:;" id="id_tab_stand"><span>脚架</span></a></li>
-<li class="btu_off"><a href="javascript:;" id="id_tab_holder"><span>云台</span></a></li>
-<li class="btu_off"><a href="javascript:;" id="id_tab_filter"><span>滤镜</span></a></li>
+<li class="btu_off"  id="id_tab_bag"><a href="javascript:;"><span>摄影包</span></a></li>
+<li class="btu_off" id="id_tab_stand"><a href="javascript:;"><span>脚架</span></a></li>
+<li class="btu_off" id="id_tab_holder"><a href="javascript:;"><span>云台</span></a></li>
+<li class="btu_off" id="id_tab_filter"><a href="javascript:;"><span>滤镜</span></a></li>
 </ul>
 
 	<!--滑动第1个开始-->
@@ -71,7 +71,7 @@
 </div>
 
 <!--查询按钮开始-->
-<div class="search"><a href="javascript:;" onclick="$('search_form').submit()"><img src="/matcher/images_tpl/search.gif"></a></div>
+<div class="search"><a href="javascript:;" ><img src="/matcher/images_tpl/search.gif" onclick="setTimeout(function() {$('search_form').submit(); }, 10);"></a></div>
 <!--查询按钮结束-->
 
 

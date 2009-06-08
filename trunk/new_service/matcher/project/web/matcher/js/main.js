@@ -113,9 +113,11 @@ var MatcherTab		= new Class({
 				var sid	= '';
 				for (var i = 0; i < arr.length; i++) {
 					sid	= 'id_tab_' + arr[i];
-					$(sid).removeClass('current');
+					$(sid).removeClass('btu_on');
+					$(sid).addClass('btu_off');
 				}
-				objLink.addClass('current');
+				objLink.removeClass('btu_off');
+				objLink.addClass('btu_on');
 
 			},
 
@@ -377,7 +379,7 @@ var MatcherSelect	= new Class({
 								'class':	'se_selector'
 							});
 
-				return	elSelect;
+				return	elSelect.clone();
 
 			}
 
