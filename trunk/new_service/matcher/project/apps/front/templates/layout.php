@@ -6,6 +6,8 @@
     <?php include_title() ?>
     <link rel="shortcut icon" href="/favicon.ico" />
 
+<link href="/matcher/images_tpl/index.css" rel="stylesheet" type="text/css">
+
 <script type="text/javascript" src="/matcher/js/mootools-1.2.1-core-nc.js"></script>
 <script type="text/javascript" src="/matcher/js/main.js"></script>
 <script type="text/javascript" src="/matcher/js/item.js"></script>
@@ -15,6 +17,15 @@
 
   </head>
   <body>
-    <?php echo $sf_content ?>
+<div class="warp">
+<!--头部开始-->
+<div id="top"><a><img src="/matcher/images_tpl/logo.gif"></a><ul>最方便,最专业的影像器材选择器</ul></div>
+<!--头部结束-->
+
+	<div class="content">
+	    <?php echo $sf_content ?>
+	</div>
+<div id="foot">卓傲(北京)贸易有限公司</div>
+</div>
   </body>
 </html>

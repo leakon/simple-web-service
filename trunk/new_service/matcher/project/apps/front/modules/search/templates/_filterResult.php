@@ -1,4 +1,32 @@
+<?php foreach ($arrResult as $dataItem) : ?>
+	<ul>
+	<li class="li1">
+				<?php
 
+					if (strlen($dataItem['pic'])) {
+
+						echo	sprintf('<img src="%s" class="list_img" alt="" />', $webUploadDir . $dataItem['pic']);
+
+					} else {
+
+						echo	'&nbsp;';
+
+					}
+
+				?>
+
+		</li>
+	<li class="li2"><?php echo S::E($dataItem['style']) ?></li>
+	<li class="li3">
+		<a href="<?php echo S::E($dataItem['link']) ?>" target="_blank"><?php echo S::E($dataItem['link']) ?></a>
+	</li>
+	</ul>
+
+		<?php endforeach ?>
+
+
+
+<?php if (0) : ?>
 	<table class="item_list tag_list result" cellspacing="1" id="id_list_result_box">
 	<thead>
 		<tr>
@@ -46,3 +74,5 @@
 		<?php endforeach ?>
 	</tbody>
 	</table>
+
+<?php endif ?>

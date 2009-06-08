@@ -54,6 +54,42 @@ class MyHelp {
 
 	}
 
+	public static function showBagVolume($itemRecord) {
+
+		$arrTypes	= MatcherConstant::getVolumeType();
+
+		$arrNames	= array();
+
+		$arrResult	= array();
+
+		$webDir		= '/matcher/images/';
+
+		foreach (array_keys($arrTypes) as $columnName) {
+
+			$shortName			= str_replace('ext_vol_', '', $columnName);
+			$arrNames[$columnName]		= $shortName;
+
+		}
+
+		foreach ($arrNames as $columnName => $shortName) {
+
+			if ($itemRecord[$columnName]) {
+
+				$imgSrc		= $webDir . $shortName . '.gif';
+
+				$arrResult[]	= sprintf('<a href="javascript:;"><img src="%s" alt="%s" title="%s" /></a>',
+								$imgSrc, $arrTypes[$columnName], $arrTypes[$columnName],
+								$itemRecord[$columnName]
+							);
+
+			}
+
+
+		}
+
+		return	implode('', $arrResult);
+
+	}
 
 	public static function showBagType($objItem) {
 
@@ -63,7 +99,7 @@ class MyHelp {
 	#	$radioCheckValue	= isset($objItem->ext_vol_type) ? $objItem->ext_vol_type : MatcherConstant::BAG_VOL_A;
 		$radioCheckValue	= isset($objItem->ext_vol_type) ? $objItem->ext_vol_type : 0;
 
-		foreach (MatcherConstant::getVolumns() as $key_1 => $val_1) {
+		foreach (MatcherConstant::getVolumes() as $key_1 => $val_1) {
 
 			$arrRet[]	= sprintf(''
 						. '<input %s type="radio" name="ext_vol_type" value="%s" id="id_vol_type_%s" />'
@@ -76,7 +112,7 @@ class MyHelp {
 
 		$arrRet[]	= '<br />';
 
-		foreach (MatcherConstant::getVolumnType() as $key_1 => $val_1) {
+		foreach (MatcherConstant::getVolumeType() as $key_1 => $val_1) {
 
 
 			if ($key_1 == MatcherConstant::BAG_VOL_ACCESSORY) {
@@ -87,7 +123,7 @@ class MyHelp {
 
 				$arrRet[]	= sprintf('<label for="id_vol_%s">%s</label>'
 						. '<input type="checkbox" name="%s" value="1" id="id_vol_%s" %s />'
-						. ' &nbsp; &nbsp; ' . "\n",
+						. ' &nbsp; &nbsp; ' . "<br />\n",
 						$key_1, $val_1,
 						$key_1, $key_1,
 						($checked ? 'checked="checked"' : '')
@@ -119,7 +155,7 @@ class MyHelp {
 
 		$arrRet			= array();
 
-		$arrResult		= MatcherConstant::getVolumns();
+		$arrResult		= MatcherConstant::getVolumes();
 
 		if (isset($itemRecord['ext_vol_type'])) {
 
@@ -129,7 +165,7 @@ class MyHelp {
 
 		}
 
-		foreach (MatcherConstant::getVolumnType() as $key_1 => $val_1) {
+		foreach (MatcherConstant::getVolumeType() as $key_1 => $val_1) {
 
 			if ($key_1 == MatcherConstant::BAG_VOL_ACCESSORY) {
 

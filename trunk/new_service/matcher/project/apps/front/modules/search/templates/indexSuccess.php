@@ -1,123 +1,106 @@
 
-<div id="mainContent">
-
-	<div class="logo"><img src="/matcher/images/logo.png" alt="logo" /><h2><a href="<?php echo url_for('search/index') ?>">Matcher</a></h2></div>
-
-	<h4>选择您需要的产品</h4>
-
-
-	<div class="condition">
-
-		<form id="search_form" action="<?php echo url_for('search/result') ?>" method="get">
-		<input type="hidden" name="from" value="result" />
-		<input type="hidden" name="type" value="<?php echo $sf_request->getParameter('type', '') ?>" />
-		<input type="hidden" name="camera_id" value="<?php echo $sf_request->getParameter('camera_id', '') ?>" />
-		<input type="hidden" name="camera_model_id" value="<?php echo $sf_request->getParameter('camera_model_id', '') ?>" />
-		<input type="hidden" name="lens_id" value="<?php echo $sf_request->getParameter('lens_id', '') ?>" />
-		<input type="hidden" name="lens_model_id" value="<?php echo $sf_request->getParameter('lens_model_id', '') ?>" />
-
-		<div class="product">
-			<table>
-			<tr>
-				<td><a href="javascript:;" id="id_tab_bag">摄影包</a></td>
-				<td><a href="javascript:;" id="id_tab_stand">脚架</a></td>
-				<td><a href="javascript:;" id="id_tab_holder">云台</a></td>
-				<td><a href="javascript:;" id="id_tab_filter">滤镜</a></td>
-			</tr>
-			</table>
-		</div>
-
-		<div class="div_selector">
-
-			<div id="id_product_1" style="display:none">
-				<table class="tbl_selector col_2">
-				<tr>
-					<td width="50%">1. 选择您的相机品牌</td>
-					<td width="50%">2. 选择您的相机型号</td>
-				</tr>
-				<tr>
-					<td id="select_2_1"></td>
-					<td id="select_2_2"></td>
-				</tr>
-				</table>
-			</div>
-
-			<div id="id_product_2" style="display:none">
-				<table class="tbl_selector col_4">
-				<tr>
-					<td width="25%">1. 选择您的相机品牌</td>
-					<td width="25%">2. 选择您的相机型号</td>
-					<td width="25%">3. 选择您的镜头品牌</td>
-					<td width="25%">4. 选择您的镜头型号</td>
-				</tr>
-				<tr>
-					<td id="select_4_1"></td>
-					<td id="select_4_2"></td>
-					<td id="select_4_3"></td>
-					<td id="select_4_4"></td>
-				</tr>
-				</table>
-			</div>
-
-			<div id="id_product_3" style="display:none">
-				<table class="tbl_selector col_2">
-				<tr>
-					<td width="50%">1. 选择您的镜头品牌</td>
-					<td width="50%">2. 选择您的镜头型号</td>
-				</tr>
-				<tr>
-					<td id="select_2_1_lens"></td>
-					<td id="select_2_2_lens"></td>
-				</tr>
-				</table>
-			</div>
+<form id="search_form" action="<?php echo url_for('search/result') ?>" method="get">
+<input type="hidden" name="from" value="result" />
+<input type="hidden" name="type" value="<?php echo $sf_request->getParameter('type', '') ?>" />
+<input type="hidden" name="camera_id" value="<?php echo $sf_request->getParameter('camera_id', '') ?>" />
+<input type="hidden" name="camera_model_id" value="<?php echo $sf_request->getParameter('camera_model_id', '') ?>" />
+<input type="hidden" name="lens_id" value="<?php echo $sf_request->getParameter('lens_id', '') ?>" />
+<input type="hidden" name="lens_model_id" value="<?php echo $sf_request->getParameter('lens_model_id', '') ?>" />
 
 
-		</div>
+<h2>请选择您所需要的产</h2>
+<!--滑动开始-->
+<div class="movoewer fun">
+<ul>
+<li class="btu_off"><a href="javascript:;" id="id_tab_bag"><span>摄影包</span></a></li>
+<li class="btu_off"><a href="javascript:;" id="id_tab_stand"><span>脚架</span></a></li>
+<li class="btu_off"><a href="javascript:;" id="id_tab_holder"><span>云台</span></a></li>
+<li class="btu_off"><a href="javascript:;" id="id_tab_filter"><span>滤镜</span></a></li>
+</ul>
 
-		<div class="div_button">
+	<!--滑动第1个开始-->
+	<div class="clear" id=id_product_1 style="display:none">
+		<ul class="ul">
+		<li class="li1">选择您的相机品牌</li>
+		<li class="li2" id="select_2_1"></li>
+		</ul>
 
-			<input type="submit" value="查找" />
+		<ul class="ul">
+		<li class="li1">选择您的相机型号</li>
+		<li class="li2" id="select_2_2"></li>
+		</ul>
+	</div>
 
-		</div>
+
+	<!--滑动第2个开始-->
+	<div class="clear" id=id_product_2 style="display:none">
+		<ul class="ul">
+		<li class="li1">选择您的相机品牌</li>
+		<li class="li2" id="select_4_1"></li>
+		</ul>
+
+		<ul class="ul">
+		<li class="li1">选择您的相机型号</li>
+		<li class="li2" id="select_4_2"></li>
+		</ul>
+
+		<ul class="ul">
+		<li class="li1">选择您的镜头品牌</li>
+		<li class="li2" id="select_4_3"></li>
+		</ul>
+
+		<ul class="ul">
+		<li class="li1">选择您的镜头型号</li>
+		<li class="li2" id="select_4_4"></li>
+		</ul>
+	</div>
+
+	<!--滑动第3个开始-->
+	<div class="clear" id=id_product_3 style="display:none">
+		<ul class="ul">
+		<li class="li1">选择您的镜头品牌</li>
+		<li class="li2" id="select_2_1_lens"></li>
+		</ul>
+
+		<ul class="ul">
+		<li class="li1">选择您的镜头型号</li>
+		<li class="li2" id="select_2_2_lens"></li>
+		</ul>
+	</div>
+
+</div>
+
+<!--查询按钮开始-->
+<div class="search"><a href="javascript:;" onclick="$('search_form').submit()"><img src="/matcher/images_tpl/search.gif"></a></div>
+<!--查询按钮结束-->
 
 
-		<div class="div_filter">
 
-			<table>
-			<tr>
-				<td>品牌</td>
-				<td id="cont_product_box"></td>
-			</tr>
-			<tr>
-				<td>标签</td>
-				<td id="cont_tag_box"></td>
-			</tr>
-			<tr>
-				<td>价格区间</td>
-				<td>
+
+<div class="search_y">
+<div class="lines2"></div>
+<p><span>品牌:</span>
+	<span id="cont_product_box"></span>
+</p>
+
+<p>
+<span>标签:</span>
+	<span id="cont_tag_box"></span>
+</p>
+
+<p>
+<span>价格区间:</span>
+	<span>
 				<select name="price_id">
 				<?php
 					echo	options_for_select($arrOption['price'], $sf_request->getParameter('price_id', 0));
 				?>
 				</select>
-
-				</td>
-			</tr>
-			</table>
-
-		</div>
-
-
-
-	</div>
-
+	</span>
+</p>
 
 	<?php if ($showResult) : ?>
 
-
-
-	<div class="div_result">
 
 <?php if (isset($arrResult)) : ?>
 
@@ -145,12 +128,39 @@
 
 	<?php else : ?>
 
-	对不起，没有找到符合条件的产品。
+	<div style="xcolor:#000; xborder:1px solid gray; padding:28px 12px; font-size:22px;">
+		对不起，没有找到符合条件的产品。
+	</div>
 
 	<?php endif ?>
 
 <?php endif ?>
 
+<?php endif ?>
+
+<?php if (0) : ?>
+	<ul>
+	<li class="li1"><a href=""><img src="/matcher/images_tpl/photo.gif" alt="100X100px"></a></li>
+	<li class="li2">国家地理 W8120 单肩摄影包</li>
+	<li class="li3"><a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	<a href=""><img src="/matcher/images_tpl/smalphoto.gif" alt="背包图片"></a>
+	</li>
+	</ul>
+<?php endif ?>
 
 <?php
 
@@ -160,9 +170,10 @@ $action	= $sf_context->getActionName();
 include_partial('global/pager', array('pager' => $pager, 'pageUri' => url_for($strModuleName . '/' . $action) . $uri));
 ?>
 
-	</div><!-- EndOf div.div_result -->
+<div class="lines"></div>
 
-	<?php endif ?>
+
+
 
 
 </div>
@@ -243,10 +254,8 @@ var objColumn_4_2		= new MatcherSelect(cfgOption);
 
 </script>
 
-<script type="text/javascript">
 
-
-</script>
+</form>
 
 
 <?php
