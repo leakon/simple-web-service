@@ -12,12 +12,12 @@ if (top.location != window.location) {
 
 <div class="login">
 <ul>
-	<li><strong>用户名：</strong><input name="username" type="text" align="absmiddle" value="<?php echo $sf_params->get('username', '') ?>" /></li>
-
 
 	<?php if ($sf_request->getParameter('msg') && 'pass_error' == ($msg = $sf_request->getParameter('msg'))): ?>
-	<li class="form_error" style="color:red; text-align:left; padding-left:60px;">密码错误</li>
+	<li class="form_error" style="color:red; text-align:left; padding-left:54px;">用户名或密码错误</li>
 	<?php endif; ?>
+
+	<li><strong>用户名：</strong><input name="username" type="text" align="absmiddle" value="<?php echo $sf_params->get('username', '') ?>" /></li>
 
 	<li><strong>密　码：</strong><input name="password" type="password" align="absmiddle"></li>
 	<li class="li"><input border="0" name="searsh" src="/matcher/admin/images/btun01.gif" type="image" width="75" height="44" class="anniu"  /><input border="0" name="searsh" src="/matcher/admin/images/btun02.gif" type="image" width="75" height="44" class="anniu" onclick="$('login_form').reset(); return false;" /></li>
