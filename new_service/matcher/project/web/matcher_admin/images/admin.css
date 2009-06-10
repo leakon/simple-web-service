@@ -46,3 +46,5 @@ A:active {color:#131619;text-decoration:none;outline:none;cursor:pointer}
 .login ul li strong{padding:0px 0px 0px 0px;margin:0px 0px 0px 0px;height:30px;line-height:23px;*line-height:28px;display:block;float:left}
 .login ul input{width:230px;padding:5px 0px 7px 0px;float:left;border:#CCCCCC 1px solid}
 .login ul input.anniu{width:75px;height:44px;float:left;margin-left:10px;border:#CCCCCC 0px solid}
+
+div#leftMenu ul li a:hover	{color:red;}
