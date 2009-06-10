@@ -60,9 +60,9 @@ A:active {color:#131619;text-decoration:none;outline:none;cursor:pointer}
 .search_y ul{margin:0px 6px 0px 6px;border:#cccccc 1px solid;border-bottom:#cccccc 0px solid;border-right:#cccccc 0px solid;width:785px;overflow:hidden; background-color:#FFFFFF;}
 .lines{clear:both;height:1px;background-color:#cccccc;overflow:hidden;margin:0px 6px 0px 6px;width:785px;overflow:hidden}
 .lines2{clear:both;height:2px;*height:1px;border-bottom:#CCCCCC 1px solid;overflow:hidden;margin:1px 0px 0px 0px;width:797px;overflow:hidden}
-.search_y ul li.li1{float:left;width:182px;height:120px;overflow:hidden;border-right:#CCCCCC 1px solid;text-align:center;}
+.search_y ul li.li1{float:left;width:182px;xheight:120px; height:140px; overflow:hidden;border-right:#CCCCCC 1px solid;text-align:center;}
 .search_y ul li.li1 img{margin-top:10px}
-.search_y ul li.li2{float:left;width:170px;height:120px;overflow:hidden; color:#131619;border-right:#CCCCCC 1px solid;vertical-align:middle; line-height:120px; margin-left:6px}
-.search_y ul li.li3{float:right;width:420px;height:120px;overflow:hidden;border-right:#CCCCCC 1px solid; color:#000;}
+.search_y ul li.li2{float:left;width:170px;xheight:120px; height:140px; overflow:hidden; color:#131619;border-right:#CCCCCC 1px solid;vertical-align:middle; line-height:120px; margin-left:6px}
+.search_y ul li.li3{float:right;width:420px;xheight:120px; height:140px; overflow:hidden;border-right:#CCCCCC 1px solid; color:#000;}
 .search_y ul li.li3 img{width:40;height:40px;overflow:hidden}
 .search_y ul li.li3 a{margin:13px 0px 0px 10px;float:left}

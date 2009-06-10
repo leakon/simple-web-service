@@ -12,11 +12,9 @@ class BaseBrandActions extends sfActions {
 
 		$this->useGlobalTemplate	= true;
 
-
 		$this->arrProducts	= MatcherConstant::getProducts();
 
 		$this->webUploadDir	= ProjectConfiguration::getWebUploadDir();
-
 
 	}
 
@@ -44,6 +42,45 @@ class BaseBrandActions extends sfActions {
 
 	}
 
+	protected function getSearchData(sfWebRequest $request) {
+
+		$tableDataTag		= new $this->dataClass();
+
+		$word			= $request->getParameter('word', '');
+		$word			= '%' . $word . '%';
+		$conn			= SofavDB_Manager::getConnection();
+
+		$where			= array('type' => $this->type);
+
+		$templateWhere		= "FROM %s WHERE type = %d AND name LIKE %s";
+		$sqlWhere		= sprintf($templateWhere, $tableDataTag->getTableName(), $this->type, $conn->quote($word));
+
+
+				// "FROM ... WHERE ..." (without SELECT)
+		$stateCount	= $sqlWhere;
+				// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
+		$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY id DESC';
+
+
+		$this->pager		= new Simple_Pager();
+		$this->pager->setCount($stateCount)->setLimit($stateLimit);
+
+		$page			= (int) $request->getParameter('page', 1);
+		$this->pager->init($page, sfConfig::get('app_page_size', 5));
+
+		$this->arrResult	= $this->pager->getResults();
+
+		$this->dataItem		= new $this->dataClass();
+
+		$this->hasErrors	= $request->hasErrors();
+		if ($this->hasErrors) {
+			$arrParameters		= $request->getParameterHolder()->getAll();
+			$this->dataItem->fromArray($arrParameters);
+		}
+
+	}
+
+
 	public function executeIndex(sfWebRequest $request) {
 
 		if ($this->useGlobalTemplate) {
@@ -53,6 +90,17 @@ class BaseBrandActions extends sfActions {
 		$this->getIndexData($request);
 
 	}
+
+	public function executeSearch(sfWebRequest $request) {
+
+		if ($this->useGlobalTemplate) {
+			$this->setTemplate('index', 'camera');
+		}
+
+		$this->getSearchData($request);
+
+	}
+
 
 	public function executeAdd($request) {
 

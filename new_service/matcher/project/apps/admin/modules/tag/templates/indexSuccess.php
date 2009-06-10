@@ -16,6 +16,8 @@
 
 		<h3><?php echo $brandName ?>管理</h3>
 
+
+
 		<div class="">
 
 			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/save') ?>" method="post">
@@ -65,10 +67,26 @@
 
 	</div>
 
+		<div class="floatxx">
+			<form name="theSearchForm" id="id_tag_search" action="<?php echo url_for($strModuleName . '/search') ?>" method="get">
+
+				<input type="text" id="id_search_input" name="word" value="<?php echo S::E($sf_request->getParameter('word', '')) ?>" />
+
+				<input type="submit" id="id_search_form_submit" value="搜索" />
+				<a href="<?php echo url_for($strModuleName . '/index') ?>">取消</a>
+			</form>
+		</div>
 
 	<div class="boxBody">
 
 <?php if (isset($arrResult)) : ?>
+
+<?php
+
+#Debug::pr($arrResult);
+
+?>
+
 
 	<?php if (count($arrResult)) : ?>
 	<table class="item_list tag_list" cellspacing="1" id="id_tag_list_box">
