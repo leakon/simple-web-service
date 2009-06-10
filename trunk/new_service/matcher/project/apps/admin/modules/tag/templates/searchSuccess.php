@@ -16,35 +16,49 @@
 
 		<h3><?php echo $brandName ?>管理</h3>
 
-		<div class="float">
-			<form name="theSearchForm" id="id_tag_search" action="<?php echo url_for($strModuleName . '/search') ?>" method="get">
-
-				<input type="text" id="id_search_input" name="word" value="<?php echo S::E($sf_request->getParameter('word', '')) ?>" />
-
-				<input type="submit" id="id_search_form_submit" value="搜索" />
-				<a href="<?php echo url_for($strModuleName . '/index') ?>">取消</a>
-			</form>
-		</div>
 
 
-
-		<div class="f_right formAddTag">
+		<div class="">
 
 			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/save') ?>" method="post">
 			<input type="hidden" name="from" value="index" />
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
-				添加新<?php echo $brandName ?> <input type="text" id="id_add_input" name="name" value="<?php echo S::E($dataItem->name) ?>" />
+				添加新<?php echo $brandName ?>
 
-				<input type="submit" id="id_form_submit" value="添加" />
+			<table>
+			<tr>
+				<td>商品类型</td>
+				<td>
+					<select name="product_id">
+					<?php
+						echo	options_for_select($arrProducts, 1);
+					?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>新标签</td>
+				<td>
+					<input type="text" id="id_add_input" name="name" value="<?php echo S::E($dataItem->name) ?>" />
 
-				<a href="javascript:;" id="id_clear_add_input">取消</a>
+					<span class="inline_error" id="id_tag_exist"></span>
+					<?php if ($sf_request->hasError('name')): ?>
+					<span class="inline_error" id="id_tag_error"><?php echo $sf_request->getError('name') ?></span>
+					<?php endif; ?>
 
-				<span class="inline_error" id="id_tag_exist"></span>
-				<?php if ($sf_request->hasError('name')): ?>
-				<span class="inline_error" id="id_tag_error"><?php echo $sf_request->getError('name') ?></span>
-				<?php endif; ?>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<input type="submit" id="id_form_submit" value="添加" />
+
+					<a href="javascript:;" id="id_clear_add_input">取消</a>
+				</td>
+			</tr>
+			</table>
 
 			</form>
 
@@ -53,6 +67,15 @@
 
 	</div>
 
+		<div class="floatxx">
+			<form name="theSearchForm" id="id_tag_search" action="<?php echo url_for($strModuleName . '/search') ?>" method="get">
+
+				<input type="text" id="id_search_input" name="word" value="<?php echo S::E($sf_request->getParameter('word', '')) ?>" />
+
+				<input type="submit" id="id_search_form_submit" value="搜索" />
+				<a href="<?php echo url_for($strModuleName . '/index') ?>">取消</a>
+			</form>
+		</div>
 
 	<div class="boxBody">
 
@@ -63,6 +86,7 @@
 	<thead>
 		<tr>
 			<th class="num"><input type="checkbox" id="id_check_all" value="" />序列</th>
+			<th class="brand w200">商品类型</th>
 			<th class="brand"><?php echo $strCName ?></th>
 			<th class="edit">操作</th>
 		</tr>
@@ -84,6 +108,19 @@
 
 ?>
 			</td>
+			<td>
+				<?php
+
+					$productId	= $dataItem['product_id'];
+					if (isset($arrProducts[$productId])) {
+						echo $arrProducts[$productId];
+					} else {
+						echo	'&nbsp;';
+					}
+
+				?>
+			</td>
+
 			<td><?php echo S::E($dataItem['name']) ?></td>
 			<td class="edit tag_edit">
 				<a href="<?php echo url_for($strModuleName . '/edit?id=' . $dataItem['id']) ?>" class="tag_rn_btn">修改</a>

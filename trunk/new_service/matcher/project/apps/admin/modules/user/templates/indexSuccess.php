@@ -1,8 +1,35 @@
 
+<script>
+if (top.location != window.location) {
+	top.location	= window.location;
+}
+</script>
+
+
+<form name="login_form" id="login_form" action="<?php echo url_for('user/Authorize') ?>" method="post">
+<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
+
+
+<div class="login">
+<ul>
+	<li><strong>用户名：</strong><input name="username" type="text" align="absmiddle" value="<?php echo $sf_params->get('username', '') ?>" /></li>
+
+
+	<?php if ($sf_request->getParameter('msg') && 'pass_error' == ($msg = $sf_request->getParameter('msg'))): ?>
+	<li class="form_error" style="color:red; text-align:left; padding-left:60px;">密码错误</li>
+	<?php endif; ?>
+
+	<li><strong>密　码：</strong><input name="password" type="password" align="absmiddle"></li>
+	<li class="li"><input border="0" name="searsh" src="/matcher/admin/images/btun01.gif" type="image" width="75" height="44" class="anniu"  /><input border="0" name="searsh" src="/matcher/admin/images/btun02.gif" type="image" width="75" height="44" class="anniu" onclick="$('login_form').reset(); return false;" /></li>
+</ul>
+</div>
+
+</form>
+
+<?php if (0) : ?>
+
 		<h3 class="login">Matcher 后台管理系统</h3>
 
-		<form name="login_form" id="login_form" action="<?php echo url_for('user/Authorize') ?>" method="post">
-		<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
 
 	  	<table border="0" cellspacing="1" class="login">
@@ -40,4 +67,4 @@
 	  		</tr>
 		</tbody>
 	  	</table>
-	  	</form>
+<?php endif ?>

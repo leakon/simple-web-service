@@ -12,7 +12,7 @@ class searchActions extends sfActions {
 
 		$this->webUploadDir	= ProjectConfiguration::getWebUploadDir();
 
-		$this->pageSize		= 10;
+		$this->pageSize		= 20;
 
 	}
 

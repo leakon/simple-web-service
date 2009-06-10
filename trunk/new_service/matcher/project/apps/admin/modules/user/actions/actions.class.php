@@ -55,7 +55,8 @@ class userActions extends sfActions {
 			$this->getUser()->setFlash('loginSuccess', true);
 
 
-			return	$this->redirect('user/index');
+			return	$this->redirect('/matcher/admin/index.php');
+		#	return	$this->redirect('user/index');
 
 		#	if (strlen($refer)) {
 		#		return	$this->redirect($refer);
@@ -273,6 +274,16 @@ class userActions extends sfActions {
 
 		return	ActionsUtil::redirect($this->strModuleName . '/index', $parameters, $refer);
 	}
+
+
+
+	public function executeFrameTop($request) {
+	}
+	public function executeFrameLeft($request) {
+	}
+	public function executeFrameFoot($request) {
+	}
+
 
 
 

@@ -20,19 +20,19 @@ li			{list-style:none; }
 
 p			{margin:0; padding:0;}
 ul.indent		{margin:4px 0 4px 12px;}
-img.list_img		{border:1px solid black; margin:2px;}
+img.list_img		{border:1px solid black; margin:2px; width:120px; height:120px; }
 span.form_error		{color:red; display:block;}
 
 
 div#header		{background:#FF9900; height:40px; width:776px; border:1px solid black; color:white; padding:12px;}
 
-div#mainBody		{width:802px;}
+div#mainBody		{xwidth:802px;}
 
 div#pagerLink		{text-align:center;}
 div#pagerLink span		{color:red; font-weight:bold;}
 
 
-table#mainTable			{width:802px; background:#000; border:0;}
+table#mainTable			{width:802px; width:100%; xbackground:#000; border:0;}
 table#mainTable th,
 table#mainTable td		{background:#FFF; vertical-align:top; padding:6px;}
 table#mainTable td.menu		{width:100px;}
