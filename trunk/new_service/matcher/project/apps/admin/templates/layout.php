@@ -14,7 +14,7 @@
 
 <script>
 if (top.location == window.location) {
-//	top.location	= '/matcher/admin/index.php';
+	top.location	= '/matcher/admin/index.php';
 }
 </script>
 
