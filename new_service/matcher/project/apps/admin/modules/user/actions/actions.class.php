@@ -278,10 +278,13 @@ class userActions extends sfActions {
 
 
 	public function executeFrameTop($request) {
+		$this->setLayout('layout_frame');
 	}
 	public function executeFrameLeft($request) {
+		$this->setLayout('layout_frame');
 	}
 	public function executeFrameFoot($request) {
+		$this->setLayout('layout_frame');
 	}
 
 

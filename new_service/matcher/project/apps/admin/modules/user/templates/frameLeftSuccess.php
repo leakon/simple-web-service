@@ -1,5 +1,5 @@
 
-<div class="left">
+<div class="left" id="leftMenu">
 
 <h1 onclick="menu_set('menu_01')"><a>相机品牌管理</a></h1>
 <ul id="menu_01">
@@ -45,7 +45,9 @@
 <li><a target="fright" href="<?php echo url_for('tag/index') ?>">标签管理</a></li>
 <li><a target="fright" href="<?php echo url_for('price/index') ?>">价格区间</a></li>
 <li><a target="fright" href="<?php echo url_for('user/list') ?>">用户管理</a></li>
+<?php if (0) : ?>
 <li><a target="fright" href="<?php echo url_for('user/password') ?>">修改用户密码</a></li>
+<?php endif ?>
 </ul>
 
 </div>

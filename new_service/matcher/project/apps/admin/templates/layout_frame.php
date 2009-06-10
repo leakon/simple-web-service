@@ -12,8 +12,17 @@
 <script type="text/javascript" src="/matcher/js/item.js"></script>
 
 <link rel="stylesheet" type="text/css" media="screen" href="/matcher/admin/images/admin.css" />
+
+
+<script>
+if (top.location == window.location) {
+	top.location	= '/matcher/admin/index.php';
+}
+</script>
+
+
 </head>
-<body class="dlbjc">
+<body>
 
 		<?php echo $sf_content ?>
 
