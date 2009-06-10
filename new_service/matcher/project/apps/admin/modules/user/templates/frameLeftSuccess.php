@@ -1,12 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <?php include_http_metas() ?>
-    <?php include_metas() ?>
-    <?php include_title() ?>
-</head>
-<body>
+
 <div class="left">
 
 <h1 onclick="menu_set('menu_01')"><a>相机品牌管理</a></h1>
@@ -86,5 +78,3 @@ function $(id)
 //	$("xupfiles_qgchk").style.display = "none";
 //}
 </SCRIPT>
-</body>
-</html>
