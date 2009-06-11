@@ -7,7 +7,7 @@ ul,ol,li{list-style:none}
 table,td,input,textarea{font-size:12px}
 /* 链接颜色 */
 a{color:#333;text-decoration:none;}
-a:hover{color:#C00;text-decoration:underline;}
+a:hover{color:#1c74bb;text-decoration:underline;}
 /* 标题 */
 h2{text-align:right;}
 h2 span{float:left;font-weight: bold;}

@@ -18,19 +18,34 @@ html, body,
 
 <li class="sep"></li>
 
-<li><a href="<?php echo url_for('article/new') ?>" target="main">添加新信息</a></li>
-<li><a href="<?php echo url_for('article/index') ?>" target="main">管理信息</a></li>
-
-<li><a href="<?php echo url_for('article/newProduct') ?>" target="main">添加新产品</a></li>
-<li><a href="<?php echo url_for('article/listProduct') ?>" target="main">管理产品</a></li>
-
-<li><a href="<?php echo url_for('article/audit') ?>" target="main">文章审核</a></li>
+<li><a href="<?php echo url_for('article/new') ?>" target="main">添加文章</a></li>
+<li><a href="<?php echo url_for('article/index') ?>" target="main">管理文章</a></li>
 
 <li class="sep"></li>
 
-<li><a href="<?php echo url_for('category/index') ?>" target="main">管理信息分类</a></li>
-<li><a href="<?php echo url_for('category/product') ?>" target="main">管理产品分类</a></li>
-<li><a href="<?php echo url_for('category/range') ?>" target="main">管理产品应用范围</a></li>
+<li><a href="<?php echo url_for('article/newProduct') ?>" target="main">添加产品描述</a></li>
+<li><a href="<?php echo url_for('article/listProduct') ?>" target="main">管理产品描述</a></li>
+
+<li class="sep"></li>
+
+<li><a href="<?php echo url_for('article/newRange') ?>" target="main">添加领域描述</a></li>
+<li><a href="<?php echo url_for('article/listRange') ?>" target="main">管理领域描述</a></li>
+
+<li class="sep"></li>
+
+<!--
+<li><a href="<?php echo url_for('article/audit') ?>" target="main">文章审核</a></li>
+
+<li class="sep"></li>
+-->
+
+
+<li><a href="<?php echo url_for('category/index') ?>" target="main">管理文章分类</a></li>
+<li><a href="<?php echo url_for('category/range') ?>" target="main">管理产品应用领域</a></li>
+
+<li class="sep"></li>
+<li><a href="<?php echo url_for('category/type') ?>" target="main">设备类别</a></li>
+<li><a href="<?php echo url_for('category/style') ?>" target="main">设备型号</a></li>
 
 <li class="sep"></li>
 

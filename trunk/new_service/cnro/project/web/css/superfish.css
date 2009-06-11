@@ -10,6 +10,7 @@
 .sf-menu li a:hover{color:#fff; display:block; background:url(/images/mainNav_bg1x34_hover.png) no-repeat;}
 .sf-menu li ul {position:absolute; padding:0 0 10px 0;}
 .sf-menu li ul li{width:120px; height:30px; line-height:30px; margin:0; *margin:-3px 0 0 0; border-bottom:1px solid #ccc; padding:0; background:#666; float:none;}
+.sf-menu li ul li.long{width:180px; height:30px; line-height:30px; margin:0; *margin:-3px 0 0 0; border-bottom:1px solid #ccc; padding:0; background:#666; float:none; _line-height:25px;}
 .sf-menu li ul li a{font-weight:normal; margin:0; padding:0 0 0 10px;  color:#fff;}
 .sf-menu li ul li a:hover{ background:none; text-decoration:underline; color:#fff;}
 /*** arrows **/

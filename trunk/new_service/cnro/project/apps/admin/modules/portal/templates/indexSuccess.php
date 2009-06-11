@@ -72,6 +72,7 @@ var objConf		= {
 
 <div id="contentBox">
 
+<?php if (0) : ?>
 <div class="left">
 	<table border="0" class="leftCol tb tb2 index_conf index_td">
 
@@ -101,6 +102,7 @@ var objConf		= {
 	</table>
 
 </div>
+<?php endif ?>
 
 <div class="left">
 	<table border="0" class="leftCol tb tb2 right_6_pic index_td">
@@ -143,6 +145,32 @@ var objConf		= {
 
 </div>
 
+
+<div style="clear:both">
+	<h4>联系信息</h4>
+</div>
+
+<div style="height:300px;">
+
+	<?php
+
+	$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
+	$editorInclude		= $webDir . "fckeditor/fckeditor.php";
+	require_once($editorInclude);
+
+	$oFCKeditor		= new FCKeditor('contacts') ;
+	$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+	$oFCKeditor->Width	= '100%';
+	$oFCKeditor->Height	= '100%';
+	$oFCKeditor->Value	= isset($arrDataConf['block']['contacts']) ? $arrDataConf['block']['contacts'] : '';
+	$oFCKeditor->Config	= array(
+					'AutoDetectLanguage'	=> false,
+					'DefaultLanguage'	=> 'zh-cn'
+				);
+	$oFCKeditor->Create() ;
+
+	?>
+</div>
 
 
 </div>

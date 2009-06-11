@@ -28,6 +28,7 @@ class Table_categories extends SofavDB_Table {
 
 		$limit		= isset($arrConf['limit']) ? $arrConf['limit'] : 10;
 		$type		= isset($arrConf['type']) ? $arrConf['type'] : CnroConstant::CATEGORY_TYPE_ALL;
+		$toArray	= isset($arrConf['to_array']) ? $arrConf['to_array'] : false;
 
 		$objCategory			= new Table_categories();
 		$objCategory->parent_id		= $parentId;
@@ -37,9 +38,13 @@ class Table_categories extends SofavDB_Table {
 		}
 
 
-		$arrCategories			= SofavDB_Record::matchAll($objCategory);
+		$arrCategories			= SofavDB_Record::matchAll($objCategory, !$toArray);
 
-		$arrCategories			= ArrayUtil::sortProperty($arrCategories, 'order_num');
+		if ($toArray) {
+			$arrCategories			= ArrayUtil::sortColumn($arrCategories, 'order_num');
+		} else {
+			$arrCategories			= ArrayUtil::sortProperty($arrCategories, 'order_num');
+		}
 
 		$arrRet		= array();
 		foreach ($arrCategories as $key => $val) {
@@ -140,6 +145,22 @@ class Table_categories extends SofavDB_Table {
 
 			$arrRet[$val['id']]	= $val;
 
+		}
+
+		return	$arrRet;
+
+	}
+
+	public static function getAllByType($type) {
+
+		// show all category
+		$objCategory			= new Table_categories();
+		$objCategory->type		= $type;
+		$arrCategories			= SofavDB_Record::matchAll($objCategory, false);
+
+		$arrRet		= array();
+		foreach ($arrCategories as $key => $val) {
+			$arrRet[$val['id']]	= $val;
 		}
 
 		return	$arrRet;

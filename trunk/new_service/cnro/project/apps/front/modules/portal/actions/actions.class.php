@@ -16,6 +16,24 @@ class portalActions extends sfActions {
 
 		$this->arrDataConf_Block	= $this->objConf->getConf('block');
 
+
+		$option			= array('limit' => 1000);
+		$option['to_array']	= true;
+
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrRanges	= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_TYPE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrTypes		= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_STYLE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrStyle		= Array_Util::ColToPlain($res, 'id', 'name');
+
+
 	}
 
 
