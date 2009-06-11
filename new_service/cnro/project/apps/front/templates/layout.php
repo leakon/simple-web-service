@@ -45,6 +45,20 @@ $arrConf_HELP	= $objConf->getConf('help');
 <link href="/css/style.css" type="text/css" rel="stylesheet" />
 <link href="/css/global1.3.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="/css/superfish.css" media="screen">
+<script src="/js/jquery-1.2.2.pack.js" type="text/javascript"></script>
+<link href="/css/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="/js/facebox.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $('a[rel*=facebox]').facebox()
+    })
+</script>
+
+
+<script language="javascript" src="/js/jquery.js"></script>
+<script language="javascript" src="/js/index_ad.js"></script>
+
 		<script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
 		<script type="text/javascript" src="/js/hoverIntent.js"></script>
 		<script type="text/javascript" src="/js/superfish.js"></script>
@@ -155,7 +169,18 @@ function SetHome(obj){
 	<?php if ($strModuleName == 'portal' && $strActionName == 'index') : ?>
 
 
-        <div class="flash300"><img src="/images/flash944x300.jpg" width="944" height="300" /></div>
+    <div id="td_index_bigad">
+        <div id="big_ad1" class="big_ad" style=""><a href="javascript:;"><img src="/images/flash944x300.jpg"border="0"></a></div>
+        <div id="big_ad2" class="big_ad" style="display:none;"><a href="javascript:;"><img src="/images/bigpic.jpg" border="0"></a></div>
+        <div id="big_ad3" class="big_ad" style="display: none;"><a href="javascript:;"><img src="/images/bigpic2.jpg" border="0"></a></div>
+        <div id="big_ad4" class="big_ad" style="display: none;"><a href="javascript:;"><img src="/images/bigpic4.jpg" border="0"></a></div>
+
+        <div id="btn_showad1" class="btn_show_ad"><img src="/images/btn_bigad_num1.gif" border="0" /></div>
+        <div id="btn_showad2" class="btn_show_ad"><img src="/images/btn_bigad_num2.gif" border="0" /></div>
+        <div id="btn_showad3" class="btn_show_ad"><img src="/images/btn_bigad_num3.gif" border="0" /></div>
+        <div id="btn_showad4" class="btn_show_ad"><img src="/images/btn_bigad_num4.gif" border="0" /></div>
+
+    </div>
 
         <?php else : ?>
 

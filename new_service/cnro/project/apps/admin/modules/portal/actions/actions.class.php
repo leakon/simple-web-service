@@ -25,9 +25,9 @@ class portalActions extends sfActions {
 
 		$arrFields		= array(
 
-				'block_1'		=> 1,
-				'block_2'		=> 1,
-				'block_3'		=> 1,
+			#	'block_1'		=> 1,
+			#	'block_2'		=> 1,
+			#	'block_3'		=> 1,
 
 				'image_1'		=> 1,
 				'image_2'		=> 1,
@@ -35,6 +35,8 @@ class portalActions extends sfActions {
 				'image_4'		=> 1,
 				'image_5'		=> 1,
 				'image_6'		=> 1,
+
+				'contacts'		=> 1,
 
 		);
 

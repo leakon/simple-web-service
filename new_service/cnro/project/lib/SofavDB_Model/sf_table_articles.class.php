@@ -13,6 +13,8 @@ class Table_articles extends SofavDB_Table {
 
 			$arrColumns	= array(
 						'type',
+						'type_id',
+						'style_id',
 						'category_id',
 						'range_id',
 						'view_cnt',
@@ -30,7 +32,9 @@ class Table_articles extends SofavDB_Table {
 						'keyword',
 						'vol_num',
 						'vol_num_all',
+						'pdf',
 						'detail',
+						'params',
 					);
 
 		$this->hasColumns($arrColumns);

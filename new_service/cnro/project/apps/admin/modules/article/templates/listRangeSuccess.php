@@ -1,7 +1,7 @@
 
-<div class="itemtitle"><h3>管理产品</h3></div>
+<div class="itemtitle"><h3>管理领域描述</h3></div>
 
-<form name="theform" id="searchForm" method="get" action="<?php echo url_for('article/listProduct') ?>">
+<form name="theform" id="searchForm" method="get" action="<?php echo url_for('article/listRange') ?>">
 
 <table>
 <tr>
@@ -15,7 +15,7 @@
 	<td>&nbsp;</td>
 	<td>
 		<input type="submit" value="查询" class="btn" />
-		<a href="<?php echo url_for('article/listProduct') ?>">重新搜索</a>
+		<a href="<?php echo url_for('article/listRange') ?>">重新搜索</a>
 	</td>
 </tr>
 
@@ -52,8 +52,6 @@
 	<td>审核状态</td>
 	<td>访问权限</td>
 	<td>应用领域</td>
-	<td>设备类别</td>
-	<td>设备型号</td>
 	<td>添加时间</td>
 	<td>浏览次数</td>
 	<td>编辑</td>
@@ -67,9 +65,6 @@ $cateId		= $val['category_id'];
 $rangeId	= $val['range_id'];
 $strRange	= isset($arrAllCategories[$rangeId]['name']) ? $arrAllCategories[$rangeId]['name'] : '';
 
-$strType	= isset($arrTypes[$val['type_id']]) ? $arrTypes[$val['type_id']] : '';
-$strStyle	= isset($arrStyle[$val['style_id']]) ? $arrStyle[$val['style_id']] : '';
-
 ?>
 	<td><?php echo ($pager->getPage() - 1) * $pageSize + $key + 1 ?></td>
 
@@ -79,11 +74,9 @@ $strStyle	= isset($arrStyle[$val['style_id']]) ? $arrStyle[$val['style_id']] : '
 	<td><?php echo $val['published'] ? '审核通过' : '未审核' ?></td>
 	<td><?php echo $val['is_private'] ? '私有' : '公开' ?></td>
 	<td><?php echo $strRange ?></td>
-	<td><?php echo $strType ?></td>
-	<td><?php echo $strStyle ?></td>
 	<td><?php echo $val['created_at'] ?></td>
 	<td><?php echo $val['view_cnt'] ?></td>
-	<td><a href="<?php echo url_for('article/editProduct?id=' . $val['id']) ?>">编辑</a></td>
+	<td><a href="<?php echo url_for('article/editRange?id=' . $val['id']) ?>">编辑</a></td>
 	<td><a href="javascript:;" onclick="FormDel('id_delete_form', <?php echo $val['id'] ?>)">删除</a></td>
 
 </tr>

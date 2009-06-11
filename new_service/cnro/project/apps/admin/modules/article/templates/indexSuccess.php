@@ -72,7 +72,7 @@ $cateId		= $val['category_id'];
 	<td><?php echo $val['published'] ? '审核通过' : '未审核' ?></td>
 	<td><?php echo $val['is_private'] ? '私有' : '公开' ?></td>
 	<td><?php echo $arrAllCategories[$cateId]['name'] ?></td>
-	<td><?php echo $val['published_at'] ?></td>
+	<td><?php echo $val['created_at'] ?></td>
 	<td><?php echo $val['view_cnt'] ?></td>
 	<td><a href="<?php echo url_for('article/edit?id=' . $val['id']) ?>">编辑</a></td>
 	<td><a href="javascript:;" onclick="FormDel('id_delete_form', <?php echo $val['id'] ?>)">删除</a></td>

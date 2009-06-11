@@ -30,7 +30,7 @@ class categoryActions extends sfActions {
 
 	public function executeIndex(sfWebRequest $request) {
 
-		$this->strType			= '信息分类';
+		$this->strType			= '文章分类';
 
 		$this->intCategoryType		= CnroConstant::CATEGORY_TYPE_NEWS;
 
@@ -54,7 +54,7 @@ class categoryActions extends sfActions {
 
 		$this->setTemplate('index');
 
-		$this->strType			= '应用范围';
+		$this->strType			= '应用领域';
 
 		$this->intCategoryType		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
 
@@ -62,7 +62,29 @@ class categoryActions extends sfActions {
 
 	}
 
+	public function executeType(sfWebRequest $request) {
 
+		$this->setTemplate('once');
+
+		$this->strType			= '设备类别';
+
+		$this->intCategoryType		= CnroConstant::CATEGORY_TYPE_PROD_TYPE;
+
+		$this->categoryIndex($request);
+
+	}
+
+	public function executeStyle(sfWebRequest $request) {
+
+		$this->setTemplate('once');
+
+		$this->strType			= '设备型号';
+
+		$this->intCategoryType		= CnroConstant::CATEGORY_TYPE_PROD_STYLE;
+
+		$this->categoryIndex($request);
+
+	}
 
 
 	public function executeSub(sfWebRequest $request) {

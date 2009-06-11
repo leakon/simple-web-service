@@ -7,10 +7,15 @@ class CnroConstant {
 
 		CATEGORY_TYPE_NEWS		= 100,		// 信息分类
 		CATEGORY_TYPE_PRODUCT		= 200,		// 产品分类
-		CATEGORY_TYPE_PROD_RANGE	= 220,		// 产品应用范围
+		CATEGORY_TYPE_PROD_RANGE	= 220,		// 产品应用领域
 
-		ARTICLE_TYPE_NEWS		= 100,		// 信息文章
-		ARTICLE_TYPE_PRODUCT		= 200,		// 产品文章
+		CATEGORY_TYPE_PROD_TYPE		= 400,		// 设备类别
+		CATEGORY_TYPE_PROD_STYLE	= 500,		// 设备型号
+
+
+	#	ARTICLE_TYPE_NEWS		= 1200,		// 文章
+	#	ARTICLE_TYPE_PRODUCT		= 2200,		// 产品
+	#	ARTICLE_TYPE_RANGE		= 3200,		// 应用领域
 
 		VERSION				= '';
 

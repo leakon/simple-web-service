@@ -30,16 +30,50 @@ class articleActions extends sfActions {
 
 	public function executeListProduct(sfWebRequest $request) {
 
-		$this->categoryId		= $request->getParameter('category_id', 0);
-		$this->strKW		= S::KW($request->getParameter('kw', ''));
+		$this->strKW			= S::KW($request->getParameter('kw', ''));
 
 		if (strlen($this->strKW)) {
 
-			$this->pager		= $this->getArticleByLike($this->categoryId, $this->strKW, $request);
+			$this->pager		= $this->getRangeByLike(CnroConstant::CATEGORY_TYPE_PRODUCT, $this->strKW, $request);
 
 		} else {
 
-			$this->pager		= $this->getArticleByTotal($this->categoryId, $request);
+			$this->pager		= $this->getRangeByTotal(CnroConstant::CATEGORY_TYPE_PRODUCT, $request);
+
+		}
+
+		$this->arrResult		= $this->pager->getResults();
+
+		$this->arrAllCategories		= Table_categories::getAllByType(CnroConstant::CATEGORY_TYPE_PROD_RANGE);
+
+
+		$option			= array('limit' => 1000);
+		$option['to_array']	= true;
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrRanges	= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_TYPE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrTypes		= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_STYLE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrStyle		= Array_Util::ColToPlain($res, 'id', 'name');
+
+	}
+
+	public function executeListRange(sfWebRequest $request) {
+
+		$this->strKW			= S::KW($request->getParameter('kw', ''));
+
+		if (strlen($this->strKW)) {
+
+			$this->pager		= $this->getRangeByLike(CnroConstant::CATEGORY_TYPE_PROD_RANGE, $this->strKW, $request);
+
+		} else {
+
+			$this->pager		= $this->getRangeByTotal(CnroConstant::CATEGORY_TYPE_PROD_RANGE, $request);
 
 		}
 
@@ -47,7 +81,26 @@ class articleActions extends sfActions {
 
 		$this->arrAllCategories		= Table_categories::getAll();
 
+		$this->arrAllCategories		= Table_categories::getAllByType(CnroConstant::CATEGORY_TYPE_PROD_RANGE);
+
+		$option			= array('limit' => 1000);
+		$option['to_array']	= true;
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrRanges	= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_TYPE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrTypes		= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_STYLE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrStyle		= Array_Util::ColToPlain($res, 'id', 'name');
+
 	}
+
+
+
 
 	public function executeAudit(sfWebRequest $request) {
 
@@ -63,7 +116,6 @@ class articleActions extends sfActions {
 
 
 		$this->arrResult		= $this->pager->getResults();
-
 
 		$this->arrAllCategories		= Table_categories::getAll();
 
@@ -138,6 +190,9 @@ class articleActions extends sfActions {
 			// use like
 			$templateWhere	= 'FROM %s WHERE (title LIKE :word_1 OR detail LIKE :word_2 OR keyword LIKE :word_3) ';
 
+			$parameter['type']	= CnroConstant::CATEGORY_TYPE_NEWS;
+			$templateWhere		.= ' AND type = :type ';
+
 			if ($categoryId > 0) {
 				$parameter['category_id']	= $categoryId;
 				$templateWhere			.= ' AND category_id = :category_id ';
@@ -168,9 +223,11 @@ class articleActions extends sfActions {
 			$parameter		= array();
 
 			$tableArticle	= new Table_articles();
-
 			// use like
 			$templateWhere	= 'FROM %s WHERE 1 ';
+
+			$parameter['type']	= CnroConstant::CATEGORY_TYPE_NEWS;
+			$templateWhere		.= ' AND type = :type ';
 
 			if ($categoryId > 0) {
 				$parameter['category_id']	= $categoryId;
@@ -221,32 +278,65 @@ class articleActions extends sfActions {
 		$this->articleId		= $request->getParameter('id', 0);
 		$this->articleItem		= new Table_articles($this->articleId);
 		$this->arrCategoryPath		= Table_categories::getCategoryPath($this->articleItem->category_id);
-		$this->arrRangePath		= Table_categories::getCategoryPath($this->articleItem->range);
+		$this->arrRangePath		= Table_categories::getCategoryPath($this->articleItem->range_id);
+
+		$option			= array('limit' => 1000);
+		$option['to_array']	= true;
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrRanges	= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_TYPE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrTypes		= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_STYLE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrStyle		= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$this->articleType		= CnroConstant::CATEGORY_TYPE_PRODUCT;
 	}
 
 	public function executeEditProduct(sfWebRequest $request) {
+		$this->setTemplate('editProduct');
 	#	$this->arrAllCategories		= Table_categories::getAll();
 		$this->articleId		= $request->getParameter('id', 0);
 		$this->articleItem		= new Table_articles($this->articleId);
 		$this->arrCategoryPath		= Table_categories::getCategoryPath($this->articleItem->category_id);
-		$this->arrRangePath		= Table_categories::getCategoryPath($this->articleItem->range);
+		$this->arrRangePath		= Table_categories::getCategoryPath($this->articleItem->range_id);
+
+		$option			= array('limit' => 1000);
+		$option['to_array']	= true;
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrRanges	= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_TYPE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrTypes		= Array_Util::ColToPlain($res, 'id', 'name');
+
+		$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_STYLE;
+		$res			= Table_categories::getByParent(0, $option);
+		$this->arrStyle		= Array_Util::ColToPlain($res, 'id', 'name');
+		$this->articleType		= CnroConstant::CATEGORY_TYPE_PRODUCT;
 	}
 
-
-	public function executeDelete(sfWebRequest $request) {
-
+	public function executeNewRange(sfWebRequest $request) {
+		$this->setTemplate('editRange');
 		$this->articleId		= $request->getParameter('id', 0);
 		$this->articleItem		= new Table_articles($this->articleId);
-
-		if ($this->articleItem->id) {
-			$this->articleItem->delete();
-		}
-
-
-		$refer	= $request->getParameter('refer', '');
-		return	$this->redirect($refer);
-
+		$this->arrRangePath		= Table_categories::getCategoryPath($this->articleItem->range_id);
+		$this->articleType		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
 	}
+
+	public function executeEditRange(sfWebRequest $request) {
+		$this->setTemplate('editRange');
+		$this->articleId		= $request->getParameter('id', 0);
+		$this->articleItem		= new Table_articles($this->articleId);
+		$this->arrRangePath		= Table_categories::getCategoryPath($this->articleItem->range_id);
+		$this->articleType		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+	}
+
 
 	public function executeSave(sfWebRequest $request) {
 
@@ -255,45 +345,54 @@ class articleActions extends sfActions {
 
 		$boolIsNewArticle		= $this->articleId == 0;
 
-		if ($this->categoryId) {
 
-			$this->articleItem			= new Table_articles($this->articleId);
+		$this->articleItem		= new Table_articles($this->articleId);
 
-			$this->articleItem->category_id		= $this->categoryId;
-			$this->articleItem->published_at	= $request->getParameter('published_at', '1980-01-01 00:00:00');
-			$this->articleItem->type		= $request->getParameter('type', 0);
-			$this->articleItem->title		= $request->getParameter('title', '');
-			$this->articleItem->pic			= $request->getParameter('pic', '');
-			$this->articleItem->pic_desc		= $request->getParameter('pic_desc', '');
-			$this->articleItem->keyword		= $request->getParameter('keyword', '');
-			$this->articleItem->view_group		= $request->getParameter('view_group', '');
-		#	$this->articleItem->vol_num		= $request->getParameter('vol_num', '');
-		#	$this->articleItem->vol_num_all		= $request->getParameter('vol_num_all', '');
-			$this->articleItem->detail		= $request->getParameter('detail', '');
-			$this->articleItem->is_private		= $request->getParameter('is_private', '');
-			$this->articleItem->index_show		= $request->getParameter('index_show', 0);
-
-		//	$this->articleItem->view_cnt		= $request->getParameter('view_cnt', '');
-			$this->articleItem->order_num		= $request->getParameter('order_num', '');
-
+		if (!$this->articleItem->id) {
 			$this->articleItem->save();
+		}
 
-			$uploadFile				= $this->saveUploadImage($this->articleItem->id);
+		$arrParameters		= $request->getParameterHolder()->getAll();
+
+		$arrUploads		= array(
+						'pic'		=> 'upload_pic',
+						'large_pic'	=> 'upload_large_pic',
+						'pdf'		=> 'upload_pdf',
+					);
+		foreach ($arrUploads as $propertyName => $fieldName) {
+
+			$uploadFile				= false;
+			$uploadFile				= $this->saveUploadFile($this->articleItem->id, $fieldName);
+
+	#	Debug::pr($uploadFile);
 
 			if ($uploadFile) {
-				$this->articleItem->pic		= $uploadFile;
-				$this->articleItem->save();
+				$arrParameters[$propertyName]	= $uploadFile;
 			}
-
-
 		}
+
+	#	Debug::pr($arrParameters);
+
+		$this->articleItem->fromArray($arrParameters);
+		$this->articleItem->save();
 
 		$this->getUser()->setFlash('article_saved_ok', true);
 
 		if ($boolIsNewArticle && $this->articleItem->id) {
 		#	return	$this->redirect('article/edit?id=' . $this->articleItem->id);
 
-			$action		= ($this->articleItem->type == CnroConstant::ARTICLE_TYPE_PRODUCT) ? 'editProduct' : 'edit';
+			$arrActions	= array(
+						-1					=> 'edit',
+						CnroConstant::CATEGORY_TYPE_PRODUCT	=> 'editProduct',
+						CnroConstant::CATEGORY_TYPE_PROD_RANGE	=> 'editRange',
+					);
+
+			$editType	= $this->articleItem->type;
+			if (!isset($arrActions[$editType])) {
+				$editType	= -1;
+			}
+
+			$action		= $arrActions[$editType];
 			return	$this->redirect('article/'.$action.'?id=' . $this->articleItem->id);
 		}
 
@@ -302,6 +401,39 @@ class articleActions extends sfActions {
 
 	}
 
+	private function saveUploadFile($articleId, $fieldName) {
+
+			$webImagePath		= false;
+
+			$filePath		= isset($_FILES[$fieldName]['tmp_name']) ?
+							$_FILES[$fieldName]['tmp_name'] : 'NULL';
+
+			if (file_exists($filePath)) {
+
+				$arrNamePart		= explode('.', $_FILES[$fieldName]['name']);
+				$extName		= array_pop($arrNamePart);
+				$extName		= strtolower($extName);
+
+				$webImagePath		= sprintf('/uploads/images/%08d.%s.%s',
+									$articleId,
+									$fieldName,
+									$extName
+								);
+
+				$serverImagePath	= sfConfig::get('sf_web_dir') . $webImagePath;
+
+				// remove existing file
+				if (file_exists($serverImagePath)) {
+					unlink($serverImagePath);
+				}
+
+				$bool			= move_uploaded_file($filePath, $serverImagePath);
+
+			}
+
+			return	$webImagePath;
+
+	}
 
 	private function saveUploadImage($articleId) {
 
@@ -344,6 +476,94 @@ class articleActions extends sfActions {
 			}
 
 			return	$webImagePath;
+
+	}
+
+	public function executeDelete(sfWebRequest $request) {
+
+		$this->articleId		= $request->getParameter('id', 0);
+		$this->articleItem		= new Table_articles($this->articleId);
+
+		if ($this->articleItem->id) {
+			$this->articleItem->delete();
+		}
+
+
+		$refer	= $request->getParameter('refer', '');
+		return	$this->redirect($refer);
+
+	}
+
+	private function getRangeByLike($type, $word, $request) {
+
+			$parameter		= array(
+				'word_1'	=> '%' . $word . '%',
+				'word_2'	=> '%' . $word . '%',
+				'word_3'	=> '%' . $word . '%',
+			);
+
+			$tableArticle	= new Table_articles();
+
+			// use like
+			$templateWhere	= 'FROM %s WHERE (title LIKE :word_1 OR detail LIKE :word_2 OR keyword LIKE :word_3) ';
+
+			$parameter['type']	= $type;
+			$templateWhere		.= ' AND type = :type ';
+
+			$sqlWhere	= sprintf($templateWhere, $tableArticle->getTableName());
+
+					// "FROM ... WHERE ..." (without SELECT)
+					// 用于生成 COUNT(*) 的 SQL 语句，统计符合条件的记录总数，注意是从 FROM 开始
+			$stateCount	= $sqlWhere;
+					// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
+					// 用于选取记录，这里可以指定字段，并加上排序字段
+			$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY published_at DESC';
+
+			$pager		= new Simple_Pager();
+			$pager->setCount($stateCount)->setLimit($stateLimit);
+			$pager->setParameter($parameter);
+
+			$page		= (int) $request->getParameter('page', 1);
+			$pager->init($page, $this->pageSize);
+
+			return	$pager;
+
+	}
+
+	private function getRangeByTotal($type, $request, $option = NULL) {
+
+			$parameter		= array();
+
+			$tableArticle	= new Table_articles();
+
+			// use like
+			$templateWhere	= 'FROM %s WHERE 1 ';
+
+			$parameter['type']	= $type;
+			$templateWhere		.= ' AND type = :type ';
+
+			if (isset($option['published'])) {
+				$parameter['published']	= $option['published'];
+				$templateWhere			.= ' AND published = :published ';
+			}
+
+			$sqlWhere	= sprintf($templateWhere, $tableArticle->getTableName());
+
+					// "FROM ... WHERE ..." (without SELECT)
+					// 用于生成 COUNT(*) 的 SQL 语句，统计符合条件的记录总数，注意是从 FROM 开始
+			$stateCount	= $sqlWhere;
+					// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
+					// 用于选取记录，这里可以指定字段，并加上排序字段
+			$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY created_at DESC';
+
+			$pager		= new Simple_Pager();
+			$pager->setCount($stateCount)->setLimit($stateLimit);
+			$pager->setParameter($parameter);
+
+			$page		= (int) $request->getParameter('page', 1);
+			$pager->init($page, $this->pageSize);
+
+			return	$pager;
 
 	}
 
