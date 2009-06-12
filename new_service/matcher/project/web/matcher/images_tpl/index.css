@@ -29,21 +29,26 @@ A:active {color:#131619;text-decoration:none;outline:none;cursor:pointer}
 #top  {width:821px;height:63px;overflow:hidden;background: url(/matcher/images_tpl/top_bj.gif) repeat-x;margin:0px auto;padding:0px;text-align:center;clear:both;color:#4498c6;}
 #top A {float:left;}
 #top ul{float:right;background:url(/matcher/images_tpl/top_right.gif) no-repeat right top;height:63px;padding:35px 20px 0px 0px;}
-#foot {width:821px;height:54px;margin:20px auto 0px auto; padding-top:8px;overflow:hidden;clear:both;line-height:21px;text-align:center;color:#999999;background:#0b0b0b url(/matcher/images_tpl/foot.gif) no-repeat top left;}
+#foot {width:821px;height:54px;margin:0px auto 0px auto; padding-top:10px;overflow:hidden;clear:both;line-height:35px;text-align:center;color:#999999;background:#2c2c2c url(/matcher/images_tpl/foot.gif) no-repeat top left;}
+#foot A         {color:#999999;text-decoration:none;font-size:12px;padding-left:6px}
+#foot A:visited {color:#999999;text-decoration:none;font-size:12px;padding-left:6px}
+#foot A:hover   {color:#606060;text-decoration:none;font-size:12px;padding-left:6px}
+#foot A:active  {color:#999999;text-decoration:none;font-size:12px;padding-left:6px}
+
 .warp{border-left:#7a7a7a 1px solid;border-right:#7a7a7a 1px solid;clear:both;width:821px; margin:0px auto}
-.content{width:797px;margin:0px auto 0px auto;overflow:hidden;padding:0px 12px 0px 12px;clear:both;background:url(/matcher/images_tpl/centent_bj.gif) repeat-x top;}
+.content{width:797px;margin:0px auto 0px auto;overflow:hidden;padding:0px 12px 20px 12px;clear:both;background:#4d4c4c url(/matcher/images_tpl/centent_bj.gif) repeat-x top;}
 .content h2{height:60px; line-height:60px;font-size:12px;text-align:left;clear:both;display:block}
 /*滑动菜单*/
 .movoewer{margin:0px;padding:0px;clear:both;}
 .movoewer .clear{background-color:#1d9add;width:797px;overflow:hidden}
 .movoewer ul{margin:0px;padding:0px;overflow:hidden;}
-.movoewer li{height:20px;line-height:20px;float:left;font-family:Arial,'宋体';font-size:12px;text-decoration:none;color:#FFF;margin:0px;padding:0px; border-right:#e6e6e6 1px solid}
+.movoewer li{height:20px;line-height:20px;float:left;font-family:Arial,'宋体';font-size:12px;text-decoration:none;color:#FFF;margin:0px;padding:0px;border-right:#e6e6e6 1px solid}
 .movoewer li A span{padding:3px 8px 4px 6px;*padding:5px 8px 3px 6px;}
 .movoewer .btu_on a span{background-color:#1d9add;color:#FFFFFF}
-.movoewer .btu_off a span{background-color:#161616;color:#FFFFFF}
+.movoewer .btu_off a span{background-color:#2c2c2c;color:#FFFFFF}
 .movoewer ul.ul{margin:0px 0px 0px 0px;padding:0px 0px 0px 20px;width:176px;height:180px;float:left;line-height:18px;overflow:hidden;background-color:#1d9add;}
 .movoewer ul.ul li.li1{font-family:Arial,'宋体';font-size:12px;text-decoration:none;color:#ffffff;margin:0px;padding:0px;width:160px;height:30px;line-height:30px;overflow:hidden;border-right:#e6e6e6 0px solid; text-align:left;}
-.movoewer ul.ul li.li2{font-family:Arial,'宋体';font-size:12px;text-decoration:none;color:#000000;margin:0px;padding:0px;width:160px;height:100px;xoverflow-y:scroll;border:#828790 1px solid; background-color:#FFFFFF; }
+.movoewer ul.ul li.li2{font-family:Arial,'宋体';font-size:12px;text-decoration:none;color:#000000;margin:0px;padding:0px;width:160px;height:120px;xoverflow-y:scroll;border:#828790 1px solid; background-color:#FFFFFF; }
 .movoewer ul.ul li.li2 A         {display:block;color:#131619;text-align:left;font-size:12px;padding-left:6px}
 .movoewer ul.ul li.li2 A:visited {display:block;color:#131619;text-decoration:none;font-size:12px;padding-left:6px}
 .movoewer ul.ul li.li2 A:hover   {display:block;color:#ffffff;text-decoration:none; background-color:#1d9add;font-size:12px;padding-left:6px}
@@ -52,7 +57,7 @@ A:active {color:#131619;text-decoration:none;outline:none;cursor:pointer}
 .search{clear:both;display:block;text-align:center;}
 .search img{ margin:15px 0px 15px 0px}
 /*搜索区块*/
-.search_y{background-color:#101010;clear:both;text-align:left;color:#FFFFFF; xheight:326px; padding-bottom:12px;}
+.search_y{background-color:#2c2c2c;clear:both;text-align:left;color:#FFFFFF; xheight:326px; padding-bottom:10px;}
 .search_y p{margin:0px 0px 0px 10px; padding:5px 0px 5px 0px;clear:both;overflow:hidden; line-height:20px;}
 .search_y p input{margin:6px 6px 0px 6px;*margin:6px 0px 0px 0px;}
 .search_y p span{margin:0px 0px 0px 0px;}
