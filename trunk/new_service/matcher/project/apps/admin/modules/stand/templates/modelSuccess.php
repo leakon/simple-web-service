@@ -82,6 +82,12 @@
 				</td>
 			</tr>
 			<tr>
+				<td>基本描述</td>
+				<td>
+					<textarea name="detail" class="search_detail"><?php echo S::E($dataItem->detail) ?></textarea>
+				</td>
+			</tr>
+			<tr>
 				<td>&nbsp;</td>
 				<td>
 					<input type="submit" id="id_form_submit" value="添加" />
@@ -118,7 +124,7 @@
 			<th width="">型号</th>
 			<th width="">标签</th>
 			<th width="60">承重（Kg）</th>
-			<th width="">链接</th>
+			<th width="">描述+链接</th>
 			<th width="">价格区间</th>
 			<th class="edit">操作</th>
 		</tr>
@@ -168,7 +174,10 @@
 				&nbsp;
 			</td>
 			<td><?php echo S::E($dataItem['weight']) ?></td>
-			<td><a href="<?php echo S::E($dataItem['link']) ?>" target="_blank"><?php echo S::E($dataItem['link']) ?></a></td>
+			<td>
+				<p><?php echo S::E($dataItem['detail'], 1) ?></p>
+				<a href="<?php echo S::E($dataItem['link']) ?>" target="_blank"><?php echo S::E($dataItem['link']) ?></a>
+			</td>
 			<td><?php echo $arrStyles[$dataItem['price_id']] ?></td>
 			<td class="edit tag_edit">
 				<a href="<?php echo url_for($strModuleName . '/editModel?id=' . $dataItem['id']) ?>" class="tag_rn_btn">修改</a>
