@@ -339,7 +339,7 @@ class BaseBrandActions extends sfActions {
 
 			#	var_dump($tagId);
 
-			#	$bool			= $tagItem->delete();
+				$bool			= $tagItem->delete();
 
 			}
 		}
@@ -376,7 +376,7 @@ class BaseBrandActions extends sfActions {
 			#	die('disable delete ' . $deleteId);
 			#	exit;
 
-			#	$bool			= $tagItem->delete();
+				$bool			= $tagItem->delete();
 
 			}
 
