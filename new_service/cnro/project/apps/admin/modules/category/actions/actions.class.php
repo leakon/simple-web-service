@@ -99,24 +99,30 @@ class categoryActions extends sfActions {
 
 	public function executeSave(sfWebRequest $request) {
 
+		$arrParameters		= $request->getParameterHolder()->getAll();
+
 		$categoryId		= (int) $request->getParameter('id', 0);
+		$categoryItem		= new Table_categories($categoryId);
+
+		if (isset($arrParameters['description_new'])) {
+			$arrParameters['description']	= $arrParameters['description_new'];
+		}
+
+	#	Debug::pre($arrParameters);
+
+		/*
 		$cateType		= (int) $request->getParameter('type', 0);
 		$parentId		= (int) $request->getParameter('parent_id', 0);
 		$order_num		= (int) $request->getParameter('order_num', 0);
 		$categoryName		= $request->getParameter('name', '');
 
-		$categoryItem		= new Table_categories($categoryId);
-
-		if ($categoryItem->id) {
-
-		} else {
-
-		}
-
 		$categoryItem->type			= $cateType;
 		$categoryItem->parent_id		= $parentId;
 		$categoryItem->name			= $categoryName;
 		$categoryItem->order_num		= $order_num;
+		*/
+
+		$categoryItem->fromArray($arrParameters);
 
 		$bool		= $categoryItem->save();
 

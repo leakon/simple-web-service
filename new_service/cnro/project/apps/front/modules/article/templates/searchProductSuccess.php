@@ -68,7 +68,7 @@
 
         ?>
 
-            <a href="/">首页</a> &gt; 搜过关键词 “<?php echo S::E($strKW) ?>”
+            <a href="/">首页</a> &gt; 搜过产品
           </div><!-- end breadCrumb -->
 
         <div class="content944">
@@ -92,7 +92,7 @@
 
 
           <div class="textBlock">
-            <div class="titlebar"><h3>搜索关键词 “<?php echo S::E($strKW) ?>”</h3></div>
+            <div class="titlebar"><h3>搜索产品</h3></div>
             <ul class="newsList">
            	<?php foreach ($arrResult as $key => $val) : ?>
            	<?php
@@ -141,7 +141,7 @@
 
           <div class="textBlock">
 
-          	没有与关键词 “<?php echo S::E($strKW) ?>” 有关的搜索结果。
+          	没有找到相关产品。
 
           </div>
           <!-- end textBlock -->
@@ -156,5 +156,9 @@
         </div><!-- end content944 -->
 
 
+
+<?php
+
+#	Debug::pr(SofavDB_Debug_PDO::getTimer());
 
 

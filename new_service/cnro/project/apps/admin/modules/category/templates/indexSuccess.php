@@ -57,12 +57,56 @@ echo	sprintf('<style>#id_cate_%d	{font-weight:bold; color:red;}</style>', $lastC
 	</tr>
 	<tr>
 		<td>
+			banner图片
+		</td>
+		<td>
+			<input type="text" name="banner_pic" value="<?php echo $categoryItem->banner_pic ?>" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			示例图片
+		</td>
+		<td>
+			<input type="text" name="pic" value="<?php echo $categoryItem->pic ?>" />
+		</td>
+	</tr>
+	<tr>
+		<td>
 			排列顺序
 		</td>
 		<td>
 			<input type="text" name="order_num" value="<?php echo $categoryItem->order_num ?>" />
 		</td>
 	</tr>
+	<?php if (CnroConstant::CATEGORY_TYPE_PROD_RANGE == $intCategoryType) : ?>
+
+	<tr>
+		<td>
+			领域描述
+		</td>
+		<td>
+		<?php
+
+		$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
+		$editorInclude		= $webDir . "fckeditor/fckeditor.php";
+		require_once($editorInclude);
+
+		$oFCKeditor		= new FCKeditor('description') ;
+		$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+		$oFCKeditor->Width	= '700px';
+		$oFCKeditor->Height	= '300px';
+		$oFCKeditor->Value	= $categoryItem->description;
+		$oFCKeditor->Config	= array(
+						'AutoDetectLanguage'	=> false,
+						'DefaultLanguage'	=> 'zh-cn'
+					);
+		$oFCKeditor->Create() ;
+
+		?>
+		</td>
+	</tr>
+	<?php endif ?>
 	<tr>
 		<td>&nbsp;</td>
 		<td><input type="submit" id="id_form_submit" value="保存"  class="btn" /></td>
@@ -105,6 +149,52 @@ $listUrl	= url_for('category/' . $strActionName);
 			<input type="text" name="name" value="" />
 		</td>
 	</tr>
+	<tr>
+		<td>
+			banner图片
+		</td>
+		<td>
+			<input type="text" name="banner_pic" value="" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			示例图片
+		</td>
+		<td>
+			<input type="text" name="pic" value="" />
+		</td>
+	</tr>
+
+	<?php if (CnroConstant::CATEGORY_TYPE_PROD_RANGE == $intCategoryType) : ?>
+
+	<tr>
+		<td>
+			领域描述
+		</td>
+		<td>
+		<?php
+
+		$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
+		$editorInclude		= $webDir . "fckeditor/fckeditor.php";
+		require_once($editorInclude);
+
+		$oFCKeditor		= new FCKeditor('description_new') ;
+		$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+		$oFCKeditor->Width	= '700px';
+		$oFCKeditor->Height	= '300px';
+		$oFCKeditor->Value	= '';
+		$oFCKeditor->Config	= array(
+						'AutoDetectLanguage'	=> false,
+						'DefaultLanguage'	=> 'zh-cn'
+					);
+		$oFCKeditor->Create() ;
+
+		?>
+		</td>
+	</tr>
+	<?php endif ?>
+
 	<tr>
 		<td>&nbsp;</td>
 		<td><input type="submit" id="id_form_submit" value="添加"  class="btn" /></td>

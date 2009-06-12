@@ -17,6 +17,7 @@ class Table_categories extends SofavDB_Table {
 						'order_num',
 						'name',
 						'pic',
+						'banner_pic',
 						'description',
 					);
 
@@ -164,6 +165,41 @@ class Table_categories extends SofavDB_Table {
 		}
 
 		return	$arrRet;
+
+	}
+
+
+	public static function getAllChildern($id) {
+
+		$arrCategories			= array();
+
+		$objCategory			= new Table_categories();
+		$objCategory->parent_id		= $id;
+		$arrCategories			= SofavDB_Record::matchAll($objCategory, false);
+
+		$arrCategories			= Array_Util::ColToPlain($arrCategories, 'id', 'name');
+
+		if (count($arrCategories)) {
+
+			$arrTmp		= array();
+			foreach ($arrCategories as $id => $null) {
+
+				$arr		= call_user_func(array('Table_categories', 'getAllChildern'), $id);
+
+				foreach ($arr as $id_2 => $name_2) {
+					$arrTmp[$id_2]	= $name_2;
+				}
+
+
+			}
+
+			foreach ($arrTmp as $id => $name) {
+				$arrCategories[$id]	= $name;
+			}
+
+		}
+
+		return	$arrCategories;
 
 	}
 
