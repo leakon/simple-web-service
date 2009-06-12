@@ -39,15 +39,17 @@ all:
       use_flash:       true
       default_culture: %SF_DEFAULT_CULTURE%
 
+#  storage:
+#    class: sfSessionStorage
+#    param:
+#      session_name: cnro2009
+#      auto_start:   1
+#
+#      session_cookie_lifetime: 7200
+#      session_cookie_path:     /
+
   storage:
-    class: sfSessionStorage
-    param:
-      session_name: cnro2009
-      auto_start:   1
-
-      session_cookie_lifetime: 7200
-      session_cookie_path:     /
-
+    class: sfNoStorage
 
 #all:
 #  controller:

@@ -65,90 +65,138 @@
 
 
           <div class="left">
-            <div class="col200">
 
+<?php
+
+define('RANGE_ID_DANQI',	1000053);
+define('RANGE_ID_CUISHU',	1000054);
+define('RANGE_ID_JIANSHEN',	1000049);
+
+$arrIndexRange		= array();
+$arrIndexRange[RANGE_ID_DANQI]		= Table_categories::getPlain(RANGE_ID_DANQI);
+$arrIndexRange[RANGE_ID_CUISHU]		= Table_categories::getPlain(RANGE_ID_CUISHU);
+$arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN);
+
+
+#Debug::pr($arrIndexRange);
+
+?>
+            <div class="col200">
               <div class="col_pic"><a href="#" target="_blank"></a></div>
 
-              <p><a href="#mydiv2" rel="facebox">船用氮气</a></p>
-              <p><a href="#mydiv3" rel="facebox">石油天然气</a></p>
-              <p><a href="#mydiv4" rel="facebox">航空航天</a></p>
-              <p><a href="#mydiv5" rel="facebox">消防用氮气</a></p>
+		<?php
 
+		$arrSubDiv	= array();
 
+		foreach ($arrIndexRange[RANGE_ID_DANQI] as $id => $name) {
 
-              <div id="mydiv2" style="display:none">
-                <a href="#">货油舱的惰化</a>
-                <a href="#">船用保鲜</a>
-              </div>
+			// <p><a href="#mydiv2" rel="facebox">船用氮气</a></p>
 
-              <div id="mydiv3" style="display:none">
-                <a href="#">油气管道吹扫</a>
-                <a href="#">油气管道的打压检漏</a>
-                <a href="#">氮气封舱</a>
-                <a href="#">油气田的三次开采</a>
+			echo	sprintf('<p><a href="#mydiv_%d" rel="facebox">%s</a></p>', $id, S::E($name));
 
-              </div>
+			$arrSubRange		= Table_categories::getPlain($id);
 
-              <div id="mydiv4" style="display:none">
-                <a href="#">红外节流制冷用气</a>
-                <a href="#">机场用气（氮气和氧气）</a>
-                <a href="#">露点测量</a>
+			/*
 
+		              <div id="mydiv2" style="display:none">
+		                <a href="#">货油舱的惰化</a>
+		                <a href="#">船用保鲜</a>
+		              </div>
 
-              </div>
+			*/
+			$arrTmp			= array();
+			$arrTmp[]		= sprintf('<div id="mydiv_%d" style="display:none">', $id);
+			foreach ($arrSubRange as $subId => $subName) {
 
+				$arrTmp[]	= sprintf('<a href="%s">%s</a>', url_for('category/range?id='.$subId), S::E($subName));
 
-              <div id="mydiv5" style="display:none">
-                <a href="#">船用制氮系统</a>
-                <a href="#">车载制氮系统</a>
-                <a href="#">箱式制氮系统</a>
-                <a href="#">船用保鲜系统</a>
-                <a href="#">露点测试仪</a>
-                <a href="#">氧气测试仪</a>
+			}
+			$arrTmp[]		= '</div>';
 
-              </div>
+			$arrSubDiv[$id]		= implode('', $arrTmp);
 
+		}
 
+		foreach ($arrIndexRange[RANGE_ID_DANQI] as $id => $name) {
+			echo	$arrSubDiv[$id];
+		}
 
-
-
+		?>
 
             </div>
 
             <div class="col200_2">
-
               <div class="col_pic"><a href="#" target="_blank"></a></div>
 
-              <p><a href="#mydiv" rel="facebox">气调保鲜系统</a></p>
-              <p>气调试验设备</p>
-              <p>船用气调保鲜设备</p>
-              <p>粮食贮藏系统</p>
-              <p>催熟设备</p>
+		<?php
 
+		$arrSubDiv	= array();
 
-              <div id="mydiv" style="display:none">
-                    adsfasdfasdfas
-              </div>
+		foreach ($arrIndexRange[RANGE_ID_CUISHU] as $id => $name) {
 
+			echo	sprintf('<p><a href="#mydiv_%d" rel="facebox">%s</a></p>', $id, S::E($name));
 
+			$arrSubRange		= Table_categories::getPlain($id);
+
+			$arrTmp			= array();
+			$arrTmp[]		= sprintf('<div id="mydiv_%d" style="display:none">', $id);
+			foreach ($arrSubRange as $subId => $subName) {
+
+				$arrTmp[]	= sprintf('<a href="%s">%s</a>', url_for('category/range?id='.$subId), S::E($subName));
+
+			}
+			$arrTmp[]		= '</div>';
+
+			$arrSubDiv[$id]		= implode('', $arrTmp);
+
+		}
+
+		foreach ($arrIndexRange[RANGE_ID_CUISHU] as $id => $name) {
+			echo	$arrSubDiv[$id];
+		}
+
+		?>
 
             </div>
 
             <div class="col200_3">
               <div class="col_pic"><a href="#" target="_blank"></a></div>
 
+		<?php
 
-              <p><a href="" >低氧减肥、健身</a></p>
-              <p><a href="" >登山、登高原适应训练</a></p>
-              <p><a href="" >生理机能调节</p>
-              <p><a href="" >专业运动训练</p>
+		$arrSubDiv	= array();
 
+		foreach ($arrIndexRange[RANGE_ID_JIANSHEN] as $id => $name) {
 
+			echo	sprintf('<p><a href="#mydiv_%d" rel="facebox">%s</a></p>', $id, S::E($name));
 
+			$arrSubRange		= Table_categories::getPlain($id);
 
+			$arrTmp			= array();
+			$arrTmp[]		= sprintf('<div id="mydiv_%d" style="display:none">', $id);
+			foreach ($arrSubRange as $subId => $subName) {
+
+				$arrTmp[]	= sprintf('<a href="%s">%s</a>', url_for('category/range?id='.$subId), S::E($subName));
+
+			}
+			$arrTmp[]		= '</div>';
+
+			$arrSubDiv[$id]		= implode('', $arrTmp);
+
+		}
+
+		foreach ($arrIndexRange[RANGE_ID_JIANSHEN] as $id => $name) {
+			echo	$arrSubDiv[$id];
+		}
+
+		?>
 
 
             </div>
+
+
+
+
 
           </div>
 
