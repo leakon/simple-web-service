@@ -6,11 +6,11 @@
  * @package     Sofav
  * @subpackage  Array_Util
  * @link        www.leakon.com
- * @version     2009-05-22
+ * @version     2009-06-12
  * @author      Leakon <leakon@gmail.com>
  * @description	与 PHP 多维数组相关的工具集
  *
- * @notice	增加排序标志位 $sort_flags
+ * @notice	增加 key value 交换方法： keyToValue
  */
 class Array_Util {
 
@@ -54,6 +54,25 @@ class Array_Util {
 
 			foreach ($arrOriginal as $value) {
 				$arrTmp[$value]		= $value;
+			}
+
+			$arrOriginal	= $arrTmp;
+		}
+
+	#	return	$arrOriginal;
+	}
+
+	/**
+	 * 把数组的 key 设置为 value，同时维持 key 不变
+	 */
+	public static function keyToValue(&$arrOriginal, $needFlip = true) {
+
+		if ($needFlip) {
+
+			$arrTmp	= array();
+
+			foreach (array_keys($arrOriginal) as $key) {
+				$arrTmp[$key]		= $key;
 			}
 
 			$arrOriginal	= $arrTmp;

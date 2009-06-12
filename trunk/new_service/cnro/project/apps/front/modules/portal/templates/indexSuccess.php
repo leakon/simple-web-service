@@ -177,6 +177,8 @@
             </div><!-- end blockA -->
 
             <div class="blockB">
+
+            	<form action="<?php echo url_for('article/searchProduct') ?>" method="get" target="_blank">
               <h3>产品检索</h3>
               <div class="l">
                 <select name="range">
@@ -200,8 +202,10 @@
 
               </div>
               <div class="r">
-                <input name="" type="button" class="btn70" value="" />
+                <input name="" type="submit" class="btn70" value="" />
               </div>
+
+      		</form>
             </div><!-- end blockB -->
 
 

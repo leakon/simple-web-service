@@ -135,6 +135,8 @@ class accountActions extends sfActions
 
 	public function executeError(sfWebRequest $request) {
 
+		$this->setLayout(false);
+
 		$this->getResponse()->setTitle('资源不存在 中国林业生物质能源网');
 
 	}

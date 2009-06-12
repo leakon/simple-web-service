@@ -91,6 +91,25 @@ class categoryActions extends sfActions
 
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private function getArticlePager($categoryId, $page = 1, $size = 10) {
 
 		$tableArticle		= new Table_articles();
@@ -106,6 +125,25 @@ class categoryActions extends sfActions
 
 	}
 
+
+	private function getRangeArticlePager($range_id, $page = 1, $size = 10) {
+
+		$tableArticle		= new Table_articles();
+
+		$objPager		= new SofavDB_Pager($tableArticle);
+
+		$where			= array(
+						'type'		=> CnroConstant::CATEGORY_TYPE_PRODUCT,
+						'range_id'	=> $range_id,
+						'published'	=> 1
+					);
+		$order			= array('published_at' => 'DESC');
+
+		$objPager->init($page, $size, array('where' => $where, 'order' => $order));
+
+		return	$objPager;
+
+	}
 
 	public function executeJson(sfWebRequest $request) {
 
@@ -141,5 +179,160 @@ class categoryActions extends sfActions
 		return $this->renderText(json_encode($arrRet));
 
 	}
+
+
+
+	public function executeRange(sfWebRequest $request) {
+
+		$this->forSpecial($request);
+
+	}
+
+	public function executeProduct(sfWebRequest $request) {
+
+		$this->forSpecial($request);
+
+		$this->arrSubArticles		= array();
+
+		if ($this->reqId) {
+		#	$this->articlePager	= $this->getRangeArticlePager($this->reqId, 1, 5);
+			$this->arrSubArticles[$this->reqId]	= $this->getRangeArticlePager($this->reqId, $this->pageNum, 15);
+		}
+
+		if (isset($this->arrObjSubCate) && count($this->arrObjSubCate)) {
+
+			if ($this->reqId) {
+
+			#	echo	23134;
+
+			#	$this->arrSubArticles[$this->reqId]	= $this->getRangeArticlePager($this->reqId, $this->pageNum, 15);
+
+			} else {
+
+				$this->arrSubRange	= array();
+
+				foreach ($this->arrSubCategories as $catId => $val) {
+				#	$catId				= $val['id'];
+				#	var_dump($val);
+					$this->arrSubArticles[$catId]	= $this->getRangeArticlePager($catId, 1, 1);
+
+					$option				= array('limit' => 4);
+					$option['to_array']		= true;
+					$option['type']			= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+					$res				= Table_categories::getByParent($catId, $option);
+					$this->arrSubRange[$catId]	= Array_Util::ColToPlain($res, 'id', 'name');
+
+				}
+
+			}
+
+		}
+
+	#	Debug::pr($this->arrSubArticles);
+
+
+	}
+
+	protected function forSpecial(sfWebRequest $request, $rangeId = 0) {
+
+		$this->pageNum			= (int) $request->getParameter('page', 1);
+
+		$this->arrNavPath		= array();
+
+		$this->reqId			= (int) $request->getParameter('id', 0);
+		$this->reqId			= $this->reqId >= 0 ? $this->reqId : 0;
+	#	$this->reqType			= $request->getParameter('type', 'range');
+		$this->reqType			= $this->getContext()->getActionName();
+
+		if ($rangeId) {
+			$this->reqId	= $rangeId;
+		}
+
+		$arrType	= array(
+						'product'	=> 1,
+						'range'		=> 1,
+					);
+
+		if (empty($arrType[$this->reqType])) {
+			$this->reqType	= 'range';
+		}
+
+        	if ('product' == $this->reqType) {
+        		$obj			= new Table_categories();
+        		$obj->name		= '产品中心';
+        		$this->arrNavPath[]	= $obj;
+        	}
+
+        	if ('range' == $this->reqType) {
+        		$obj			= new Table_categories();
+        		$obj->name		= '应用领域';
+        		$this->arrNavPath[]	= $obj;
+        	}
+
+
+		$this->arrSubCategories		= array();
+
+		$this->objCategory		= new Table_categories($this->reqId);
+
+		if ($this->reqId) {
+			$this->arrParents	= Table_categories::getCategoryPath($this->reqId);
+		#	Debug::pr($this->arrParents);
+			foreach ($this->arrParents as $val) {
+				$obj			= new Table_categories($val['id']);
+				$this->arrNavPath[]	= $obj;
+			}
+		}
+
+		$option				= array('limit' => 1000);
+		$option['to_array']		= true;
+		$option['type']			= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+		$this->arrObjSubCate		= Table_categories::getByParent($this->reqId, $option);
+		$this->arrSubCategories		= Array_Util::ColToPlain($this->arrObjSubCate, 'id', 'name');
+
+		if (empty($this->arrSubCategories)) {
+
+			$pos		= count($this->arrNavPath) - 2;
+
+			if (isset($this->arrNavPath[$pos])) {
+
+				$id				= $this->arrNavPath[$pos]->id;
+
+				$option				= array('limit' => 1000);
+				$option['to_array']		= true;
+				$option['type']			= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+				$this->arrObjSubCate		= Table_categories::getByParent($id, $option);
+				$this->arrSubCategories		= Array_Util::ColToPlain($this->arrObjSubCate, 'id', 'name');
+			}
+
+		#	Debug::pr($this->arrNavPath);
+
+		}
+
+
+	#	Debug::pr($this->arrNavPath);
+	#	Debug::pr($this->arrSubCategories);
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

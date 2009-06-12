@@ -37,6 +37,9 @@ class portalActions extends sfActions {
 				'image_6'		=> 1,
 
 				'contacts'		=> 1,
+				'nav_num'		=> 1,
+				'product_pos'		=> 1,
+				'range_pos'		=> 1,
 
 		);
 

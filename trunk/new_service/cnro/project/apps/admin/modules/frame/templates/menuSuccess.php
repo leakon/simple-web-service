@@ -23,13 +23,16 @@ html, body,
 
 <li class="sep"></li>
 
-<li><a href="<?php echo url_for('article/newProduct') ?>" target="main">添加产品描述</a></li>
-<li><a href="<?php echo url_for('article/listProduct') ?>" target="main">管理产品描述</a></li>
+<li><a href="<?php echo url_for('article/newProduct') ?>" target="main">添加产品信息</a></li>
+<li><a href="<?php echo url_for('article/listProduct') ?>" target="main">管理产品信息</a></li>
 
+
+<!--
 <li class="sep"></li>
 
-<li><a href="<?php echo url_for('article/newRange') ?>" target="main">添加领域描述</a></li>
-<li><a href="<?php echo url_for('article/listRange') ?>" target="main">管理领域描述</a></li>
+<li><a href="<?php echo url_for('article/newRange') ?>" target="main">添加领域信息</a></li>
+<li><a href="<?php echo url_for('article/listRange') ?>" target="main">管理领域信息</a></li>
+-->
 
 <li class="sep"></li>
 

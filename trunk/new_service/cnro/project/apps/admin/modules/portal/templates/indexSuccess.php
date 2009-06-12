@@ -146,9 +146,39 @@ var objConf		= {
 </div>
 
 
-<div style="clear:both">
-	<h4>联系信息</h4>
+<div style="clear:both"></div>
+
+
+
+<div >
+	<table border="0" class="leftCol tb tb2 right_6_pic index_td">
+	<tr>
+		<td class="single_cell">
+			导航数量
+			<input type="text" name="nav_num" value="<?php echo isset($arrDataConf['block']['nav_num']) ? $arrDataConf['block']['nav_num'] : '' ?>" />
+		</td>
+	</tr>
+	<tr>
+		<td class="single_cell">
+			产品位置
+			<input type="text" name="product_pos" value="<?php echo isset($arrDataConf['block']['product_pos']) ? $arrDataConf['block']['product_pos'] : '' ?>" />
+		</td>
+	</tr>
+	<tr>
+		<td class="single_cell">
+			领域位置
+			<input type="text" name="range_pos" value="<?php echo isset($arrDataConf['block']['range_pos']) ? $arrDataConf['block']['range_pos'] : '' ?>" />
+		</td>
+	</tr>
+	</table>
+
 </div>
+
+
+
+
+
+<h4>联系信息</h4>
 
 <div style="height:300px;">
 
