@@ -47,6 +47,74 @@ function convertToEntities(strChars) {
 
 }
 
+function DoBatchDelete() {
+
+	var btn		= $('id_batch_delete');
+
+	if (btn) {
+
+		var intChecked		= 0;
+
+	// item_checkbox checked_folder
+
+		var theForm		= new Element('form', {
+							'method':	'post',
+							'action':	'/matcher/admin/camera/deleteAll'
+						});
+
+		var arrList		= $$('input.item_checkbox');
+
+	//	alert(arrList.length);
+
+		var strValue		= '';
+
+		for (var i = 0; i < arrList.length; i++) {
+
+		//	alert(i);continue;
+
+			if (arrList[i].checked) {
+				intChecked++;
+			} else {
+				continue;
+			}
+
+			strValue	= arrList[i].value;
+
+			var theInput	= new Element('input', {
+						'type':		'hidden',
+						'name':		'checked_folder['+ strValue +']',
+						'value':	strValue
+					});
+
+		//	alert(theInput.name);
+
+			theForm.adopt(theInput);
+
+		}
+
+		if (intChecked && window.confirm('确定要批量删除吗？')) {
+
+			$(document.body).adopt(theForm);
+
+			var theInput	= new Element('input', {
+						'type':		'hidden',
+						'name':		'refer',
+						'value':	window.location
+					});
+
+			theForm.adopt(theInput);
+
+		//	alert('ok');
+
+			theForm.submit();
+
+		}
+
+
+	}
+
+}
+
 
 var MatcherTab		= new Class({
 

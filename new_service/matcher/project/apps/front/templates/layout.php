@@ -25,7 +25,11 @@
 	<div class="content">
 	    <?php echo $sf_content ?>
 	</div>
-<div id="foot">卓傲(北京)贸易有限公司</div>
+<div id="foot">CopyRight © 2009 paipaitang.com All Right Reserved.  |
+<a href="http://www.paipaitang.com/?page-about.html">关于我们</a> |
+<a href="http://www.paipaitang.com/?page-business.html">商务合作</a> |
+<a href="http://www.paipaitang.com/?page-contact.html">联系我们</a> |
+<a href="http://www.paipaitang.com/">拍拍堂商城</a></div>
 </div>
   </body>
 </html>

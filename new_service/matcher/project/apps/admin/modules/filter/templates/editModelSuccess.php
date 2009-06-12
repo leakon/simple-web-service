@@ -98,6 +98,12 @@
 				</td>
 			</tr>
 			<tr>
+				<td>基本描述</td>
+				<td>
+					<textarea name="detail" class="search_detail"><?php echo S::E($dataItem->detail) ?></textarea>
+				</td>
+			</tr>
+			<tr>
 				<td>&nbsp;</td>
 				<td>
 					<input type="submit" id="id_form_submit" value="保存" />
