@@ -10,7 +10,7 @@
  * @author      Leakon <leakon@gmail.com>
  * @description	与 PHP 多维数组相关的工具集
  *
- * @notice	增加 key value 交换方法： keyToValue
+ * @notice	修改 sortColumn 和 sortProperty 的 bug，原因是未将引用的数组更新为新顺序
  */
 class Array_Util {
 
@@ -214,7 +214,6 @@ class Array_Util {
 
 	}
 
-
 	/**
 	 * 按集合中数组的字段进行排序
 	 */
@@ -249,6 +248,8 @@ class Array_Util {
 		foreach (array_keys($arrOrder) as $key) {
 			$arrRet[$key]		= $arrRecords[$key];
 		}
+
+		$arrRecords	= $arrRet;
 
 		return	$arrRet;
 
@@ -288,6 +289,8 @@ class Array_Util {
 		foreach (array_keys($arrOrder) as $key) {
 			$arrRet[$key]		= $arrRecords[$key];
 		}
+
+		$arrRecords	= $arrRet;
 
 		return	$arrRet;
 

@@ -204,4 +204,20 @@ class Table_categories extends SofavDB_Table {
 	}
 
 
+	public static function getPlain($id) {
+
+		$option				= array('limit' => 1000);
+		$option['to_array']		= true;
+		$option['type']			= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+		$arrObjSubCate			= Table_categories::getByParent($id, $option);
+
+		Array_Util::sortColumn($arrObjSubCate, 'order_num');
+
+		$arrSubCategories		= Array_Util::ColToPlain($arrObjSubCate, 'id', 'name');
+
+		return	$arrSubCategories;
+
+	}
+
+
 }
