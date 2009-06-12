@@ -258,7 +258,100 @@ class BaseBrandActions extends sfActions {
 
 	}
 
+	protected function hasRelatedItem($deleteId) {
 
+		$_data_class		= $this->dataClass;
+
+		$tagItem		= new $_data_class();
+
+		$conn		= SofavDB_Manager::getConnection();
+
+		$arrDetect	= array(
+					'product_id',
+					'price_id',
+					'caliber_id',
+					'style_id',
+				);
+
+		$arrWhere	= array();
+
+		foreach ($arrDetect as $field) {
+			$arrWhere[]	= $field . ' = ' . $deleteId;
+		}
+
+		$sqlWhere	= implode(' OR ', $arrWhere);
+
+		$sqlTemplate	= sprintf(' SELECT COUNT(*) AS total FROM %s WHERE %s ',
+						$tagItem->getTableName(),
+						$sqlWhere
+					);
+
+		$statement	= $conn->prepare($sqlTemplate);
+		$statement->execute();
+		$result		= $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		$total		= isset($result[0]['total']) ? $result[0]['total'] : 0;
+
+		$total_2	= 0;
+
+		if (0 == $total) {
+
+			$tableMap		= new Table_map_tag();
+			$tableMap->tag_id	= $deleteId;
+
+			$arrMatched		= SofavDB_Record::matchAll($tableMap);
+
+			$total_2		= count($arrMatched);
+
+		}
+
+		$number		= $total + $total_2;
+
+		return		$number > 0;
+
+	}
+
+	public function executeDeleteAll($request) {
+
+		ActionsUtil::needPOST($request);		// 必须是 POST 方法
+
+		$bool			= false;
+		$arrIds			= (array) $request->getParameter('checked_folder', array());
+
+	#	Debug::pre($arrIds);
+
+		$_data_class		= $this->dataClass;
+
+		foreach ($arrIds as $tagId) {
+
+		#	echo	$tagId;
+
+			$tagItem		= new $_data_class($tagId);
+
+			if ($tagItem->id) {
+
+			#	Debug::pr($tagItem);
+
+				if ($this->hasRelatedItem($tagId)) {
+					return	$this->redirect('user/deleteError');
+					exit;
+				}
+
+			#	var_dump($tagId);
+
+			#	$bool			= $tagItem->delete();
+
+			}
+		}
+
+		$parameters		= array();
+	#	$parameters['deleted']	= intval($bool);
+
+		$refer			= $request->getParameter('refer');
+	#	$refer			= false;
+
+		return	ActionsUtil::redirect($this->strModuleName . '/index', $parameters, $refer);
+	}
 
 	public function executeDelete($request) {
 
@@ -274,7 +367,16 @@ class BaseBrandActions extends sfActions {
 
 			if ($tagItem->id) {
 
-				$bool			= $tagItem->delete();
+				$deleteId	= $tagItem->id;
+
+				if ($this->hasRelatedItem($deleteId)) {
+					return	$this->redirect('user/deleteError');
+				}
+
+			#	die('disable delete ' . $deleteId);
+			#	exit;
+
+			#	$bool			= $tagItem->delete();
 
 			}
 

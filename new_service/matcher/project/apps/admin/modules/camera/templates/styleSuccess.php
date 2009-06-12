@@ -13,6 +13,10 @@
 
 		<h3><?php echo $brandName ?>管理</h3>
 
+		<div class="float">
+			<input type="button" id="id_batch_delete" value="批量删除" onclick="DoBatchDelete()" />
+		</div>
+
 		<div class="f_right formAddTag">
 
 			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/save') ?>" method="post">
@@ -41,6 +45,7 @@
 
 
 	<div class="boxBody">
+
 
 <?php if (isset($arrResult)) : ?>
 

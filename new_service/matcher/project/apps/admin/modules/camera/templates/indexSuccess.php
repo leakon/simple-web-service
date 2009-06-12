@@ -26,7 +26,9 @@
 			</form>
 		</div>
 
-
+		<div class="float">
+			<input type="button" id="id_batch_delete" value="批量删除" onclick="DoBatchDelete()" />
+		</div>
 
 		<div class="f_right formAddTag">
 

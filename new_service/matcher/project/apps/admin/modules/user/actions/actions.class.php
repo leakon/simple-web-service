@@ -287,6 +287,9 @@ class userActions extends sfActions {
 		$this->setLayout('layout_frame');
 	}
 
+	public function executeDeleteError(sfWebRequest $request) {
+		$this->setLayout(false);
+	}
 
 
 
