@@ -28,6 +28,17 @@
 
         <div class="content944">
           <div class="sideNav">
+
+          	<?php
+
+          		if ('产品中心' == $strSideBarNavTitle) {
+
+
+          		} else {
+          			$strSideBarNavTitle	.= '设备';
+          		}
+
+          	?>
             <h3><?php echo S::E($strSideBarNavTitle) ?></h3>
             <ul class="">
 		<?php
@@ -39,7 +50,7 @@
 
 		foreach ($arrSubCategories as $id => $name) {
 
-          		echo	sprintf('<li class="%s"><a href="%s">%s</a></li>',
+          		echo	sprintf('<li class="%s"><a href="%s">%s设备</a></li>',
           					S::curr($id == $cateId, 'current'),
           					url_for('category/product?id=' . $id),
           					$name
@@ -101,7 +112,9 @@ if (!$reqId) :
             <li><a href="<?php echo url_for('category/product?id=' . $id) ?>"><?php echo $name ?></a></li>
             	<?php endforeach ?>
           </ul>
+          <!--
           <span class="more"><a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>" >了解更多内容</a></span>
+          -->
         </div>
       </div>
     </td>
@@ -151,7 +164,7 @@ else :
            	<?php foreach ($articlePager->getResults() as $key => $val) : ?>
               <li>
                 <span class="tit"><?php echo S::E($val['title']) ?></span>
-                <div><a href="<?php echo url_for('showProduct/show?id=' . $val['id']) ?>" target="_blank"><img src="<?php echo $val['large_pic'] ?>" width="102"  /></a></div>
+                <div><a href="<?php echo url_for('article/showProduct?id=' . $val['id']) ?>" target="_blank"><img src="<?php echo $val['large_pic'] ?>" width="102"  /></a></div>
                 <p>
                 <?php
 
@@ -160,7 +173,11 @@ else :
           	echo	S::TK($desc, 64);
 
                 ?></p>
+
+                <!--
                 <span class="more"><a href="<?php echo url_for('article/showProduct?id=' . $val['id']) ?>" target="_blank">更多内容&gt;&gt;</a></span>
+                -->
+
               </li>
            	<?php endforeach ?>
             </ul>
