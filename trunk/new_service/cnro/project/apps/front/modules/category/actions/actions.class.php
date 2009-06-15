@@ -35,6 +35,12 @@ class categoryActions extends sfActions
 
 		$this->reqCategoryId		= (int) $request->getParameter('id', 0);
 
+		// 090613 点击资讯中心频道后，页面默认停留在公司新闻的列表页状态下。
+		if (1000059 == $this->reqCategoryId) {
+			return	$this->redirect('category/list?id=1000067');
+		}
+
+
 		$this->categoryItem		= new Table_categories($this->reqCategoryId);
 		$this->topCategoryId		= $this->categoryItem->parent_id;
 
