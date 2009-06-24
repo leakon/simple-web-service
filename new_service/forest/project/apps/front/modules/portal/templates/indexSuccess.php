@@ -523,6 +523,15 @@ document.write('</object>');
 
 		$arrArticles_2		= $data[$categoryId_2];
 
+		// -----------------------------------
+		$from			= 'scroll_3';
+
+		$categoryId_3		= isset($conf['block']['cate_' . $from]['sub']) ?
+						$conf['block']['cate_' . $from]['sub'] : $default;
+
+		$categoryItem_3		= new Table_categories($categoryId_3);
+
+		$arrArticles_3		= $data[$categoryId_3];
 	?>
 
 
@@ -580,6 +589,39 @@ document.write('</object>');
           </div>
           <div class="bot"></div>
         </div><!-- end block240 -->
+
+
+
+        <div class="blank10"></div>
+
+        <div class="block240">
+          <h3><?php echo S::E($categoryItem_3->name) ?><span class="more"><a href="<?php echo url_for('category/list?id=' . $categoryItem_3->id) ?>" target="_blank">更多&gt;&gt;</a></span></h3>
+          <div class="list12" >
+          <marquee direction="up" scrollamount="1"  scrolldelay="30" onMouseOver="stop()" onMouseOut="start()" style="height:110px; overflow:hidden;">
+
+                <?php
+
+                	foreach ($arrArticles_3 as $key => $val) {
+
+
+	                	echo	sprintf(
+	                			'<li><a href="%s" target="_blank">%s</a></li>' . "\n",
+
+						url_for('article/show?id=' . $val['id']),
+						S::TK($val['title'], 30)
+
+	                			);
+
+	                }
+                ?>
+
+           </marquee>
+          </div>
+          <div class="bot"></div>
+        </div><!-- end block240 -->
+
+
+
 
         <div class="blank10"></div>
 
@@ -647,8 +689,14 @@ document.write('</object>');
             <ul>
                 <?php
 
+                	$total	= 4;
                 	foreach ($arrArticles as $key => $val) {
 
+                		if ($total-- > 0) {
+
+                		} else {
+                			break;
+                		}
 
 	                	echo	sprintf(
 	                			'<li><a href="%s" target="_blank">%s</a></li>' . "\n",
@@ -674,7 +722,15 @@ document.write('</object>');
             <ul>
                 <?php
 
+                	$total	= 4;
+
                 	foreach ($arrArticles_2 as $key => $val) {
+
+                		if ($total-- > 0) {
+
+                		} else {
+                			break;
+                		}
 
 
 	                	echo	sprintf(

@@ -52,6 +52,7 @@ class portalActions extends sfActions {
 
 				'cate_scroll_1'		=> 1,
 				'cate_scroll_2'		=> 1,
+				'cate_scroll_3'		=> 1,
 
 				'cate_side_1'		=> 1,
 				'cate_side_2'		=> 1,
