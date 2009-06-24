@@ -68,13 +68,6 @@
             <div class="subInfo"> <span>浏览次数：<?php echo $articleItem->view_cnt ?></span> <span>发布日期：<?php echo substr($articleItem->published_at, 0, 10); ?></span> </div>
 
 
-	<?php if ($articleItem->pic) : ?>
-	<div>
-		<img src="<?php echo $articleItem->pic ?>" />
-	</div>
-	<?php endif ?>
-
-
 	<div>
 
 		<?php echo $articleItem->detail ?>
