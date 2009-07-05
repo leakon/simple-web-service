@@ -680,16 +680,17 @@ document.write('</object>');
 	?>
 
 
-
-        <div class="block240_blue">
-          <h3><?php echo S::E($categoryItem->name) ?></h3>
+<!-- sideBar Begin -->
+        <div class="block240">
+          <h3><?php echo S::E($categoryItem->name) ?><span class="more"><a href="<?php echo url_for('category/list?id=' . $categoryItem->id) ?>" target="_blank">更多&gt;&gt;</a></span></h3>
+          <div class="list12_20090705" >
           <div class="pt">
             <div class="pic"><a href="<?php echo url_for('category/list?id=' . $categoryItem->id) ?>" target="_blank"><img src="<?php echo $picUrl ?>" width="203" height="70" /></a></div>
-
             <ul>
                 <?php
 
                 	$total	= 4;
+
                 	foreach ($arrArticles as $key => $val) {
 
                 		if ($total-- > 0) {
@@ -697,6 +698,7 @@ document.write('</object>');
                 		} else {
                 			break;
                 		}
+
 
 	                	echo	sprintf(
 	                			'<li><a href="%s" target="_blank">%s</a></li>' . "\n",
@@ -710,15 +712,25 @@ document.write('</object>');
                 ?>
             </ul>
           </div>
-        </div>
+          </div>
+          <div class="bot"></div>
+        </div><!-- end block240 -->
 
         <div class="blank10"></div>
+<!-- sideBar End -->
 
-        <div class="block240_blue">
-          <h3><?php echo S::E($categoryItem_2->name) ?></h3>
+
+
+
+
+
+
+<!-- sideBar Begin -->
+        <div class="block240">
+          <h3><?php echo S::E($categoryItem_2->name) ?><span class="more"><a href="<?php echo url_for('category/list?id=' . $categoryItem_2->id) ?>" target="_blank">更多&gt;&gt;</a></span></h3>
+          <div class="list12_20090705" >
           <div class="pt">
             <div class="pic"><a href="<?php echo url_for('category/list?id=' . $categoryItem_2->id) ?>" target="_blank"><img src="<?php echo $picUrl_2 ?>" width="203" height="70" /></a></div>
-
             <ul>
                 <?php
 
@@ -745,10 +757,12 @@ document.write('</object>');
                 ?>
             </ul>
           </div>
-        </div>
+          </div>
+          <div class="bot"></div>
+        </div><!-- end block240 -->
 
         <div class="blank10"></div>
-
+<!-- sideBar End -->
 
 
 
