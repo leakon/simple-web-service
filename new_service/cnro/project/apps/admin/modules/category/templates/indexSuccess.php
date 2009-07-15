@@ -73,6 +73,14 @@ echo	sprintf('<style>#id_cate_%d	{font-weight:bold; color:red;}</style>', $lastC
 	</tr>
 	<tr>
 		<td>
+			相关产品
+		</td>
+		<td>
+			<input type="text" name="show_relate" value="<?php echo S::E($categoryItem->show_relate) ?>" /> 显示文字（为空则不显示相关产品）
+		</td>
+	</tr>
+	<tr>
+		<td>
 			排列顺序
 		</td>
 		<td>
@@ -163,6 +171,14 @@ $listUrl	= url_for('category/' . $strActionName);
 		</td>
 		<td>
 			<input type="text" name="pic" value="" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			相关产品
+		</td>
+		<td>
+			<input type="text" name="show_relate" value="" /> 显示文字（为空则不显示相关产品）
 		</td>
 	</tr>
 
