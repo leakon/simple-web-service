@@ -42,11 +42,12 @@ $arrConf_HELP	= $objConf->getConf('help');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>CNRO - Welcome to CNRO 天津市森罗科技发展有限责任公司</title>
-<link href="/css/style.css" type="text/css" rel="stylesheet" />
-<link href="/css/global1.3.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="/css/superfish.css" media="screen">
+<link href="/css/style.css?ver=20090715" type="text/css" rel="stylesheet" />
+<link href="/css/global1.3.css?ver=20090715" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="/css/superfish.css?ver=20090715" media="screen">
+<link rel="stylesheet" type="text/css" href="/css/superfish-vertical.css?ver=20090715" media="screen">
 <script src="/js/jquery-1.2.2.pack.js" type="text/javascript"></script>
-<link href="/css/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/css/facebox.css?ver=20090715" media="screen" rel="stylesheet" type="text/css" />
 <script src="/js/facebox.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -170,10 +171,77 @@ function SetHome(obj){
 
 
     <div id="td_index_bigad">
-        <div id="big_ad1" class="big_ad" style=""><a href="javascript:;"><img src="/images/flash944x300.jpg"border="0"></a></div>
+
+    	<?php
+
+
+		$arrBlock	= $objConf->getConf('block');
+    	#	$arrBlock	= isset($objConf['block']) ? $objConf['block'] : array();
+
+    		$arrPics	= array(
+
+    				1	=> '/images/flash944x300.jpg',
+    				2	=> '/images/bigpic.jpg',
+    				3	=> '/images/bigpic2.jpg',
+    				4	=> '/images/bigpic4.jpg',
+
+    				);
+
+    		$arrIndexPics	= array();
+
+    		foreach ($arrPics as $index => $defaultSrc) {
+
+			$arrIndexPics[$index]	= array(
+				'src'	=> isset($arrBlock['nav_pic_src'][$index]) ? $arrBlock['nav_pic_src'][$index] : $defaultSrc,
+				'link'	=> isset($arrBlock['nav_pic_link'][$index]) ? $arrBlock['nav_pic_link'][$index] : 'javascript:;',
+			);
+
+    		}
+
+    	#	Debug::pr($arrIndexPics);
+
+
+    		function showPic($idx, $arrIndexPics) {
+
+    		#	$arrIndexPics = $GLOBALS['arrIndexPics'];
+
+			return	sprintf('<div id="big_ad%d" class="big_ad" style="%s"><a href="%s"><img src="%s" border="0"></a></div>',
+					$idx,
+					($idx > 1 ? 'display:none;' : ''),
+					$arrIndexPics[$idx]['link'],
+					$arrIndexPics[$idx]['src']
+
+				);
+
+    		}
+#
+
+
+
+    	?>
+
+	<!--
+        <div id="big_ad1" class="big_ad" style=""><a href="http://www.leakon.com/?1"><img src="/images/flash944x300.jpg"border="0"></a></div>
+        -->
+
+
+        <?php
+
+        	echo	showPic(1, $arrIndexPics);
+        	echo	showPic(2, $arrIndexPics);
+        	echo	showPic(3, $arrIndexPics);
+        	echo	showPic(4, $arrIndexPics);
+
+        ?>
+
+        <!--
         <div id="big_ad2" class="big_ad" style="display:none;"><a href="javascript:;"><img src="/images/bigpic.jpg" border="0"></a></div>
         <div id="big_ad3" class="big_ad" style="display: none;"><a href="javascript:;"><img src="/images/bigpic2.jpg" border="0"></a></div>
         <div id="big_ad4" class="big_ad" style="display: none;"><a href="javascript:;"><img src="/images/bigpic4.jpg" border="0"></a></div>
+
+        -->
+
+
 
         <div id="btn_showad1" class="btn_show_ad"><img src="/images/btn_bigad_num1.gif" border="0" /></div>
         <div id="btn_showad2" class="btn_show_ad"><img src="/images/btn_bigad_num2.gif" border="0" /></div>
@@ -184,8 +252,27 @@ function SetHome(obj){
 
         <?php else : ?>
 
+		<?php
 
-        <div class="banner137"><img src="/images/banner942x137.jpg" width="942" height="137" /></div>
+			$default_banner_pic	= '/images/banner942x137.jpg';
+
+		#	$default_banner_pic	= 'http://cnro.kk.com/images/bigpic2.jpg';
+
+			$bannerCatId		= $sf_request->getParameter('id', 0);
+
+			if ($bannerCatId) {
+				$objBannerCategory	= new Table_categories($bannerCatId);
+			#	Debug::pr($objBannerCategory);
+
+				if ($objBannerCategory->id && strlen($objBannerCategory->banner_pic)) {
+					$default_banner_pic	= $objBannerCategory->banner_pic;
+				}
+			}
+
+
+		?>
+
+		<div class="banner137"><img src="<?php echo $default_banner_pic ?>" width="942"  /></div>
 
 
 	<?php endif ?>

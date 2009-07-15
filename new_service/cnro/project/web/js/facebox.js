@@ -11,9 +11,9 @@
  * Copyright 2007, 2008 Chris Wanstrath [ chris@ozmm.org ]
  *
  * Usage:
- *
+ *  
  *  jQuery(document).ready(function() {
- *    jQuery('a[rel*=facebox]').facebox()
+ *    jQuery('a[rel*=facebox]').facebox() 
  *  })
  *
  *  <a href="#terms" rel="facebox">Terms</a>
@@ -27,11 +27,11 @@
  *
  *
  *  You can also use it programmatically:
- *
+ * 
  *    jQuery.facebox('some html')
  *
  *  This will open a facebox with "some html" as the content.
- *
+ *    
  *    jQuery.facebox(function() { ajaxes })
  *
  *  This will show a loading screen before the passed function is called,
@@ -46,8 +46,8 @@
   }
 
   $.facebox.settings = {
-    loading_image : '/images/loading.gif',
-    close_image   : '/images/closelabel.gif',
+    loading_image : 'images/loading.gif',
+    close_image   : 'images/closelabel.gif',
     image_types   : [ 'png', 'jpg', 'jpeg', 'gif' ],
     facebox_html  : '\
   <div id="facebox" style="display:none;"> \
@@ -88,7 +88,7 @@
 
     var pageScroll = $.facebox.getPageScroll()
     $('#facebox').css({
-      top:	pageScroll[1] + ($.facebox.getPageHeight() / 10) + 410,
+      top:	pageScroll[1] + ($.facebox.getPageHeight() / 10),
       left:	pageScroll[0]
     }).show()
 
@@ -189,9 +189,9 @@
       xScroll = document.documentElement.scrollLeft;
     } else if (document.body) {// all other Explorers
       yScroll = document.body.scrollTop;
-      xScroll = document.body.scrollLeft;
+      xScroll = document.body.scrollLeft;	
     }
-    return new Array(xScroll,yScroll)
+    return new Array(xScroll,yScroll) 
   }
 
   // adapter from getPageSize() by quirksmode.com
@@ -203,7 +203,7 @@
       windowHeight = document.documentElement.clientHeight;
     } else if (document.body) { // other Explorers
       windowHeight = document.body.clientHeight;
-    }
+    }	
     return windowHeight
   }
 })(jQuery);

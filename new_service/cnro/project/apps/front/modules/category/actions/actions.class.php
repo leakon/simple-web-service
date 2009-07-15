@@ -94,6 +94,10 @@ class categoryActions extends sfActions
 
 		ksort($this->arrNavPath);
 
+		if (isset($this->categoryItem->description) && strlen($this->categoryItem->description)) {
+			$this->setTemplate('listContent');
+		}
+
 
 	}
 

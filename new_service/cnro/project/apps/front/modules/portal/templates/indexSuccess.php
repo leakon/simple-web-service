@@ -82,115 +82,99 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 
 ?>
             <div class="col200">
-              <div class="col_pic"><a href="#" target="_blank"></a></div>
+              <div class="col_pic"><a href="/cn/index.php/category/range/id/1000053" target="_blank"></a></div>
 
+		<ul class="sf-menu sf-vertical sf-js-enabled sf-shadow">
 		<?php
-
 		$arrSubDiv	= array();
-
 		foreach ($arrIndexRange[RANGE_ID_DANQI] as $id => $name) {
 
-			// <p><a href="#mydiv2" rel="facebox">船用氮气</a></p>
-
-			echo	sprintf('<p><a href="#mydiv_%d" rel="facebox">%s</a></p>', $id, S::E($name));
+			$arrSubDiv		= array();
 
 			$arrSubRange		= Table_categories::getPlain($id);
 
-			/*
-
-		              <div id="mydiv2" style="display:none">
-		                <a href="#">货油舱的惰化</a>
-		                <a href="#">船用保鲜</a>
-		              </div>
-
-			*/
 			$arrTmp			= array();
-			$arrTmp[]		= sprintf('<div id="mydiv_%d" style="display:none">', $id);
+			$arrTmp[]		= sprintf('<ul style="display: none; visibility: hidden;">');
 			foreach ($arrSubRange as $subId => $subName) {
 
-				$arrTmp[]	= sprintf('<a href="%s">%s</a>', url_for('category/range?id='.$subId), S::E($subName));
+				$arrTmp[]	= sprintf('<li><a href="%s">%s</a></li>', url_for('category/range?id='.$subId), S::E($subName));
 
 			}
-			$arrTmp[]		= '</div>';
+			$arrTmp[]		= '</ul>';
 
-			$arrSubDiv[$id]		= implode('', $arrTmp);
+			$arrSubDiv[$id]		= implode("\n", $arrTmp);
+
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', $id, S::E($name), implode("", $arrSubDiv));
 
 		}
-
-		foreach ($arrIndexRange[RANGE_ID_DANQI] as $id => $name) {
-			echo	$arrSubDiv[$id];
-		}
-
 		?>
+		</ul>
+
+
 
             </div>
 
             <div class="col200_2">
-              <div class="col_pic"><a href="#" target="_blank"></a></div>
+              <div class="col_pic"><a href="/cn/index.php/category/range/id/1000054" target="_blank"></a></div>
 
+		<ul class="sf-menu sf-vertical sf-js-enabled sf-shadow">
 		<?php
-
 		$arrSubDiv	= array();
-
 		foreach ($arrIndexRange[RANGE_ID_CUISHU] as $id => $name) {
 
-			echo	sprintf('<p><a href="#mydiv_%d" rel="facebox">%s</a></p>', $id, S::E($name));
+			$arrSubDiv		= array();
 
 			$arrSubRange		= Table_categories::getPlain($id);
 
 			$arrTmp			= array();
-			$arrTmp[]		= sprintf('<div id="mydiv_%d" style="display:none">', $id);
+			$arrTmp[]		= sprintf('<ul style="display: none; visibility: hidden;">');
 			foreach ($arrSubRange as $subId => $subName) {
 
-				$arrTmp[]	= sprintf('<a href="%s">%s</a>', url_for('category/range?id='.$subId), S::E($subName));
+				$arrTmp[]	= sprintf('<li><a href="%s">%s</a></li>', url_for('category/range?id='.$subId), S::E($subName));
 
 			}
-			$arrTmp[]		= '</div>';
+			$arrTmp[]		= '</ul>';
 
-			$arrSubDiv[$id]		= implode('', $arrTmp);
+			$arrSubDiv[$id]		= implode("\n", $arrTmp);
+
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', $id, S::E($name), implode("", $arrSubDiv));
 
 		}
-
-		foreach ($arrIndexRange[RANGE_ID_CUISHU] as $id => $name) {
-			echo	$arrSubDiv[$id];
-		}
-
 		?>
+		</ul>
 
             </div>
 
             <div class="col200_3">
-              <div class="col_pic"><a href="#" target="_blank"></a></div>
+              <div class="col_pic"><a href="/cn/index.php/category/range/id/1000049" target="_blank"></a></div>
 
+
+
+		<ul class="sf-menu sf-vertical sf-js-enabled sf-shadow">
 		<?php
-
 		$arrSubDiv	= array();
-
 		foreach ($arrIndexRange[RANGE_ID_JIANSHEN] as $id => $name) {
 
-			echo	sprintf('<p><a href="#mydiv_%d" rel="facebox">%s</a></p>', $id, S::E($name));
+			$arrSubDiv		= array();
 
 			$arrSubRange		= Table_categories::getPlain($id);
 
 			$arrTmp			= array();
-			$arrTmp[]		= sprintf('<div id="mydiv_%d" style="display:none">', $id);
+			$arrTmp[]		= sprintf('<ul style="display: none; visibility: hidden;">');
 			foreach ($arrSubRange as $subId => $subName) {
 
-				$arrTmp[]	= sprintf('<a href="%s">%s</a>', url_for('category/range?id='.$subId), S::E($subName));
+				$arrTmp[]	= sprintf('<li><a href="%s">%s</a></li>', url_for('category/range?id='.$subId), S::E($subName));
 
 			}
-			$arrTmp[]		= '</div>';
+			$arrTmp[]		= '</ul>';
 
-			$arrSubDiv[$id]		= implode('', $arrTmp);
+			$arrSubDiv[$id]		= implode("\n", $arrTmp);
+
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', $id, S::E($name), implode("", $arrSubDiv));
 
 		}
-
-		foreach ($arrIndexRange[RANGE_ID_JIANSHEN] as $id => $name) {
-			echo	$arrSubDiv[$id];
-		}
-
 		?>
-
+		</ul>
 
             </div>
 

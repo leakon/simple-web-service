@@ -36,6 +36,10 @@ $arrOptionNoPic	= array(
 	}
 
 
+
+#	Debug::pr($GLOBALS['global_data']);
+
+
 ?>
 <div class="itemtitle"><h3>首页设置</h3></div>
 
@@ -103,6 +107,81 @@ var objConf		= {
 
 </div>
 <?php endif ?>
+
+<?php
+function showPics($idx) {
+
+#	global $arrDataConf;
+
+	$arrDataConf	= $GLOBALS['global_data'];
+
+	$format	=
+	'
+
+				图片[%d]<input type="text" name="nav_pic_src[%d]" value="%s" size="48" />
+				<br />
+				连接[%d]<input type="text" name="nav_pic_link[%d]" value="%s" size="48" />
+	';
+
+	return	sprintf($format,
+
+			$idx, $idx,
+			(isset($arrDataConf['block']['nav_pic_src'][$idx]) ? $arrDataConf['block']['nav_pic_src'][$idx] : ''),
+
+			$idx, $idx,
+			(isset($arrDataConf['block']['nav_pic_link'][$idx]) ? $arrDataConf['block']['nav_pic_link'][$idx] : '')
+
+			);
+
+}
+
+?>
+
+
+<div >
+	<h2>轮播图</h2>
+	<table border="0" class="leftCol tb tb2 right_6_pic index_td">
+	<tr>
+		<td class="single_cell">
+			<?php
+
+			echo	showPics(1);
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<td class="single_cell">
+			<?php
+
+			echo	showPics(2);
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<td class="single_cell">
+			<?php
+
+			echo	showPics(3);
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<td class="single_cell">
+			<?php
+
+			echo	showPics(4);
+
+			?>
+		</td>
+	</tr>
+	</table>
+
+</div>
+
+
 
 <div class="left">
 	<table border="0" class="leftCol tb tb2 right_6_pic index_td">
@@ -173,6 +252,9 @@ var objConf		= {
 	</table>
 
 </div>
+
+
+
 
 
 

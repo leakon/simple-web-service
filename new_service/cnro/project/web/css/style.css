@@ -74,7 +74,7 @@
 #wrapper .container .footer{ padding:20px 10px; text-align:right;}
 #wrapper .container .footer a{color:#3b393a; margin:0 5px 0 8px;}
 
-#wrapper .container .banner137{width:942px; height:137px; border:1px solid #ccc; margin-bottom:1px;}
+#wrapper .container .banner137{width:942px; xheight:137px; border:1px solid #ccc; margin-bottom:1px;}
 #wrapper .container .mainBody .breadCrumb{width:934px; height:49px; line-height:49px; margin:1px 0 0 0; background:url(/images/bg1x49.jpg) repeat-x; padding:0 0 0 10px;}
 #wrapper .container .mainBody .breadCrumb a{margin:0 5px 0 5px;}
 #wrapper .container .mainBody .content944 .sideNav{width:160px; height:auto; overflow:hidden; float:left;}
