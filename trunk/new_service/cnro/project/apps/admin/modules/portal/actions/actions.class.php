@@ -41,6 +41,10 @@ class portalActions extends sfActions {
 				'product_pos'		=> 1,
 				'range_pos'		=> 1,
 
+				'nav_pic_src'		=> 1,
+				'nav_pic_link'		=> 1,
+
+
 		);
 
 		$arrSavedForm		= array();
@@ -62,6 +66,8 @@ class portalActions extends sfActions {
 	#	Debug::pre($arrSavedForm);
 
 		$this->objConf->setConf('block', $arrSavedForm);
+
+
 
 		$refer	= $request->getParameter('refer', '');
 		return	$this->redirect($refer);

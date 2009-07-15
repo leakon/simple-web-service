@@ -79,11 +79,11 @@ echo	sprintf('<style>#id_cate_%d	{font-weight:bold; color:red;}</style>', $lastC
 			<input type="text" name="order_num" value="<?php echo $categoryItem->order_num ?>" />
 		</td>
 	</tr>
-	<?php if (CnroConstant::CATEGORY_TYPE_PROD_RANGE == $intCategoryType) : ?>
+	<?php if (1 || CnroConstant::CATEGORY_TYPE_PROD_RANGE == $intCategoryType) : ?>
 
 	<tr>
 		<td>
-			领域描述
+			分类描述
 		</td>
 		<td>
 		<?php
@@ -166,11 +166,11 @@ $listUrl	= url_for('category/' . $strActionName);
 		</td>
 	</tr>
 
-	<?php if (CnroConstant::CATEGORY_TYPE_PROD_RANGE == $intCategoryType) : ?>
+	<?php if (1 || CnroConstant::CATEGORY_TYPE_PROD_RANGE == $intCategoryType) : ?>
 
 	<tr>
 		<td>
-			领域描述
+			分类描述
 		</td>
 		<td>
 		<?php
