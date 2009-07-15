@@ -104,7 +104,7 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 
 			$arrSubDiv[$id]		= implode("\n", $arrTmp);
 
-			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', $id, S::E($name), implode("", $arrSubDiv));
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/range?id='.$id), S::E($name), implode("", $arrSubDiv));
 
 		}
 		?>
@@ -137,7 +137,7 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 
 			$arrSubDiv[$id]		= implode("\n", $arrTmp);
 
-			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', $id, S::E($name), implode("", $arrSubDiv));
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/range?id='.$id), S::E($name), implode("", $arrSubDiv));
 
 		}
 		?>
@@ -170,7 +170,7 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 
 			$arrSubDiv[$id]		= implode("\n", $arrTmp);
 
-			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', $id, S::E($name), implode("", $arrSubDiv));
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/range?id='.$id), S::E($name), implode("", $arrSubDiv));
 
 		}
 		?>
