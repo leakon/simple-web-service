@@ -59,8 +59,52 @@ function showFieldRadio($index = 0) {
 
 
 
+$option			= array('limit' => 1000);
+$option['to_array']	= true;
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+$res			= Table_categories::getByParent(0, $option);
+$arrRanges		= Array_Util::ColToPlain($res, 'id', 'name');
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_TYPE;
+$res			= Table_categories::getByParent(0, $option);
+$arrTypes		= Array_Util::ColToPlain($res, 'id', 'name');
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_STYLE;
+$res			= Table_categories::getByParent(0, $option);
+$arrStyle		= Array_Util::ColToPlain($res, 'id', 'name');
+
+
+$arrFieldCatetory		= Table_categories::getAllField();
+
+
+$arrFieldJSON	= array();
+foreach ($arrFieldCatetory as $fieldInfo) {
+
+	$tmp		= array();
+
+	$tmp['id']		= $fieldInfo['id'];
+	$tmp['field_id']	= $fieldInfo['field_id'];
+	$tmp['name']		= $fieldInfo['name'];
+
+	$arrFieldJSON[]		= $tmp;
+
+}
+
+#Debug::pr($arrFieldJSON);
+
+$strFieldJSON	= json_encode($arrFieldJSON);
 
 ?>
+
+
+<script type="text/javascript">
+
+var arrFieldObj	= <?php echo $strFieldJSON ?>;
+
+
+</script>
+
 
 <div class="itemtitle"><h3>管理<?php echo $strType ?></h3></div>
 
@@ -118,12 +162,45 @@ echo	sprintf('<style>#id_cate_%d	{font-weight:bold; color:red;}</style>', $lastC
 			选择应用领域
 		</td>
 		<td>
-			<?php
 
-			#	var_dump($categoryItem->field_id);
+		<?php
 
-				echo	showFieldRadio($categoryItem->field_id);
-			?>
+		#	$parentField	= Table_categories::getOneByField($categoryItem->field_id);
+			$parentField	= new Table_categories($categoryItem->field_id);
+			$grandField	= new Table_categories($parentField->field_id);
+		#	Debug::pr($parentField);
+
+		?>
+
+                <select name="range" onchange="ThreeChangeRange(this, 'id_three_type')">
+                  <option value="0">应用领域</option>
+                  <?php
+                  	echo	options_for_select($arrRanges, $grandField->id);
+                  ?>
+                </select>
+                <br />
+                <select name="field_id" id="id_three_type" onchange="ThreeChangeType(this, 'id_three_style')">
+                  <option value="0">设备类别</option>
+                  <?php
+                 # 	echo	options_for_select($arrTypes);
+                  ?>
+                </select>
+
+                <script>
+                	ThreeChangeRange(document.getElementById('id_three_type'), 'id_three_type', <?php echo $parentField->field_id ?>, <?php echo $parentField->id ?>);
+                </script>
+
+                <?php if (0) : ?>
+                <br />
+                <select name="style" id="id_three_style" onchange="ThreeChangeType(this)">
+                  <option value="0">设备型号</option>
+                  <?php
+                 # 	echo	options_for_select($arrStyle);
+                  ?>
+                </select>
+
+                <?php endif ?>
+
 		</td>
 	</tr>
 	<tr>
@@ -179,16 +256,44 @@ $listUrl	= url_for('category/' . $strActionName);
 			<input type="text" name="name" value="" />
 		</td>
 	</tr>
+
 	<tr>
 		<td>
 			选择应用领域
 		</td>
+
+
 		<td>
-			<?php
-				echo	showFieldRadio(0);
-			?>
+
+
+                <select name="range" onchange="ThreeChangeRange(this, 'id_three_type')">
+                  <option value="0">应用领域</option>
+                  <?php
+                  	echo	options_for_select($arrRanges);
+                  ?>
+                </select>
+                <br />
+                <select name="field_id" id="id_three_type" onchange="ThreeChangeType(this, 'id_three_style')">
+                  <option value="0">设备类别</option>
+                  <?php
+                 # 	echo	options_for_select($arrTypes);
+                  ?>
+                </select>
+
+                <?php if (0) : ?>
+                <br />
+                <select name="style" id="id_three_style" onchange="ThreeChangeType(this)">
+                  <option value="0">设备型号</option>
+                  <?php
+                 # 	echo	options_for_select($arrStyle);
+                  ?>
+                </select>
+
+                <?php endif ?>
+
 		</td>
 	</tr>
+
 
 	<tr>
 		<td>&nbsp;</td>
@@ -226,7 +331,7 @@ $listUrl	= url_for('category/' . $strActionName);
 			<td>
 				<a href="<?php echo $listUrl . '?id=' . $oneCategory->id ?>"><?php echo $oneCategory->name ?></a>
 			</td>
-			<td><?php echo $GLOBALS['arrFields'][$oneCategory->field_id] ?></td>
+			<td><?php echo isset($GLOBALS['arrFields'][$oneCategory->field_id]) ? $GLOBALS['arrFields'][$oneCategory->field_id] : '' ?></td>
 			<td><?php echo $arrCategoryChildQty[$key] ?></td>
 			<td><input type="text" name="order_num[<?php echo $oneCategory->id ?>]" value="<?php echo $oneCategory->order_num ?>" /></td>
 

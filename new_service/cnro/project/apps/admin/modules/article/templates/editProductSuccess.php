@@ -81,23 +81,119 @@ echo	sprintf('<style>#id_cate_%d	{font-weight:bold; color:red;}</style>', $lastC
 
 
 <tr>
-	<td class="col_name">设备类别</td>
+	<td class="col_name">设备领域</td>
 	<td>
-                <select name="type_id">
+
+<?php
+$option			= array('limit' => 1000);
+$option['to_array']	= true;
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+$res			= Table_categories::getByParent(0, $option);
+$arrRanges		= Array_Util::ColToPlain($res, 'id', 'name');
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_TYPE;
+$res			= Table_categories::getByParent(0, $option);
+$arrTypes		= Array_Util::ColToPlain($res, 'id', 'name');
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_STYLE;
+$res			= Table_categories::getByParent(0, $option);
+$arrStyle		= Array_Util::ColToPlain($res, 'id', 'name');
+
+
+$arrFieldCatetory		= Table_categories::getAllField();
+
+
+$arrFieldJSON	= array();
+foreach ($arrFieldCatetory as $fieldInfo) {
+
+	$tmp		= array();
+
+	$tmp['id']		= $fieldInfo['id'];
+	$tmp['field_id']	= $fieldInfo['field_id'];
+	$tmp['name']		= $fieldInfo['name'];
+
+	$arrFieldJSON[]		= $tmp;
+
+}
+
+#Debug::pr($arrFieldJSON);
+
+$strFieldJSON	= json_encode($arrFieldJSON);
+
+?>
+
+
+<script type="text/javascript">
+
+var arrFieldObj	= <?php echo $strFieldJSON ?>;
+
+
+</script>
+
+		<?php
+
+		#	$parentField	= Table_categories::getOneByField($categoryItem->field_id);
+			$parentField	= new Table_categories($articleItem->style_id);
+			$grandField	= new Table_categories($parentField->field_id);
+			$topField	= new Table_categories($grandField->field_id);
+		#	Debug::pr($articleItem);
+
+		?>
+
+
+
+                <select name="range_xxx" onchange="ThreeChangeRange(this, 'id_three_type')">
+                  <option value="0">应用领域</option>
                   <?php
-                  	echo	options_for_select($arrTypes, $articleItem->type_id);
+                  	echo	options_for_select($arrRanges, $topField->id);
                   ?>
                 </select>
 	</td>
 </tr>
 <tr>
+	<td class="col_name">设备类别</td>
+	<td>
+		<?php if (0) : ?>
+                <select name="type_id">
+                  <?php
+                  	echo	options_for_select($arrTypes, $articleItem->type_id);
+                  ?>
+                </select>
+                <?php endif ?>
+
+                <select name="type_id" id="id_three_type" onchange="ThreeChangeType(this, 'id_three_style')">
+                  <option value="0">设备类别</option>
+                  <?php
+                 # 	echo	options_for_select($arrTypes);
+                  ?>
+                </select>
+
+	</td>
+</tr>
+<tr>
 	<td class="col_name">设备型号</td>
 	<td>
+		<?php if (0) : ?>
                 <select name="style_id">
                   <?php
                   	echo	options_for_select($arrStyle, $articleItem->style_id);
                   ?>
                 </select>
+
+                <?php endif ?>
+
+                <select name="style_id" id="id_three_style">
+                  <option value="0">设备型号</option>
+                  <?php
+                #  	echo	options_for_select($arrStyle);
+                  ?>
+                </select>
+                <script>
+                	ThreeChangeRange(document.getElementById('id_three_type'), 'id_three_type', <?php echo (int) $grandField->field_id ?>, <?php echo (int)  $grandField->id ?>);
+                	ThreeChangeRange(document.getElementById('id_three_style'), 'id_three_style', <?php echo (int) $parentField->field_id ?>, <?php echo (int) $parentField->id ?>);
+                </script>
+
 	</td>
 </tr>
 

@@ -6,11 +6,11 @@
  * @package     Sofav
  * @subpackage  Array_Util
  * @link        www.leakon.com
- * @version     2009-06-12
+ * @version     2009-06-20
  * @author      Leakon <leakon@gmail.com>
  * @description	与 PHP 多维数组相关的工具集
  *
- * @notice	修改 sortColumn 和 sortProperty 的 bug，原因是未将引用的数组更新为新顺序
+ * @notice	增加 quoteArray ，用于给简单数组的每个元素都加上 单引号 或 双引号
  */
 class Array_Util {
 
@@ -214,6 +214,7 @@ class Array_Util {
 
 	}
 
+
 	/**
 	 * 按集合中数组的字段进行排序
 	 */
@@ -248,8 +249,6 @@ class Array_Util {
 		foreach (array_keys($arrOrder) as $key) {
 			$arrRet[$key]		= $arrRecords[$key];
 		}
-
-		$arrRecords	= $arrRet;
 
 		return	$arrRet;
 
@@ -290,12 +289,53 @@ class Array_Util {
 			$arrRet[$key]		= $arrRecords[$key];
 		}
 
-		$arrRecords	= $arrRet;
-
 		return	$arrRet;
 
 	}
 
+	public static function deepUrlEncode($mixedVar) {
 
+		$retVar		= NULL;
+
+		if (is_array($mixedVar)) {
+			foreach ($mixedVar as $key => $val) {
+				$retVar[$key]	= self::deepUrlEncode($val);
+			}
+		} else {
+			// most of cases are not array
+			// so this branch get a higher priority and a better performance
+			$retVar	= urlencode($mixedVar);
+		}
+
+		return	$retVar;
+	}
+
+	public static function deepUrlDecode($mixedVar) {
+
+		$retVar		= NULL;
+
+		if (is_array($mixedVar)) {
+			foreach ($mixedVar as $key => $val) {
+				$retVar[$key]	= self::deepUrlEncode($val);
+			}
+		} else {
+			// most of cases are not array
+			// so this branch get a higher priority and a better performance
+			$retVar	= urldecode($mixedVar);
+		}
+
+		return	$retVar;
+	}
+
+
+	public static function quoteArray($arrInput, $quoteChar = "'") {
+
+		foreach ($arrInput as $key => $val) {
+			$arrInput[$key]	= $quoteChar . $val . $quoteChar;
+		}
+
+		return	$arrInput;
+
+	}
 
 }

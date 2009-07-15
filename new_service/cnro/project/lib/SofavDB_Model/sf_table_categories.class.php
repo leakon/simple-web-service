@@ -15,6 +15,8 @@ class Table_categories extends SofavDB_Table {
 						'type',
 						'parent_id',
 						'order_num',
+						'show_relate',
+						'field_id',
 						'name',
 						'pic',
 						'banner_pic',
@@ -61,6 +63,69 @@ class Table_categories extends SofavDB_Table {
 		return	$arrRet;
 
 	}
+
+
+	public static function getAllField() {
+
+		$criteria			= new SofavDB_Criteria('where field_id > 0');
+		$objCategory			= new Table_categories();
+		$arrResult			= SofavDB_Record::findAll($objCategory, $criteria, false);
+
+		$arrResult			= ArrayUtil::sortColumn($arrResult, 'order_num');
+	#	$arrResult			= Array_Util::ColToPlain($arrResult, 'id');
+
+		return	$arrResult;
+
+	}
+
+
+	public static function getOneByField($field_id = 0) {
+
+		$objCategory			= new Table_categories();
+		$objCategory->field_id		= $field_id;
+
+		$retCategory			= SofavDB_Record::match($objCategory);
+		return	$retCategory;
+	}
+
+
+	public static function getByField($parentId = 0, $arrConf = false) {
+
+		$limit		= isset($arrConf['limit']) ? $arrConf['limit'] : 10;
+		$type		= isset($arrConf['type']) ? $arrConf['type'] : CnroConstant::CATEGORY_TYPE_ALL;
+		$toArray	= isset($arrConf['to_array']) ? $arrConf['to_array'] : false;
+
+		$objCategory			= new Table_categories();
+		$objCategory->field_id		= $parentId;
+		// show all category
+		if (CnroConstant::CATEGORY_TYPE_ALL != $type) {
+			$objCategory->type		= $type;
+		}
+
+
+		$arrCategories			= SofavDB_Record::matchAll($objCategory, !$toArray);
+
+		if ($toArray) {
+			$arrCategories			= ArrayUtil::sortColumn($arrCategories, 'order_num');
+		} else {
+			$arrCategories			= ArrayUtil::sortProperty($arrCategories, 'order_num');
+		}
+
+		$arrRet		= array();
+		foreach ($arrCategories as $key => $val) {
+
+			if ($limit-- > 0) {
+				$arrRet[$key]	= $val;
+			} else {
+				break;
+			}
+
+		}
+
+		return	$arrRet;
+
+	}
+
 
 	// 倒序排列，第一个元素是一级分类，第N个元素是N级分类
 	public static function getCategoryPath($cateId) {
