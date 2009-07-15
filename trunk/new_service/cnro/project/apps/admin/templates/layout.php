@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/admin/css/admincp.css" type="text/css" media="all" />
     <link rel="stylesheet" href="/css/main.css" type="text/css" media="all" />
 
+<script src="/js/function.js?ver=20090715" type="text/javascript"></script>
 
     <link rel="shortcut icon" href="/favicon.ico" />
 

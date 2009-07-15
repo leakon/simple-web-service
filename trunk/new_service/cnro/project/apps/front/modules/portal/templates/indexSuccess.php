@@ -210,9 +210,75 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 
             <div class="blockB">
 
+<?php
+$option			= array('limit' => 1000);
+$option['to_array']	= true;
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+$res			= Table_categories::getByParent(0, $option);
+$arrRanges		= Array_Util::ColToPlain($res, 'id', 'name');
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_TYPE;
+$res			= Table_categories::getByParent(0, $option);
+$arrTypes		= Array_Util::ColToPlain($res, 'id', 'name');
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_STYLE;
+$res			= Table_categories::getByParent(0, $option);
+$arrStyle		= Array_Util::ColToPlain($res, 'id', 'name');
+
+
+$arrFieldCatetory		= Table_categories::getAllField();
+
+
+$arrFieldJSON	= array();
+foreach ($arrFieldCatetory as $fieldInfo) {
+
+	$tmp		= array();
+
+	$tmp['id']		= $fieldInfo['id'];
+	$tmp['field_id']	= $fieldInfo['field_id'];
+	$tmp['name']		= $fieldInfo['name'];
+
+	$arrFieldJSON[]		= $tmp;
+
+}
+
+#Debug::pr($arrFieldJSON);
+
+$strFieldJSON	= json_encode($arrFieldJSON);
+
+?>
+
+
+<script type="text/javascript">
+
+var arrFieldObj	= <?php echo $strFieldJSON ?>;
+
+
+</script>
+
             	<form action="<?php echo url_for('article/searchProduct') ?>" method="get" target="_blank">
               <h3>产品检索</h3>
               <div class="l">
+
+
+                <select name="range" onchange="ThreeChangeRange(this, 'id_three_type')">
+                  <option value="0">应用领域</option>
+                  <?php
+                  	echo	options_for_select($arrRanges, $grandField->id);
+                  ?>
+                </select>
+                <br />
+                <select name="type" id="id_three_type" onchange="ThreeChangeType(this, 'id_three_style')">
+                  <option value="0">设备类别</option>
+                  <?php
+                 # 	echo	options_for_select($arrTypes);
+                  ?>
+                </select>
+
+
+
+<!--
                 <select name="range">
                   <option value="0">应用领域</option>
                   <?php
@@ -225,10 +291,13 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
                   	echo	options_for_select($arrTypes);
                   ?>
                 </select>
-                <select name="style">
+
+-->
+
+                <select name="style" id="id_three_style">
                   <option value="0">设备型号</option>
                   <?php
-                  	echo	options_for_select($arrStyle);
+                #  	echo	options_for_select($arrStyle);
                   ?>
                 </select>
 

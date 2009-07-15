@@ -50,6 +50,9 @@ $arrConf_HELP	= $objConf->getConf('help');
 <link href="/css/facebox.css?ver=20090715" media="screen" rel="stylesheet" type="text/css" />
 <script src="/js/facebox.js" type="text/javascript"></script>
 
+<script src="/js/function.js?ver=20090715" type="text/javascript"></script>
+
+
 <script type="text/javascript">
     jQuery(document).ready(function($) {
       $('a[rel*=facebox]').facebox()

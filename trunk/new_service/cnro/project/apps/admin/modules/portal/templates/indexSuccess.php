@@ -285,6 +285,31 @@ function showPics($idx) {
 </div>
 
 
+<h4>商务合作-合作伙伴</h4>
+
+<div style="height:300px;">
+
+	<?php
+
+	$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
+	$editorInclude		= $webDir . "fckeditor/fckeditor.php";
+	require_once($editorInclude);
+
+	$oFCKeditor		= new FCKeditor('cooperate') ;
+	$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+	$oFCKeditor->Width	= '100%';
+	$oFCKeditor->Height	= '100%';
+	$oFCKeditor->Value	= isset($arrDataConf['block']['cooperate']) ? $arrDataConf['block']['cooperate'] : '';
+	$oFCKeditor->Config	= array(
+					'AutoDetectLanguage'	=> false,
+					'DefaultLanguage'	=> 'zh-cn'
+				);
+	$oFCKeditor->Create() ;
+
+	?>
+</div>
+
+
 </div>
 
 <p>

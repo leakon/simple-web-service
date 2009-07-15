@@ -15,33 +15,19 @@
 
 
           <div class="rightC">
+<?php
 
-            <ul class="pp">
-              <li>
-                <a href="#" target="_blank"><img src="/images/pic196x146_1.jpg" width="196" height="146" alt="" /></a>
-                <span><a href="#" target="_blank">合作伙伴合作伙伴</a></span>
-              </li>
-              <li>
-                <a href="#" target="_blank"><img src="/images/pic196x146_2.jpg" width="196" height="146" alt="" /></a>
-                <span><a href="#" target="_blank">合作伙伴合作伙伴2</a></span>
-              </li>
-              <li>
-                <a href="#" target="_blank"><img src="/images/pic196x146_3.jpg" width="196" height="146" alt="" /></a>
-                <span><a href="#" target="_blank">合作伙伴合作伙伴3</a></span>
-              </li>
-              <li>
-                <a href="#" target="_blank"><img src="/images/pic196x146_1.jpg" width="196" height="146" alt="" /></a>
-                <span><a href="#" target="_blank">合作伙伴合作伙伴4</a></span>
-              </li>
-              <li>
-                <a href="#" target="_blank"><img src="/images/pic196x146_2.jpg" width="196" height="146" alt="" /></a>
-                <span><a href="#" target="_blank">合作伙伴合作伙伴5</a></span>
-              </li>
-              <li>
-                <a href="#" target="_blank"><img src="/images/pic196x146_3.jpg" width="196" height="146" alt="" /></a>
-                <span><a href="#" target="_blank">合作伙伴合作伙伴6</a></span>
-              </li>
-            </ul>
+
+$objConf	= new Custom_Conf();
+
+$arrConf_Block	= $objConf->getConf('block');
+
+#Debug::pr($arrConf_Block);
+
+echo	isset($arrConf_Block['cooperate']) ? $arrConf_Block['cooperate'] : '';
+
+
+?>
 
           </div>
 
