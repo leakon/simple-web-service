@@ -45,7 +45,9 @@
 
 
           		} else {
-          			$strSideBarNavTitle	.= '设备';
+
+          		//	$strSideBarNavTitle	.= '设备';
+
           		}
 
           	?>
@@ -60,7 +62,7 @@
 
 		foreach ($arrSubCategories as $id => $name) {
 
-          		echo	sprintf('<li class="%s"><a href="%s">%s设备</a></li>',
+          		echo	sprintf('<li class="%s"><a href="%s">%s</a></li>',
           					S::curr($id == $cateId, 'current'),
           					url_for('category/product?id=' . $id),
           					$name

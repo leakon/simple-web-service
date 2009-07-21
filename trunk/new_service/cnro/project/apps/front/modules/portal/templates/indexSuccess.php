@@ -130,14 +130,14 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 			$arrTmp[]		= sprintf('<ul style="display: none; visibility: hidden;">');
 			foreach ($arrSubRange as $subId => $subName) {
 
-				$arrTmp[]	= sprintf('<li><a href="%s">%s</a></li>', url_for('category/range?id='.$subId), S::E($subName));
+				$arrTmp[]	= sprintf('<li><a href="%s">%s</a></li>', url_for('category/product?id='.$subId), S::E($subName));
 
 			}
 			$arrTmp[]		= '</ul>';
 
 			$arrSubDiv[$id]		= implode("\n", $arrTmp);
 
-			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/range?id='.$id), S::E($name), implode("", $arrSubDiv));
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/product?id='.$id), S::E($name), implode("", $arrSubDiv));
 
 		}
 		?>
