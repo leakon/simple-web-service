@@ -45,12 +45,15 @@ $arrConf_HELP	= $objConf->getConf('help');
 <link href="/css/style.css?ver=20090715" type="text/css" rel="stylesheet" />
 <link href="/css/global1.3.css?ver=20090715" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="/css/superfish.css?ver=20090715" media="screen">
-<link rel="stylesheet" type="text/css" href="/css/superfish-vertical.css?ver=20090715" media="screen">
-<script src="/js/jquery-1.2.2.pack.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/css/superfish-vertical.css?ver=20090722" media="screen">
 <link href="/css/facebox.css?ver=20090715" media="screen" rel="stylesheet" type="text/css" />
-<script src="/js/facebox.js" type="text/javascript"></script>
 
-<script src="/js/function.js?ver=20090715" type="text/javascript"></script>
+<script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="/js/hoverIntent.js"></script>
+<script type="text/javascript" src="/js/superfish.js"></script>
+<script type="text/javascript" src="/js/facebox.js"></script>
+<script type="text/javascript" src="/js/index_ad.js"></script>
+<script type="text/javascript" src="/js/function.js?ver=20090715"></script>
 
 
 <script type="text/javascript">
@@ -59,21 +62,14 @@ $arrConf_HELP	= $objConf->getConf('help');
     })
 </script>
 
+<script type="text/javascript">
 
-<script language="javascript" src="/js/jquery.js"></script>
-<script language="javascript" src="/js/index_ad.js"></script>
+// initialise plugins
+jQuery(function(){
+	jQuery('ul.sf-menu').superfish();
+});
 
-		<script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
-		<script type="text/javascript" src="/js/hoverIntent.js"></script>
-		<script type="text/javascript" src="/js/superfish.js"></script>
-		<script type="text/javascript">
-
-		// initialise plugins
-		jQuery(function(){
-			jQuery('ul.sf-menu').superfish();
-		});
-
-		</script>
+</script>
 
 <SCRIPT LANGUAGE="JavaScript">
 <!--
