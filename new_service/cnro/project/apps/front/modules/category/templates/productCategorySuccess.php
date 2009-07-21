@@ -117,7 +117,7 @@ $oneResult['description'] 	= strip_tags($oneResult['description']);
 
     <td  class="" style="vertical-align:top;">
       <div class="cate">
-        <div class="pic"><img src="<?php echo $oneResult['pic'] ?>" width="146" /></div>
+        <div class="pic"><a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>"><img src="<?php echo $oneResult['pic'] ?>" width="146" /></a></div>
         <div class="info">
           <h3><a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>"><?php echo S::E($oneResult['name']) ?></a></h3>
 
