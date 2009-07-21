@@ -160,13 +160,27 @@ var ItemFormCheck	= new Class({
 
 });
 
+function GetAdminPath() {
 
+	var strLocation	= window.location.href;
+
+	var adminPath	= strLocation.match(/(admin_cn|admin_en)/);
+
+	if ('undefined' != typeof adminPath[1]) {
+		return	'/' + adminPath[1] + '/admin.php/';
+	} else {
+		return	'/admin/admin.php/';
+	}
+
+//	alert(adminPath[1]);
+
+}
 
 function ItemPublish(p) {
 
 	var objForm		= $('id_item_form');
 
-	objForm.action		= '/admin/article/publish';
+	objForm.action		= GetAdminPath() + 'article/publish';
 
 	objForm.publish.value	= p;
 
@@ -179,7 +193,7 @@ function ItemPrivate(p) {
 
 	var objForm		= $('id_item_form');
 
-	objForm.action		= '/admin/article/private';
+	objForm.action		= GetAdminPath() + 'article/private';
 
 	objForm.is_private.value	= p;
 
