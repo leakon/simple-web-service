@@ -3,8 +3,12 @@
 	width:200px;
 	color:#333;
 	list-style:none;
+
+	/*
+	disable for wrong transparent
 	z-index:39;
-	
+	*/
+
 }
 .sf-vertical li{ margin:0 0 0 -10px;}
 .sf-vertical li a{color:#333; font-weight:normal; text-decoration:none; font-size:12px;}
