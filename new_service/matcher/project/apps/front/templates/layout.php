@@ -11,8 +11,10 @@
 <script type="text/javascript" src="/matcher/js/mootools-1.2.1-core-nc.js"></script>
 <script type="text/javascript" src="/matcher/js/main.js"></script>
 <script type="text/javascript" src="/matcher/js/item.js"></script>
+<script type="text/javascript" src="/matcher/js/hd_v2.js"></script>
 
 <link rel="stylesheet" type="text/css" media="screen" href="/matcher/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/matcher/css/index_v2.css" />
 
 
   </head>
