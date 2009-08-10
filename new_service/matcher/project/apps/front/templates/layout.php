@@ -30,7 +30,7 @@
 
 
 <!--头部开始-->
-<div id="top"><a><img src="/matcher/images/v2/logo.gif"></a></div>
+<div id="top"><a href="/matcher/"><img src="/matcher/images/v2/logo.gif"></a></div>
 <!--头部结束-->
 
 

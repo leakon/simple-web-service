@@ -1,6 +1,7 @@
 <style>
 
 select.se_selector	{width:170px; border:0;}
+li.li3 p		{color:black;}
 
 </style>
 
