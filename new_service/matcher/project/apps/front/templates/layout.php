@@ -6,32 +6,54 @@
     <?php include_title() ?>
     <link rel="shortcut icon" href="/favicon.ico" />
 
-<link href="/matcher/images_tpl/index.css" rel="stylesheet" type="text/css">
+<?php if (0) : ?>
+<link href="/matcher/images_tpl/index.cssx" rel="stylesheet" type="text/css">
+<?php endif ?>
+
 
 <script type="text/javascript" src="/matcher/js/mootools-1.2.1-core-nc.js"></script>
 <script type="text/javascript" src="/matcher/js/main.js"></script>
 <script type="text/javascript" src="/matcher/js/item.js"></script>
 <script type="text/javascript" src="/matcher/js/hd_v2.js"></script>
 
-<link rel="stylesheet" type="text/css" media="screen" href="/matcher/css/main.css" />
+<?php if (0) : ?>
+<link rel="stylesheet" type="text/css" media="screen" href="/matcher/css/main.cssx" />
+<?php endif ?>
+
+
 <link rel="stylesheet" type="text/css" media="screen" href="/matcher/css/index_v2.css" />
 
 
   </head>
   <body>
-<div class="warp">
+
+
+
 <!--头部开始-->
-<div id="top"><a><img src="/matcher/images_tpl/logo.gif"></a><ul>最方便,最专业的影像器材选择器</ul></div>
+<div id="top"><a><img src="/matcher/images/v2/logo.gif"></a></div>
 <!--头部结束-->
 
+
 	<div class="content">
-	    <?php echo $sf_content ?>
+	    <?php
+	    	echo $sf_content ;
+	    ?>
 	</div>
+
+
+
+
+
+
+<!--内容结束-->
 <div id="foot">CopyRight © 2009 paipaitang.com All Right Reserved.  |
 <a href="http://www.paipaitang.com/?page-about.html">关于我们</a> |
 <a href="http://www.paipaitang.com/?page-business.html">商务合作</a> |
 <a href="http://www.paipaitang.com/?page-contact.html">联系我们</a> |
-<a href="http://www.paipaitang.com/">拍拍堂商城</a></div>
-</div>
+<a href="http://www.paipaitang.com/" class="abj">拍拍堂商城</a></div>
+
+
+
+
   </body>
 </html>

@@ -22,6 +22,8 @@ class searchActions extends sfActions {
 		$this->arrOption		= $this->getAllOption();
 		$this->getResult($request);
 
+		return	'FinalSuccess';
+
 	}
 
 	public function executeResult(sfWebRequest $request) {
@@ -31,6 +33,7 @@ class searchActions extends sfActions {
 		$this->arrOption		= $this->getAllOption();
 		$this->getResult($request);
 
+		return	'FinalSuccess';
 
 	}
 
