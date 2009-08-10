@@ -67,6 +67,65 @@ class articleActions extends sfActions {
 
 	}
 
+
+	public function executePreview(sfWebRequest $request) {
+
+		$this->setTemplate('show');
+
+		$this->arrNavPath		= array();
+
+		$this->reqArticleId		= (int) $request->getParameter('id', 0);
+
+		$this->articleItem		= new Table_articles($this->reqArticleId);
+		$this->intSubCateId		= $this->articleItem->category_id;
+
+		if (0 && $this->articleItem->id) {
+
+			if (!$this->articleItem->isPublished()) {
+
+			#	Debug::pre($this->articleItem);
+
+				return	$this->redirect('/');
+			}
+
+
+			if ($this->articleItem->is_private && !$this->userId) {
+				return	$this->forward('account', 'private');
+			#	return	$this->redirect('account/private');
+			}
+
+
+
+
+			$this->articleItem->view_cnt++;
+			$this->articleItem->save();
+		}
+
+		$this->categoryItem		= new Table_categories($this->intSubCateId);
+		$this->topCategoryId		= $this->categoryItem->parent_id;
+
+		$this->arrNavPath[2]		= $this->categoryItem;
+
+		// req 的 id 是二级分类的 id
+		if ($this->topCategoryId) {
+
+			$cateId				= $this->topCategoryId;
+
+			$this->topCategoryItem		= new Table_categories($cateId);
+
+			$this->arrNavPath[1]		= $this->topCategoryItem;
+
+		}
+
+		$this->arrSubCategories		= Table_categories::getByParent($cateId);
+
+		ksort($this->arrNavPath);
+
+
+	}
+
+
+
 	public function executeSearch(sfWebRequest $request) {
 
 		$this->objConf			= new Custom_Conf();

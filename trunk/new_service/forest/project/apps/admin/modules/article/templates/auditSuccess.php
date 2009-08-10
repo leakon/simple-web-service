@@ -38,7 +38,7 @@ $parentId	= $arrAllCategories[$cateId]['parent_id'];
 ?>
 	<td><?php echo ($pager->getPage() - 1) * $pageSize + $key + 1 ?></td>
 	<td><input type="checkbox" name="checked_item[<?php echo $val['id'] ?>]" value="<?php echo $val['id'] ?>" class="item_checkbox" /></td>
-	<td><a href="<?php echo url_for('/article/show?id=' . $val['id']) ?>" target="_blank"><?php echo S::E($val['title']) ?></a></td>
+	<td><a href="<?php echo url_for('/article/preview?id=' . $val['id']) ?>" target="_blank"><?php echo S::E($val['title']) ?></a></td>
 	<td><?php echo $val['published'] ? '审核通过' : '未审核' ?></td>
 	<td><?php echo $arrAllCategories[$parentId]['name'] ?></td>
 	<td><?php echo $arrAllCategories[$cateId]['name'] ?></td>
