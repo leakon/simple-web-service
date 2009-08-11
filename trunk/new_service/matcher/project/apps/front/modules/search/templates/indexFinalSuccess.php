@@ -1,6 +1,7 @@
 <style>
 
-select.se_selector	{width:170px; border:0;}
+select.se_selector	{width:190px; border:0; height:160px; *height:166px; overflow:auto;}
+div.content ul.ul li.li2 		{overflow:hidden; xheight:278px;}
 li.li3 p		{color:black;}
 
 </style>
