@@ -114,4 +114,19 @@ class CnroConstant {
 	}
 
 
+
+	public static function getFckEdtor() {
+
+		$arrRet		= array(
+				'fck_dir'	=> sfConfig::get('sf_web_dir') . '/../../admin/',
+				'base_path'	=> '/admin/fckeditor/',
+			);
+
+		$arrRet['include_dir']	= $arrRet['fck_dir'] . 'fckeditor/fckeditor.php';
+
+		return	$arrRet;
+
+	}
+
+
 }

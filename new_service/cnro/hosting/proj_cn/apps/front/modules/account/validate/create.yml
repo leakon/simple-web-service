@@ -1,0 +1,27 @@
+fields:
+  username:
+    required:
+      msg:       请输入用户名
+
+  password:
+    required:
+      msg:       请输入密码
+    sfStringValidator:
+      min:       6
+      min_error: 为了保证您的帐户安全，请输入至少 6 位字符作为密码
+      max:       100
+      max_error: 密码字符请少于 100 个字符
+
+  confirm:
+    required:
+      msg:       请输入确认密码
+    sfCompareValidator:
+      check:          password
+      compare_error:  两次输入的密码不一致
+
+  mail:
+    required:
+      msg:       请输入邮箱
+    sfEmailValidator:
+      email_error:	邮箱地址无效
+

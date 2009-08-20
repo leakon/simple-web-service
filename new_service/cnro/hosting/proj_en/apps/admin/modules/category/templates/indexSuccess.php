@@ -88,12 +88,11 @@ echo	sprintf('<style>#id_cate_%d	{font-weight:bold; color:red;}</style>', $lastC
 		<td>
 		<?php
 
-		$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
-		$editorInclude		= $webDir . "fckeditor/fckeditor.php";
-		require_once($editorInclude);
+		$arrInfoFck		= CnroConstant::getFckEdtor();
+		require_once($arrInfoFck['include_dir']);
 
 		$oFCKeditor		= new FCKeditor('description') ;
-		$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+		$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
 		$oFCKeditor->Width	= '700px';
 		$oFCKeditor->Height	= '300px';
 		$oFCKeditor->Value	= $categoryItem->description;
@@ -175,12 +174,11 @@ $listUrl	= url_for('category/' . $strActionName);
 		<td>
 		<?php
 
-		$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
-		$editorInclude		= $webDir . "fckeditor/fckeditor.php";
-		require_once($editorInclude);
+		$arrInfoFck		= CnroConstant::getFckEdtor();
+		require_once($arrInfoFck['include_dir']);
 
 		$oFCKeditor		= new FCKeditor('description_new') ;
-		$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+		$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
 		$oFCKeditor->Width	= '700px';
 		$oFCKeditor->Height	= '300px';
 		$oFCKeditor->Value	= '';
