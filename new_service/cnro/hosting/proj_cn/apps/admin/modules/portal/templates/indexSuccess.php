@@ -266,12 +266,12 @@ function showPics($idx) {
 
 	<?php
 
-	$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
-	$editorInclude		= $webDir . "fckeditor/fckeditor.php";
-	require_once($editorInclude);
+	$arrInfoFck		= CnroConstant::getFckEdtor();
+	require_once($arrInfoFck['include_dir']);
 
 	$oFCKeditor		= new FCKeditor('contacts') ;
-	$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+	$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
+
 	$oFCKeditor->Width	= '100%';
 	$oFCKeditor->Height	= '100%';
 	$oFCKeditor->Value	= isset($arrDataConf['block']['contacts']) ? $arrDataConf['block']['contacts'] : '';
@@ -291,12 +291,13 @@ function showPics($idx) {
 
 	<?php
 
-	$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
-	$editorInclude		= $webDir . "fckeditor/fckeditor.php";
-	require_once($editorInclude);
+	$arrInfoFck		= CnroConstant::getFckEdtor();
+	require_once($arrInfoFck['include_dir']);
 
 	$oFCKeditor		= new FCKeditor('cooperate') ;
-	$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+	$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
+
+
 	$oFCKeditor->Width	= '100%';
 	$oFCKeditor->Height	= '100%';
 	$oFCKeditor->Value	= isset($arrDataConf['block']['cooperate']) ? $arrDataConf['block']['cooperate'] : '';

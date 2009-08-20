@@ -325,12 +325,11 @@ var arrFieldObj	= <?php echo $strFieldJSON ?>;
 
 		<?php
 
-		$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
-		$editorInclude		= $webDir . "fckeditor/fckeditor.php";
-		require_once($editorInclude);
+		$arrInfoFck		= CnroConstant::getFckEdtor();
+		require_once($arrInfoFck['include_dir']);
 
 		$oFCKeditor		= new FCKeditor('detail') ;
-		$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+		$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
 		$oFCKeditor->Width	= '100%';
 		$oFCKeditor->Height	= '100%';
 		$oFCKeditor->Value	= $articleItem->detail;
@@ -355,12 +354,11 @@ var arrFieldObj	= <?php echo $strFieldJSON ?>;
 
 		<?php
 
-		$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
-		$editorInclude		= $webDir . "fckeditor/fckeditor.php";
-		require_once($editorInclude);
+		$arrInfoFck		= CnroConstant::getFckEdtor();
+		require_once($arrInfoFck['include_dir']);
 
 		$oFCKeditor		= new FCKeditor('params') ;
-		$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
+		$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
 		$oFCKeditor->Width	= '100%';
 		$oFCKeditor->Height	= '100%';
 		$oFCKeditor->Value	= $articleItem->params;
