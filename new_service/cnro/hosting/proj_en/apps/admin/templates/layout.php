@@ -6,10 +6,11 @@
     <?php include_title() ?>
 
     <script src="/js/mootools-1.2.1-core-nc.js" type="text/javascript"></script>
-    <script src="/js/main.js" type="text/javascript"></script>
+    <script src="/js/main.js?ver=20090721" type="text/javascript"></script>
     <link rel="stylesheet" href="/admin/css/admincp.css" type="text/css" media="all" />
     <link rel="stylesheet" href="/css/main.css" type="text/css" media="all" />
 
+<script src="/js/function.js?ver=20090715" type="text/javascript"></script>
 
     <link rel="shortcut icon" href="/favicon.ico" />
 

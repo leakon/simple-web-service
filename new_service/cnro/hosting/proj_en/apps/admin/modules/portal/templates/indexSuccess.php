@@ -271,9 +271,36 @@ function showPics($idx) {
 
 	$oFCKeditor		= new FCKeditor('contacts') ;
 	$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
+
 	$oFCKeditor->Width	= '100%';
 	$oFCKeditor->Height	= '100%';
 	$oFCKeditor->Value	= isset($arrDataConf['block']['contacts']) ? $arrDataConf['block']['contacts'] : '';
+	$oFCKeditor->Config	= array(
+					'AutoDetectLanguage'	=> false,
+					'DefaultLanguage'	=> 'zh-cn'
+				);
+	$oFCKeditor->Create() ;
+
+	?>
+</div>
+
+
+<h4>商务合作-合作伙伴</h4>
+
+<div style="height:300px;">
+
+	<?php
+
+	$arrInfoFck		= CnroConstant::getFckEdtor();
+	require_once($arrInfoFck['include_dir']);
+
+	$oFCKeditor		= new FCKeditor('cooperate') ;
+	$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
+
+
+	$oFCKeditor->Width	= '100%';
+	$oFCKeditor->Height	= '100%';
+	$oFCKeditor->Value	= isset($arrDataConf['block']['cooperate']) ? $arrDataConf['block']['cooperate'] : '';
 	$oFCKeditor->Config	= array(
 					'AutoDetectLanguage'	=> false,
 					'DefaultLanguage'	=> 'zh-cn'

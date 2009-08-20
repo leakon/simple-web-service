@@ -206,7 +206,6 @@ echo	sprintf('<style>#id_cate_%d	{font-weight:bold; color:red;}</style>', $lastC
 
 		<?php
 
-
 		$arrInfoFck		= CnroConstant::getFckEdtor();
 		require_once($arrInfoFck['include_dir']);
 

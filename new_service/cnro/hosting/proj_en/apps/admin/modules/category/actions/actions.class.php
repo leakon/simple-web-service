@@ -76,7 +76,8 @@ class categoryActions extends sfActions {
 
 	public function executeStyle(sfWebRequest $request) {
 
-		$this->setTemplate('once');
+	#	$this->setTemplate('once');
+		$this->setTemplate('style');
 
 		$this->strType			= '设备型号';
 

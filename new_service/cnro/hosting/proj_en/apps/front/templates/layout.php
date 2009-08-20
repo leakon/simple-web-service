@@ -42,12 +42,19 @@ $arrConf_HELP	= $objConf->getConf('help');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>CNRO - Welcome to CNRO 天津市森罗科技发展有限责任公司</title>
-<link href="/css/style.css" type="text/css" rel="stylesheet" />
-<link href="/css/global1.3.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="/css/superfish.css" media="screen">
-<script src="/js/jquery-1.2.2.pack.js" type="text/javascript"></script>
-<link href="/css/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="/js/facebox.js" type="text/javascript"></script>
+<link href="/css/style.css?ver=20090715" type="text/css" rel="stylesheet" />
+<link href="/css/global1.3.css?ver=20090715" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="/css/superfish.css?ver=20090715" media="screen">
+<link rel="stylesheet" type="text/css" href="/css/superfish-vertical.css?ver=20090722" media="screen">
+<link href="/css/facebox.css?ver=20090715" media="screen" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="/js/hoverIntent.js"></script>
+<script type="text/javascript" src="/js/superfish.js"></script>
+<script type="text/javascript" src="/js/facebox.js"></script>
+<script type="text/javascript" src="/js/index_ad.js"></script>
+<script type="text/javascript" src="/js/function.js?ver=20090715"></script>
+
 
 <script type="text/javascript">
     jQuery(document).ready(function($) {
@@ -55,21 +62,14 @@ $arrConf_HELP	= $objConf->getConf('help');
     })
 </script>
 
+<script type="text/javascript">
 
-<script language="javascript" src="/js/jquery.js"></script>
-<script language="javascript" src="/js/index_ad.js"></script>
+// initialise plugins
+jQuery(function(){
+	jQuery('ul.sf-menu').superfish();
+});
 
-		<script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
-		<script type="text/javascript" src="/js/hoverIntent.js"></script>
-		<script type="text/javascript" src="/js/superfish.js"></script>
-		<script type="text/javascript">
-
-		// initialise plugins
-		jQuery(function(){
-			jQuery('ul.sf-menu').superfish();
-		});
-
-		</script>
+</script>
 
 <SCRIPT LANGUAGE="JavaScript">
 <!--
@@ -121,7 +121,7 @@ function SetHome(obj){
 
       <div class="topbar">
         <div class="topNav">
-          <a href="#" target="_blank">English</a>  |  <a href="#" target="_blank">SiteMap</a>  |  <a href="#" target="_blank">Contact</a>
+          <a href="#" target="_blank">英文版</a>  |  <a href="#" target="_blank">网站地图</a>  |  <a href="#" target="_blank">联系我们</a>
         </div>
 
       </div>
@@ -251,8 +251,27 @@ function SetHome(obj){
 
         <?php else : ?>
 
+		<?php
 
-        <div class="banner137"><img src="/images/banner942x137.jpg" width="942" height="137" /></div>
+			$default_banner_pic	= '/images/banner942x137.jpg';
+
+		#	$default_banner_pic	= 'http://cnro.kk.com/images/bigpic2.jpg';
+
+			$bannerCatId		= $sf_request->getParameter('id', 0);
+
+			if ($bannerCatId) {
+				$objBannerCategory	= new Table_categories($bannerCatId);
+			#	Debug::pr($objBannerCategory);
+
+				if ($objBannerCategory->id && strlen($objBannerCategory->banner_pic)) {
+					$default_banner_pic	= $objBannerCategory->banner_pic;
+				}
+			}
+
+
+		?>
+
+		<div class="banner137"><img src="<?php echo $default_banner_pic ?>" width="942"  /></div>
 
 
 	<?php endif ?>

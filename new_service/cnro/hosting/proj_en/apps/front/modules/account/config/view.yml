@@ -1,2 +1,2 @@
 default:
-  layout:         layout_simple
+  layout:         false

@@ -209,6 +209,24 @@ class categoryActions extends sfActions
 			$this->arrSubArticles[$this->reqId]	= $this->getRangeArticlePager($this->reqId, $this->pageNum, 15);
 		}
 
+		// 如果有下级分类，则显示分类信息，不显示产品
+		$this->arrRealSubCategories		= Table_categories::getAllChildern($this->reqId);
+	#	var_dump(count($this->arrRealSubCategories));
+		if (count($this->arrRealSubCategories)) {
+
+			$option		= array(
+						'limit'		=> 1000,
+						'to_array'	=> true
+					);
+			$this->arrRealSubCategoryList	= Table_categories::getByParent($this->reqId, $option);
+
+			$this->setTemplate('productCategory');
+
+		#	Debug::pr($this->arrRealSubCategoryList);
+
+		}
+
+
 		if (isset($this->arrObjSubCate) && count($this->arrObjSubCate)) {
 
 			if ($this->reqId) {
