@@ -3,6 +3,8 @@
 
         <?php
 
+		$strSideBarNavTitle	= '';
+
         	$arrNavHtml	= array();
 
         	foreach ($arrNavPath as $obj) {
@@ -15,15 +17,20 @@
 
         		$arrNavHtml[]	= sprintf('<a href="%s">%s</a>', $url, $obj->name);
 
+			if ('' === $strSideBarNavTitle) {
+				$strSideBarNavTitle	= $obj->name;
+
+			}
+
         	}
 
         	$count			= count($arrNavPath);
 
-		$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
+	#	$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
 
         ?>
 
-            <a href="/">首页</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
+            <a href="<?php echo url_for('@homepage') ?>">首页</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
           </div><!-- end breadCrumb -->
 
         <div class="content944">
@@ -128,7 +135,11 @@
 	        	}
           	?>
 
-	            <h3>相关产品</h3>
+
+		<?php if ($objCategory->show_relate) : ?>
+
+
+	            <h3><?php echo sprintf('<a href="%s">%s</a>', url_for('category/product?id=' . $objCategory->id), S::E($objCategory->show_relate)) ?></h3>
 
 	            <ul class="list14">
 			<?php foreach ($arrObjSubCate as $obj) : ?>
@@ -136,6 +147,10 @@
 	              	<?php endforeach ?>
 
 	            </ul>
+
+	        <?php endif ?>
+
+
 
 	          </div>
 	        <?php endif ?>

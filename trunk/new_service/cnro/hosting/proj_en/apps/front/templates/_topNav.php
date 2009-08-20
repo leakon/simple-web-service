@@ -47,11 +47,23 @@ $arrDataConf	= $objConf->getConf();
           			$strHtml	= '<ul>' . implode('', $arrLi) . '</ul>';
           		}
 
+			/*
           		$arrSpecial[$type]	= sprintf('<li class="%s"><a href="%s">%s</a>%s</li>',
 	          					S::curr($type == $strActName, 'current'),
 	          					url_for('category/' . $type),
 	          					$cnType, $strHtml
 	          				);
+	          	*/
+
+
+          		$arrSpecial[$type]	= sprintf('<li class="%s"><a href="javascript:;">%s</a>%s</li>',
+	          					S::curr($type == $strActName, 'current'),
+	          				#	url_for('category/' . $type),
+	          					$cnType, $strHtml
+	          				);
+
+
+
 
 	          	if ($type == $strActName) {
 	          		$cateId		= (int) $sf_request->getParameter('id', -1982);
@@ -107,9 +119,17 @@ $arrDataConf	= $objConf->getConf();
           			$strHtml	= '<ul>' . implode('', $arrLi) . '</ul>';
           		}
 
+			/*
           		echo	sprintf('<li class="%s"><a href="%s">%s</a>%s</li>',
           					S::curr($objCategory->id == $cateId, 'current'),
           					url_for('category/list?id=' . $objCategory->id),
+          					$objCategory->name, $strHtml
+          				);
+          		*/
+
+          		echo	sprintf('<li class="%s"><a href="javascript:;">%s</a>%s</li>',
+          					S::curr($objCategory->id == $cateId, 'current'),
+          				#	url_for('category/list?id=' . $objCategory->id),
           					$objCategory->name, $strHtml
           				);
 
@@ -138,7 +158,10 @@ if (-1 == $override_category_id) {
 
 ?>
 
+<!--
   <li <?php echo $class ?>><a href="<?php echo url_for('portal/partner') ?>" >商务合作</a>
+-->
+  <li <?php echo $class ?>><a href="javascript:;" >商务合作</a>
     <ul>
       <li><a href="<?php echo url_for('portal/partner') ?>">合作伙伴</a></li>
       <li><a href="<?php echo url_for('portal/contact') ?>">联系我们</a></li>

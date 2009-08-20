@@ -4,8 +4,7 @@ class frameActions extends sfActions {
 
 	public function executeIndex(sfWebRequest $request) {
 	#	$this->forward('default', 'module');
-	#	return	$this->redirect('/admin/index.php');
-		return	$this->redirect('/admin_en/index.php');
+		return	$this->redirect('/admin_cn/index.php');
 	}
 
 	public function executeMenu(sfWebRequest $request) {
@@ -25,9 +24,8 @@ class frameActions extends sfActions {
 		$userObject	= $this->getUser();
 		$userObject->setLoggedOut();
 
-		return	$this->redirect('/admin_en/index.php');
+		return	$this->redirect('/admin_cn/index.php');
 	}
-
 
 	public function executeDoLogin($request) {
 
@@ -45,7 +43,9 @@ class frameActions extends sfActions {
 
 			$this->getUser()->setFlash('loginSuccess', true);
 
-			return	$this->redirect('/admin_en/index.php');
+		#	var_dump(123);exit;
+
+			return	$this->redirect('@homepage');
 
 		}
 

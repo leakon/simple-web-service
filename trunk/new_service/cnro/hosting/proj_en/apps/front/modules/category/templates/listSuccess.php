@@ -6,13 +6,22 @@
 		$strSideBarNavTitle	= '';
 		$reqCategoryId		= (int) $sf_request->getParameter('id', 0);
 
+	#	var_dump($arrNavPath);
+
         	$arrNavHtml	= array();
 
         	foreach ($arrNavPath as $obj) {
 
         		$arrNavHtml[]	= sprintf('<a href="%s">%s</a>', url_for('category/list?id=' . $obj->id), $obj->name);
 
+			/*
 			if ($reqCategoryId == $obj->id) {
+				$strSideBarNavTitle	= $obj->name;
+			}
+			*/
+
+
+			if ('' === $strSideBarNavTitle) {
 				$strSideBarNavTitle	= $obj->name;
 			}
 
@@ -20,9 +29,12 @@
         	}
 
 
+
+
+
         ?>
 
-            <a href="/">首页</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
+            <a href="<?php echo url_for('@homepage') ?>">首页</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
           </div><!-- end breadCrumb -->
 
         <div class="content944">

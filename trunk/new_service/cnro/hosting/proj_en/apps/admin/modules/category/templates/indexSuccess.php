@@ -73,6 +73,14 @@ echo	sprintf('<style>#id_cate_%d	{font-weight:bold; color:red;}</style>', $lastC
 	</tr>
 	<tr>
 		<td>
+			相关产品
+		</td>
+		<td>
+			<input type="text" name="show_relate" value="<?php echo S::E($categoryItem->show_relate) ?>" /> 显示文字（为空则不显示相关产品）
+		</td>
+	</tr>
+	<tr>
+		<td>
 			排列顺序
 		</td>
 		<td>
@@ -93,6 +101,7 @@ echo	sprintf('<style>#id_cate_%d	{font-weight:bold; color:red;}</style>', $lastC
 
 		$oFCKeditor		= new FCKeditor('description') ;
 		$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
+
 		$oFCKeditor->Width	= '700px';
 		$oFCKeditor->Height	= '300px';
 		$oFCKeditor->Value	= $categoryItem->description;
@@ -164,6 +173,14 @@ $listUrl	= url_for('category/' . $strActionName);
 			<input type="text" name="pic" value="" />
 		</td>
 	</tr>
+	<tr>
+		<td>
+			相关产品
+		</td>
+		<td>
+			<input type="text" name="show_relate" value="" /> 显示文字（为空则不显示相关产品）
+		</td>
+	</tr>
 
 	<?php if (1 || CnroConstant::CATEGORY_TYPE_PROD_RANGE == $intCategoryType) : ?>
 
@@ -174,11 +191,13 @@ $listUrl	= url_for('category/' . $strActionName);
 		<td>
 		<?php
 
+
 		$arrInfoFck		= CnroConstant::getFckEdtor();
 		require_once($arrInfoFck['include_dir']);
 
 		$oFCKeditor		= new FCKeditor('description_new') ;
 		$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
+
 		$oFCKeditor->Width	= '700px';
 		$oFCKeditor->Height	= '300px';
 		$oFCKeditor->Value	= '';

@@ -78,21 +78,22 @@
 
 
 
-<?php
-#########################################################
-if (!$reqId) :
-#########################################################
-?>
 
 	<div class="rightD">
 
-<?php if (isset($arrSubArticles)) : ?>
+<?php if (isset($arrRealSubCategoryList)) : ?>
 <table width="0" border="0" cellspacing="0" cellpadding="0" class="productTab">
   <tr>
 
 <?php
 	$idx	= 0;
-	foreach ($arrSubArticles as $catId => $articlePager) : ?>
+#	foreach ($arrSubArticles as $catId => $articlePager) :
+	foreach ($arrRealSubCategoryList as $catId => $oneResult) :
+
+$oneResult['description'] 	= strip_tags($oneResult['description']);
+#Debug::pr($oneResult);
+
+?>
 
 	<?php
 
@@ -100,15 +101,15 @@ if (!$reqId) :
 		echo	'</tr><tr>';
 	}
 
-	$result		= $articlePager->getResults();
+#	$result		= $articlePager->getResults();
 
-	if (!isset($result[0])) {
+	if (!isset($oneResult['id'])) {
 		echo	'<td>&nbsp;</td>';
     		$idx++;
 		continue;
 	}
 
-	$oneResult	= $result[0];
+#	$oneResult	= $result[0];
 
 #	Debug::pr($oneResult);
 
@@ -116,14 +117,14 @@ if (!$reqId) :
 
     <td  class="" style="vertical-align:top;">
       <div class="cate">
-        <div class="pic"><img src="<?php echo $oneResult['large_pic'] ?>" width="146" /></div>
+        <div class="pic"><a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>"><img src="<?php echo $oneResult['pic'] ?>" width="146" /></a></div>
         <div class="info">
-          <h3><?php echo S::E($oneResult['title']) ?></h3>
-          <ul class="list12" style="xbackground:red; clear:both;">
-          	<?php foreach ($arrSubRange[$catId] as $id => $name) : ?>
-            <li><a href="<?php echo url_for('category/product?id=' . $id) ?>"><?php echo $name ?></a></li>
-            	<?php endforeach ?>
-          </ul>
+          <h3><a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>"><?php echo S::E($oneResult['name']) ?></a></h3>
+
+          <div>
+          	<?php echo (S::TK($oneResult['description'], 100)) ?>
+        </div>
+
           <!--
           <span class="more"><a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>" >了解更多内容</a></span>
           -->
@@ -153,73 +154,6 @@ if (!$reqId) :
 
 	</div>
 
-<?php
-#########################################################
-else :
-#########################################################
-?>
-          <div class="rightD">
-
-<?php
-
-#	Debug::pr($arrSubCategories);
-
-?>
-
-
-<?php if (isset($arrSubArticles)) : ?>
-<?php foreach ($arrSubArticles as $catId => $articlePager) : ?>
-
-            <div class="title"><?php echo $strSideBarNavTitle ?></div>
-
-            <ul class="product_list">
-           	<?php foreach ($articlePager->getResults() as $key => $val) : ?>
-              <li>
-                <span class="tit"><?php echo S::E($val['title']) ?></span>
-                <div><a href="<?php echo url_for('article/showProduct?id=' . $val['id']) ?>" target="_blank"><img src="<?php echo $val['large_pic'] ?>" width="102"  /></a></div>
-                <p>
-                <?php
-
-
-          	$desc	= strip_tags($val['detail']);
-          	echo	S::TK($desc, 64);
-
-                ?></p>
-
-                <!--
-                <span class="more"><a href="<?php echo url_for('article/showProduct?id=' . $val['id']) ?>" target="_blank">更多内容&gt;&gt;</a></span>
-                -->
-
-              </li>
-           	<?php endforeach ?>
-            </ul>
-
-		<?php if ($reqId) : ?>
-          		  <div class="pagebar">
-		<?php
-
-		$uri	= $articlePager->getPageUri();
-		$action	= $sf_context->getActionName();
-
-		include_partial('global/pager', array('pager' => $articlePager, 'pageUri' => $uri));
-
-		?>
-		           </div>
-		<?php endif ?>
-
-          <!-- end textBlock -->
-<?php endforeach ?>
-<?php endif ?>
-
-
-          </div>
-
-
-<?php
-#########################################################
-endif
-#########################################################
-?>
 
         </div><!-- end content944 -->
 

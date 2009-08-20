@@ -73,7 +73,6 @@ class portalActions extends sfActions {
 		}
 
 
-
 		if (isset($_SESSION['auth_code']) && isset($arrParameters['verify_code'])
 			&& $_SESSION['auth_code'] == $arrParameters['verify_code'])
 		{
@@ -82,9 +81,6 @@ class portalActions extends sfActions {
 		#	die('请输入正确的验证码');
 			return	$this->redirect('portal/contact?result=code_error');
 		}
-
-	#	var_dump($_SESSION['auth_code']);
-	#	Debug::pre($arrParameters);
 
 		$bool			= false;
 		$tagItem		= new Table_messages();

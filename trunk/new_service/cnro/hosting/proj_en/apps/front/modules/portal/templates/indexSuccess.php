@@ -82,115 +82,99 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 
 ?>
             <div class="col200">
-              <div class="col_pic"><a href="#" target="_blank"></a></div>
+              <div class="col_pic"><a href="/cn/index.php/category/range/id/1000053" target="_blank"></a></div>
 
+		<ul class="sf-menu sf-vertical sf-js-enabled sf-shadow">
 		<?php
-
 		$arrSubDiv	= array();
-
 		foreach ($arrIndexRange[RANGE_ID_DANQI] as $id => $name) {
 
-			// <p><a href="#mydiv2" rel="facebox">船用氮气</a></p>
-
-			echo	sprintf('<p><a href="#mydiv_%d" rel="facebox">%s</a></p>', $id, S::E($name));
+			$arrSubDiv		= array();
 
 			$arrSubRange		= Table_categories::getPlain($id);
 
-			/*
-
-		              <div id="mydiv2" style="display:none">
-		                <a href="#">货油舱的惰化</a>
-		                <a href="#">船用保鲜</a>
-		              </div>
-
-			*/
 			$arrTmp			= array();
-			$arrTmp[]		= sprintf('<div id="mydiv_%d" style="display:none">', $id);
+			$arrTmp[]		= sprintf('<ul style="display: none; visibility: hidden;">');
 			foreach ($arrSubRange as $subId => $subName) {
 
-				$arrTmp[]	= sprintf('<a href="%s">%s</a>', url_for('category/range?id='.$subId), S::E($subName));
+				$arrTmp[]	= sprintf('<li><a href="%s">%s</a></li>', url_for('category/range?id='.$subId), S::E($subName));
 
 			}
-			$arrTmp[]		= '</div>';
+			$arrTmp[]		= '</ul>';
 
-			$arrSubDiv[$id]		= implode('', $arrTmp);
+			$arrSubDiv[$id]		= implode("\n", $arrTmp);
+
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/range?id='.$id), S::E($name), implode("", $arrSubDiv));
 
 		}
-
-		foreach ($arrIndexRange[RANGE_ID_DANQI] as $id => $name) {
-			echo	$arrSubDiv[$id];
-		}
-
 		?>
+		</ul>
+
+
 
             </div>
 
             <div class="col200_2">
-              <div class="col_pic"><a href="#" target="_blank"></a></div>
+              <div class="col_pic"><a href="/cn/index.php/category/range/id/1000054" target="_blank"></a></div>
 
+		<ul class="sf-menu sf-vertical sf-js-enabled sf-shadow">
 		<?php
-
 		$arrSubDiv	= array();
-
 		foreach ($arrIndexRange[RANGE_ID_CUISHU] as $id => $name) {
 
-			echo	sprintf('<p><a href="#mydiv_%d" rel="facebox">%s</a></p>', $id, S::E($name));
+			$arrSubDiv		= array();
 
 			$arrSubRange		= Table_categories::getPlain($id);
 
 			$arrTmp			= array();
-			$arrTmp[]		= sprintf('<div id="mydiv_%d" style="display:none">', $id);
+			$arrTmp[]		= sprintf('<ul style="display: none; visibility: hidden;">');
 			foreach ($arrSubRange as $subId => $subName) {
 
-				$arrTmp[]	= sprintf('<a href="%s">%s</a>', url_for('category/range?id='.$subId), S::E($subName));
+				$arrTmp[]	= sprintf('<li><a href="%s">%s</a></li>', url_for('category/product?id='.$subId), S::E($subName));
 
 			}
-			$arrTmp[]		= '</div>';
+			$arrTmp[]		= '</ul>';
 
-			$arrSubDiv[$id]		= implode('', $arrTmp);
+			$arrSubDiv[$id]		= implode("\n", $arrTmp);
+
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/product?id='.$id), S::E($name), implode("", $arrSubDiv));
 
 		}
-
-		foreach ($arrIndexRange[RANGE_ID_CUISHU] as $id => $name) {
-			echo	$arrSubDiv[$id];
-		}
-
 		?>
+		</ul>
 
             </div>
 
             <div class="col200_3">
-              <div class="col_pic"><a href="#" target="_blank"></a></div>
+              <div class="col_pic"><a href="/cn/index.php/category/range/id/1000049" target="_blank"></a></div>
 
+
+
+		<ul class="sf-menu sf-vertical sf-js-enabled sf-shadow">
 		<?php
-
 		$arrSubDiv	= array();
-
 		foreach ($arrIndexRange[RANGE_ID_JIANSHEN] as $id => $name) {
 
-			echo	sprintf('<p><a href="#mydiv_%d" rel="facebox">%s</a></p>', $id, S::E($name));
+			$arrSubDiv		= array();
 
 			$arrSubRange		= Table_categories::getPlain($id);
 
 			$arrTmp			= array();
-			$arrTmp[]		= sprintf('<div id="mydiv_%d" style="display:none">', $id);
+			$arrTmp[]		= sprintf('<ul style="display: none; visibility: hidden;">');
 			foreach ($arrSubRange as $subId => $subName) {
 
-				$arrTmp[]	= sprintf('<a href="%s">%s</a>', url_for('category/range?id='.$subId), S::E($subName));
+				$arrTmp[]	= sprintf('<li><a href="%s">%s</a></li>', url_for('category/range?id='.$subId), S::E($subName));
 
 			}
-			$arrTmp[]		= '</div>';
+			$arrTmp[]		= '</ul>';
 
-			$arrSubDiv[$id]		= implode('', $arrTmp);
+			$arrSubDiv[$id]		= implode("\n", $arrTmp);
+
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/range?id='.$id), S::E($name), implode("", $arrSubDiv));
 
 		}
-
-		foreach ($arrIndexRange[RANGE_ID_JIANSHEN] as $id => $name) {
-			echo	$arrSubDiv[$id];
-		}
-
 		?>
-
+		</ul>
 
             </div>
 
@@ -226,9 +210,75 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 
             <div class="blockB">
 
+<?php
+$option			= array('limit' => 1000);
+$option['to_array']	= true;
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
+$res			= Table_categories::getByParent(0, $option);
+$arrRanges		= Array_Util::ColToPlain($res, 'id', 'name');
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_TYPE;
+$res			= Table_categories::getByParent(0, $option);
+$arrTypes		= Array_Util::ColToPlain($res, 'id', 'name');
+
+$option['type']		= CnroConstant::CATEGORY_TYPE_PROD_STYLE;
+$res			= Table_categories::getByParent(0, $option);
+$arrStyle		= Array_Util::ColToPlain($res, 'id', 'name');
+
+
+$arrFieldCatetory		= Table_categories::getAllField();
+
+
+$arrFieldJSON	= array();
+foreach ($arrFieldCatetory as $fieldInfo) {
+
+	$tmp		= array();
+
+	$tmp['id']		= $fieldInfo['id'];
+	$tmp['field_id']	= $fieldInfo['field_id'];
+	$tmp['name']		= $fieldInfo['name'];
+
+	$arrFieldJSON[]		= $tmp;
+
+}
+
+#Debug::pr($arrFieldJSON);
+
+$strFieldJSON	= json_encode($arrFieldJSON);
+
+?>
+
+
+<script type="text/javascript">
+
+var arrFieldObj	= <?php echo $strFieldJSON ?>;
+
+
+</script>
+
             	<form action="<?php echo url_for('article/searchProduct') ?>" method="get" target="_blank">
               <h3>产品检索</h3>
               <div class="l">
+
+
+                <select name="range" onchange="ThreeChangeRange(this, 'id_three_type')">
+                  <option value="0">应用领域</option>
+                  <?php
+                  	echo	options_for_select($arrRanges, $grandField->id);
+                  ?>
+                </select>
+                <br />
+                <select name="type" id="id_three_type" onchange="ThreeChangeType(this, 'id_three_style')">
+                  <option value="0">设备类别</option>
+                  <?php
+                 # 	echo	options_for_select($arrTypes);
+                  ?>
+                </select>
+
+
+
+<!--
                 <select name="range">
                   <option value="0">应用领域</option>
                   <?php
@@ -241,10 +291,13 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
                   	echo	options_for_select($arrTypes);
                   ?>
                 </select>
-                <select name="style">
+
+-->
+
+                <select name="style" id="id_three_style">
                   <option value="0">设备型号</option>
                   <?php
-                  	echo	options_for_select($arrStyle);
+                #  	echo	options_for_select($arrStyle);
                   ?>
                 </select>
 

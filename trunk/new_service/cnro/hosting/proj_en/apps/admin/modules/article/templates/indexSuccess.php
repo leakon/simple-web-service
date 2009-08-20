@@ -68,7 +68,7 @@ $cateId		= $val['category_id'];
 
 	<td><input type="checkbox" name="checked_item[<?php echo $val['id'] ?>]" value="<?php echo $val['id'] ?>" class="item_checkbox" /></td>
 
-	<td><a href="<?php echo url_for('/article/show?id=' . $val['id']) ?>" target="_blank"><?php echo S::E($val['title']) ?></a></td>
+	<td><a href="<?php echo url_for_2('article/show?id=' . $val['id']) ?>" target="_blank"><?php echo S::E($val['title']) ?></a></td>
 	<td><?php echo $val['published'] ? '审核通过' : '未审核' ?></td>
 	<td><?php echo $val['is_private'] ? '私有' : '公开' ?></td>
 	<td><?php echo $arrAllCategories[$cateId]['name'] ?></td>
