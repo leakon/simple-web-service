@@ -1,0 +1,6 @@
+# default values
+#all:
+
+all:
+  page:
+    size: 20
