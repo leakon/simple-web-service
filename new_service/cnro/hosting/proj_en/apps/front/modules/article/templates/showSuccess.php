@@ -14,7 +14,7 @@
 
         ?>
 
-            <a href="/">首页</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
+            <a href="/">homepage</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
           </div><!-- end breadCrumb -->
 
 
@@ -50,7 +50,7 @@
 
 		<h3><?php echo S::E($articleItem->title) ?></h3>
 
-		<div class="subInfo"> <span>浏览次数：<?php echo $articleItem->view_cnt ?></span> <span>发布日期：<?php echo substr($articleItem->published_at, 0, 10); ?></span> </div>
+		<div class="subInfo"> <span>views：<?php echo $articleItem->view_cnt ?></span> <span>published at：<?php echo substr($articleItem->published_at, 0, 10); ?></span> </div>
 
 		<?php if ($articleItem->pic) : ?>
 		<div>

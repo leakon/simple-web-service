@@ -94,6 +94,7 @@ class categoryActions extends sfActions
 
 		ksort($this->arrNavPath);
 
+		// 分类详情有设置，则显示分类详情，而不显示文章列表
 		if (isset($this->categoryItem->description) && strlen($this->categoryItem->description)) {
 			$this->setTemplate('listContent');
 		}
@@ -210,7 +211,12 @@ class categoryActions extends sfActions
 		}
 
 		// 如果有下级分类，则显示分类信息，不显示产品
-		$this->arrRealSubCategories		= Table_categories::getAllChildern($this->reqId);
+		$this->arrRealSubCategories		= array();
+
+		if ($this->reqId > 0) {
+			$this->arrRealSubCategories		= Table_categories::getAllChildern($this->reqId);
+		}
+
 	#	var_dump(count($this->arrRealSubCategories));
 		if (count($this->arrRealSubCategories)) {
 
@@ -220,7 +226,7 @@ class categoryActions extends sfActions
 					);
 			$this->arrRealSubCategoryList	= Table_categories::getByParent($this->reqId, $option);
 
-			$this->setTemplate('productCategory');
+		#	$this->setTemplate('productCategory');
 
 		#	Debug::pr($this->arrRealSubCategoryList);
 
@@ -263,6 +269,8 @@ class categoryActions extends sfActions
 
 	protected function forSpecial(sfWebRequest $request, $rangeId = 0) {
 
+		$this->isFinalCategory		= false;
+
 		$this->pageNum			= (int) $request->getParameter('page', 1);
 
 		$this->arrNavPath		= array();
@@ -287,13 +295,13 @@ class categoryActions extends sfActions
 
         	if ('product' == $this->reqType) {
         		$obj			= new Table_categories();
-        		$obj->name		= '产品中心';
+        		$obj->name		= 'Products';
         		$this->arrNavPath[]	= $obj;
         	}
 
         	if ('range' == $this->reqType) {
         		$obj			= new Table_categories();
-        		$obj->name		= '应用领域';
+        		$obj->name		= 'Application';
         		$this->arrNavPath[]	= $obj;
         	}
 
@@ -309,15 +317,31 @@ class categoryActions extends sfActions
 				$obj			= new Table_categories($val['id']);
 				$this->arrNavPath[]	= $obj;
 			}
+
+
+			$this->arrFinalCategory	= new Table_categories($this->reqId);
+
+			if ($this->arrFinalCategory->id) {
+				$this->arrFinalCategory	= $this->arrFinalCategory->toArray();
+			}
+
 		}
 
 		$option				= array('limit' => 1000);
 		$option['to_array']		= true;
 		$option['type']			= CnroConstant::CATEGORY_TYPE_PROD_RANGE;
 		$this->arrObjSubCate		= Table_categories::getByParent($this->reqId, $option);
+
+
+
 		$this->arrSubCategories		= Array_Util::ColToPlain($this->arrObjSubCate, 'id', 'name');
 
+	#	var_dump($this->arrSubCategories);
+
+		// 没有下级分类
 		if (empty($this->arrSubCategories)) {
+
+			$this->isFinalCategory	= true;
 
 			$pos		= count($this->arrNavPath) - 2;
 
@@ -332,9 +356,31 @@ class categoryActions extends sfActions
 				$this->arrSubCategories		= Array_Util::ColToPlain($this->arrObjSubCate, 'id', 'name');
 			}
 
-		#	Debug::pr($this->arrNavPath);
+		#	Debug::pr($this->arrObjSubCate);
+			#	var_dump($id);
+
+
+#
 
 		}
+
+
+		foreach ($this->arrObjSubCate as $key => $obj) {
+
+		#	var_dump($obj['id']);
+
+			if ($obj['id'] == $this->reqId) {
+
+				$this->arrFinalCategory		= $obj;
+				break;
+
+			}
+
+		}
+		#
+		#	var_dump($this->reqId);
+
+	#	var_dump($this->arrObjSubCate);
 
 
 	#	Debug::pr($this->arrNavPath);
