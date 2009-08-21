@@ -254,7 +254,11 @@ $listUrl	= url_for('category/' . $strActionName);
 			<td><a href="<?php echo $listUrl . '?id=' . $oneCategory->id ?>">修改</a></td>
 			-->
 
-			<td><a href="javascript:;" onclick="FormDel('id_delete_form', <?php echo $oneCategory->id ?>)">删除</a></td>
+			<td>
+				<a href="<?php echo $listUrl . '?id=' . $oneCategory->id ?>">修改</a>
+				<a href="javascript:;" onclick="FormDel('id_delete_form', <?php echo $oneCategory->id ?>)">删除</a>
+
+			</td>
 		</tr>
 
 	<?php endforeach ?>
