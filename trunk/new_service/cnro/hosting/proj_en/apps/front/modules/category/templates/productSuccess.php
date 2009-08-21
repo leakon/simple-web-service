@@ -1,6 +1,4 @@
 
-        <div class="breadCrumb">
-
         <?php
 
 		$strSideBarNavTitle	= '';
@@ -26,33 +24,16 @@
 
         	$count			= count($arrNavPath);
 
-	#	$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
-
-
-        	#	var_dump($strSideBarNavTitle);
-
         ?>
 
-            <a href="<?php echo url_for('@homepage') ?>">棣栭〉</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
-          </div><!-- end breadCrumb -->
-
-        <div class="content944">
-          <div class="sideNav">
-
-          	<?php
-
-          		if ('浜у搧涓績' == $strSideBarNavTitle) {
+    <div id="content2">
 
 
-          		} else {
+      <div class="sideNav">
+        <ul>
+          <li class="current"><a href="<?php echo url_for_2('category/product') ?>"><?php echo S::E($strSideBarNavTitle) ?></a></li>
 
-          		//	$strSideBarNavTitle	.= '璁惧';
 
-          		}
-
-          	?>
-            <h3><?php echo S::E($strSideBarNavTitle) ?></h3>
-            <ul class="">
 		<?php
 
 		$arrSubCateTitle	= array();
@@ -62,9 +43,9 @@
 
 		foreach ($arrSubCategories as $id => $name) {
 
-          		echo	sprintf('<li class="%s"><a href="%s">%s</a></li>',
-          					S::curr($id == $cateId, 'current'),
+          		echo	sprintf('<li><a href="%s" %s>%s</a></li>',
           					url_for('category/product?id=' . $id),
+          					$cateId == $id ? 'class="now"' : '',
           					$name
           				);
 
@@ -73,155 +54,131 @@
 		}
 
 		?>
-            </ul>
-          </div><!-- end sideNav -->
 
 
+        </ul>
 
+      </div><!-- end sideNav -->
+
+
+      <div class="right">
+
+
+<?php if ($isFinalCategory) : ?>
 <?php
-#########################################################
-if (!$reqId) :
-#########################################################
+
+	// 产品列表
+#	Debug::pr($arrSubArticles);
+
+	$arrResult	= $arrSubArticles[$cateId]->getResults();
+#	Debug::pr($arrResult);
+
+#	Debug::pr($arrFinalCategory);
+
 ?>
 
-	<div class="rightD">
 
-<?php if (isset($arrSubArticles)) : ?>
-<table width="0" border="0" cellspacing="0" cellpadding="0" class="productTab">
-  <tr>
+        <div class="intro590">
+          <ul class="pt">
+            <li>
 
-<?php
-	$idx	= 0;
-	foreach ($arrSubArticles as $catId => $articlePager) : ?>
-
-	<?php
-
-	if ($idx && $idx % 2 == 0) {
-		echo	'</tr><tr>';
-	}
-
-	$result		= $articlePager->getResults();
-
-	if (!isset($result[0])) {
-		echo	'<td>&nbsp;</td>';
-    		$idx++;
-		continue;
-	}
-
-	$oneResult	= $result[0];
-
-#	Debug::pr($oneResult);
-
-	?>
-
-    <td  class="" style="vertical-align:top;">
-      <div class="cate">
-        <div class="pic"><img src="<?php echo $oneResult['large_pic'] ?>" width="146" /></div>
-        <div class="info">
-          <h3><?php echo S::E($oneResult['title']) ?></h3>
-          <ul class="list12" style="xbackground:red; clear:both;">
-          	<?php foreach ($arrSubRange[$catId] as $id => $name) : ?>
-            <li><a href="<?php echo url_for('category/product?id=' . $id) ?>"><?php echo $name ?></a></li>
-            	<?php endforeach ?>
+              <h3><?php echo $arrFinalCategory['name'] ?></h3>
+              <p><?php echo S::E($arrFinalCategory['description']) ?></p>
+            </li>
           </ul>
-          <!--
-          <span class="more"><a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>" >浜嗚В鏇村鍐呭</a></span>
-          -->
+
         </div>
-      </div>
-    </td>
+        <div class="blank20"></div>
 
+        <div class="blockF">
 
+          <ul class="pt">
 
-    	<?php
-    	$idx++;
-    	?>
+<?php foreach ($arrResult as $key => $val) : ?>
+
+            <li>
+            	<?php if (strlen($val['pic']))  : ?>
+              <div><a href="<?php echo url_for_2('article/showProduct?id=' . $val['id']) ?>"><img src="<?php echo $val['pic'] ?>" width="113" xheight="113" /></a></div>
+              	<?php endif ?>
+              <h4><a href="<?php echo url_for_2('article/showProduct?id=' . $val['id']) ?>"><?php echo S::E($val['title']) ?></a></h4>
+              <p><?php echo S::E($val['detail']) ?></p>
+            </li>
 
 <?php endforeach ?>
 
-	<?php
 
-	if ($idx % 2 == 1) {
-		echo	'<td>&nbsp;</td>';
-	}
+          </ul><!-- end pt -->
 
-	?>
-  </tr>
-</table>
-
-<?php endif ?>
-
-	</div>
-
-<?php
-#########################################################
-else :
-#########################################################
-?>
-          <div class="rightD">
-
-<?php
-
-#	Debug::pr($arrSubCategories);
-
-?>
-
-
-<?php if (isset($arrSubArticles)) : ?>
-<?php foreach ($arrSubArticles as $catId => $articlePager) : ?>
-
-            <div class="title"><?php echo $strSideBarNavTitle ?></div>
-
-            <ul class="product_list">
-           	<?php foreach ($articlePager->getResults() as $key => $val) : ?>
-              <li>
-                <span class="tit"><?php echo S::E($val['title']) ?></span>
-                <div><a href="<?php echo url_for('article/showProduct?id=' . $val['id']) ?>" target="_blank"><img src="<?php echo $val['large_pic'] ?>" width="102"  /></a></div>
-                <p>
-                <?php
-
-
-          	$desc	= strip_tags($val['detail']);
-          	echo	S::TK($desc, 64);
-
-                ?></p>
-
-                <!--
-                <span class="more"><a href="<?php echo url_for('article/showProduct?id=' . $val['id']) ?>" target="_blank">鏇村鍐呭&gt;&gt;</a></span>
-                -->
-
-              </li>
-           	<?php endforeach ?>
-            </ul>
-
-		<?php if ($reqId) : ?>
-          		  <div class="pagebar">
-		<?php
-
-		$uri	= $articlePager->getPageUri();
-		$action	= $sf_context->getActionName();
-
-		include_partial('global/pager', array('pager' => $articlePager, 'pageUri' => $uri));
-
-		?>
-		           </div>
-		<?php endif ?>
-
-          <!-- end textBlock -->
-<?php endforeach ?>
-<?php endif ?>
-
-
+<!--
+          <div class="manu">
+            <span class="disabled">
+            <  Prev</span>
+            <span class="current">1</span>
+            <a href="#?page=2">2</a>
+            <a href="#?page=3">3</a>
+            <a href="#?page=4">4</a>
+            <a href="#?page=5">5</a>
+            <a href="#?page=6">6</a>
+            <a href="#?page=7">7</a>...<a href="#?page=199">199</a>
+            <a href="#?page=200">200</a>
+            <a href="#?page=2">Next  > </a>
           </div>
+-->
+
+
+
+
+        </div><!-- end blockF -->
+
+
+
+
+<?php else : ?>
+<?php
+
+// 分类列表
+
+?>
+
+<?php if (isset($arrObjSubCate)) : ?>
 
 
 <?php
-#########################################################
-endif
-#########################################################
+
+$defaultPic	= '/en/images/banner590x180_products.jpg';
+
+#	Debug::pr($arrFinalCategory);
+
+if ($arrFinalCategory['banner_pic']) {
+	$defaultPic	= $arrFinalCategory['banner_pic'];
+}
+
 ?>
 
-        </div><!-- end content944 -->
+      <div class="banner590"><img src="<?php echo $defaultPic ?>" width="591" xheight="180" /></div>
+        <div class="blank20"></div>
+
+        <div class="blockE">
+
+<?php foreach ($arrObjSubCate as $categoryInfo) : ?>
+          <h3><a href="<?php echo url_for_2('category/product?id=' . $categoryInfo['id']) ?>"><?php echo S::E($categoryInfo['name']) ?></a></h3>
+
+          <p><?php echo S::E($categoryInfo['description']) ?></p>
+
+<?php endforeach ?>
+
+        </div><!-- end blockE -->
+      </div><!-- end right -->
+
+
+
+
+<?php endif ?>
+
+<?php endif ?>
+
+
+    </div><!-- end content -->
 
 
 <?php

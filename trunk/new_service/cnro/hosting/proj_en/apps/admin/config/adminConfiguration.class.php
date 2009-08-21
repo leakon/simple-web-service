@@ -12,13 +12,3 @@ class adminConfiguration extends sfApplicationConfiguration
   }
 }
 
-
-function url_for_2($uri) {
-
-	$url	= url_for($uri);
-
-	$url	= preg_replace("#/admin_(cn|en)/admin.php/#i", '', $url);
-
-	return	'/en/index.php/' . $url;
-
-}

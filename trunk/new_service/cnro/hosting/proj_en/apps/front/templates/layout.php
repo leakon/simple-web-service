@@ -41,148 +41,133 @@ $arrConf_HELP	= $objConf->getConf('help');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>CNRO - Welcome to CNRO 天津市森罗科技发展有限责任公司</title>
-<link href="/css/style.css?ver=20090715" type="text/css" rel="stylesheet" />
-<link href="/css/global1.3.css?ver=20090715" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="/css/superfish.css?ver=20090715" media="screen">
-<link rel="stylesheet" type="text/css" href="/css/superfish-vertical.css?ver=20090722" media="screen">
-<link href="/css/facebox.css?ver=20090715" media="screen" rel="stylesheet" type="text/css" />
+<title>Welcome to CNRO The Speciallist of Nitrogen Applications</title>
+<link rel="stylesheet" type="text/css" href="/en/css/global1.3.css" />
+<link rel="stylesheet" type="text/css" href="/en/css/style_en.css" />
+<link rel="stylesheet" type="text/css" href="/en/css/main.css" />
 
-<script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
-<script type="text/javascript" src="/js/hoverIntent.js"></script>
-<script type="text/javascript" src="/js/superfish.js"></script>
-<script type="text/javascript" src="/js/facebox.js"></script>
-<script type="text/javascript" src="/js/index_ad.js"></script>
+	<script type="text/javascript" src="/en/js/jquery-1.3.1.min.js"></script>
+	<script type="text/javascript" language="javascript" src="/en/js/jquery.dropdownPlain.js"></script>
+    <script src="/en/js/jquery-1.2.6.min.js" type="text/javascript"></script>
+		<script src="/en/js/jquery.easing.1.3.js" type="text/javascript"></script>
+		<script src="/en/js/jquery.kwicks-1.5.1.pack.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+			$().ready(function() {
+				$('.kwicks').kwicks({
+					max : 600,
+					spacing : 3
+				});
+			});
+		</script>
+
 <script type="text/javascript" src="/js/function.js?ver=20090715"></script>
-
-
-<script type="text/javascript">
-    jQuery(document).ready(function($) {
-      $('a[rel*=facebox]').facebox()
-    })
-</script>
-
-<script type="text/javascript">
-
-// initialise plugins
-jQuery(function(){
-	jQuery('ul.sf-menu').superfish();
-});
-
-</script>
-
-<SCRIPT LANGUAGE="JavaScript">
-<!--
-function AddFavorite() {
-	var sURL = location.href;
-	var sTitle = document.title;
-
-	try {
-		window.external.AddFavorite(sURL, sTitle);
-	} catch (e) {
-		try {
-			window.sidebar.addPanel(sTitle, sURL, "");
-		} catch (e) {
-			//	alert("加入收藏失败，请使用Ctrl+D进行添加");
-		}
-	}
-}
-
-function SetHome(obj){
-
-	var vrl = window.location;
-
-	try {
-		obj.style.behavior='url(#default#homepage)';obj.setHomePage(vrl);
-	} catch(e) {
-		if(window.netscape) {
-			try {
-				netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-			} catch (e) {
-				alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
-			}
-
-			var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
-			prefs.setCharPref('browser.startup.homepage',vrl);
-		}
-	}
-}
-
-
-//-->
-</SCRIPT>
-
-
 </head>
 
 <body>
   <div id="wrapper">
-    <div class="container">
-
-      <div class="topbar">
-        <div class="topNav">
-          <a href="#" target="_blank">英文版</a>  |  <a href="#" target="_blank">网站地图</a>  |  <a href="#" target="_blank">联系我们</a>
-        </div>
-
+    <div id="header">
+      <div class="func_intro">
+        <a href="http://cnrotech.com/cn" target="_blank">Chinese</a>
+        <!--
+        |<a href="#" target="_blank">Site map</a>
+        -->
+        |<a href="#" target="_blank">Contact us</a>
       </div>
 
-      <div class="header">
-        <h1><a href="<?php echo url_for('/') ?>"><img src="/images/logo_ch.png" width="385" height="60" alt="CNRO 森罗-氮气应用专家" /></a></h1>
-        <div class="searchBar">
-
-
-
-
-
-
-          	<form method="get" id="searchform" action="<?php echo url_for('article/search') ?>" target="_blank">
-
-          		<input name="kw" value="<?php echo S::E($sf_request->getParameter('kw', '')) ?>" type="text" class="in195" /><input type="submit" value="" class="btn75" />
-
-
-		</form>
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-
+      <div class="logo">
+        <a href="/" target="_blank"><img src="/en/images/logo_en.gif" width="438" height="65" alt="CNRO The Speciallist of Nitrogen Applications" /></a>
       </div>
 
-      <div class="mainBody">
+      <div class="top_search">
+        <form method="get" id="searchform" action="<?php echo url_for('article/search') ?>" target="_blank">
+          <input name="kw" type="text" class="typeIn103" value="<?php echo S::E($sf_request->getParameter('kw', '')) ?>" /><input name="" type="submit" class="btn58" value="" />
+        </form>
+      </div>
 
-	<?php
+    </div><!-- end header -->
 
-	$strModuleName	= $sf_context->getModuleName();
-	$strActionName	= $sf_context->getActionName();
+    <div id="mainNav">
+      <ul class="dropdown">
+        <li><a href="/en/">Home</a></li>
+        <li>
+          <a href="#">Products &amp; Applications</a>
+          <ul class="sub_menu">
+            <li><a href="<?php echo url_for_2('category/product') ?>">Products</a></li>
+            <li><a href="<?php echo url_for_2('category/range') ?>">Applications</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="profile.html">Our company</a>
+          <ul class="sub_menu">
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="culture.html">Our culture</a></li>
+            <li><a href="honors.html">Our honors</a></li>
+            <li><a href="qualification.html">Qualification</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="technology.html">News</a>
+          <ul class="sub_menu">
+            <li><a href="technology.html">Technology</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="equipment.html">Equipment</a></li>
+
+          </ul>
+        </li>
+        <li>
+          <a href="#">Customers</a>
+          <ul class="sub_menu">
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="#">link2</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="careers.html">Careers</a>
+          <ul class="sub_menu">
+            <li><a href="job_search.html">Job search</a></li>
+            <li><a href="why_cnro.html">Why CNRO</a></li>
+            <li><a href="life_cnro.html">Life at CNRO</a></li>
+          </ul>
+        </li>
+      </ul><!-- end dropdown -->
+    </div><!-- end mainNav -->
 
 
-	?>
 
-	<?php if ($strModuleName == 'portal' && $strActionName == 'index') : ?>
+<?php
 
+$strModuleName	= $sf_context->getModuleName();
+$strActionName	= $sf_context->getActionName();
 
-    <div id="td_index_bigad">
+$strRouting	= $strModuleName . '/' . $strActionName;
+
+if ('portal/index' == $strRouting) :
+
+?>
+
+    <div id="focusBox">
+
+        <ul class="kwicks horizontal" >
+
+        	<!--
+			<li id="kwick_1"><a href="#"><img src="/en/images/banner782.jpg" width="600" height="250" /></a></li>
+			<li id="kwick_2"><a href="#"><img src="/en/images/banner782_2.jpg" width="600" height="250" /></a></li>
+			<li id="kwick_3"><a href="#"><img src="/en/images/banner782_3.jpg" width="600" height="250" /></a></li>
+			<li id="kwick_4"><a href="#"><img src="/en/images/banner782_4.jpg" width="600" height="250" /></a></li>
+		-->
 
     	<?php
 
 
 		$arrBlock	= $objConf->getConf('block');
-    	#	$arrBlock	= isset($objConf['block']) ? $objConf['block'] : array();
 
     		$arrPics	= array(
 
-    				1	=> '/images/flash944x300.jpg',
-    				2	=> '/images/bigpic.jpg',
-    				3	=> '/images/bigpic2.jpg',
-    				4	=> '/images/bigpic4.jpg',
+    				1	=> '/en/images/banner782.jpg',
+    				2	=> '/en/images/banner782_2.jpg',
+    				3	=> '/en/images/banner782_3.jpg',
+    				4	=> '/en/images/banner782_4.jpg',
 
     				);
 
@@ -197,34 +182,16 @@ function SetHome(obj){
 
     		}
 
-    	#	Debug::pr($arrIndexPics);
-
-
     		function showPic($idx, $arrIndexPics) {
 
-    		#	$arrIndexPics = $GLOBALS['arrIndexPics'];
-
-			return	sprintf('<div id="big_ad%d" class="big_ad" style="%s"><a href="%s"><img src="%s" border="0"></a></div>',
+			return	sprintf('<li id="kwick_%d"><a href="%s"><img src="%s" width="600" height="250" /></a></li>',
 					$idx,
-					($idx > 1 ? 'display:none;' : ''),
 					$arrIndexPics[$idx]['link'],
 					$arrIndexPics[$idx]['src']
 
 				);
 
     		}
-#
-
-
-
-    	?>
-
-	<!--
-        <div id="big_ad1" class="big_ad" style=""><a href="http://www.leakon.com/?1"><img src="/images/flash944x300.jpg"border="0"></a></div>
-        -->
-
-
-        <?php
 
         	echo	showPic(1, $arrIndexPics);
         	echo	showPic(2, $arrIndexPics);
@@ -233,66 +200,27 @@ function SetHome(obj){
 
         ?>
 
-        <!--
-        <div id="big_ad2" class="big_ad" style="display:none;"><a href="javascript:;"><img src="/images/bigpic.jpg" border="0"></a></div>
-        <div id="big_ad3" class="big_ad" style="display: none;"><a href="javascript:;"><img src="/images/bigpic2.jpg" border="0"></a></div>
-        <div id="big_ad4" class="big_ad" style="display: none;"><a href="javascript:;"><img src="/images/bigpic4.jpg" border="0"></a></div>
-
-        -->
 
 
 
-        <div id="btn_showad1" class="btn_show_ad"><img src="/images/btn_bigad_num1.gif" border="0" /></div>
-        <div id="btn_showad2" class="btn_show_ad"><img src="/images/btn_bigad_num2.gif" border="0" /></div>
-        <div id="btn_showad3" class="btn_show_ad"><img src="/images/btn_bigad_num3.gif" border="0" /></div>
-        <div id="btn_showad4" class="btn_show_ad"><img src="/images/btn_bigad_num4.gif" border="0" /></div>
-
-    </div>
-
-        <?php else : ?>
-
-		<?php
-
-			$default_banner_pic	= '/images/banner942x137.jpg';
-
-		#	$default_banner_pic	= 'http://cnro.kk.com/images/bigpic2.jpg';
-
-			$bannerCatId		= $sf_request->getParameter('id', 0);
-
-			if ($bannerCatId) {
-				$objBannerCategory	= new Table_categories($bannerCatId);
-			#	Debug::pr($objBannerCategory);
-
-				if ($objBannerCategory->id && strlen($objBannerCategory->banner_pic)) {
-					$default_banner_pic	= $objBannerCategory->banner_pic;
-				}
-			}
 
 
-		?>
+		</ul>
 
-		<div class="banner137"><img src="<?php echo $default_banner_pic ?>" width="942"  /></div>
+    </div><!-- end focusBox -->
 
-
-	<?php endif ?>
-
-
-  <div class="mainNav">
-  <ul class="sf-menu">
-
-        	<?php include_partial('global/topNav', array('cateId' => $cateId)) ?>
-
-</ul>
-</div>
+<?php endif ?>
 
    		 <?php echo $sf_content ?>
 
-      </div>
-      <div class="footer">
-        <a href="#" target="_blank">英文版</a>   |   <a href="#" target="_blank">网站地图</a>   |   <a href="#" target="_blank">联系我们</a>   |   <a href="#" target="_blank">&copy; 2009 Tianjin CNRO  Company</a>
-      </div>
-    </div>
-  </div>
 
+
+
+    <div class="blank20"></div>
+
+  </div><!-- end wrapper -->
+  <div id="footer">
+     <p><a href="#">Contact Information</a>|<a href="#">Newsfeeds</a>|<a href="#">Site Map</a>|<a href="#">Privacy</a>|<a href="#">Accessibility</a>|<a href="#">Terms</a>© 2009 CNRO  Company</p>
+  </div><!-- end footer -->
 </body>
 </html>

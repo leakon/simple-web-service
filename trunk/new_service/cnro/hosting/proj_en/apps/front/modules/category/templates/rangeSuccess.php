@@ -1,6 +1,4 @@
 
-        <div class="breadCrumb">
-
         <?php
 
 		$strSideBarNavTitle	= '';
@@ -26,17 +24,16 @@
 
         	$count			= count($arrNavPath);
 
-	#	$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
-
         ?>
 
-            <a href="<?php echo url_for('@homepage') ?>">首页</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
-          </div><!-- end breadCrumb -->
+    <div id="content2">
 
-        <div class="content944">
-          <div class="sideNav">
-            <h3><?php echo S::E($strSideBarNavTitle) ?></h3>
-            <ul class="">
+
+      <div class="sideNav">
+        <ul>
+          <li class="current"><a href="<?php echo url_for_2('category/range') ?>"><?php echo S::E($strSideBarNavTitle) ?></a></li>
+
+
 		<?php
 
 		$arrSubCateTitle	= array();
@@ -46,9 +43,9 @@
 
 		foreach ($arrSubCategories as $id => $name) {
 
-          		echo	sprintf('<li class="%s"><a href="%s">%s</a></li>',
-          					S::curr($id == $cateId, 'current'),
+          		echo	sprintf('<li><a href="%s" %s>%s</a></li>',
           					url_for('category/range?id=' . $id),
+          					$cateId == $id ? 'class="now"' : '',
           					$name
           				);
 
@@ -57,106 +54,100 @@
 		}
 
 		?>
-            </ul>
-          </div><!-- end sideNav -->
+
+
+        </ul>
+
+      </div><!-- end sideNav -->
+
+
+      <div class="right">
+
+
+<?php
+
+if ($isFinalCategory) {
+#	Debug::pr($isFinalCategory);
+
+
+#	$objRange	= $arrSubArticles[$cateId];
+#	Debug::pr($arrFinalCategory);
+
+}
 
 
 
-	<?php if ($reqId == 0 && isset($arrObjSubCate)) : ?>
-
-          <div class="rightD">
-<table width="0" border="0" cellspacing="0" cellpadding="0" class="productTab">
-
-<tr>
-	<?php
-		$idx	= 0;
-		foreach ($arrObjSubCate as $obj) : ?>
-
-	<?php
-
-		if ($idx && $idx % 2 == 0) {
-			echo	'</tr><tr>';
-		}
-
-	?>
-
-    <td class="" style="vertical-align:top;">
-      <div class="cate">
-        <div class="pic"><img src="<?php echo $obj['pic'] ?>" width="150" alt="<?php echo S::E($obj['name']) ?>" /></div>
-        <div class="info2">
-          <h3><?php echo S::E($obj['name']) ?></h3>
-          <p><?php
-
-          #	echo $obj['description'];
-
-          	$desc	= strip_tags($obj['description']);
-
-          	echo	S::TK($desc, 128);
+?>
 
 
-          	?></p>
-          <span class="more"><a href="<?php echo url_for('category/range?id=' . $obj['id']) ?>" >了解更多内容</a></span>
-        </div>
-      </div>
-    </td>
+<?php if ($isFinalCategory) : ?>
+<?php
 
-    	<?php
-    	$idx++;
-    	?>
+// 最终的领域
 
-	<?php endforeach ?>
-
-	<?php
-
-	if ($idx % 2 == 1) {
-		echo	'<td>&nbsp;</td>';
-	}
-
-	?>
-
-</tr>
-
-</table>
+?>
 
 
-          </div>
+<?php
+
+$defaultPic	= '/en/images/banner590x180_ng.jpg';
+
+if ($arrFinalCategory['banner_pic']) {
+	$defaultPic	= $arrFinalCategory['banner_pic'];
+}
+
+?>
+
+       <div class="banner590"><img src="<?php echo $defaultPic ?>" width="591" xheight="180" /></div>
+        <div class="blank20"></div>
+
+        <div class="blockC">
+
+          <h3><?php echo S::E($arrFinalCategory['name']) ?></h3>
+
+          <p><?php echo S::E($arrFinalCategory['description']) ?></p>
+
+          <p class="txt_r"><a href="<?php echo url_for_2('category/product?id=' . $arrFinalCategory['id']) ?>"><img src="/en/images/btn190x25.jpg" width="190" height="25" alt="see more products"/></a></p>
 
 
-	<?php else : ?>
+        </div><!-- end blockA -->
 
+<?php else : ?>
 
-		<?php if ($reqId && isset($arrObjSubCate) && count($arrObjSubCate)) : ?>
+<?php
 
-	          <div class="rightC">
+// 分类列表
 
-	        <?php
-	        	if ($objCategory->id) {
-	        		echo	$objCategory->description;
-	        	}
-          	?>
+?>
 
+<?php if (isset($arrObjSubCate)) : ?>
+      <div class="banner590"><img src="/en/images/banner590x180_products.jpg" width="591" height="180" /></div>
+        <div class="blank20"></div>
 
-		<?php if ($objCategory->show_relate) : ?>
+        <div class="blockE">
 
+<?php foreach ($arrObjSubCate as $categoryInfo) : ?>
+          <h3><a href="<?php echo url_for_2('category/range?id=' . $categoryInfo['id']) ?>"><?php echo S::E($categoryInfo['name']) ?></a></h3>
 
-	            <h3><?php echo sprintf('<a href="%s">%s</a>', url_for('category/product?id=' . $objCategory->id), S::E($objCategory->show_relate)) ?></h3>
+          <p><?php echo S::E($categoryInfo['description']) ?></p>
 
-	            <ul class="list14">
-			<?php foreach ($arrObjSubCate as $obj) : ?>
-	              <li><a href="<?php echo url_for('category/product?id=' . $obj['id']) ?>"><?php echo $obj['name'] ?></a></li>
-	              	<?php endforeach ?>
+<?php endforeach ?>
 
-	            </ul>
-
-	        <?php endif ?>
+        </div><!-- end blockE -->
+      </div><!-- end right -->
 
 
 
-	          </div>
-	        <?php endif ?>
-
-	<?php endif ?>
+<?php endif ?>
 
 
-        </div><!-- end content944 -->
+<?php endif ?>
+
+
+    </div><!-- end content -->
+
+
+<?php
+
+#	Debug::pr(SofavDB_Debug_PDO::getTimer());
 
