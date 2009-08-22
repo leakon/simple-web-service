@@ -33,7 +33,6 @@
 
 
         ?>
-
       <div class="sideNav">
         <ul>
           <li class="current"><a href="<?php echo url_for_2('category/list?id=' . $reqCategoryId) ?>"><?php echo S::E($strSideBarNavTitle) ?></a></li>
@@ -47,7 +46,7 @@
 
 		foreach ($arrSubCategories as $key => $objSubCategory) {
 
-          		echo	sprintf('<li><a %s href="%s">%s</a></li>',
+          		echo	sprintf('<li><a class="%s" href="%s">%s</a></li>',
           					S::curr($objSubCategory->id == $cateId, 'now'),
           					url_for('category/list?id=' . $objSubCategory->id),
           					$objSubCategory->name
@@ -122,6 +121,26 @@ if ($categoryItem->banner_pic) {
 		<?php endif ?>
 
 <?php endif ?>
+
+        <div class="r145">
+
+<?php
+
+
+	$objConf		= new Custom_Conf();
+
+	$arrConf_PASS		= $objConf->getConf('password');
+	if (!isset($arrConf_PASS['password'])) {
+		$objConf->setConf('password', array('password' => 'admin'));
+	}
+
+
+	$arrDataConf		= $objConf->getConf();
+
+	echo	isset($arrDataConf['block']['contacts']) ? $arrDataConf['block']['contacts'] : '';
+?>
+
+        </div><!-- end r145 -->
 
       </div><!-- end right -->
 

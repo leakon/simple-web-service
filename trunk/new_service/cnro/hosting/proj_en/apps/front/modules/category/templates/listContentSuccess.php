@@ -1,10 +1,13 @@
 
-        <div class="breadCrumb">
+
+    <div id="content2">
 
         <?php
 
 		$strSideBarNavTitle	= '';
 		$reqCategoryId		= (int) $sf_request->getParameter('id', 0);
+
+	#	var_dump($arrNavPath);
 
         	$arrNavHtml	= array();
 
@@ -18,6 +21,7 @@
 			}
 			*/
 
+
 			if ('' === $strSideBarNavTitle) {
 				$strSideBarNavTitle	= $obj->name;
 			}
@@ -26,15 +30,14 @@
         	}
 
 
+
+
+
         ?>
+      <div class="sideNav">
+        <ul>
+          <li class="current"><a href="<?php echo url_for_2('category/list?id=' . $reqCategoryId) ?>"><?php echo S::E($strSideBarNavTitle) ?></a></li>
 
-            <a href="<?php echo url_for('@homepage') ?>">首页</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
-          </div><!-- end breadCrumb -->
-
-        <div class="content944">
-          <div class="sideNav">
-            <h3><?php echo S::E($strSideBarNavTitle) ?></h3>
-            <ul class="">
 		<?php
 
 		$arrSubCateTitle	= array();
@@ -44,8 +47,8 @@
 
 		foreach ($arrSubCategories as $key => $objSubCategory) {
 
-          		echo	sprintf('<li class="%s"><a href="%s">%s</a></li>',
-          					S::curr($objSubCategory->id == $cateId, 'current'),
+          		echo	sprintf('<li><a class="%s" href="%s">%s</a></li>',
+          					S::curr($objSubCategory->id == $cateId, 'now'),
           					url_for('category/list?id=' . $objSubCategory->id),
           					$objSubCategory->name
           				);
@@ -55,18 +58,37 @@
 		}
 
 		?>
-            </ul>
-          </div><!-- end sideNav -->
+        </ul>
+
+      </div><!-- end sideNav -->
 
 
-          <div class="rightC">
 
 
 
-<?php if (isset($categoryItem)) : ?>
 
 
-          <div class="textBlock">
+      <div class="right">
+
+
+
+<?php
+
+$defaultPic	= '/en/images/banner590x180_news.jpg';
+
+if ($categoryItem->banner_pic) {
+	$defaultPic	= $categoryItem->banner_pic;
+}
+
+?>
+
+        <div class="banner590"><img src="<?php echo $defaultPic ?>" width="590" xheight="180" alt="news" /></div>
+        <div class="blank20"></div>
+
+
+
+
+        <div class="blockB">
 
           	<?php
 
@@ -76,16 +98,37 @@
 
           	?>
 
+        </div><!-- end blockB -->
 
 
-          </div>
-          <!-- end textBlock -->
-<?php endif ?>
+      </div><!-- end right -->
 
 
-          </div>
 
-        </div><!-- end content944 -->
+    </div><!-- end content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
