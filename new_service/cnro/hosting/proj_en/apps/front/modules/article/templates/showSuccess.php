@@ -1,5 +1,6 @@
 
-        <div class="breadCrumb">
+    <div id="content2">
+
 
         <?php
 
@@ -14,13 +15,9 @@
 
         ?>
 
-            <a href="/">homepage</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
-          </div><!-- end breadCrumb -->
-
-
-        <div class="content944">
-          <div class="sideNav">
-            <ul class="">
+      <div class="sideNav">
+        <ul>
+          <li class="current"><a href="javascript:;"><?php echo S::E($strSideBarNavTitle) ?></a></li>
 		<?php
 
 		$arrSubCateTitle	= array();
@@ -30,8 +27,8 @@
 
 		foreach ($arrSubCategories as $key => $objSubCategory) {
 
-          		echo	sprintf('<li class="%s"><a href="%s">%s</a></li>',
-          					S::curr($objSubCategory->id == $cateId, 'current'),
+          		echo	sprintf('<li><a  class="%s" href="%s">%s</a></li>',
+          					S::curr($objSubCategory->id == $cateId, 'now'),
           					url_for('category/list?id=' . $objSubCategory->id),
           					$objSubCategory->name
           				);
@@ -41,31 +38,35 @@
 		}
 
 		?>
-            </ul>
+        </ul>
+      </div><!-- end sideNav -->
 
-          </div><!-- end sideNav -->
+
+      <div class="right">
 
 
-          <div class="rightC">
+        <div class="blockC">
 
 		<h3><?php echo S::E($articleItem->title) ?></h3>
 
 		<div class="subInfo"> <span>views：<?php echo $articleItem->view_cnt ?></span> <span>published at：<?php echo substr($articleItem->published_at, 0, 10); ?></span> </div>
 
 		<?php if ($articleItem->pic) : ?>
-		<div>
+		<div style="margin:4px auto; widht:200px;">
 			<img src="<?php echo $articleItem->pic ?>" />
 		</div>
 		<?php endif ?>
 
 
-		<div>
-
+		<div style="margin:18px 0;">
 			<?php echo $articleItem->detail ?>
 
 		</div>
 
           </div>
+
+  </div>
+
 
         </div><!-- end content944 -->
 

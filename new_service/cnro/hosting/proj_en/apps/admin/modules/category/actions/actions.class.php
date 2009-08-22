@@ -13,7 +13,7 @@ class categoryActions extends sfActions {
 
 		$arrConf			= array(
 							'type'		=> $this->intCategoryType,
-							'limit'		=> 10,
+							'limit'		=> 1000,
 						);
 
 		$this->arrCategories		= Table_categories::getByParent($categoryId, $arrConf);

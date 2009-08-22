@@ -1,5 +1,7 @@
 
-        <div class="breadCrumb">
+    <div id="content2">
+
+
 
         <?php
 
@@ -23,13 +25,13 @@
 
         ?>
 
-            <a href="/">首页</a> &gt; <?php echo implode(' &gt; ', $arrNavHtml) ?>
-          </div><!-- end breadCrumb -->
 
-        <div class="content944">
-          <div class="sideNav">
-            <h3><?php echo S::E($strSideBarNavTitle) ?></h3>
-            <ul class="">
+
+
+      <div class="sideNav">
+        <ul>
+          <li class="current"><a href="javascript:;"><?php echo S::E($strSideBarNavTitle) ?></a></li>
+
 		<?php
 
 		$arrSubCateTitle	= array();
@@ -40,8 +42,8 @@
 
 		foreach ($arrSubCategories as $id => $name) {
 
-          		echo	sprintf('<li class="%s"><a href="%s">%s</a></li>',
-          					S::curr($id == $cateId, 'current'),
+          		echo	sprintf('<li><a class="%s" href="%s">%s</a></li>',
+          					S::curr($id == $cateId, 'now'),
           					url_for('category/product?id=' . $id),
           					$name
           				);
@@ -51,15 +53,21 @@
 		}
 
 		?>
-            </ul>
-          </div><!-- end sideNav -->
+
+        </ul>
+      </div><!-- end sideNav -->
 
 
-          <div class="rightD">
 
-            <div class="title">气调保鲜设备</div>
+
+      <div class="right">
+
+
+        <div class="blockC">
 
             <div class="product_f">
+
+            	<h3><?php echo S::E($articleItem->title) ?></h3>
 
               <div class="pc"><img src="<?php echo $articleItem->large_pic ?>" width="212" /></div>
 
@@ -87,9 +95,9 @@
               <div class="pd">
 
               	<div id="product_detail_button">
-                    <span id="btn_param"  class="current"><h3>产品规格和型号</h3></span>
-              		<span id="btn_download"><h3>文档下载</h3></span>
-              		<span id="btn_contact"><h3>联系我们</h3></span>
+                    <span id="btn_param"  class="current"><h3>Parameters</h3></span>
+              		<span id="btn_download"><h3>Documents</h3></span>
+              		<span id="btn_contact"><h3>Contact us</h3></span>
 
 
               	</div><!-- end product_detail_button -->
@@ -185,6 +193,8 @@
 
 
           </div>
+
+  </div>
 
 
         </div><!-- end content944 -->

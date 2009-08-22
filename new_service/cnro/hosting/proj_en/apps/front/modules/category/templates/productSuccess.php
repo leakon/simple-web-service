@@ -101,7 +101,7 @@
               <div><a href="<?php echo url_for_2('article/showProduct?id=' . $val['id']) ?>"><img src="<?php echo $val['pic'] ?>" width="113" xheight="113" /></a></div>
               	<?php endif ?>
               <h4><a href="<?php echo url_for_2('article/showProduct?id=' . $val['id']) ?>"><?php echo S::E($val['title']) ?></a></h4>
-              <p><?php echo S::E($val['detail']) ?></p>
+              <p><?php echo S::TK(strip_tags($val['detail']), 200) ?></p>
             </li>
 
 <?php endforeach ?>

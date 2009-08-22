@@ -49,51 +49,26 @@
 ?>
 
 
+    <div id="content2">
 
-        <div class="breadCrumb">
-
-        <?php
-
-		/*
-
-        	$arrNavHtml	= array();
-
-        	foreach ($arrNavPath as $obj) {
-
-        		$arrNavHtml[]	= sprintf('<a href="%s">%s</a>', url_for('category/list?id=' . $obj->id), $obj->name);
-
-        	}
-        	*/
+      <div class="sideNav">
+        <ul>
+          <li class="current"><a href="javascript:;">Search “<?php echo S::E($strKW) ?>”</a></li>
+        </ul>
+      </div><!-- end sideNav -->
 
 
-        ?>
 
-            <a href="/">首页</a> &gt; 搜过关键词 “<?php echo S::E($strKW) ?>”
-          </div><!-- end breadCrumb -->
+      <div class="right">
 
-        <div class="content944">
 
-        	<?php if (0) : ?>
-          <div class="sideNav">
-	<?php
+        <div class="blockB">
+        <ul>
 
-	echo showADBanner('article_ad_1');
-	echo showADBanner('article_ad_2');
-
-	?>
-
-          </div><!-- end sideNav -->
-
-		<?php endif ?>
-
-          <div class="rightC" style="float:none; width:auto;">
 
 <?php if (isset($arrResult) && count($arrResult)) : ?>
 
 
-          <div class="textBlock">
-            <div class="titlebar"><h3>搜索关键词 “<?php echo S::E($strKW) ?>”</h3></div>
-            <ul class="newsList">
            	<?php foreach ($arrResult as $key => $val) : ?>
            	<?php
 
@@ -109,14 +84,18 @@
 
            	?>
 
+		          <li>
+		           <h3><a href="<?php echo $url ?>" target="_blank"><?php echo S::E($val['title']) ?></a></h3>
+		           <span class="date"><?php echo substr($val['published_at'], 0, 10) ?></span>
+		          </li>
 
-             		<li><span class="date"><?php echo substr($val['published_at'], 0, 10) ?></span><a href="<?php echo $url ?>" target="_blank"><?php echo S::E($val['title']) ?></a></li>
+
            	<?php endforeach ?>
 
            </ul>
 
-           <div class="blank10"></div>
-           <div class="blank10"></div>
+        <div class="blank20"></div>
+        <div class="blank20"></div>
 
 		<?php if (1|| $intSubCateId) : ?>
 
@@ -132,28 +111,24 @@
 		           </div>
 		<?php endif ?>
 
-          </div>
-          <!-- end textBlock -->
+        </div><!-- end blockB -->
 
 
 <?php else : ?>
 
 
-          <div class="textBlock">
+        <div class="blockB">
 
-          	没有与关键词 “<?php echo S::E($strKW) ?>” 有关的搜索结果。
+          	No result for “<?php echo S::E($strKW) ?>”
 
-          </div>
-          <!-- end textBlock -->
+        </div><!-- end blockB -->
 
 <?php endif ?>
 
+	</div>
 
 
-
-          </div>
-
-        </div><!-- end content944 -->
+    </div><!-- end content -->
 
 
 

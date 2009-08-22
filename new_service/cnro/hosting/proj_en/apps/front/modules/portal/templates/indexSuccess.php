@@ -8,9 +8,20 @@
 
 <?php
 
-define('RANGE_ID_DANQI',	1000202);
-define('RANGE_ID_CUISHU',	1000203);
-define('RANGE_ID_JIANSHEN',	1000204);
+if (IS_IN_HOSTING) {
+
+	define('RANGE_ID_DANQI',	10);
+	define('RANGE_ID_CUISHU',	9);
+	define('RANGE_ID_JIANSHEN',	8);
+
+} else {
+
+	define('RANGE_ID_DANQI',	1000202);
+	define('RANGE_ID_CUISHU',	1000203);
+	define('RANGE_ID_JIANSHEN',	1000204);
+
+}
+
 
 $arrIndexRange		= array();
 $arrIndexRange[RANGE_ID_DANQI]		= Table_categories::getPlain(RANGE_ID_DANQI);
@@ -27,8 +38,13 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
             <h3>Main Products</h3>
             <ul class="list12">
 		<?php
+		$idx	= 0;
 		foreach ($arrIndexRange[RANGE_ID_DANQI] as $id => $name) {
 
+			if ($idx++ > 2) {
+				break;
+			}
+
 			echo	sprintf('<li><a class="" href="%s">%s</a></li>', url_for('category/product?id='.$id), S::E($name));
 
 		}
@@ -37,8 +53,12 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
             </ul>
             <ul class="list12">
 		<?php
+		$idx	= 0;
 		foreach ($arrIndexRange[RANGE_ID_CUISHU] as $id => $name) {
 
+			if ($idx++ > 2) {
+				break;
+			}
 			echo	sprintf('<li><a class="" href="%s">%s</a></li>', url_for('category/product?id='.$id), S::E($name));
 
 		}
@@ -46,8 +66,12 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
             </ul>
             <ul class="list12">
 		<?php
+		$idx	= 0;
 		foreach ($arrIndexRange[RANGE_ID_JIANSHEN] as $id => $name) {
 
+			if ($idx++ > 2) {
+				break;
+			}
 			echo	sprintf('<li><a class="" href="%s">%s</a></li>', url_for('category/product?id='.$id), S::E($name));
 
 		}

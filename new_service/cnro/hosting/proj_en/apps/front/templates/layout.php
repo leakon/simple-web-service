@@ -61,7 +61,7 @@ $arrConf_HELP	= $objConf->getConf('help');
 			});
 		</script>
 
-<script type="text/javascript" src="/js/function.js?ver=20090715"></script>
+<script type="text/javascript" src="/js/function.js?ver=20090822"></script>
 </head>
 
 <body>
@@ -80,7 +80,7 @@ $arrConf_HELP	= $objConf->getConf('help');
       </div>
 
       <div class="top_search">
-        <form method="get" id="searchform" action="<?php echo url_for('article/search') ?>" target="_blank">
+        <form method="get" id="searchform" action="<?php echo url_for_2('article/search') ?>" target="_blank">
           <input name="kw" type="text" class="typeIn103" value="<?php echo S::E($sf_request->getParameter('kw', '')) ?>" /><input name="" type="submit" class="btn58" value="" />
         </form>
       </div>
@@ -98,36 +98,110 @@ $arrConf_HELP	= $objConf->getConf('help');
           </ul>
         </li>
         <li>
-          <a href="profile.html">Our company</a>
+
+<?php
+if (IS_IN_HOSTING) {
+	$catId	= 23;
+} else {
+	$catId	= 1000237;
+}
+
+$option				= array('limit' => 4);
+$option['to_array']		= true;
+$arrResCategories		= Table_categories::getByParent($catId, $option);
+
+?>
+
+          <a href="<?php echo url_for_2('category/list?id=' . $catId) ?>">Our company</a>
           <ul class="sub_menu">
+
+          	<!--
             <li><a href="profile.html">Profile</a></li>
             <li><a href="culture.html">Our culture</a></li>
             <li><a href="honors.html">Our honors</a></li>
             <li><a href="qualification.html">Qualification</a></li>
+            	-->
+
+            <?php foreach ($arrResCategories as $cateInfo) : ?>
+
+            <li><a href="<?php echo url_for_2('category/list?id=' . $cateInfo['id']) ?>"><?php echo S::E($cateInfo['name']) ?></a></li>
+
+            <?php endforeach ?>
+
           </ul>
+
+
+
+
         </li>
         <li>
-          <a href="technology.html">News</a>
+
+<?php
+if (IS_IN_HOSTING) {
+	$catId	= 19;
+} else {
+	$catId	= 1000233;
+}
+
+$option				= array('limit' => 4);
+$option['to_array']		= true;
+$arrResCategories		= Table_categories::getByParent($catId, $option);
+
+?>
+
+          <a href="<?php echo url_for_2('category/list?id=' . $catId) ?>">News</a>
+
+
           <ul class="sub_menu">
+
+          	<!--
             <li><a href="technology.html">Technology</a></li>
             <li><a href="reports.html">Reports</a></li>
             <li><a href="equipment.html">Equipment</a></li>
+            	-->
+
+            <?php foreach ($arrResCategories as $cateInfo) : ?>
+
+            <li><a href="<?php echo url_for_2('category/list?id=' . $cateInfo['id']) ?>"><?php echo S::E($cateInfo['name']) ?></a></li>
+
+            <?php endforeach ?>
+
 
           </ul>
         </li>
         <li>
-          <a href="#">Customers</a>
+          <a href="javascript:;">Customers</a>
           <ul class="sub_menu">
-            <li><a href="contact.html">Contact us</a></li>
-            <li><a href="#">link2</a></li>
+            <li><a href="<?php echo url_for_2('portal/contact') ?>">Contact us</a></li>
           </ul>
         </li>
         <li>
-          <a href="careers.html">Careers</a>
+
+
+
+<?php
+if (IS_IN_HOSTING) {
+	$catId	= 28;
+} else {
+	$catId	= 1000242;
+}
+
+$option				= array('limit' => 4);
+$option['to_array']		= true;
+$arrResCategories		= Table_categories::getByParent($catId, $option);
+
+?>
+
+          <a href="<?php echo url_for_2('category/list?id=' . $catId) ?>">Careers</a>
+
           <ul class="sub_menu">
-            <li><a href="job_search.html">Job search</a></li>
-            <li><a href="why_cnro.html">Why CNRO</a></li>
-            <li><a href="life_cnro.html">Life at CNRO</a></li>
+
+            <?php foreach ($arrResCategories as $cateInfo) : ?>
+
+            <li><a href="<?php echo url_for_2('category/list?id=' . $cateInfo['id']) ?>"><?php echo S::E($cateInfo['name']) ?></a></li>
+
+            <?php endforeach ?>
+
           </ul>
         </li>
       </ul><!-- end dropdown -->
