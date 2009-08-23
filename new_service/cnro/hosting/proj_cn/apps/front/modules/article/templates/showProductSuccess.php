@@ -94,13 +94,7 @@
 
               	</div><!-- end product_detail_button -->
 
-              	<div id="cnt_contact" style="display:" class="pd_bg">
-              		<?php
-              		echo	isset($arrDataConf['block']['contacts']) ? $arrDataConf['block']['contacts'] : '';
-              		?>
-
-              	</div>
-              	<div id="cnt_param" style="display:none" class="pd_bg">
+              	<div id="cnt_param" style="display:" class="pd_bg">
               		<?php
 
               		echo	$articleItem->params;
@@ -111,6 +105,12 @@
               	<div id="cnt_download" style="display:none" class="pd_bg">
 
 			<a href="<?php echo $articleItem->pdf ?>"><?php echo $articleItem->pdf ?></a>
+              	</div>
+              	<div id="cnt_contact" style="display:none" class="pd_bg">
+              		<?php
+              		echo	isset($arrDataConf['block']['contacts']) ? $arrDataConf['block']['contacts'] : '';
+              		?>
+
               	</div>
 
 
