@@ -67,12 +67,12 @@ $arrConf_HELP	= $objConf->getConf('help');
 <body>
   <div id="wrapper">
     <div id="header">
-      <div class="func_intro">
+      <div class="func_intro" style="text-align:right;">
         <a href="http://cnrotech.com/cn" target="_blank">Chinese</a>
         <!--
         |<a href="#" target="_blank">Site map</a>
         -->
-        |<a href="#" target="_blank">Contact us</a>
+        |<a href="<?php echo url_for_2('portal/contact') ?>">Contact us</a>
       </div>
 
       <div class="logo">

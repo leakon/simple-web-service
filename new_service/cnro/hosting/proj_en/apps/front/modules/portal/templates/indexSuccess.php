@@ -82,9 +82,9 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 
           <div class="r">
             <h3>Use In</h3>
-            <span><a href="nitrogen.html" target="_blank"><img src="/en/images/app218x70_1.jpg" width="218" height="70" alt="Nitrogen generation" /></a></span>
-            <span><a href="storage.html" target="_blank"><img src="/en/images/app218x70_2.jpg" width="218" height="70" alt="Storage for fruits and vegetables" /></a></span>
-            <span><a href="hypoxia.html" target="_blank"><img src="/en/images/app218x70_3.jpg" width="218" height="70" alt="Hypoxia training" /></a></span>
+            <span><a href="<?php echo $arrDataConf_Block['image_nitrogen']['link'] ?>" target="_blank"><img src="<?php echo $arrDataConf_Block['image_nitrogen']['pic'] ?>" width="218" height="70" alt="<?php echo $arrDataConf_Block['image_nitrogen']['desc'] ?>" /></a></span>
+            <span><a href="<?php echo $arrDataConf_Block['image_vegetables']['link'] ?>" target="_blank"><img src="<?php echo $arrDataConf_Block['image_vegetables']['pic'] ?>" width="218" height="70" alt="<?php echo $arrDataConf_Block['image_vegetables']['desc'] ?>" /></a></span>
+            <span><a href="<?php echo $arrDataConf_Block['image_hypoxic']['link'] ?>" target="_blank"><img src="<?php echo $arrDataConf_Block['image_hypoxic']['pic'] ?>" width="218" height="70" alt="<?php echo $arrDataConf_Block['image_hypoxic']['desc'] ?>" /></a></span>
           </div>
 
         </div><!-- end applications and products-->
@@ -92,8 +92,8 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
         <div class="blank10"></div>
 
         <div class="blockB">
-          <div class="l"><a href="#" target="_blank"><img src="/en/images/asiaNet185x122.jpg" width="185" height="122" alt="Asia Network" /></a></div>
-          <div class="r"><a href="#" target="_blank"><img src="/en/images/guide363x123.jpg" width="363" height="123" alt="A guide to CNRO" /></a></div>
+          <div class="l"><a href="<?php echo $arrDataConf_Block['middle_left']['link'] ?>" target="_blank"><img src="<?php echo $arrDataConf_Block['middle_left']['pic'] ?>" width="185" height="122" alt="<?php echo $arrDataConf_Block['middle_left']['desc'] ?>" /></a></div>
+          <div class="r"><a href="<?php echo $arrDataConf_Block['middle_right']['link'] ?>" target="_blank"><img src="<?php echo $arrDataConf_Block['middle_right']['pic'] ?>" width="363" height="123" alt="<?php echo $arrDataConf_Block['middle_right']['desc'] ?>" /></a></div>
 
         </div><!-- end asia networks and CNRO guide -->
 
@@ -245,13 +245,13 @@ var arrFieldObj	= <?php echo $strFieldJSON ?>;
         <div class="blank10"></div>
 
         <div class="sideAd">
-         <a href="#" target="_blank"><img src="/en/images/ad188x117_2.jpg" width="188" height="116" alt="" /></a>
+         <a href="<?php echo $arrDataConf_Block['right_1']['link'] ?>" target="_blank"><img src="<?php echo $arrDataConf_Block['right_1']['pic'] ?>" width="188" height="116" alt="<?php echo $arrDataConf_Block['right_1']['desc'] ?>" /></a>
         </div><!-- end sideAd -->
 
         <div class="blank10"></div>
 
         <div class="sideAd">
-         <a href="#" target="_blank"><img src="/en/images/ad188x117.jpg" width="188" height="117" alt="" /></a>
+         <a href="<?php echo $arrDataConf_Block['right_2']['link'] ?>" target="_blank"><img src="<?php echo $arrDataConf_Block['right_2']['pic'] ?>" width="188" height="117" alt="<?php echo $arrDataConf_Block['right_2']['desc'] ?>" /></a>
         </div><!-- end sideAd -->
 
 

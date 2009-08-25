@@ -29,12 +29,15 @@ class portalActions extends sfActions {
 			#	'block_2'		=> 1,
 			#	'block_3'		=> 1,
 
-				'image_1'		=> 1,
-				'image_2'		=> 1,
-				'image_3'		=> 1,
-				'image_4'		=> 1,
-				'image_5'		=> 1,
-				'image_6'		=> 1,
+				'image_nitrogen'		=> 1,
+				'image_vegetables'		=> 1,
+				'image_hypoxic'		=> 1,
+
+				'middle_left'		=> 1,
+				'middle_right'		=> 1,
+
+				'right_1'		=> 1,
+				'right_2'		=> 1,
 
 				'contacts'		=> 1,
 				'cooperate'		=> 1,
