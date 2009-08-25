@@ -189,34 +189,50 @@ function showPics($idx) {
 	<tr>
 		<td class="single_cell">
 			<?php
-				echo	showTD('image_1');
+				echo	showTD('image_nitrogen');
 			?>
 		</td>
 		<td class="single_cell">
 			<?php
-				echo	showTD('image_2');
+				echo	showTD('image_vegetables');
 			?>
 		</td>
 		<td class="single_cell">
 			<?php
-				echo	showTD('image_3');
+				echo	showTD('image_hypoxic');
 			?>
 		</td>
 	</tr>
+	</table>
+
+
+
+	<table border="0" class="leftCol tb tb2 right_6_pic index_td">
 	<tr>
 		<td class="single_cell">
 			<?php
-				echo	showTD('image_4');
+				echo	showTD('middle_left');
 			?>
 		</td>
 		<td class="single_cell">
 			<?php
-				echo	showTD('image_5');
+				echo	showTD('middle_right');
+			?>
+		</td>
+	</tr>
+	</table>
+
+
+	<table border="0" class="leftCol tb tb2 right_6_pic index_td">
+	<tr>
+		<td class="single_cell">
+			<?php
+				echo	showTD('right_1');
 			?>
 		</td>
 		<td class="single_cell">
 			<?php
-				echo	showTD('image_6');
+				echo	showTD('right_2');
 			?>
 		</td>
 	</tr>

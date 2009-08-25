@@ -349,7 +349,17 @@ class articleActions extends sfActions {
 		$this->articleItem		= new Table_articles($this->articleId);
 
 		if (!$this->articleItem->id) {
+		#	$this->articleItem->save();
+
+
+
+
+			$arrParameters		= $request->getParameterHolder()->getAll();
+
+			$this->articleItem->fromArray($arrParameters);
 			$this->articleItem->save();
+
+
 		}
 
 		$arrParameters		= $request->getParameterHolder()->getAll();
