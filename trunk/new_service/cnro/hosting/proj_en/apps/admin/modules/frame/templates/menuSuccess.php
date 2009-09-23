@@ -54,7 +54,9 @@ html, body,
 
 <li><a href="<?php echo url_for('portal/friend') ?>" target="main">友情链接</a></li>
 
+<!--
 <li><a href="<?php echo url_for('portal/password') ?>" target="main">修改密码</a></li>
+-->
 
 <li><a href="<?php echo url_for('portal/advertise') ?>" target="main">广告管理</a></li>
 <li><a href="<?php echo url_for('portal/filter') ?>" target="main">过滤关键字维护</a></li>
