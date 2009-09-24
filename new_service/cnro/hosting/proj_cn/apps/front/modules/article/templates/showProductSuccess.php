@@ -3,12 +3,17 @@
 
         <?php
 
+        	$arrProductName	= array();
+
         	$arrNavHtml	= array();
 
         	foreach ($arrNavPath as $obj) {
 
 			if ($obj->id) {
 				$url		= url_for('category/product?id=' . $obj->id);
+
+				$arrProductName[]	= $obj->name;
+
 			} else {
 				$url		= url_for('category/product');
 			}
@@ -20,6 +25,9 @@
         	$count			= count($arrNavPath);
 
 		$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
+
+	#	Debug::pr($arrProductName);
+
 
         ?>
 
@@ -57,7 +65,7 @@
 
           <div class="rightD">
 
-            <div class="title">气调保鲜设备</div>
+            <div class="title"><?php echo $arrProductName[0] ?></div>
 
             <div class="product_f">
 
@@ -87,14 +95,16 @@
               <div class="pd">
 
               	<div id="product_detail_button">
-                    <span id="btn_param"  class="current"><h3>产品规格和型号</h3></span>
-              		<span id="btn_download"><h3>文档下载</h3></span>
-              		<span id="btn_contact"><h3>联系我们</h3></span>
+
+
+			<span id="btn_contact" class="current"><h3>联系我们</h3></span>
+			<span id="btn_param"><h3>产品规格和型号</h3></span>
+			<span id="btn_download"><h3>文档下载</h3></span>
 
 
               	</div><!-- end product_detail_button -->
 
-              	<div id="cnt_param" style="display:" class="pd_bg">
+              	<div id="cnt_param" style="display:none" class="pd_bg">
               		<?php
 
               		echo	$articleItem->params;
@@ -106,7 +116,7 @@
 
 			<a href="<?php echo $articleItem->pdf ?>"><?php echo $articleItem->pdf ?></a>
               	</div>
-              	<div id="cnt_contact" style="display:none" class="pd_bg">
+              	<div id="cnt_contact" style="display:" class="pd_bg">
               		<?php
               		echo	isset($arrDataConf['block']['contacts']) ? $arrDataConf['block']['contacts'] : '';
               		?>

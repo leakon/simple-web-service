@@ -147,7 +147,7 @@ class categoryActions extends sfActions
 						'range_id'	=> $range_id,
 						'published'	=> 1
 					);
-		$order			= array('published_at' => 'DESC');
+		$order			= array('published_at' => 'DESC', 'created_at' => 'DESC');
 
 		$objPager->init($page, $size, array('where' => $where, 'order' => $order));
 
@@ -207,6 +207,9 @@ class categoryActions extends sfActions
 		if ($this->reqId) {
 		#	$this->articlePager	= $this->getRangeArticlePager($this->reqId, 1, 5);
 			$this->arrSubArticles[$this->reqId]	= $this->getRangeArticlePager($this->reqId, $this->pageNum, 15);
+
+		//	Debug::pr($this->arrSubArticles);
+
 		}
 
 		// 如果有下级分类，则显示分类信息，不显示产品

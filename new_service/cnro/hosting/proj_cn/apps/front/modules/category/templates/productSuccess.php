@@ -26,7 +26,7 @@
 
         	$count			= count($arrNavPath);
 
-	#	$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
+		$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
 
 
         	#	var_dump($strSideBarNavTitle);

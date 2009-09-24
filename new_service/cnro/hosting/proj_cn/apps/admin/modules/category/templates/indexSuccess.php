@@ -96,12 +96,12 @@ echo	sprintf('<style>#id_cate_%d	{font-weight:bold; color:red;}</style>', $lastC
 		<td>
 		<?php
 
-		$arrInfoFck		= CnroConstant::getFckEdtor();
-		require_once($arrInfoFck['include_dir']);
+		$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
+		$editorInclude		= $webDir . "fckeditor/fckeditor.php";
+		require_once($editorInclude);
 
 		$oFCKeditor		= new FCKeditor('description') ;
-		$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
-
+		$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
 		$oFCKeditor->Width	= '700px';
 		$oFCKeditor->Height	= '300px';
 		$oFCKeditor->Value	= $categoryItem->description;
@@ -191,13 +191,12 @@ $listUrl	= url_for('category/' . $strActionName);
 		<td>
 		<?php
 
-
-		$arrInfoFck		= CnroConstant::getFckEdtor();
-		require_once($arrInfoFck['include_dir']);
+		$webDir			= sfConfig::get('sf_web_dir') . '_admin/';
+		$editorInclude		= $webDir . "fckeditor/fckeditor.php";
+		require_once($editorInclude);
 
 		$oFCKeditor		= new FCKeditor('description_new') ;
-		$oFCKeditor->BasePath	= $arrInfoFck['base_path'];
-
+		$oFCKeditor->BasePath	= '/admin/fckeditor/' ;
 		$oFCKeditor->Width	= '700px';
 		$oFCKeditor->Height	= '300px';
 		$oFCKeditor->Value	= '';
@@ -254,11 +253,7 @@ $listUrl	= url_for('category/' . $strActionName);
 			<td><a href="<?php echo $listUrl . '?id=' . $oneCategory->id ?>">修改</a></td>
 			-->
 
-			<td>
-				<a href="<?php echo $listUrl . '?id=' . $oneCategory->id ?>">修改</a>
-				<a href="javascript:;" onclick="FormDel('id_delete_form', <?php echo $oneCategory->id ?>)">删除</a>
-
-			</td>
+			<td><a href="javascript:;" onclick="FormDel('id_delete_form', <?php echo $oneCategory->id ?>)">删除</a></td>
 		</tr>
 
 	<?php endforeach ?>

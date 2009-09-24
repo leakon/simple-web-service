@@ -26,7 +26,7 @@
 
         	$count			= count($arrNavPath);
 
-	#	$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
+		$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
 
         ?>
 
@@ -82,9 +82,9 @@
 
     <td class="" style="vertical-align:top;">
       <div class="cate">
-        <div class="pic"><img src="<?php echo $obj['pic'] ?>" width="150" alt="<?php echo S::E($obj['name']) ?>" /></div>
+        <div class="pic"><a href="<?php echo url_for('category/range?id=' . $obj['id']) ?>" ><img src="<?php echo $obj['pic'] ?>" width="150" alt="<?php echo S::E($obj['name']) ?>" /></a></div>
         <div class="info2">
-          <h3><?php echo S::E($obj['name']) ?></h3>
+          <h3><a href="<?php echo url_for('category/range?id=' . $obj['id']) ?>" ><?php echo S::E($obj['name']) ?></a></h3>
           <p><?php
 
           #	echo $obj['description'];
