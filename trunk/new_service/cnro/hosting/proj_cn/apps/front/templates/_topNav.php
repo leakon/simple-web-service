@@ -44,7 +44,7 @@ $arrDataConf	= $objConf->getConf();
 	          	}
 
           		if (count($arrLi)) {
-          			$strHtml	= '<ul>' . implode('', $arrLi) . '</ul>';
+          			$strHtml	= '<ul class="menu_prepare">' . implode('', $arrLi) . '</ul>';
           		}
 
 			/*
@@ -76,6 +76,10 @@ $arrDataConf	= $objConf->getConf();
 
 
 ?>
+
+<style type="text/css">
+ul.menu_prepare		{display:none;}
+</style>
 
 <ul id="nav" >
 
@@ -116,8 +120,10 @@ $arrDataConf	= $objConf->getConf();
           		}
 
           		if (count($arrLi)) {
-          			$strHtml	= '<ul>' . implode('', $arrLi) . '</ul>';
+          			$strHtml	= '<ul class="menu_prepare">' . implode('', $arrLi) . '</ul>';
           		}
+
+          	#	$strHtml	= '';
 
 			/*
           		echo	sprintf('<li class="%s"><a href="%s">%s</a>%s</li>',
@@ -162,7 +168,7 @@ if (-1 == $override_category_id) {
   <li <?php echo $class ?>><a href="<?php echo url_for('portal/partner') ?>" >商务合作</a>
 -->
   <li <?php echo $class ?>><a href="javascript:;" >商务合作</a>
-    <ul>
+    <ul class="menu_prepare">
       <li><a href="<?php echo url_for('portal/partner') ?>">合作伙伴</a></li>
       <li><a href="<?php echo url_for('portal/contact') ?>">联系我们</a></li>
 

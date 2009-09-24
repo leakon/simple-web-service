@@ -58,7 +58,11 @@ $arrConf_HELP	= $objConf->getConf('help');
 
 <script type="text/javascript">
     jQuery(document).ready(function($) {
-      $('a[rel*=facebox]').facebox()
+
+    	setTimeout(function() {
+      		$('a[rel*=facebox]').facebox()
+      	}, 1000);
+
     })
 </script>
 
@@ -121,7 +125,7 @@ function SetHome(obj){
 
       <div class="topbar">
         <div class="topNav">
-          <a href="#" target="_blank">英文版</a>  |  <a href="#" target="_blank">网站地图</a>  |  <a href="#" target="_blank">联系我们</a>
+          <a href="/en" target="_blank">英文版</a>  |  <a href="<?php echo url_for('portal/sitemap') ?>" target="_blank">网站地图</a>  |  <a href="<?php echo url_for('portal/contact') ?>" target="_blank">联系我们</a>
         </div>
 
       </div>
@@ -289,7 +293,7 @@ function SetHome(obj){
 
       </div>
       <div class="footer">
-        <a href="#" target="_blank">英文版</a>   |   <a href="#" target="_blank">网站地图</a>   |   <a href="#" target="_blank">联系我们</a>   |   <a href="#" target="_blank">&copy; 2009 Tianjin CNRO  Company</a>
+        <a href="/en" target="_blank">英文版</a>   |   <a href="<?php echo url_for('portal/sitemap') ?>" target="_blank">网站地图</a>   |   <a href="<?php echo url_for('portal/contact') ?>" target="_blank">联系我们</a>   |   <a href="<?php echo url_for('@homepage') ?>" target="_blank">&copy; 2009 Tianjin CNRO  Company</a>
       </div>
     </div>
   </div>

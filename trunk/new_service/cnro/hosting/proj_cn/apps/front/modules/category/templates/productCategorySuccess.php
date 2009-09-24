@@ -26,7 +26,7 @@
 
         	$count			= count($arrNavPath);
 
-	#	$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
+		$strSideBarNavTitle	= $arrNavPath[$count - 1]->name;
 
 
         	#	var_dump($strSideBarNavTitle);
@@ -90,6 +90,11 @@
 #	foreach ($arrSubArticles as $catId => $articlePager) :
 	foreach ($arrRealSubCategoryList as $catId => $oneResult) :
 
+		if ($oneResult['type'] == 400) {
+		} else {
+			continue;
+		}
+
 $oneResult['description'] 	= strip_tags($oneResult['description']);
 #Debug::pr($oneResult);
 
@@ -117,7 +122,12 @@ $oneResult['description'] 	= strip_tags($oneResult['description']);
 
     <td  class="" style="vertical-align:top;">
       <div class="cate">
-        <div class="pic"><a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>"><img src="<?php echo $oneResult['pic'] ?>" width="146" /></a></div>
+        <div class="pic">
+
+        	<?php if (trim($oneResult['pic'])) : ?>
+        	<a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>"><img src="<?php echo $oneResult['pic'] ?>" width="146" /></a>
+        	<?php endif ?>
+        	</div>
         <div class="info">
           <h3><a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>"><?php echo S::E($oneResult['name']) ?></a></h3>
 

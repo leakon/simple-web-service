@@ -11,6 +11,9 @@ class portalActions extends sfActions {
 
 	}
 
+	public function executeSitemap(sfWebRequest $request) {
+
+	}
 
 	public function executeIndex(sfWebRequest $request) {
 
@@ -74,7 +77,7 @@ class portalActions extends sfActions {
 
 
 		if (isset($_SESSION['auth_code']) && isset($arrParameters['verify_code'])
-			&& $_SESSION['auth_code'] == $arrParameters['verify_code'])
+			&& strtolower($_SESSION['auth_code']) == strtolower($arrParameters['verify_code']))
 		{
 
 		} else {

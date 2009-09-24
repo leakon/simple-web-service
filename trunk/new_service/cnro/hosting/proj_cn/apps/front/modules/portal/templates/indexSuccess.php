@@ -102,7 +102,13 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 			}
 			$arrTmp[]		= '</ul>';
 
-			$arrSubDiv[$id]		= implode("\n", $arrTmp);
+
+			$subULHtml		= '';
+			if (count($arrTmp) > 2) {
+				$subULHtml	= implode("\n", $arrTmp);
+			}
+			$arrSubDiv[$id]		= $subULHtml;
+
 
 			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/range?id='.$id), S::E($name), implode("", $arrSubDiv));
 
@@ -130,14 +136,18 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 			$arrTmp[]		= sprintf('<ul style="display: none; visibility: hidden;">');
 			foreach ($arrSubRange as $subId => $subName) {
 
-				$arrTmp[]	= sprintf('<li><a href="%s">%s</a></li>', url_for('category/product?id='.$subId), S::E($subName));
+				$arrTmp[]	= sprintf('<li><a href="%s">%s</a></li>', url_for('category/range?id='.$subId), S::E($subName));
 
 			}
 			$arrTmp[]		= '</ul>';
 
-			$arrSubDiv[$id]		= implode("\n", $arrTmp);
+			$subULHtml		= '';
+			if (count($arrTmp) > 2) {
+				$subULHtml	= implode("\n", $arrTmp);
+			}
+			$arrSubDiv[$id]		= $subULHtml;
 
-			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/product?id='.$id), S::E($name), implode("", $arrSubDiv));
+			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/range?id='.$id), S::E($name), implode("", $arrSubDiv));
 
 		}
 		?>
@@ -168,7 +178,11 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 			}
 			$arrTmp[]		= '</ul>';
 
-			$arrSubDiv[$id]		= implode("\n", $arrTmp);
+			$subULHtml		= '';
+			if (count($arrTmp) > 2) {
+				$subULHtml	= implode("\n", $arrTmp);
+			}
+			$arrSubDiv[$id]		= $subULHtml;
 
 			echo	sprintf('<li><a class="sf-with-ul" href="%s">%s</a>%s</li>', url_for('category/range?id='.$id), S::E($name), implode("", $arrSubDiv));
 
@@ -197,9 +211,12 @@ $arrIndexRange[RANGE_ID_JIANSHEN]	= Table_categories::getPlain(RANGE_ID_JIANSHEN
 
               	for ($i = 1; $i < 7; $i++) {
 
-              		echo	sprintf('<li><a href="%s" target="_blank"><img src="%s" width="70" height="70" /></a></li>',
+              		echo	sprintf('<li><a href="%s" title="%s" target="_blank"><img src="%s" width="70" height="70" alt="%s" /></a></li>',
+
 	              			$arrDataConf_Block['image_' . $i]['link'],
-	              			$arrDataConf_Block['image_' . $i]['pic']
+	              			$arrDataConf_Block['image_' . $i]['desc'],
+	              			$arrDataConf_Block['image_' . $i]['pic'],
+	              			$arrDataConf_Block['image_' . $i]['desc']
 	              			);
 
               	}
