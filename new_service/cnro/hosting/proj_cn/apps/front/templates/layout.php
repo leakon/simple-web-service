@@ -125,7 +125,7 @@ function SetHome(obj){
 
       <div class="topbar">
         <div class="topNav">
-          <a href="/en" target="_blank">英文版</a>  |  <a href="<?php echo url_for('portal/sitemap') ?>" target="_blank">网站地图</a>  |  <a href="<?php echo url_for('portal/contact') ?>" target="_blank">联系我们</a>
+          <a href="javascript:;" onclick="AddFavorite()">加入收藏</a>  |  <a href="/en" target="_blank">英文版</a>  |  <a href="<?php echo url_for('portal/sitemap') ?>" target="_blank">网站地图</a>  |  <a href="<?php echo url_for('portal/contact') ?>" target="_blank">联系我们</a>
         </div>
 
       </div>

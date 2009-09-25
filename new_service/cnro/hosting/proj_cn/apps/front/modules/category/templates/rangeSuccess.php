@@ -91,7 +91,7 @@
 
           	$desc	= strip_tags($obj['description']);
 
-          	echo	S::TK($desc, 128);
+          	echo	S::TK($desc, 128 - 32);
 
 
           	?></p>
