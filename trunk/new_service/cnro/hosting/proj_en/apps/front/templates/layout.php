@@ -62,13 +62,60 @@ $arrConf_HELP	= $objConf->getConf('help');
 		</script>
 
 <script type="text/javascript" src="/js/function.js?ver=20090822"></script>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function AddFavorite() {
+	var sURL = location.href;
+	var sTitle = document.title;
+
+	try {
+		window.external.AddFavorite(sURL, sTitle);
+	} catch (e) {
+		try {
+			window.sidebar.addPanel(sTitle, sURL, "");
+		} catch (e) {
+			//	alert("加入收藏失败，请使用Ctrl+D进行添加");
+		}
+	}
+}
+
+function SetHome(obj){
+
+	var vrl = window.location;
+
+	try {
+		obj.style.behavior='url(#default#homepage)';obj.setHomePage(vrl);
+	} catch(e) {
+		if(window.netscape) {
+			try {
+				netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+			} catch (e) {
+				alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+			}
+
+			var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+			prefs.setCharPref('browser.startup.homepage',vrl);
+		}
+	}
+}
+
+
+//-->
+</SCRIPT>
+
+
 </head>
 
 <body>
   <div id="wrapper">
     <div id="header">
-      <div class="func_intro" style="text-align:right;">
-        <a href="http://cnrotech.com/cn" target="_blank">Chinese</a>
+      <div class="func_intro" style="text-align:right; width:220px;">
+
+      	<a href="javascript:;" onclick="AddFavorite()">Add favorite</a>
+
+        |<a href="http://cnrotech.com/cn" target="_blank">Chinese</a>
         <!--
         |<a href="#" target="_blank">Site map</a>
         -->

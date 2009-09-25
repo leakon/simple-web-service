@@ -80,7 +80,6 @@
 
 
 	<div class="rightD">
-
 <?php if (isset($arrRealSubCategoryList)) : ?>
 <table width="0" border="0" cellspacing="0" cellpadding="0" class="productTab">
   <tr>
@@ -90,9 +89,18 @@
 #	foreach ($arrSubArticles as $catId => $articlePager) :
 	foreach ($arrRealSubCategoryList as $catId => $oneResult) :
 
-		if ($oneResult['type'] == 400) {
-		} else {
-			continue;
+#Debug::pr($oneResult);
+		$productId	= (int) $sf_request->getParameter('id');
+
+		// http://www.cnrotech.com/cn/index.php/category/product/id/1000054
+		// 在显示上面这个列表页时，应该对type做限制，其他页面则不应有限制
+		if ($productId == 0) {
+
+			if ($oneResult['type'] == 220) {
+			} else {
+				continue;
+			}
+
 		}
 
 $oneResult['description'] 	= strip_tags($oneResult['description']);
@@ -135,9 +143,7 @@ $oneResult['description'] 	= strip_tags($oneResult['description']);
           	<?php echo (S::TK($oneResult['description'], 100)) ?>
         </div>
 
-          <!--
           <span class="more"><a href="<?php echo url_for('category/product?id=' . $oneResult['id']) ?>" >了解更多内容</a></span>
-          -->
         </div>
       </div>
     </td>
