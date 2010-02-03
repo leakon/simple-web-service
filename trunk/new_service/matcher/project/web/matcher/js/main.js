@@ -59,7 +59,9 @@ function DoBatchDelete() {
 
 		var theForm		= new Element('form', {
 							'method':	'post',
-							'action':	'/matcher/admin/camera/deleteAll'
+						//	'action':	'/matcher/admin/camera/deleteAll'
+							'action':	'/admin/admin.php/?module=camera&action=deleteAll'
+
 						});
 
 		var arrList		= $$('input.item_checkbox');

@@ -7,14 +7,17 @@
     <link rel="shortcut icon" href="/favicon.ico" />
 
 <script type="text/javascript" src="/matcher/js/mootools-1.2.1-core-nc.js"></script>
-<script type="text/javascript" src="/matcher/js/main.js"></script>
+<script type="text/javascript" src="/matcher/js/main.js?v20100203"></script>
 <script type="text/javascript" src="/matcher/js/item.js"></script>
 
 <link rel="stylesheet" type="text/css" media="screen" href="/matcher/css/main.css" />
 
 <script>
 if (top.location == window.location) {
-	top.location	= '/matcher/admin/index.php';
+
+//	top.location	= '/admin/index.php';
+
+
 }
 </script>
 
