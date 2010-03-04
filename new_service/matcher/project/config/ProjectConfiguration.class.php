@@ -1,6 +1,6 @@
 <?php
 
-require_once 'D:\Leakon\code\project\symfony\sofav_2008_2\stable\symfony-1.2.4\lib/autoload/sfCoreAutoload.class.php';
+require_once 'D:/Leakon/code/project/sofav/sofav_2009/stable/symfony-1.2.10/lib/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();
 
 class ProjectConfiguration extends sfProjectConfiguration
