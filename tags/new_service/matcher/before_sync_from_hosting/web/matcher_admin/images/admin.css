@@ -1,0 +1,50 @@
+@charset "utf-8";
+/******全局CSS定义******/
+*        {word-break:break-all;}
+/*html     {overflow-x:hidden;}*/
+body     {font-family:Verdana,SimSun,arial;margin:0;padding:0;border:0;background:#ffffff;font-size:12px;color:#131619;text-align:center;}
+div,form,img,ul,ol,li,dl,dt,dd  {margin:0;padding:0;border:0;list-style-type:none}
+h1,h2,h3,h4,h5,h6,table,td,tr,th{margin:0;padding:0;border:0;}
+input,p,span                    {margin:0;padding:0;}
+body input,body textarea {font-family:Verdana,SimSun,arial;font-size:12px;}
+/*全局默认连接颜色CSS定义 */
+A        {color:#131619;text-decoration:none;outline:none;cursor:pointer}
+A:link   {color:#131619;text-decoration:none;outline:none;cursor:pointer}
+A:visited{color:#131619;text-decoration:none;outline:none;cursor:pointer}
+A:hover  {color:#606060;text-decoration:none;outline:none;cursor:pointer}
+A:active {color:#131619;text-decoration:none;outline:none;cursor:pointer}
+/*结构定义*/
+.right{width:99%;text-align:left;margin-left:6px;}
+.left{border:#aaaaaa 1px solid;width:160px;height:100%; padding-bottom:6px;}
+.top{width:100%;clear:both;height:121px;overflow:hidden;background:#131213 url(/matcher/admin/images/admintop.gif) repeat-x;border-bottom:#FFFFFF 6px solid}
+.topmenu{width:100%;clear:both;height:32px;overflow:hidden;line-height:34px;}
+.foot{background-color:#333233;width:100%;clear:both;height:32px;overflow:hidden;background:#353535 url(/matcher/admin/images/adminfoot.gif) repeat-x; color:#ffffff;line-height:30px}
+/*头部样式*/
+.top .logo a{float:left}
+.topmenu img{margin:0px 6px 0px 6px}
+.topmenu ul{ margin:0px 8px 0px 10px}
+.topmenu li{float:left;}
+.topmenu li.li{float:right}
+/*左边开始*/
+.left h1{font-weight:normal;font-size:15px;background:url(/matcher/admin/images/lefttitlebj1.gif) no-repeat left center;width:150px;cursor:pointer;color:#555555;padding:0px 0px 0px 0px;margin:6px 0px 0px 0px;height:30px;line-height:30px;text-align:left}
+.left h1 a{margin:6px 0px 0px 50px; color:#555555}
+.left h1.h1{font-weight:normal;font-size:15px;background:url(/matcher/admin/images/lefttitlebj2.gif) no-repeat left center;width:150px;cursor:pointer;color:#555555;padding:0px 0px 0px 0px;margin:6px 0px 0px 0px;height:30px;line-height:30px;text-align:left}
+.left h1.h1 a{margin:6px 0px 0px 50px; color:#555555}
+.left ul {width:130px;overflow:hidden;margin:0px 0px 0px 6px;}
+.left ul li{background:#f5f5f4;padding-top:5px;margin:1px 0px 0px 0px;height:21px}
+/*底部样式*/
+.foot A         {color:#ffffff;text-align:left;font-size:12px;padding-left:6px}
+.foot A:visited {color:#ffffff;text-decoration:none;font-size:12px;padding-left:6px}
+.foot A:hover   {color:#e8e8e8;text-decoration:none;font-size:12px;padding-left:6px}
+.foot A:active  {color:#ffffff;text-decoration:none;font-size:12px;padding-left:6px}
+/*登陆样式*/
+.dlbjc{background-color:#030303;text-align:center}
+.login{width:818px;height:549px;background:url(/matcher/admin/images/dl.gif) no-repeat left top;margin:0px auto 0px auto;overflow:hidden}
+.login ul{margin:226px 0px 0px 267px;*margin:226px 0px 0px 250px;width:370px;float:left; display:inline}
+.login ul li{height:40px;line-height:40px}
+.login ul li.li{ padding-top:8px; padding-left:43px}
+.login ul li strong{padding:0px 0px 0px 0px;margin:0px 0px 0px 0px;height:30px;line-height:23px;*line-height:28px;display:block;float:left}
+.login ul input{width:230px;padding:5px 0px 7px 0px;float:left;border:#CCCCCC 1px solid}
+.login ul input.anniu{width:75px;height:44px;float:left;margin-left:10px;border:#CCCCCC 0px solid}
+
+div#leftMenu ul li a:hover	{color:red;}
