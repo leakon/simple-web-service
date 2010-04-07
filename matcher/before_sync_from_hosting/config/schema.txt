@@ -1,0 +1,85 @@
+标签管理
+	product_id		商品类型
+	name			标签
+
+
+价格区间
+	min			下界
+	max			上界
+
+
+添加新云台
+	product_id		品牌
+	style			型号
+	link			链接
+	pic			图片
+	weight			承重
+	price_id		价格区间
+
+
+添加新滤镜
+	product_id		品牌
+	style			型号
+	link			链接
+	caliber			口径
+	price_id		价格区间
+
+添加新摄影包
+	product_id		品牌
+	style			型号
+	link			链接
+	pic			图片
+	price_id		价格区间
+	ext_vol_type		容量（A,B,C,D,E）
+
+
+添加新脚架
+	product_id		品牌
+	style			型号
+	link			链接
+	pic			图片
+	weight			承重
+	price_id		价格区间
+
+镜头型号管理
+	product_id		品牌
+	style			型号
+	caliber_id		口径
+	weight			承重
+
+相机型号管理
+	product_id		品牌
+	style_id		类型
+	style			型号
+	weight			承重
+
+相机类型管理
+	name			型号
+	detail			类型说明
+
+
+
+
+total
+	id
+	product_id
+	price_id
+	caliber_id
+	type
+	created_at
+	name
+	style
+	link
+	pic
+	weight
+	caliber
+	min
+	max
+	detail
+	serial
+
+
+
+
+
+
