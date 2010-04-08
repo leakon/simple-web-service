@@ -12,8 +12,8 @@
 
 
 <script type="text/javascript" src="/matcher/js/mootools-1.2.1-core-nc.js"></script>
-<script type="text/javascript" src="/matcher/js/main.js"></script>
-<script type="text/javascript" src="/matcher/js/item.js"></script>
+<script type="text/javascript" src="/matcher/js/main.js?20100408"></script>
+<script type="text/javascript" src="/matcher/js/item.js?20100408"></script>
 <script type="text/javascript" src="/matcher/js/hd_v2.js"></script>
 
 <?php if (0) : ?>
@@ -21,7 +21,7 @@
 <?php endif ?>
 
 
-<link rel="stylesheet" type="text/css" media="screen" href="/matcher/css/index_v2.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/matcher/css/index_v2.css?20100408" />
 
 
   </head>
