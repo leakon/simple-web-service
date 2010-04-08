@@ -7,7 +7,10 @@
 
 					if (strlen($dataItem['pic'])) {
 
-						echo	sprintf('<img src="%s" class="list_img" alt="" />', $webUploadDir . $dataItem['pic']);
+						echo	sprintf('<a href="%s" target="_blank"><img src="%s" class="list_img" alt="" border="0" /></a>',
+								$dataItem['link'],
+								$webUploadDir . $dataItem['pic']
+								);
 
 					} else {
 
@@ -18,7 +21,16 @@
 				?>
 
 		</li>
-	<li class="li2"><?php echo S::E($dataItem['style']) ?></li>
+	<li class="li2">
+		<?php
+
+		#	echo S::E($dataItem['style']);
+
+			echo	sprintf('<a href="%s" target="_blank">%s</a>', $dataItem['link'], S::E($dataItem['style']));
+
+		?>
+
+	</li>
 	<li class="li3">
 
 				<?php
@@ -31,5 +43,9 @@
 	</ul>
 
 		<?php endforeach ?>
+
+<?php
+
+#	Debug::pr($arrResult);
 
 
