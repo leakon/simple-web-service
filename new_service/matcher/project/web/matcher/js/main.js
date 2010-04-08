@@ -309,6 +309,87 @@ var MatcherSelect	= new Class({
 	_keyTo:			'',
 	_data:			{},
 
+
+	sortData:	function(objData) {
+
+				var strKey;
+
+				var objSearch	= {};
+				var arrList	= [];
+				var arrSorted	= [];
+
+				for (strKey in objData) {
+
+					objSearch['__s__' + objData[strKey]]	= strKey;
+
+					arrList.push(objData[strKey]);
+
+				}
+
+				arrSorted	= arrList.sort();
+
+			//	alert(arrSorted);
+
+				var objSorted	= {};
+				var strSearchKey, strOriKey;
+
+				for (var i = 0; i < arrSorted.length; i++) {
+
+					strKey		= arrSorted[i];
+
+					strSearchKey	= '__s__' + strKey;
+
+					strOriKey	= objSearch[strSearchKey];
+
+
+					objSorted[strOriKey]	= objData[strOriKey];
+
+				}
+
+				return	objSorted;
+
+			},
+
+	sortData_2:	function(objData, column) {
+
+				var strKey;
+
+				var objSearch	= {};
+				var arrList	= [];
+				var arrSorted	= [];
+
+				for (strKey in objData) {
+
+					objSearch['__s__' + objData[strKey][column]]	= strKey;
+
+					arrList.push(objData[strKey][column]);
+
+				}
+
+				arrSorted	= arrList.sort();
+
+			//	alert(arrSorted);
+
+				var objSorted	= {};
+				var strSearchKey, strOriKey;
+
+				for (var i = 0; i < arrSorted.length; i++) {
+
+					strKey		= arrSorted[i];
+
+					strSearchKey	= '__s__' + strKey;
+
+					strOriKey	= objSearch[strSearchKey];
+
+
+					objSorted[strOriKey]	= objData[strOriKey];
+
+				}
+
+				return	objSorted;
+
+			},
+
 	initialize:	function(objConfig) {
 
 				var __THIS__	= this;
@@ -335,11 +416,15 @@ var MatcherSelect	= new Class({
 
 					var strKey, objEl;
 
-					for (strKey in this._data[this._keyFrom]) {
+					var objForeach;
+				//	objForeach	= this._data[this._keyFrom];
+					objForeach	= this.sortData(this._data[this._keyFrom]);
+
+					for (strKey in objForeach) {
 
 						objEl	= new Element('option', {
 											'value':	strKey,
-											'html':		this._data[this._keyFrom][strKey],
+											'html':		objForeach[strKey],
 											'selected':	valueOfForm == strKey
 										});
 
@@ -391,18 +476,23 @@ var MatcherSelect	= new Class({
 					subSelectValue	= valueOfForm;
 				}
 
-				for (strKey in this._data[this._keyTo]) {
 
-					if ($defined(this._data[this._keyTo][strKey]['product_id'])) {
+				var objForeach;
+				objForeach	= this._data[this._keyTo];
+				objForeach	= this.sortData_2(this._data[this._keyTo], 'style');
+
+				for (strKey in objForeach) {
+
+					if ($defined(objForeach[strKey]['product_id'])) {
 
 
-						eachProdId	= this._data[this._keyTo][strKey]['product_id'];
+						eachProdId	= objForeach[strKey]['product_id'];
 
 						if (eachProdId == intProductId) {
 
 							objEl	= new Element('option', {
 												'value':	strKey,
-												'html':		this._data[this._keyTo][strKey]['style'],
+												'html':		objForeach[strKey]['style'],
 												'selected':	valueOfForm == strKey
 											});
 
