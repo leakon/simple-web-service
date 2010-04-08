@@ -74,7 +74,7 @@ body .btu_on A:active  {color:#ffffff}
 .search_y div.bor ul{margin:0px 0px 0px 0px;border:#cccccc 1px solid;border-bottom:#cccccc 0px solid;border-right:#cccccc 0px solid;overflow:hidden;background-color:#FFFFFF;display:inline-block}
 .lines{clear:both;height:2px;*height:2px; background-color:#c01111;overflow:hidden;margin:15px 0px 15px 0px;overflow:hidden}
 .search_y div.bor ul li.li1{float:left;width:182px;height:120px;overflow:hidden;border-right:#CCCCCC 1px solid;text-align:center;}
-.search_y div.bor ul li.li1 img{margin-top:17px;border:#CCCCCC 1px solid;padding:2px;}
+.search_y div.bor ul li.li1 img{margin-top:17px;border:#CCCCCC 1px solid;padding:2px; width:90px;}
 .search_y div.bor ul li.li2{float:left;width:170px;height:120px;overflow:hidden; color:#131619;border-right:#CCCCCC 1px solid;vertical-align:middle; line-height:120px; margin-left:6px;}
 .search_y div.bor ul li.li3{float:right;width:470px;height:120px;overflow:hidden;border-right:#CCCCCC 1px solid;padding:0px 0px 0px 10px;}
 .search_y div.bor ul li.li3 img{width:40;height:40px;overflow:hidden}
