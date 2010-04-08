@@ -478,7 +478,7 @@ var MatcherSelect	= new Class({
 
 
 				var objForeach;
-				objForeach	= this._data[this._keyTo];
+			//	objForeach	= this._data[this._keyTo];
 				objForeach	= this.sortData_2(this._data[this._keyTo], 'style');
 
 				for (strKey in objForeach) {
