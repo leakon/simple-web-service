@@ -165,8 +165,10 @@ var MatcherTab		= new Class({
 				// default
 				__THIS__.clearCont(selectLink);
 				__THIS__._objForm.type.value	= selectType;
-				if ('bag' == selectType || 'filter' == selectType) {
+				if ('bag' == selectType) {
 					__THIS__.setCont_2(selectType);
+				} else if ('filter' == selectType) {
+					__THIS__.setCont_2_b(selectType);
 				} else {
 					__THIS__.setCont_4(selectType);
 				}
