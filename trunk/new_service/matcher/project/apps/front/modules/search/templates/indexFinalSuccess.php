@@ -34,10 +34,10 @@ li.li3 p		{color:black;}
 <div class="movoewer fun">
 <ul class="tab">
 <li class="txt">请选择您需要的影像产品</li>
-<li class="btu_on" id=id_tab_bag onMouseOverx="tabit('tab1',0,4)" style="cursor:pointer"><a href="#" title="摄影包">摄影包</a></li>
-<li class="btu_off" id=id_tab_stand onMouseOverx="tabit('tab1',1,4)" style="cursor:pointer"><a href="#" title="脚  架">脚  架</a></li>
-<li class="btu_off" id=id_tab_holder onMouseOverx="tabit('tab1',2,4)" style="cursor:pointer"><a href="#" title="云  台">云  台</a></li>
-<li class="btu_off" id=id_tab_filter onMouseOverx="tabit('tab1',3,4)" style="cursor:pointer"><a href="#" title="滤  镜">滤  镜</a></li>
+<li class="btu_on" id="id_tab_bag" onMouseOverx="tabit('tab1',0,4)" style="cursor:pointer"><a href="#" title="摄影包">摄影包</a></li>
+<li class="btu_off" id="id_tab_stand" onMouseOverx="tabit('tab1',1,4)" style="cursor:pointer"><a href="#" title="脚  架">脚  架</a></li>
+<li class="btu_off" id="id_tab_holder" onMouseOverx="tabit('tab1',2,4)" style="cursor:pointer"><a href="#" title="云  台">云  台</a></li>
+<li class="btu_off" id="id_tab_filter" onMouseOverx="tabit('tab1',3,4)" style="cursor:pointer"><a href="#" title="滤  镜">滤  镜</a></li>
 </ul>
 
 
@@ -297,7 +297,7 @@ cfgOption		= {
 				'data':		arrOption,
 				'form':		objForm
 			};
-var objColumn_2		= new MatcherTab(cfgOption);
+var objColumn_1		= new MatcherTab(cfgOption);
 
 ///////////////////////////////////////////////////////
 
