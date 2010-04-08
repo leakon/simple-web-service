@@ -6,9 +6,10 @@ if (top.location != window.location) {
 </script>
 
 
-<form name="login_form" id="login_form" action="<?php echo url_for('user/Authorize') ?>" method="post">
+<form name="login_form" id="login_form" action="<?php echo url_for('user/authorize') ?>" method="post">
+<!--
 <input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
-
+-->
 
 <div class="login">
 <ul>
@@ -20,7 +21,7 @@ if (top.location != window.location) {
 	<li><strong>用户名：</strong><input name="username" type="text" align="absmiddle" value="<?php echo $sf_params->get('username', '') ?>" /></li>
 
 	<li><strong>密　码：</strong><input name="password" type="password" align="absmiddle"></li>
-	<li class="li"><input border="0" name="searsh" src="/matcher/admin/images/btun01.gif" type="image" width="75" height="44" class="anniu"  /><input border="0" name="searsh" src="/matcher/admin/images/btun02.gif" type="image" width="75" height="44" class="anniu" onclick="$('login_form').reset(); return false;" /></li>
+	<li class="li"><input border="0" name="searsh" src="/admin/images/btun01.gif" type="image" width="75" height="44" class="anniu"  /><input border="0" name="searsh" src="/admin/images/btun02.gif" type="image" width="75" height="44" class="anniu" onclick="$('login_form').reset(); return false;" /></li>
 </ul>
 </div>
 

@@ -16,6 +16,8 @@ class BaseBrandActions extends sfActions {
 
 		$this->webUploadDir	= ProjectConfiguration::getWebUploadDir();
 
+		$this->intPageSize	= 30;		// 翻页
+
 	}
 
 	protected function getIndexData(sfWebRequest $request) {
@@ -28,7 +30,7 @@ class BaseBrandActions extends sfActions {
 		$order			= array('id' => 'DESC');
 
 		$page			= (int) $request->getParameter('page', 1);
-		$this->pager->init($page, sfConfig::get('app_page_size', 5), array('where' => $where, 'order' => $order));
+		$this->pager->init($page, sfConfig::get('app_page_size', $this->intPageSize), array('where' => $where, 'order' => $order));
 
 		$this->arrResult	= $this->pager->getResults();
 
@@ -66,7 +68,7 @@ class BaseBrandActions extends sfActions {
 		$this->pager->setCount($stateCount)->setLimit($stateLimit);
 
 		$page			= (int) $request->getParameter('page', 1);
-		$this->pager->init($page, sfConfig::get('app_page_size', 5));
+		$this->pager->init($page, sfConfig::get('app_page_size', $this->intPageSize));
 
 		$this->arrResult	= $this->pager->getResults();
 

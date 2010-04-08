@@ -5,8 +5,11 @@ class userActions extends sfActions {
 
 	public function preExecute() {
 
+
 	#	parent::preExecute();
 	#	$this->type		= 1;
+
+	#	Debug::pr($_REQUEST);
 
 		$userId		= $this->getUser()->getId();
 
@@ -22,7 +25,6 @@ class userActions extends sfActions {
 				return	$this->redirect('@homepage');
 			}
 		}
-
 
 		$this->strModuleName	= $this->getContext()->getModuleName();
 		$this->dataClass	= 'Table_data_user';
@@ -55,7 +57,7 @@ class userActions extends sfActions {
 			$this->getUser()->setFlash('loginSuccess', true);
 
 
-			return	$this->redirect('/matcher/admin/index.php');
+			return	$this->redirect('/admin/index.php');
 		#	return	$this->redirect('user/index');
 
 		#	if (strlen($refer)) {
@@ -68,7 +70,7 @@ class userActions extends sfActions {
 
 		$this->getUser()->setFlash('sign_in_username', $username);
 
-		return	$this->redirect('user/index?msg=pass_error');
+		return	$this->redirect('/admin/admin.php/?module=user&action=index&msg=pass_error');
 
 
 	#	$this->redirect('account/index?msg=loginFailed');
@@ -85,7 +87,7 @@ class userActions extends sfActions {
 
 		$this->getUser()->setLoggedOut();
 
-		$this->redirect('user/index');
+		$this->redirect(url_for_2('user/index'));
 
 	}
 
@@ -215,7 +217,7 @@ class userActions extends sfActions {
 
 			$this->getUser()->setFlash('message', $tableUser->save());
 
-			return	$this->redirect('user/password');
+			return	$this->redirect(url_for_2('user/password'));
 
 
 		} else {
@@ -252,7 +254,7 @@ class userActions extends sfActions {
 
 				if (1 == $tagItem->type) {
 
-					return	$this->redirect($this->strModuleName . '/list?msg=adminCannotDelete');
+					return	$this->redirect(url_for_2($this->strModuleName . '/list') . '?msg=adminCannotDelete');
 
 				} else {
 

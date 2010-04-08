@@ -11,7 +11,7 @@
 <script type="text/javascript" src="/matcher/js/main.js"></script>
 <script type="text/javascript" src="/matcher/js/item.js"></script>
 
-<link rel="stylesheet" type="text/css" media="screen" href="/matcher/admin/images/admin.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/admin/images/admin.css" />
 </head>
 <body class="dlbjc">
 
