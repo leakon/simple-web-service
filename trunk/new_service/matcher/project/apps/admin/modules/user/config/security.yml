@@ -1,8 +1,16 @@
-index:
-  is_secure: off
+all:
+  is_secure:  off
 
-authorize:
-  is_secure: off
 
-error:
-  is_secure: off
+
+
+
+###index:
+###  is_secure: off
+###
+###authorize:
+###  is_secure: off
+###
+###error:
+###  is_secure: off
+###

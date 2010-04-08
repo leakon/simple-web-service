@@ -72,8 +72,11 @@
 
 				<input type="text" id="id_search_input" name="word" value="<?php echo S::E($sf_request->getParameter('word', '')) ?>" />
 
+				<input type="hidden" name="module" value="<?php echo $strModuleName ?>" />
+				<input type="hidden" name="action" value="search" />
+
 				<input type="submit" id="id_search_form_submit" value="搜索" />
-				<a href="<?php echo url_for($strModuleName . '/index') ?>">取消</a>
+				<a href="<?php echo url_for_2($strModuleName . '/index') ?>">取消</a>
 			</form>
 		</div>
 

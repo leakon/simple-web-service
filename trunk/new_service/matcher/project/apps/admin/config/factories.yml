@@ -26,7 +26,9 @@ test:
 
 all:
   routing:
-    class: sfPatternRouting
+#    class: sfPatternRouting
+#    class: sfPathInfoRouting
+    class: sfNoRouting
     param:
       generate_shortest_url:            true
       extra_parameters_as_query_string: true
@@ -50,7 +52,7 @@ all:
       # 2592000 = 86400 * 30, session_id's cookie has a life for 30 days
       session_cookie_lifetime: 2592000
       session_cookie_path:     /
-      session_cookie_domain:   .kk.com
+      session_cookie_domain:   .paipaitang.com
 
 
 
