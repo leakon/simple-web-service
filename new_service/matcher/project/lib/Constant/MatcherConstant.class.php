@@ -109,18 +109,20 @@ class MatcherConstant {
 
 		$arrRet		= array(
 
+				self::BAG_VOL_SLR		=> '单反',		// 单反
+
 				self::BAG_VOL_LONG		=> '长焦',
 				self::BAG_VOL_WIDE		=> '广角',
 				self::BAG_VOL_FLASH		=> '闪光灯',
 				self::BAG_VOL_NOTEBOOK		=> '笔记本',
-				self::BAG_VOL_ACCESSORY		=> '附件',
 
-				self::BAG_VOL_SLR		=> '单反',		// 单反
 				self::BAG_VOL_SMALL		=> '小型数码',		// 小型数码
 				self::BAG_VOL_CARD		=> '卡片机',		// 卡片机
 				self::BAG_VOL_STANDARD		=> '标准变焦',		// 标准变焦
 				self::BAG_VOL_PRO		=> '专业变焦',		// 专业变焦
 				self::BAG_VOL_STAND		=> '脚架',		// 脚架
+
+				self::BAG_VOL_ACCESSORY		=> '附件',
 
 				);
 

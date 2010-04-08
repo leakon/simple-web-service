@@ -87,6 +87,8 @@ class MyHelp {
 
 		}
 
+	#	Debug::pr($arrResult);
+
 		return	implode('', $arrResult);
 
 	}
