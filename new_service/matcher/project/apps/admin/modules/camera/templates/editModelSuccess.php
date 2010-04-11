@@ -19,7 +19,7 @@
 			<input type="hidden" name="from" value="model" />
 			<input type="hidden" name="id" value="<?php echo $dataItem->id ?>" />
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
-			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
+			<input type="hidden" name="refer" value="<?php echo GetRefer() ?>" />
 
 
 			<table>
