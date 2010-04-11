@@ -51,3 +51,14 @@ function url_for_2($uri) {
 	return	'/admin/admin.php/?' . implode('&', $arrRet);
 
 }
+
+
+function GetRefer() {
+
+	$request	= sfContext::getInstance()->getRequest();
+
+	return	$request->getReferer();
+
+#	return	$request->getUri()();
+
+}
