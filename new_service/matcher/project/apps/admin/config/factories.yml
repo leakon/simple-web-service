@@ -26,9 +26,9 @@ test:
 
 all:
   routing:
-#    class: sfPatternRouting
+    class: sfPatternRouting
 #    class: sfPathInfoRouting
-    class: sfNoRouting
+#    class: sfNoRouting
     param:
       generate_shortest_url:            true
       extra_parameters_as_query_string: true
@@ -41,18 +41,18 @@ all:
       use_flash:       true
       default_culture: %SF_DEFAULT_CULTURE%
 
-  storage:
-    class: SimpleSessionPdo
-    param:
-      session_name: matcher_session
-      auto_start:   1
-      db_table:     data_session
-      database:     Table
-
-      # 2592000 = 86400 * 30, session_id's cookie has a life for 30 days
-      session_cookie_lifetime: 2592000
-      session_cookie_path:     /
-      session_cookie_domain:   .paipaitang.com
+#  storage:
+#    class: SimpleSessionPdo
+#    param:
+#      session_name: matcher_session
+#      auto_start:   1
+#      db_table:     data_session
+#      database:     Table
+#
+#      # 2592000 = 86400 * 30, session_id's cookie has a life for 30 days
+#      session_cookie_lifetime: 2592000
+#      session_cookie_path:     /
+#      session_cookie_domain:   .paipaitang.com
 
 
 
