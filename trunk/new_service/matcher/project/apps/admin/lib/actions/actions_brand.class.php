@@ -180,6 +180,7 @@ class BaseBrandActions extends sfActions {
 		########################
 		#### Upload Pic
 		########################
+		$storeFilePath		= false;
 		$webFilePath		= '';
 		$hasFile		= isset($_FILES['pic']['name']);
 		if ($hasFile && file_exists($_FILES['pic']['tmp_name'])) {
@@ -199,15 +200,18 @@ class BaseBrandActions extends sfActions {
 
 		}
 
+
 		$arrParameters['pic']	= $webFilePath;
 		// 在编辑界面，使用 pic_save 字段保存图片地址
-		if (isset($arrParameters['pic_save'])) {
+		// 并且没有上传新文件
+		if (isset($arrParameters['pic_save']) && false === $storeFilePath) {
 			$arrParameters['pic']	= $arrParameters['pic_save'];
 		}
 		########################
 		########################
 
 
+	#	Debug::pre($arrParameters);
 
 
 
