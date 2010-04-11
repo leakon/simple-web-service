@@ -19,7 +19,7 @@
 			<input type="hidden" name="from" value="style" />
 			<input type="hidden" name="id" value="<?php echo $dataItem->id ?>" />
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
-			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
+			<input type="hidden" name="refer" value="<?php echo GetRefer() ?>" />
 
 				<?php echo $brandName ?>　　 <input type="text" id="id_add_input" name="name" value="<?php echo S::E($dataItem->name) ?>" size="10" />
 

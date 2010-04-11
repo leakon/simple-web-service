@@ -22,7 +22,7 @@
 			<input type="hidden" name="from" value="edit" />
 			<input type="hidden" name="id" value="<?php echo $dataItem->id ?>" />
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
-			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
+			<input type="hidden" name="refer" value="<?php echo GetRefer() ?>" />
 
 				<?php echo $brandName ?> <input type="text" id="id_add_input" name="name" value="<?php echo S::E($dataItem->name) ?>" />
 
@@ -30,7 +30,7 @@
 
 				<a href="javascript:;" id="id_clear_add_input">取消</a>
 
-				<a href="<?php echo url_for($strModuleName . '/index') ?>">返回列表</a>
+				<a href="<?php echo url_for_2($strModuleName . '/index') ?>">返回列表</a>
 
 				<span class="inline_error" id="id_tag_exist"></span>
 				<?php if ($sf_request->hasError('name')): ?>
