@@ -48,6 +48,6 @@ function url_for_2($uri) {
 		$arrRet[]	= 'action=' . $arrExplode[1];
 	}
 
-	return	'/admin/admin.php?' . implode('&', $arrRet);
+	return	'/admin/admin.php/?' . implode('&', $arrRet);
 
 }
