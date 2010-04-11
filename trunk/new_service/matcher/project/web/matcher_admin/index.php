@@ -1,6 +1,6 @@
 <?php
 
-	$dirBase	= '/matcher/admin/';
+	$dirBase	= '/admin/';
 #	$dirBase	= '/matcher/admin/admin_dev.php/';
 
 ?><!doctype html public "-//w3c//dtd html 4.0 transitional//en">
