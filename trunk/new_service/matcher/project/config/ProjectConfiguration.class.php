@@ -33,3 +33,21 @@ class ProjectConfiguration extends sfProjectConfiguration
 
 
 }
+
+
+function url_for_2($uri) {
+
+	$arrRet		= array();
+
+	$arrExplode	= explode('/', $uri);
+
+	if (isset($arrExplode[0])) {
+		$arrRet[]	= 'module=' . $arrExplode[0];
+	}
+	if (isset($arrExplode[1])) {
+		$arrRet[]	= 'action=' . $arrExplode[1];
+	}
+
+	return	'/admin/admin.php?' . implode('&', $arrRet);
+
+}
