@@ -18,7 +18,7 @@
 if (top.location == window.location) {
 
 
-	top.location	= '/admin/index.php';
+//	top.location	= '/admin/index.php';
 
 
 }
