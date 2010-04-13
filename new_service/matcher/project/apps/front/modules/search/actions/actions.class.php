@@ -203,6 +203,9 @@ class searchActions extends sfActions {
 		$templateWhere		= sprintf('SELECT id, name FROM %s WHERE type = %d AND ( name > :style_1 OR name = :style_2 ) ',
 							$objTable->getTableName(), MatcherConstant::BRAND_TYPE_CAMERA_STYLE);
 
+	#	Debug::pr($cameraStyle);
+	#	Debug::pr($templateWhere);
+
 		$statement		= $conn->prepare($templateWhere);
 		$statement->bindValue(':style_1', $cameraStyle, PDO::PARAM_STR);
 		$statement->bindValue(':style_2', $cameraStyle, PDO::PARAM_STR);
@@ -216,13 +219,36 @@ class searchActions extends sfActions {
 
 		$ext_vol_type		= implode(',', $arrKVRes);
 
+		$strTypesLike		= '';
+
+		// 选中的级别
+		$arrClasses		= (array) $request->getParameter('classes', array());
+
+		if (count($arrClasses)) {
+
+			$arrLike	= array();
+
+			foreach ($arrClasses as $id) {
+				$arrLike[]	= sprintf(" ext_vol_types LIKE '%s,%d,%s' ", '%', $id, '%');
+			}
+
+			$strTypesLike	= '(' . implode(' OR ', $arrLike) . ')';
+
+		}
+
+
+	#	Debug::pr($strTypesLike);
+
 	#	Debug::pre($result);
-	#	Debug::pre($arrKVRes);
+	#	Debug::pr($cameraStyle);
+	#	Debug::pr($ext_vol_type);
+	#	Debug::pr($arrKVRes);
 
 
 		$strWhereTag	= $this->getWhereTag($request, 't_tag.');
 
 		if (strlen($strWhereTag)) {
+
 
 		#	Debug::pr($strWhereTag);
 
@@ -230,9 +256,13 @@ class searchActions extends sfActions {
 
 			$templateWhere	= 'FROM %s AS t_tag LEFT JOIN %s AS t_model '
 					. 'ON t_tag.item_id = t_model.id '
-					. 'WHERE %s AND t_model.ext_vol_type IN (%s) AND %s ';
+					. 'WHERE %s place_holder AND %s ';
 			$sqlWhere	= sprintf($templateWhere, $tableTag->getTableName(), $objTable->getTableName(),
-						$strWhereTag, $ext_vol_type, $this->getWhereProduct($request, 't_tag.'));
+						$strWhereTag, $this->getWhereProduct($request, 't_tag.'));
+
+
+			$strTypesLike	= str_replace('ext_vol_types', 't_model.ext_vol_type', $strTypesLike);
+			$sqlWhere	= str_replace('place_holder', $strTypesLike, $sqlWhere);
 
 
 					// "FROM ... WHERE ..." (without SELECT)
@@ -242,9 +272,10 @@ class searchActions extends sfActions {
 
 		} else {
 
-			$templateWhere	= 'FROM %s WHERE ext_vol_type IN (%s) AND %s ';
-			$sqlWhere	= sprintf($templateWhere, $objTable->getTableName(), $ext_vol_type, $this->getWhereProduct($request));
+			$templateWhere	= 'FROM %s WHERE place_holder AND %s ';
+			$sqlWhere	= sprintf($templateWhere, $objTable->getTableName(), $this->getWhereProduct($request));
 
+			$sqlWhere	= str_replace('place_holder', $strTypesLike, $sqlWhere);
 
 					// "FROM ... WHERE ..." (without SELECT)
 			$stateCount	= $sqlWhere;
@@ -253,6 +284,7 @@ class searchActions extends sfActions {
 
 		}
 
+	#	Debug::pr($sqlWhere);
 
 
 
@@ -454,6 +486,22 @@ class searchActions extends sfActions {
 		}
 		$arrOptions['tags']	= $arrTags;
 		$arrOptions['products']	= $arrProducts;
+
+
+		// 生成搜索用的摄影包级别
+		$arrBagClasses		= array();
+
+		foreach (MatcherConstant::getVolumes() as $key_1 => $val_1) {
+
+			$arrBagClasses[$key_1]	= $val_1;
+
+		}
+
+	#	Debug::pr($arrBagClasses);
+
+
+		$arrOptions['bag_classes']	= $arrBagClasses;
+
 
 		return	$arrOptions;
 

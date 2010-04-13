@@ -218,6 +218,53 @@ var MatcherTab		= new Class({
 
 	showLink:	function(strType) {
 
+
+				$('list_bag_class').style.display	= 'none';
+
+
+				// 生成摄影包专用的级别选项
+				if ('bag' == strType && $defined(this._data['bag_classes'])) {
+
+					var objDiv	= new Element('div', {});
+					var objInput, objLabel;
+
+					var arrData	= {};
+
+					for (var strKey in this._data['bag_classes']) {
+						arrData[strKey]		= this._data['bag_classes'][strKey];
+					}
+
+					for (var strKey in arrData) {
+
+						objInput	= new Element('input', {
+										'type':		'checkbox',
+										'name':		'classes[' + strKey + ']',		// 级别
+										'value':	strKey,
+										'id':		'id_classes_' + strKey,
+										'checked':	glbFormClasses.indexOf(','+strKey+',') != -1
+									});
+
+						objLabel	= new Element('label', {
+										'html':		arrData[strKey],
+										'for':		'id_classes_' + strKey
+									});
+
+						objDiv.adopt(objInput);
+						objDiv.adopt(objLabel);
+
+					}
+
+					$('list_bag_class').style.display	= '';
+
+					var objBox	= $('cont_bag_class_box');
+
+					objBox.empty();
+
+					objBox.adopt(objDiv);
+
+				}
+
+
 				if ($defined(this._data['products'][strType])) {
 
 					var objDiv	= new Element('div', {});

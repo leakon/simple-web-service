@@ -170,6 +170,12 @@ li.li3 p		{color:black;}
 	<span id="cont_product_box"></span>
 
 </li>
+
+<li style="display:none;" id="list_bag_class"><span>级别:</span>
+	<span id="cont_bag_class_box"></span>
+
+</li>
+
 <li><span>标签:</span>
 
 	<span id="cont_tag_box"></span>
@@ -286,6 +292,8 @@ include_partial('global/pager', array('pager' => $pager, 'pageUri' => url_for($s
 echo	sprintf("var arrOption	= %s;", $strJSONOption);
 
 echo	sprintf("var glbFormProduct	= %d;", $sf_request->getParameter('product', 0));
+
+echo	sprintf("var glbFormClasses	= ',%s,';", implode(',', $sf_request->getParameter('classes', array())));
 
 echo	sprintf("var glbFormTags	= %s", json_encode((array) $sf_request->getParameter('checked_product', array())));
 ?>
