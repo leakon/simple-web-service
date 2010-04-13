@@ -40,6 +40,9 @@ class Table_data_model extends SofavDB_Table {
 						'ext_vol_standard',	// 标准变焦
 						'ext_vol_pro',		// 专业变焦
 						'ext_vol_stand',	// 脚架
+
+						'ext_vol_types',	// 保存多个摄影包级别
+
 					);
 
 		$this->hasColumns($arrColumns);
