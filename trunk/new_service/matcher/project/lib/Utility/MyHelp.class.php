@@ -99,14 +99,29 @@ class MyHelp {
 
 		// 默认选取 A 类型的摄影包
 	#	$radioCheckValue	= isset($objItem->ext_vol_type) ? $objItem->ext_vol_type : MatcherConstant::BAG_VOL_A;
-		$radioCheckValue	= isset($objItem->ext_vol_type) ? $objItem->ext_vol_type : 0;
+	#	$radioCheckValue	= isset($objItem->ext_vol_type) ? $objItem->ext_vol_type : 0;
+
+		$strTypes		= isset($objItem->ext_vol_types) ? $objItem->ext_vol_types : '';
+
+		$arrTypes		= array();
+
+		if (strlen($strTypes)) {
+
+			$arrTypes	= explode(',', $strTypes);
+
+			// 把 数值 改为 索引，便于后面查询
+			$arrTypes	= array_flip($arrTypes);
+
+		}
 
 		foreach (MatcherConstant::getVolumes() as $key_1 => $val_1) {
 
 			$arrRet[]	= sprintf(''
-						. '<input %s type="radio" name="ext_vol_type" value="%s" id="id_vol_type_%s" />'
+						. '<input %s type="checkbox" name="ext_vol_types[%d]" value="%s" id="id_vol_type_%s" />'
 						. '<label for="id_vol_type_%s">%s</label> &nbsp; &nbsp; ' . "\n",
-						($radioCheckValue == $key_1 ? 'checked="checked"' : ''),
+					#	($radioCheckValue == $key_1 ? 'checked="checked"' : ''),
+						(isset($arrTypes[$key_1]) ? 'checked="checked"' : ''),
+						$key_1,
 						$key_1, $key_1, $key_1, $val_1
 					);
 
@@ -153,17 +168,40 @@ class MyHelp {
 
 	}
 
+
+	// 在管理后台显示摄影包列表，在容量列中显示字符
 	public static function showBagInlineType($itemRecord, $sepChar = ', ') {
 
 		$arrRet			= array();
 
 		$arrResult		= MatcherConstant::getVolumes();
 
-		if (isset($itemRecord['ext_vol_type'])) {
+		if (isset($itemRecord['ext_vol_types'])) {
 
-			$key			= $itemRecord['ext_vol_type'];
+			$strTypes			= $itemRecord['ext_vol_types'];
 
-			$arrRet[]		= isset($arrResult[$key]) ? ('[' . $arrResult[$key] . ']') : '';
+			$arrTypes	= explode(',', $strTypes);
+
+			// 把 数值 改为 索引，便于后面查询
+		#	$arrTypes	= array_flip($arrTypes);
+
+			$arrSelected	= array();
+
+			foreach ($arrTypes as $key) {
+
+				if (isset($arrResult[$key])) {
+
+					$arrSelected[]	= $arrResult[$key];
+
+				}
+
+			}
+
+			if (count($arrSelected)) {
+				$arrRet[]		= '[' . implode(',', $arrSelected) . ']';
+			}
+
+		#	$arrRet[]		= isset($arrResult[$key]) ? ('[' . $arrResult[$key] . ']') : '';
 
 		}
 

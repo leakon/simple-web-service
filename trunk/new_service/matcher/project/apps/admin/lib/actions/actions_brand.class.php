@@ -177,6 +177,24 @@ class BaseBrandActions extends sfActions {
 
 		$arrParameters		= $request->getParameterHolder()->getAll();
 
+
+		// 摄影包可选择多个级别，字段名称是 ext_vol_types
+
+		if (isset($arrParameters['ext_vol_types']) && count($arrParameters['ext_vol_types'])) {
+
+
+			$arrParameters['ext_vol_types']		= implode(',', $arrParameters['ext_vol_types']);
+
+			if (strlen($arrParameters['ext_vol_types'])) {
+				$arrParameters['ext_vol_types']		= ',' . $arrParameters['ext_vol_types'] . ',';
+			}
+
+
+		}
+
+	#	Debug::pre($arrParameters);
+
+
 		########################
 		#### Upload Pic
 		########################
