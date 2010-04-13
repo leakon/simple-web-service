@@ -12,8 +12,8 @@
 
 
 <script type="text/javascript" src="/matcher/js/mootools-1.2.1-core-nc.js"></script>
-<script type="text/javascript" src="/matcher/js/main.js?20100408"></script>
-<script type="text/javascript" src="/matcher/js/item.js?20100408"></script>
+<script type="text/javascript" src="/matcher/js/main.js?20100413"></script>
+<script type="text/javascript" src="/matcher/js/item.js?20100413"></script>
 <script type="text/javascript" src="/matcher/js/hd_v2.js"></script>
 
 <?php if (0) : ?>
