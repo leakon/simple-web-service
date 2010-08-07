@@ -219,7 +219,7 @@ class searchActions extends sfActions {
 
 		$ext_vol_type		= implode(',', $arrKVRes);
 
-		$strTypesLike		= '';
+		$strTypesLike		= '1';
 
 		// 选中的级别
 		$arrClasses		= (array) $request->getParameter('classes', array());
