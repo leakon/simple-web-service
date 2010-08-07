@@ -34,12 +34,15 @@ class Table_data_model extends SofavDB_Table {
 						'ext_vol_notebook',
 						'ext_vol_accessory',
 
-						'ext_vol_slr',		// 单反
+						'ext_vol_slr',		// 带手柄的单反
 						'ext_vol_small',	// 小型数码
 						'ext_vol_card',		// 卡片机
 						'ext_vol_standard',	// 标准变焦
 						'ext_vol_pro',		// 专业变焦
 						'ext_vol_stand',	// 脚架
+
+						'ext_vol_danfan',	// 单反
+						'ext_vol_wybj',		// 望远变焦
 
 						'ext_vol_types',	// 保存多个摄影包级别
 
