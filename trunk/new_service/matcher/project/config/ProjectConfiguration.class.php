@@ -1,6 +1,12 @@
 <?php
 
-require_once 'D:/Leakon/code/project/sofav/sofav_2009/stable/symfony-1.2.10/lib/autoload/sfCoreAutoload.class.php';
+$strServerFile		= '/home/work/lib/symfony-1.2-latest/lib/autoload/sfCoreAutoload.class.php';
+if (file_exists($strServerFile)){
+	require_once($strServerFile);
+} else {
+	require_once 'D:/Leakon/code/project/sofav/sofav_2009/stable/symfony-1.2.10/lib/autoload/sfCoreAutoload.class.php';
+}
+
 sfCoreAutoload::register();
 
 class ProjectConfiguration extends sfProjectConfiguration
@@ -36,6 +42,8 @@ class ProjectConfiguration extends sfProjectConfiguration
 
 
 function url_for_2($uri) {
+
+	return	url_for($uri);
 
 	$arrRet		= array();
 
