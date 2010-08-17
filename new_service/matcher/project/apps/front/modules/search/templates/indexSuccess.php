@@ -260,6 +260,6 @@ var objColumn_4_2		= new MatcherSelect(cfgOption);
 
 <?php
 
-	Debug::pr(SofavDB_Debug_PDO::getTimer());
+#	Debug::pr(SofavDB_Debug_PDO::getTimer());
 
 
