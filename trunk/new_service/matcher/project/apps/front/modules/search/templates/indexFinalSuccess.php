@@ -357,3 +357,6 @@ var objColumn_4_2		= new MatcherSelect(cfgOption);
 
 </form>
 
+
+<?php
+#	Debug::pr(SofavDB_Debug_PDO::getTimer());

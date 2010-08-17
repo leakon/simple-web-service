@@ -15,7 +15,7 @@
 
 		<div class="">
 
-			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/saveCom') ?>" method="post" enctype="multipart/form-data">
+			<form name="theForm" id="id_tag_edit" action="<?php echo url_for($strModuleName . '/saveBag') ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="from" value="model" />
 			<input type="hidden" name="id" value="<?php echo $dataItem->id ?>" />
 			<input type="hidden" name="type" value="<?php echo $type ?>" />

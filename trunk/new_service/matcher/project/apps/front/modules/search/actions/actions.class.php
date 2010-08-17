@@ -200,19 +200,25 @@ class searchActions extends sfActions {
 
 		$conn			= SofavDB_Manager::getConnection();
 
-		$templateWhere		= sprintf('SELECT id, name FROM %s WHERE type = %d AND ( name > :style_1 OR name = :style_2 ) ',
+		//										( name > :style_1 OR name = :style_2 ) ',
+		$templateWhere		= sprintf('SELECT id, name FROM %s WHERE type = %d AND ( name = :style_2 ) ',
 							$objTable->getTableName(), MatcherConstant::BRAND_TYPE_CAMERA_STYLE);
 
 	#	Debug::pr($cameraStyle);
 	#	Debug::pr($templateWhere);
 
 		$statement		= $conn->prepare($templateWhere);
-		$statement->bindValue(':style_1', $cameraStyle, PDO::PARAM_STR);
+	#	$statement->bindValue(':style_1', $cameraStyle, PDO::PARAM_STR);
 		$statement->bindValue(':style_2', $cameraStyle, PDO::PARAM_STR);
 
 		$statement->execute();
 
 		$result			= $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+	#	Debug::pr($result);
+
+
 
 		// 得到符合条件的 id 列表
 		$arrKVRes		= Array_Util::ColToPlain($result, 'id', 'id');
@@ -258,7 +264,7 @@ class searchActions extends sfActions {
 					. 'ON t_tag.item_id = t_model.id '
 					. 'WHERE %s place_holder AND %s ';
 			$sqlWhere	= sprintf($templateWhere, $tableTag->getTableName(), $objTable->getTableName(),
-						$strWhereTag, $this->getWhereProduct($request, 't_tag.'));
+						$strWhereTag, $this->getWhereProduct($request, 't_model.'));
 
 
 			$strTypesLike	= str_replace('ext_vol_types', 't_model.ext_vol_type', $strTypesLike);
@@ -328,7 +334,7 @@ class searchActions extends sfActions {
 
 		if (count($arrSafeTags)) {
 
-			$strRet		= sprintf(' %stag_id IN (%s) ', $alias, implode(',', $arrSafeTags));
+			$strRet		= sprintf(' %stag_id IN (%s) AND ', $alias, implode(',', $arrSafeTags));
 
 		}
 

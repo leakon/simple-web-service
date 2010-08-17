@@ -31,6 +31,10 @@ class MatcherConstant {
 		BRAND_TYPE_PRICE		= 800,	// 价格区间
 		BRAND_TYPE_TAG			= 900,	// 标签
 
+
+		BRAND_TYPE_BAG_VOL		= 1080,	// 摄影包
+
+
 		/*
 		// 容量
 		BAG_VOL_A			= 100,
