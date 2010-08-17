@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 04, 2010 at 10:44 ????
+-- Generation Time: Aug 17, 2010 at 11:46 ????
 -- Server version: 5.1.37
 -- PHP Version: 5.3.0
 
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `data_model` (
   `caliber_id` int(11) NOT NULL DEFAULT '0',
   `style_id` int(11) NOT NULL DEFAULT '0',
   `type` int(11) NOT NULL DEFAULT '0',
-  `weight` int(11) NOT NULL DEFAULT '0',
+  `weight` decimal(8,3) NOT NULL DEFAULT '0.000',
   `min` int(11) NOT NULL DEFAULT '0',
   `max` int(11) NOT NULL DEFAULT '0',
   `ext_vol_type` int(11) NOT NULL DEFAULT '0',
@@ -41,6 +41,9 @@ CREATE TABLE IF NOT EXISTS `data_model` (
   `ext_vol_standard` int(11) NOT NULL DEFAULT '0',
   `ext_vol_pro` int(11) NOT NULL DEFAULT '0',
   `ext_vol_stand` int(11) NOT NULL DEFAULT '0',
+  `ext_vol_danfan` int(11) NOT NULL DEFAULT '0',
+  `ext_vol_wybj` int(11) NOT NULL DEFAULT '0',
+  `ext_vol_types` char(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT '2000-01-01 00:00:00',
   `name` char(255) NOT NULL,
   `style` char(255) NOT NULL,
@@ -50,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `data_model` (
   `detail` char(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `type` (`type`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=134 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -67,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `data_session` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `sess_id` (`sess_id`),
   KEY `sess_time` (`sess_time`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -86,7 +89,20 @@ CREATE TABLE IF NOT EXISTS `data_user` (
   `created_at` datetime NOT NULL DEFAULT '2000-01-01 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `map_bag_style`
+--
+
+CREATE TABLE IF NOT EXISTS `map_bag_style` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bag_id` int(11) NOT NULL DEFAULT '0',
+  `style_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -99,4 +115,4 @@ CREATE TABLE IF NOT EXISTS `map_tag` (
   `item_id` int(11) NOT NULL DEFAULT '0',
   `tag_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;

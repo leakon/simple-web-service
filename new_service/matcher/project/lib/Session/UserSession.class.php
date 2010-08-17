@@ -6,7 +6,7 @@ class UserSession extends SimpleSymfonyUser {
 
 		$cookieConf	= array(
 					'path'		=> '/',
-					'domain'	=> '.kk.com'
+					'domain'	=> '.paipaitang.com'
 				),
 
 		$cookieName	= 'matcher',			// SimpleCookie，不要与 storage 的 session_name 搞混，这一点很重要！！！

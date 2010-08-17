@@ -93,7 +93,41 @@ class MyHelp {
 
 	}
 
+
+	public static function getBagVols($objItem) {
+
+			// 查询所有本 $objItem->id 摄影包对应的容量记录
+			$objTable		= new Table_data_model();
+			$conn			= SofavDB_Manager::getConnection();
+
+			$templateWhere		= sprintf('SELECT * FROM %s WHERE type = %d AND product_id = %d ',
+								$objTable->getTableName(),
+								MatcherConstant::BRAND_TYPE_BAG_VOL,
+								$objItem->id
+							);
+
+			$statement		= $conn->prepare($templateWhere);
+
+			$statement->execute();
+
+			$result			= $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+			$arrRet		= array();
+
+			foreach ($result as $val) {
+
+				$arrRet[ $val['style_id'] ]	= $val;
+
+			}
+
+			return	$arrRet;
+
+	}
+
 	public static function showBagType($objItem) {
+
+		// 获取所有相机类型
 
 		$arrRet			= array();
 
@@ -114,6 +148,10 @@ class MyHelp {
 
 		}
 
+		$arrBagVols	= self::getBagVols($objItem);
+
+	#	Debug::pr($arrBagVols);
+
 		foreach (MatcherConstant::getVolumes() as $key_1 => $val_1) {
 
 			$arrRet[]	= sprintf(''
@@ -125,44 +163,52 @@ class MyHelp {
 						$key_1, $key_1, $key_1, $val_1
 					);
 
-		}
-
-		$arrRet[]	= '<br />';
-
-		foreach (MatcherConstant::getVolumeType() as $key_1 => $val_1) {
 
 
-			if ($key_1 == MatcherConstant::BAG_VOL_ACCESSORY) {
-				// 附件是 checkbox
-
-				// $val_1 是字段名
-				$checked	= isset($objItem->$key_1) && '1' == $objItem->$key_1;
-
-				$arrRet[]	= sprintf('<label for="id_vol_%s">%s</label>'
-						. '<input type="checkbox" name="%s" value="1" id="id_vol_%s" %s />'
-						. ' &nbsp; &nbsp; ' . "<br />\n",
-						$key_1, $val_1,
-						$key_1, $key_1,
-						($checked ? 'checked="checked"' : '')
 
 
-					);
 
-			} else {
 
-				// $val_1 是字段名
-				$value		= isset($objItem->$key_1) ? $objItem->$key_1 : '';
+			$arrRet[]	= '<br />';
 
-				$arrRet[]	= sprintf('<label for="id_vol_%s">%s</label>'
-						. '<input type="text" name="%s" value="%s" id="id_vol_%s" size="4" />'
-						. '&nbsp; &nbsp;  ' . "\n",
-						$key_1, $val_1,
-						$key_1, $value, $key_1
+			foreach (MatcherConstant::getVolumeType() as $key_2 => $val_2) {
 
-					);
+
+				if ($key_2 == MatcherConstant::BAG_VOL_ACCESSORY) {
+					// 附件是 checkbox
+
+					// $val_2 是字段名
+					$checked	= isset($arrBagVols[$key_1][$key_2]) && '1' == $arrBagVols[$key_1][$key_2];
+
+					$arrRet[]	= sprintf('<label for="id_vol_%s_%s">%s:</label>'
+							. '<input type="checkbox" name="%s[%s]" value="1" id="id_vol_%s_%s" %s />'
+							. ', &nbsp; &nbsp; ' . "<br />\n",
+							$key_2, $key_1, $val_2,
+							$key_2, $key_1, $key_2, $key_1,
+							($checked ? 'checked="checked"' : '')
+
+
+						);
+
+				} else {
+
+					// $val_2 是字段名
+					$value		= isset($arrBagVols[$key_1][$key_2]) ? $arrBagVols[$key_1][$key_2] : '';
+
+					$arrRet[]	= sprintf('<label for="id_vol_%s_%s">%s:</label>'
+							. '<input type="text" name="%s[%s]" value="%s" id="id_vol_%s_%s" size="4" />'
+							. ', &nbsp; &nbsp;  ' . "\n",
+							$key_2, $key_1, $val_2,
+							$key_2, $key_1, $value, $key_2, $key_1
+
+						);
+				}
+
 			}
 
-		}
+			$arrRet[]	= '<hr />';
+
+		} // EndOf foreach (MatcherConstant::getVolumes())
 
 		return	implode('', $arrRet);
 

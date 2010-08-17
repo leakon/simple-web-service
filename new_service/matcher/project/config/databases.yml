@@ -30,7 +30,7 @@ prod:
   Table:
     class:          SofavDB_Symfony
     param:
-      dsn:          Table: mysql://root:123456@localhost:3306/ns_matcher?encoding=utf8&persistent=on
+      dsn:          Table: mysql://root:123456@localhost:3306/ns_matcher?encoding=utf8&persistent=on&debug=on
 
 test:
   Table:
