@@ -181,36 +181,44 @@ li.li3 p		{color:black;}
 	<span id="cont_tag_box"></span>
 
 </li>
+
+<?php
+
+// 仅当设置了有效的 type 后才可以显示价格区间
+
+$arrTypes	= array(
+		'stand'			=> MatcherConstant::BRAND_TYPE_STAND,
+		'bag'			=> MatcherConstant::BRAND_TYPE_BAG,
+		'filter'		=> MatcherConstant::BRAND_TYPE_FILTER,
+		'holder'		=> MatcherConstant::BRAND_TYPE_HOLDER,
+	);
+
+$strType	= $sf_request->getParameter('type', '');
+$intPrice	= $sf_request->getParameter('price_id', 0);
+
+$boolShowPrice		= false;
+$strPriceOptions	= '';
+
+if (isset($arrTypes[$strType])) {
+
+	$intProductId		= $arrTypes[$strType];
+
+	$strPriceOptions	= MyHelp::showProductPrice($intProductId, $intPrice);
+
+	$boolShowPrice		= true;
+
+}
+
+?>
+
+<?php if ($boolShowPrice) : ?>
+
 <li><span>价格区间:</span>
 	<span>
 				<select name="price_id" id="id_price_id">
 				<option value="" id="id_price_all">全部</option>
 				<?php
-
-				// 仅当设置了有效的 type 后才可以显示价格区间
-
-				$arrTypes	= array(
-						'stand'			=> MatcherConstant::BRAND_TYPE_STAND,
-						'bag'			=> MatcherConstant::BRAND_TYPE_BAG,
-						'filter'		=> MatcherConstant::BRAND_TYPE_FILTER,
-						'holder'		=> MatcherConstant::BRAND_TYPE_HOLDER,
-					);
-
-				$strType	= $sf_request->getParameter('type', '');
-				$intPrice	= $sf_request->getParameter('price_id', 0);
-
-				if (isset($arrTypes[$strType])) {
-
-					$intProductId		= $arrTypes[$strType];
-
-					echo	MyHelp::showProductPrice($intProductId, $intPrice);
-
-				}
-
-
-
-
-
+					echo	$strPriceOptions;
 				//	echo	options_for_select($arrOption['price'], $sf_request->getParameter('price_id', 0));
 
 				?>
@@ -218,6 +226,9 @@ li.li3 p		{color:black;}
 	</span>
 
 </li>
+
+<?php endif ?>
+
 </ul>
 
 
