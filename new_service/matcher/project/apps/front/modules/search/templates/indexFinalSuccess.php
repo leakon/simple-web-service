@@ -183,9 +183,36 @@ li.li3 p		{color:black;}
 </li>
 <li><span>价格区间:</span>
 	<span>
-				<select name="price_id">
+				<select name="price_id" id="id_price_id">
+				<option value="" id="id_price_all">全部</option>
 				<?php
-					echo	options_for_select($arrOption['price'], $sf_request->getParameter('price_id', 0));
+
+				// 仅当设置了有效的 type 后才可以显示价格区间
+
+				$arrTypes	= array(
+						'stand'			=> MatcherConstant::BRAND_TYPE_STAND,
+						'bag'			=> MatcherConstant::BRAND_TYPE_BAG,
+						'filter'		=> MatcherConstant::BRAND_TYPE_FILTER,
+						'holder'		=> MatcherConstant::BRAND_TYPE_HOLDER,
+					);
+
+				$strType	= $sf_request->getParameter('type', '');
+				$intPrice	= $sf_request->getParameter('price_id', 0);
+
+				if (isset($arrTypes[$strType])) {
+
+					$intProductId		= $arrTypes[$strType];
+
+					echo	MyHelp::showProductPrice($intProductId, $intPrice);
+
+				}
+
+
+
+
+
+				//	echo	options_for_select($arrOption['price'], $sf_request->getParameter('price_id', 0));
+
 				?>
 				</select>
 	</span>
@@ -350,6 +377,15 @@ cfgOption		= {
 				'key_to':	'lens_model'
 			};
 var objColumn_4_2		= new MatcherSelect(cfgOption);
+
+
+var objPrices	= {};
+
+objPrices.stand		= '<?php echo MyHelp::showProductPrice(MatcherConstant::BRAND_TYPE_STAND); ?>';
+objPrices.bag		= '<?php echo MyHelp::showProductPrice(MatcherConstant::BRAND_TYPE_BAG); ?>';
+objPrices.filter	= '<?php echo MyHelp::showProductPrice(MatcherConstant::BRAND_TYPE_FILTER); ?>';
+objPrices.holder	= '<?php echo MyHelp::showProductPrice(MatcherConstant::BRAND_TYPE_HOLDER); ?>';
+
 
 
 </script>

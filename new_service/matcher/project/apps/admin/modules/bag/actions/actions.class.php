@@ -10,6 +10,7 @@ class bagActions extends BaseBrandActions
 
 		$this->brandName	= '摄影包品牌';
 
+		$this->intProductId	= MatcherConstant::BRAND_TYPE_BAG;
 
 	}
 

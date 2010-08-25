@@ -10,6 +10,8 @@ class holderActions extends BaseBrandActions
 
 		$this->brandName	= '云台品牌';
 
+		$this->intProductId	= MatcherConstant::BRAND_TYPE_HOLDER;
+
 	}
 
 	protected function getFormOption() {

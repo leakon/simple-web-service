@@ -24,6 +24,13 @@
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
+			<select name="product_id">
+			<?php
+				$arrProducts	= MatcherConstant::getProducts();
+				echo	options_for_select($arrProducts, $dataItem->product_id);
+			?>
+			</select>
+
 			<input type="text" id="id_add_input_min" name="min" value="<?php echo $dataItem->min ?>" size="5" />
 
 			至

@@ -10,6 +10,8 @@ class filterActions extends BaseBrandActions
 
 		$this->brandName	= '滤镜品牌';
 
+		$this->intProductId	= MatcherConstant::BRAND_TYPE_FILTER;
+
 	}
 
 	protected function getFormOption() {

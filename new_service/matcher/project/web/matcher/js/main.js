@@ -133,23 +133,31 @@ var MatcherTab		= new Class({
 				objBag.addEvent('click', function() {
 							__THIS__.clearCont(this);
 							__THIS__.setCont_2('bag');
+
+							__THIS__.clearPrice('bag');
 						});
 
 				var objStand	= $('id_tab_stand');
 				objStand.addEvent('click', function() {
 							__THIS__.clearCont(this);
 							__THIS__.setCont_4('stand');
+
+							__THIS__.clearPrice('stand');
 						});
 				var objHolder	= $('id_tab_holder');
 				objHolder.addEvent('click', function() {
 							__THIS__.clearCont(this);
 							__THIS__.setCont_4('holder');
+
+							__THIS__.clearPrice('holder');
 						});
 				var objFilter	= $('id_tab_filter');
 				objFilter.addEvent('click', function() {
 							__THIS__.clearCont(this);
 						//	__THIS__.setCont_2('filter');
 							__THIS__.setCont_2_b('filter');
+
+							__THIS__.clearPrice('filter');
 						});
 
 				var selectType	= 'bag';
@@ -175,6 +183,23 @@ var MatcherTab		= new Class({
 
 			},
 
+	clearPrice:	function(strType) {
+
+				var strHtml	= objPrices[strType];
+
+				var objPriceSel	= $('id_price_id');
+			//	var objPriceAll	= $('id_price_all');
+				if (objPriceSel) {
+
+					objPriceSel.innerHTML	= '<option value="">全部</option>' + strHtml;
+
+				//	objPriceSel.options[objPriceSel.selectedIndex].selected	= false;
+				//	objPriceAll.selected	= true;
+				}
+
+
+	},
+
 	clearCont:	function(objLink) {
 				$('id_product_1').setStyle('display', 'none');
 				$('id_product_2').setStyle('display', 'none');
@@ -190,6 +215,7 @@ var MatcherTab		= new Class({
 				objLink.removeClass('btu_off');
 				objLink.addClass('btu_on');
 
+
 			},
 
 	setCont_2:	function(tt) {
@@ -198,6 +224,7 @@ var MatcherTab		= new Class({
 				this.showLink(tt);
 				this.showTags(tt);
 				this._objForm.type.value	= tt;
+
 			},
 
 	setCont_4:	function(tt) {
@@ -206,6 +233,7 @@ var MatcherTab		= new Class({
 				this.showLink(tt);
 				this.showTags(tt);
 				this._objForm.type.value	= tt;
+
 			},
 
 	setCont_2_b:	function(tt) {
@@ -214,6 +242,7 @@ var MatcherTab		= new Class({
 				this.showLink(tt);
 				this.showTags(tt);
 				this._objForm.type.value	= tt;
+
 			},
 
 	showLink:	function(strType) {

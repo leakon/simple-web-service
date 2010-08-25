@@ -102,7 +102,8 @@
 				<td>
 					<select name="price_id">
 					<?php
-						echo	options_for_select($arrStyles, $dataItem->price_id);
+					//	echo	options_for_select($arrStyles, $dataItem->price_id);
+						echo	MyHelp::showProductPrice($intProductId, $dataItem->price_id);
 					?>
 					</select>
 				</td>
