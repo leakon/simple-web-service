@@ -27,7 +27,14 @@
 			<input type="hidden" name="type" value="<?php echo $type ?>" />
 			<input type="hidden" name="refer" value="<?php echo $sf_request->getUri() ?>" />
 
-			<?php echo $brandName ?>
+			<?php echo $brandName ?>： &nbsp;
+
+			<select name="product_id">
+			<?php
+				$arrProducts	= MatcherConstant::getProducts();
+				echo	options_for_select($arrProducts);
+			?>
+			</select>
 
 			<input type="text" id="id_add_input_min" name="min" value="" size="5" />
 
@@ -47,7 +54,42 @@
 	</div>
 
 
+<script>
+
+function ChangeProduct(objSel) {
+
+	var strUrl	= '<?php echo url_for($strModuleName . '/index?product_id=') ?>';
+
+	var strValue	= objSel.options[objSel.selectedIndex].value;
+
+	var strLoc	= strUrl + strValue;
+
+//	alert(strLoc);
+
+	window.location	= strLoc;
+
+
+}
+
+</script>
+
 	<div class="boxBody">
+
+	<div>
+
+		选择产品分类：
+
+			<select name="select_product" onchange="ChangeProduct(this);">
+			<option value="">全部</option>
+			<?php
+				$arrProducts		= MatcherConstant::getProducts();
+				$arrProducts[0]		= '全部';
+				echo	options_for_select($arrProducts, $product_id);
+			?>
+			</select>
+
+	</div>
+
 
 <?php if (isset($arrResult)) : ?>
 
@@ -56,6 +98,7 @@
 	<thead>
 		<tr>
 			<th class="num"><input type="checkbox" id="id_check_all" value="" />序列</th>
+			<th class="">产品分类</th>
 			<th class="brand"><?php echo $strCName ?></th>
 			<th class="edit">操作</th>
 		</tr>
@@ -77,6 +120,11 @@
 
 ?>
 			</td>
+
+			<td>
+				<?php echo $arrProducts[ $dataItem['product_id'] ] ?>
+			</td>
+
 			<td><?php echo S::E($dataItem['min']) ?> - <?php echo S::E($dataItem['max']) ?></td>
 			<td class="edit tag_edit">
 				<a href="<?php echo url_for($strModuleName . '/edit?id=' . $dataItem['id']) ?>" class="tag_rn_btn">修改</a>

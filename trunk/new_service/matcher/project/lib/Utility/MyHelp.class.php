@@ -280,4 +280,106 @@ class MyHelp {
 
 	}
 
+
+
+	protected static $arrPrices	= array();
+
+	public static function showItemPrice($priceId) {
+
+		if (empty(self::$arrPrices)) {
+
+			self::$arrPrices	= self::getPriceRanges();
+
+		}
+
+		$strRet		= '';
+
+		if (isset(self::$arrPrices[$priceId])) {
+
+			$strRet	= self::$arrPrices[$priceId];
+
+		}
+
+		return	$strRet;
+
+	}
+
+
+	public static function getPriceRanges() {
+
+		$tableDataTag		= new Table_data_model();
+
+		$pager			= new SofavDB_Pager($tableDataTag);
+
+		$where			= array(
+							'type'		=> MatcherConstant::BRAND_TYPE_PRICE,
+						);
+
+		$order			= array('min' => 'DESC');
+
+		$pager->init($page, sfConfig::get('app_page_size', 100), array('where' => $where, 'order' => $order));
+
+		$arrResult	= $pager->getResults();
+
+		$arrOptions	= array();
+
+		foreach ($arrResult as $val) {
+
+			$arrOptions[ $val['id'] ]	= sprintf("%d - %d", $val['min'], $val['max']);
+
+		}
+
+		return	$arrOptions;
+
+	}
+
+
+
+	// 显示某个产品的价格区间
+	public static function showProductPrice($productId = 0, $priceId = 0) {
+
+		$tableDataTag		= new Table_data_model();
+
+		$pager			= new SofavDB_Pager($tableDataTag);
+
+		$where			= array(
+							'type'		=> MatcherConstant::BRAND_TYPE_PRICE,
+						);
+
+		if ($productId > 0) {
+
+			$where['product_id']	= $productId;
+
+		}
+
+		$order			= array('min' => 'DESC');
+
+		$pager->init($page, sfConfig::get('app_page_size', 100), array('where' => $where, 'order' => $order));
+
+		$arrResult	= $pager->getResults();
+
+		$arrOptions	= array();
+
+		foreach ($arrResult as $val) {
+
+			$arrOptions[ $val['id'] ]	= sprintf("%d - %d", $val['min'], $val['max']);
+
+		}
+
+	//	$arrProducts	= MatcherConstant::getProducts();
+
+		$strHtml	= '';
+
+	//	$strHtml	.= '<select name="'.$strName.'">';
+		$strHtml	.= options_for_select($arrOptions, $priceId);
+	//	$strHtml	.= '</select>';
+
+		$strHtml	= str_replace("\r\n", "", $strHtml);
+		$strHtml	= str_replace("\n", "", $strHtml);
+
+		return	$strHtml;
+
+	}
+
+
 }

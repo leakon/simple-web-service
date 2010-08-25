@@ -10,6 +10,8 @@ class standActions extends BaseBrandActions
 
 		$this->brandName	= '脚架品牌';
 
+		$this->intProductId	= MatcherConstant::BRAND_TYPE_STAND;
+
 	}
 
 	protected function getFormOption() {
