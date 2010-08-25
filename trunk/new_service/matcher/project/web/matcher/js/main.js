@@ -183,22 +183,16 @@ var MatcherTab		= new Class({
 
 			},
 
-	clearPrice:	function(strType) {
+        clearPrice:     function(strType) {
 
-				var strHtml	= objPrices[strType];
+                                var strHtml     = objPrices[strType];
 
-				var objPriceSel	= $('id_price_id');
-			//	var objPriceAll	= $('id_price_all');
-				if (objPriceSel) {
+                                var objPriceSel = $('id_price_id');
+                                if (objPriceSel) {
+                                        objPriceSel.set({'html': '<option value="">全部</option>' + strHtml});
+                                }
 
-					objPriceSel.innerHTML	= '<option value="">全部</option>' + strHtml;
-
-				//	objPriceSel.options[objPriceSel.selectedIndex].selected	= false;
-				//	objPriceAll.selected	= true;
-				}
-
-
-	},
+        },
 
 	clearCont:	function(objLink) {
 				$('id_product_1').setStyle('display', 'none');
