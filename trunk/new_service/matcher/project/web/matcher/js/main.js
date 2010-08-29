@@ -620,7 +620,51 @@ var MatcherSelect	= new Class({
 });
 
 
+function BindFormClickSearch() {
 
+	var objFilter	= $('select_filters');
+
+	var objForm	= $('search_form');
+
+	var objPrice	= $('id_price_id');
+
+	if (objFilter && objForm && objPrice) {
+	} else {
+		return;
+	}
+
+
+	var __THIS__	= this;
+
+	objFilter.addEvent('click', function(evt) {
+
+			var objTarget	= evt.srcElement || evt.target;
+
+			if ('INPUT' == objTarget.tagName.toUpperCase()) {
+
+			//	alert(objTarget.value);
+
+				setTimeout(function() {
+
+						objForm.submit();
+
+					}, 100);
+
+			}
+		});
+
+
+	objPrice.addEvent('change', function(evt) {
+
+			setTimeout(function() {
+
+					objForm.submit();
+
+				}, 100);
+
+		});
+
+}
 
 
 

@@ -165,7 +165,7 @@ li.li3 p		{color:black;}
 
 
 <div class="search_y">
-<ul class="select">
+<ul class="select" id="select_filters">
 <li><span>品牌:</span>
 	<span id="cont_product_box"></span>
 
