@@ -12,8 +12,8 @@
 
 
 <script type="text/javascript" src="/matcher/js/mootools-1.2.1-core-nc.js"></script>
-<script type="text/javascript" src="/matcher/js/main.js?20100826"></script>
-<script type="text/javascript" src="/matcher/js/item.js?20100826"></script>
+<script type="text/javascript" src="/matcher/js/main.js?20100829"></script>
+<script type="text/javascript" src="/matcher/js/item.js?20100829"></script>
 <script type="text/javascript" src="/matcher/js/hd_v2.js"></script>
 
 <?php if (0) : ?>
@@ -55,9 +55,15 @@
 
 <?php
 
-	Debug::pr(SofavDB_Debug_PDO::getTimer());
+//	Debug::pr(SofavDB_Debug_PDO::getTimer());
 
 ?>
+
+<script>
+
+BindFormClickSearch();
+
+</script>
 
   </body>
 </html>
