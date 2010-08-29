@@ -79,3 +79,7 @@ body .btu_on A:active  {color:#ffffff}
 .search_y div.bor ul li.li3{float:right;width:470px;height:120px;overflow:hidden;border-right:#CCCCCC 1px solid;padding:0px 0px 0px 10px;}
 .search_y div.bor ul li.li3 img{width:40;height:40px;overflow:hidden}
 .search_y div.bor ul li.li3 a{margin:13px 10px 0px 0px;float:left}
+
+
+#pagerLink		{text-align:center; background-color:white; padding:20px 0; border:0; border-top:1px solid #2C2C2C;}
+#pagerLink span		{color:red; font-weight:bold;}

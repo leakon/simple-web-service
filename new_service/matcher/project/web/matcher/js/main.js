@@ -513,17 +513,18 @@ var MatcherSelect	= new Class({
 							__THIS__._objForm[formField].value	= productId;
 
 						//	alert(productId);
+						//	alert(formField);
+
+							var formModelField	= __THIS__._keyFrom + '_model_id';
+							if (__THIS__._objForm[formModelField]) {
+								__THIS__._objForm[formModelField].value	= '';
+							}
 
 						});
 
 					this._tdFrom.adopt(selectFrom);
 
-
-
 					// highlight
-
-
-
 
 				}
 
@@ -568,7 +569,7 @@ var MatcherSelect	= new Class({
 
 							// IE6, 不能正常选择下级关联菜单，默认选择第一个
 							if (false === subSelectValue) {
-								subSelectValue		= strKey;
+							//	subSelectValue		= strKey;
 							}
 
 							selectTo.adopt(objEl);
@@ -584,6 +585,7 @@ var MatcherSelect	= new Class({
 				if (false !== subSelectValue) {
 					var formField	= __THIS__._keyFrom + '_model_id';
 					__THIS__._objForm[formField].value	= subSelectValue;
+				//	alert(subSelectValue);
 				}
 
 				selectTo.addEvent('change', function() {

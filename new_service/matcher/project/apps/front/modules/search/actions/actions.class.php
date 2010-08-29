@@ -114,19 +114,57 @@ class searchActions extends sfActions {
 		$arrParameters		= $request->getParameterHolder()->getAll();
 
 		// 镜头口径
-		$intCaliber		= $this->getLensCaliber($request);
+		$intCaliber		= (int) $this->getLensCaliber($request);
 
 	#	Debug::pr($intCaliber);
 
-		$templateWhere		= 'FROM %s WHERE type = %d AND caliber = %d';
-		$sqlWhere		= sprintf($templateWhere, $objTable->getTableName(), $intType, $intCaliber);
+		$strWhereCaliber	= '1';
+		if ($intCaliber > 0) {
+			$strWhereCaliber	= '  caliber =  ' . $intCaliber . ' ';
+		}
 
+		$strWhereTag	= $this->getWhereTag($request, 't_tag.');
 
-				// "FROM ... WHERE ..." (without SELECT)
-		$stateCount	= $sqlWhere;
-				// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
-		$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY id DESC';
+		if (strlen($strWhereTag)) {
 
+		//	Debug::pr($strWhereTag);
+
+			$tableTag	= new Table_map_tag();
+
+			$templateWhere	= 'FROM %s AS t_tag LEFT JOIN %s AS t_model '
+					. 'ON t_tag.item_id = t_model.id '
+					. "WHERE %s AND %s AND %s place_holder AND %s AND %s ";
+			$sqlWhere	= sprintf($templateWhere, $tableTag->getTableName(), $objTable->getTableName(),
+						$this->getWhereType($request, 't_model.'),
+						$this->getWherePrice($request, 't_model.'),
+						$strWhereTag,
+						$this->getWhereProduct($request, 't_model.'),
+						$strWhereCaliber
+					);
+
+			$strTypesLike	= str_replace('ext_vol_types', 't_model.ext_vol_type', $strTypesLike);
+			$sqlWhere	= str_replace('place_holder', $strTypesLike, $sqlWhere);
+
+					// "FROM ... WHERE ..." (without SELECT)
+			$stateCount	= $sqlWhere;
+					// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
+			$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY t_model.id DESC';
+
+		} else {
+
+			$templateWhere		= 'FROM %s WHERE %s AND type = %d AND %s ';
+			$sqlWhere		= sprintf($templateWhere, $objTable->getTableName(),
+								$this->getWhereProduct($request, ''),
+								$intType, $strWhereCaliber);
+
+		#	Debug::pr($sqlWhere);
+
+					// "FROM ... WHERE ..." (without SELECT)
+			$stateCount	= $sqlWhere;
+					// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
+			$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY id DESC';
+
+		}
 
 		$pager		= new Simple_Pager();
 		$pager->setCount($stateCount)->setLimit($stateLimit);
@@ -137,7 +175,6 @@ class searchActions extends sfActions {
 		$this->pager		= $pager;
 
 		$this->arrResult	= $this->pager->getResults();
-
 
 	}
 
@@ -164,14 +201,51 @@ class searchActions extends sfActions {
 
 	#	Debug::pr($arrWeight);
 
-		$templateWhere		= 'FROM %s WHERE type = %d AND ( weight > %d OR weight = %d )  ';
-		$sqlWhere		= sprintf($templateWhere, $objTable->getTableName(), $intType, $arrWeight['total'], $arrWeight['total']);
+
+		$strWhereTag	= $this->getWhereTag($request, 't_tag.');
+
+		if (strlen($strWhereTag)) {
+
+		//	Debug::pr($strWhereTag);
+
+			$tableTag	= new Table_map_tag();
+
+			$templateWhere	= 'FROM %s AS t_tag LEFT JOIN %s AS t_model '
+					. 'ON t_tag.item_id = t_model.id '
+					. "WHERE %s AND %s AND %s place_holder AND %s AND ( weight > '%s' OR weight = '%s' )  ";
+			$sqlWhere	= sprintf($templateWhere, $tableTag->getTableName(), $objTable->getTableName(),
+						$this->getWhereType($request, 't_model.'),
+						$this->getWherePrice($request, 't_model.'),
+						$strWhereTag,
+						$this->getWhereProduct($request, 't_model.'),
+						$arrWeight['total'], $arrWeight['total']
+					);
 
 
-				// "FROM ... WHERE ..." (without SELECT)
-		$stateCount	= $sqlWhere;
-				// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
-		$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY id DESC';
+			$strTypesLike	= str_replace('ext_vol_types', 't_model.ext_vol_type', $strTypesLike);
+			$sqlWhere	= str_replace('place_holder', $strTypesLike, $sqlWhere);
+
+
+					// "FROM ... WHERE ..." (without SELECT)
+			$stateCount	= $sqlWhere;
+					// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
+			$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY t_model.id DESC';
+
+		} else {
+
+			$templateWhere		= "FROM %s WHERE %s AND type = %d AND ( weight > '%s' OR weight = '%s' )  ";
+			$sqlWhere		= sprintf($templateWhere, $objTable->getTableName(),
+								$this->getWhereProduct($request, ''),
+								$intType, $arrWeight['total'], $arrWeight['total']);
+
+		#	Debug::pr($sqlWhere);
+
+					// "FROM ... WHERE ..." (without SELECT)
+			$stateCount	= $sqlWhere;
+					// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
+			$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY id DESC';
+
+		}
 
 
 		$pager		= new Simple_Pager();
@@ -262,9 +336,13 @@ class searchActions extends sfActions {
 
 			$templateWhere	= 'FROM %s AS t_tag LEFT JOIN %s AS t_model '
 					. 'ON t_tag.item_id = t_model.id '
-					. 'WHERE %s place_holder AND %s ';
+					. 'WHERE %s AND %s AND %s AND place_holder AND %s ';
 			$sqlWhere	= sprintf($templateWhere, $tableTag->getTableName(), $objTable->getTableName(),
-						$strWhereTag, $this->getWhereProduct($request, 't_model.'));
+						$this->getWhereType($request, 't_model.'),
+						$this->getWherePrice($request, 't_model.'),
+						$strWhereTag,
+						$this->getWhereProduct($request, 't_model.')
+					);
 
 
 			$strTypesLike	= str_replace('ext_vol_types', 't_model.ext_vol_type', $strTypesLike);
@@ -278,8 +356,12 @@ class searchActions extends sfActions {
 
 		} else {
 
-			$templateWhere	= 'FROM %s WHERE place_holder AND %s ';
-			$sqlWhere	= sprintf($templateWhere, $objTable->getTableName(), $this->getWhereProduct($request));
+			$templateWhere	= 'FROM %s WHERE %s AND %s AND place_holder AND %s ';
+			$sqlWhere	= sprintf($templateWhere, $objTable->getTableName(),
+							$this->getWhereType($request),
+							$this->getWherePrice($request),
+							$this->getWhereProduct($request)
+						);
 
 			$sqlWhere	= str_replace('place_holder', $strTypesLike, $sqlWhere);
 
@@ -304,6 +386,49 @@ class searchActions extends sfActions {
 
 		$this->arrResult	= $this->pager->getResults();
 
+
+	}
+
+	protected function getWherePrice($request, $alias = '') {
+
+		$retVar		= '1';
+
+		$intPriceId	= $request->getParameter('price_id', 0);
+
+		if ($intPriceId > 0) {
+
+		//	$retVar	= ' ' . $alias . 'type = ' . intval($arrTypes[$strType])  . ' ';
+
+			$tableModel		= new $this->dataClass($intPriceId);
+
+			if ($tableModel->id > 0) {
+
+				$retVar	= sprintf(" %sprice_id = %d ", $alias, $tableModel->id);
+
+			}
+
+		}
+
+	//	var_dump($retVar);
+
+		return	$retVar;
+
+	}
+
+	protected function getWhereType($request, $alias = '') {
+
+		$retVar		= '1';
+
+		$arrTypes	= MatcherConstant::getSearchTypes();
+		$arrTypes	= array_flip($arrTypes);
+
+		$strType	= $request->getParameter('type', '');
+
+		if (isset($arrTypes[$strType])) {
+			$retVar	= ' ' . $alias . 'type = ' . intval($arrTypes[$strType])  . ' ';
+		}
+
+		return	$retVar;
 
 	}
 
@@ -334,7 +459,7 @@ class searchActions extends sfActions {
 
 		if (count($arrSafeTags)) {
 
-			$strRet		= sprintf(' %stag_id IN (%s) AND ', $alias, implode(',', $arrSafeTags));
+			$strRet		= sprintf(' %stag_id IN (%s) ', $alias, implode(',', $arrSafeTags));
 
 		}
 

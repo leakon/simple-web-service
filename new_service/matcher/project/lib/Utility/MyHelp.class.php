@@ -354,7 +354,7 @@ class MyHelp {
 
 		$order			= array('min' => 'DESC');
 
-		$pager->init($page, sfConfig::get('app_page_size', 100), array('where' => $where, 'order' => $order));
+		$pager->init(1, sfConfig::get('app_page_size', 100), array('where' => $where, 'order' => $order));
 
 		$arrResult	= $pager->getResults();
 

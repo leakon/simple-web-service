@@ -143,6 +143,20 @@ class MatcherConstant {
 
 	}
 
+
+	public static function getSearchTypes() {
+
+		$arr	= array(
+				self::BRAND_TYPE_STAND_MODEL		=> 'stand',
+				self::BRAND_TYPE_BAG_MODEL		=> 'bag',
+				self::BRAND_TYPE_FILTER_MODEL		=> 'filter',
+				self::BRAND_TYPE_HOLDER_MODEL		=> 'holder',
+			);
+
+		return	$arr;
+
+	}
+
 	public static function getAllTypes() {
 
 		$arr	= array(
