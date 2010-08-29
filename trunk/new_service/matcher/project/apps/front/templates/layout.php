@@ -53,7 +53,11 @@
 <a href="http://www.paipaitang.com/" class="abj">拍拍堂商城</a></div>
 
 
+<?php
 
+	Debug::pr(SofavDB_Debug_PDO::getTimer());
+
+?>
 
   </body>
 </html>

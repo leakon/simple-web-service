@@ -205,7 +205,7 @@ cfgOption		= {
 				'data':		arrOption,
 				'form':		objForm
 			};
-var objColumn_2		= new MatcherTab(cfgOption);
+var objColumn_0		= new MatcherTab(cfgOption);
 
 ///////////////////////////////////////////////////////
 

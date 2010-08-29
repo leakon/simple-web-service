@@ -121,6 +121,7 @@
 	<table class="item_list tag_list" cellspacing="1" id="id_tag_list_box">
 	<thead>
 		<tr>
+			<th width="40">序号</th>
 			<th width="100"><input type="checkbox" id="id_check_all" value="" />品牌</th>
 			<th width="">型号</th>
 			<th width="">图片</th>
@@ -140,6 +141,9 @@
 		?>
 		<?php foreach ($arrResult as $dataItem) : ?>
 		<tr>
+
+			<td><?php echo S::E($idx++) ?></td>
+
 			<td>
 <?php
 

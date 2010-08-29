@@ -300,12 +300,11 @@ include_partial('global/pager', array('pager' => $pager, 'pageUri' => url_for($s
 ?>
 
 
-
-
-
-
-
 </div>
+
+
+
+
 </div>
 </div>
 
