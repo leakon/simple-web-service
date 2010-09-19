@@ -1,0 +1,48 @@
+#dev:
+#  propel:
+#    param:
+#      classname:  DebugPDO
+#
+#test:
+#  propel:
+#    param:
+#      classname:  DebugPDO
+#
+#all:
+#  propel:
+#    class:        sfPropelDatabase
+#    param:
+#      classname:  PropelPDO
+#      dsn:        mysql:dbname=cupcake;host=localhost
+#      username:   root
+#      password:   
+#      encoding:   utf8
+#      persistent: true
+#      pooling:    true
+
+<?php
+
+define('PROJ_DB_DSN',	'mysql://root:123456@localhost:3306/ns_cupcake?encoding=utf8&persistent=on');
+
+?>
+
+dev:
+  Table:
+    class:          SofavDB_Symfony
+    param:
+      dsn:          Table: <?php echo PROJ_DB_DSN ?>&debug=on
+
+prod:
+  Table:
+    class:          SofavDB_Symfony
+    param:
+      dsn:          Table: <?php echo PROJ_DB_DSN ?>
+
+test:
+  Table:
+    class:          SofavDB_Symfony
+    param:
+      dsn:          Table: <?php echo PROJ_DB_DSN ?>&debug=on
+
+
+
