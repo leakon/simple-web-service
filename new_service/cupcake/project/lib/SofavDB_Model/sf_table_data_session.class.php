@@ -1,20 +1,21 @@
 <?php
 
 /**
- * SofavDB_Table class: data_cart
+ * SofavDB_Table class: data_session
  * auto generated at 2010-09-19 21:47:59
  */
 
-class Table_data_cart extends SofavDB_Table {
+class Table_data_session extends SofavDB_Table {
 
 	public function initialize() {
 
-		$this->setTableName("data_cart");
+		$this->setTableName("data_session");
 
 			$arrColumns	= array(
-						'cart_id',
 						'user_id',
-						'created_at',
+						'sess_time',
+						'sess_id',
+						'sess_data',
 					);
 
 		$this->hasColumns($arrColumns);

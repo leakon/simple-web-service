@@ -1,18 +1,18 @@
 <?php
 
 /**
- * SofavDB_Table class: data_order_detail
+ * SofavDB_Table class: data_cart_detail
  * auto generated at 2010-09-19 21:47:59
  */
 
-class Table_data_order_detail extends SofavDB_Table {
+class Table_data_cart_detail extends SofavDB_Table {
 
 	public function initialize() {
 
-		$this->setTableName("data_order_detail");
+		$this->setTableName("data_cart_detail");
 
 			$arrColumns	= array(
-						'order_id',
+						'cart_id',
 						'product_id',
 						'quantity',
 						'price',

@@ -2,7 +2,7 @@
 
 /**
  * SofavDB_Table class: data_product
- * auto generated at 2010-09-18 17:16:36
+ * auto generated at 2010-09-19 21:47:59
  */
 
 class Table_data_product extends SofavDB_Table {
