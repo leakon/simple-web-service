@@ -183,10 +183,74 @@ class cartActions extends sfActions
 				);
 		$arrResult	= SofavDB_Record_SE::findAll('Table_data_cart_detail', $criteria->bind($arrParam), false);
 
-		Debug::pr($arrParam);
-		Debug::pr($arrResult);
+	//	Debug::pr($arrParam);
+	//	Debug::pr($arrResult);
 
-		//
+		// 删除所有已存在的 order detail
+
+		$objOrderDetail		= new Table_data_order_detail();
+		$SQL			= sprintf('DELETE FROM %s WHERE order_id = :order_id', $objOrderDetail->getTableName());
+
+		$arrParam	= array(
+					'order_id'	=> $this->strOrderID,
+				);
+
+		SofavDB_SQL::execute($SQL, $arrParam);
+
+		$fltTotal	= 0.00;
+
+		foreach ($arrResult as $key => $val) {
+
+			$objOrderDetail		= new Table_data_order_detail();
+
+			unset($val['id']);
+
+			$val['order_id']	= $this->strOrderID;
+
+			$fltTotal		+= (float) $val['total'];
+
+			$objOrderDetail->fromArray($val);
+
+			$objOrderDetail->save();
+
+		}
+
+		// 添加订单记录
+		// 如果已存在则更新订单
+
+		$objOrder		= new Table_data_order();
+
+		$objOrder->order_id	= $this->strOrderID;
+
+		$objMatchOrder		= SofavDB_Record::match($objOrder);
+
+		if ($objMatchOrder->id) {
+
+			$objMatchOrder->total	= $fltTotal;
+			$objMatchOrder->save();
+
+		} else {
+
+			$objOrder->total	= $fltTotal;
+			$objOrder->save();
+
+		}
+
+		// 关联客户地址信息
+		Table_data_customer::confirmOrder($this->strOrderID);
+
+
+		$strRedirect		= sprintf('cart/finish');
+
+		if ('alipay' == $this->strPayMethod) {
+
+			$strBankID	= $request->getParameter('bank_id', '');
+
+			$strRedirect		= sprintf('payment/createAlipay?orderID=%s&bankID=%s', $this->strOrderID, $strBankID);
+
+		}
+
+		return	$this->redirect($strRedirect);
 
 		return	sfView::NONE;
 
