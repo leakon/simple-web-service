@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 19, 2010 at 11:29 ����
+-- Generation Time: Sep 20, 2010 at 01:37 ����
 -- Server version: 5.1.37
 -- PHP Version: 5.3.0
 
@@ -27,7 +27,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `data_cart` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cart_id` char(12) NOT NULL DEFAULT '',
+  `cart_id` char(16) NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
   PRIMARY KEY (`id`)
@@ -46,19 +46,89 @@ CREATE TABLE IF NOT EXISTS `data_cart` (
 
 CREATE TABLE IF NOT EXISTS `data_cart_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cart_id` char(12) NOT NULL DEFAULT '',
+  `cart_id` char(16) NOT NULL,
   `product_id` int(11) NOT NULL DEFAULT '0',
   `quantity` int(11) NOT NULL DEFAULT '0',
   `price` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '单价',
   `total` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '总价',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uid_pid` (`cart_id`,`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `data_cart_detail`
 --
 
+INSERT INTO `data_cart_detail` (`id`, `cart_id`, `product_id`, `quantity`, `price`, `total`) VALUES
+(1, '20100919000002', 2, 2, '28.00', '56.00'),
+(2, '20100919000002', 3, 12, '36.00', '432.00'),
+(3, '20100919000003', 2, 2, '28.00', '56.00'),
+(4, '20100919000003', 3, 12, '36.00', '432.00'),
+(5, '20100919000004', 1, 0, '20.00', '0.00'),
+(6, '20100919000004', 2, 0, '28.00', '0.00'),
+(7, '20100919000004', 3, 0, '36.00', '0.00'),
+(8, '20100919000004', 4, 0, '44.00', '0.00'),
+(9, '20100919000004', 5, 0, '78.00', '0.00'),
+(10, '20100919000005', 4, 31, '44.00', '1364.00'),
+(11, '20100919000005', 5, 12, '78.00', '936.00'),
+(12, '20100919000006', 4, 31, '44.00', '1364.00'),
+(13, '20100919000006', 5, 12, '78.00', '936.00'),
+(14, '20100919000007', 4, 31, '44.00', '1364.00'),
+(15, '20100919000007', 5, 12, '78.00', '936.00'),
+(16, '20100919000008', 4, 11, '44.00', '484.00'),
+(17, '20100919000008', 5, 13, '78.00', '1014.00'),
+(18, '20100919000009', 4, 2, '44.00', '88.00'),
+(19, '20100919000010', 5, 1, '78.00', '78.00'),
+(20, '20100919000011', 1, 2, '20.00', '40.00'),
+(21, '20100919000011', 3, 3, '36.00', '108.00'),
+(22, '20100919000011', 5, 10, '78.00', '780.00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_customer`
+--
+
+CREATE TABLE IF NOT EXISTS `data_customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` char(255) NOT NULL DEFAULT '',
+  `mobile` char(11) NOT NULL DEFAULT '',
+  `address` char(255) NOT NULL DEFAULT '',
+  `receive_time` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
+  `order_id` char(16) NOT NULL DEFAULT '',
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '标记是否成功关联到订单',
+  PRIMARY KEY (`id`),
+  KEY `mobile` (`mobile`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `data_customer`
+--
+
+INSERT INTO `data_customer` (`id`, `name`, `mobile`, `address`, `receive_time`, `order_id`, `status`) VALUES
+(1, '刘丽慷', '21221323', '让飞微微分', '0000-00-00 00:00:00', '20100919000009', 0),
+(2, '刘丽慷', '2323', '你好', '0000-00-00 00:00:00', '20100919000010', 0),
+(3, 'Leakon', '13810525285', '132213', '0000-00-00 00:00:00', '20100919000011', 1000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_id_generator`
+--
+
+CREATE TABLE IF NOT EXISTS `data_id_generator` (
+  `name` char(64) NOT NULL DEFAULT '',
+  `uniq_id` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `data_id_generator`
+--
+
+INSERT INTO `data_id_generator` (`name`, `uniq_id`) VALUES
+('order_id', 215),
+('cart_id', 11);
 
 -- --------------------------------------------------------
 
@@ -68,19 +138,21 @@ CREATE TABLE IF NOT EXISTS `data_cart_detail` (
 
 CREATE TABLE IF NOT EXISTS `data_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_id` char(12) NOT NULL DEFAULT '',
+  `order_id` char(16) NOT NULL,
   `total` decimal(8,2) NOT NULL DEFAULT '0.00',
   `status` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `order_id` (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `data_order`
 --
 
+INSERT INTO `data_order` (`id`, `order_id`, `total`, `status`, `created_at`, `updated_at`) VALUES
+(1, '20100919000011', '928.00', 0, '2010-09-20 00:29:58', '2010-09-20 00:48:53');
 
 -- --------------------------------------------------------
 
@@ -90,19 +162,23 @@ CREATE TABLE IF NOT EXISTS `data_order` (
 
 CREATE TABLE IF NOT EXISTS `data_order_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_id` char(12) NOT NULL DEFAULT '',
+  `order_id` char(16) NOT NULL,
   `product_id` int(11) NOT NULL DEFAULT '0',
   `quantity` int(11) NOT NULL DEFAULT '0',
   `price` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '单价',
   `total` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '总价',
   PRIMARY KEY (`id`),
   KEY `order_id` (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
 
 --
 -- Dumping data for table `data_order_detail`
 --
 
+INSERT INTO `data_order_detail` (`id`, `order_id`, `product_id`, `quantity`, `price`, `total`) VALUES
+(40, '20100919000011', 1, 2, '20.00', '40.00'),
+(41, '20100919000011', 3, 3, '36.00', '108.00'),
+(42, '20100919000011', 5, 10, '78.00', '780.00');
 
 -- --------------------------------------------------------
 
@@ -147,14 +223,14 @@ CREATE TABLE IF NOT EXISTS `data_session` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `sess_id` (`sess_id`),
   KEY `sess_time` (`sess_time`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `data_session`
 --
 
 INSERT INTO `data_session` (`id`, `user_id`, `sess_time`, `sess_id`, `sess_data`) VALUES
-(1, 0, 1284825944, 'd971v66lr5vrngs18g2o53ega2', 'symfony/user/sfUser/lastRequest|i:1284825943;symfony/user/sfUser/authenticated|b:0;symfony/user/sfUser/credentials|a:0:{}symfony/user/sfUser/attributes|a:0:{}symfony/user/sfUser/culture|s:2:"en";');
+(2, 0, 1284914933, 'dvs49qcivm9qn43t15og5vmgm4', 'symfony/user/sfUser/lastRequest|i:1284914933;symfony/user/sfUser/authenticated|b:0;symfony/user/sfUser/credentials|a:0:{}symfony/user/sfUser/attributes|a:0:{}symfony/user/sfUser/culture|s:2:"en";');
 
 -- --------------------------------------------------------
 
