@@ -1,4 +1,12 @@
-<div class="aboutFolat"><img src="/images/About_02.png" alt="" /></div>
+<?php
+
+/*
+
+ä¸­æ–‡
+
+*/
+
+?><div class="aboutFolat"><img src="/images/About_02.png" alt="" /></div>
 	<div class="aboutContentLeft"><img src="/images/About_01.jpg" alt="" /></div>
 	<div class="aboutContentRight">
 
@@ -11,5 +19,5 @@
 	  <p><strong>E-mail:</strong><br />
 	  info@colibricupcakes.com</p>
 	<p><strong>Opening hours:</strong><br />
-	  10:00 am¡ª10:00 pm</p>
+	  10:00 amâ€”10:00 pm</p>
 	</div>

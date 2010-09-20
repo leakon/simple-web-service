@@ -1,4 +1,12 @@
-<div class="FAQFolat"><img src="/images/FAQ_01.png" alt="" /></div>
+<?php
+
+/*
+
+‰∏≠Êñá
+
+*/
+
+?><div class="FAQFolat"><img src="/images/FAQ_01.png" alt="" /></div>
 
 	<div class="FAQCon">
 	<div class="FAQConScroll" style="height:322px; overflow-y:scroll"><p>
@@ -12,11 +20,11 @@ Q: Hours of operation?<br />
 <strong>A: From 10 AM to 10PM, every Monday to Sunday.</strong></p>
 	<p>
 Q: Do you deliver?<br />
-<strong>A: Yes, we deliver cupcakes 7 days a week using Smart car to your door. °∞Free Delivery°± service is for the area within 5 kilometres around us. 50RMB will be charged for the area between 5 to 8 kilometres. An additional surcharge applies to addresses outside of this; please let us know your special request.</strong></p>
+<strong>A: Yes, we deliver cupcakes 7 days a week using Smart car to your door. ‚ÄúFree Delivery‚Äù service is for the area within 5 kilometres around us. 50RMB will be charged for the area between 5 to 8 kilometres. An additional surcharge applies to addresses outside of this; please let us know your special request.</strong></p>
 	<p>
 Q: How do I make an order?<br />
 <strong>A: We are looking forward you visiting our site at
-Sanlitun Village North. Also please call us at hotline 0101-64170808 or visit our website at www.colibricupcakes.com. We°Øll be happy to assist you.</strong></p>
+Sanlitun Village North. Also please call us at hotline 0101-64170808 or visit our website at www.colibricupcakes.com. We‚Äôll be happy to assist you.</strong></p>
 	<p>
 Q: How far in advance do I need to order?<br />
 <strong>A: We request 24 hours notice for cupcake ordering with 12 pieces at least. If you have any special request, please feel free to contact us at hotline 010- 64170808.</strong></p>
