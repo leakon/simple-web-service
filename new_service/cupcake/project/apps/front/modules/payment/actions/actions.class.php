@@ -30,7 +30,7 @@ class paymentActions extends sfActions
 
 		$arrParameters		= $request->getParameterHolder()->getAll();
 
-		Debug::pr($arrParameters);
+	#	Debug::pr($arrParameters);
 
 		// 获取订单信息
 
@@ -54,26 +54,48 @@ class paymentActions extends sfActions
 
 		// $subject, $body, $show_url, $out_trade_no, $total_fee
 
+		$show_url		= $this->context->getController()->genUrl('cart/view?cart_id=' . $this->strOrderID, true);
+		
 		$arrOrderInfo		= array(
 
 						'out_trade_no'		=> $this->strOrderID,
 						'subject'		=> 'CupCake',
 						'body'			=> 'CupCake Body',
 
-						'show_url'		=> 'cart/view?cart_id=' . $this->strOrderID,
+						'show_url'		=> $show_url,
 						'total_fee'		=> $fltTotalFee,
 
-
 					);
+					
+		// 测试的时候付款金额写 0.01
+		$arrOrderInfo['total_fee']	= 0.01;
 
+		$this->strPayUrl		= Alipay::genPayUrl($arrOrderInfo);
+		
+	#	var_dump($this->strPayUrl);
 
-		$this->strPayUrl	= Alipay::genPayUrl($arrOrderInfo);
-
-		return	sfView::NONE;
+	#	return	sfView::NONE;
 
 	}
 
 
+	// 创建支付宝订单
+	public function executeAlipayReturn($request) {
+		
+		return	$this->redirect('cart/finish');
+		
+	}
 
+
+	// 支付宝通知付款情况订单
+	public function executeAlipayNotify($request) {
+
+		$bool		= Alipay::verifyNotification($_POST);
+		
+		$strReturn	= $bool ? 'success' : 'false';
+
+		return	$this->renderText($strReturn);
+	
+	}
 
 }
