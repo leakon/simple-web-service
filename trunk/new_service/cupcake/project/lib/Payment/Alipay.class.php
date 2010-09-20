@@ -63,7 +63,7 @@ class Alipay {
 			// 查询订单
 			$objOrder		= new Table_data_order();
 	
-			$objOrder->order_id	= $this->strOrderID;
+			$objOrder->order_id	= $strOrderID;
 			$objOrder->pay_method	= Table_data_order::PAY_METHOD_ALIPAY;
 	
 			$objMatchOrder		= SofavDB_Record::match($objOrder);
