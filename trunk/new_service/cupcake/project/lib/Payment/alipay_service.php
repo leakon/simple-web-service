@@ -1,4 +1,5 @@
 <?php
+
 class alipay_service {
 
 	protected $gateway = "https://www.alipay.com/cooperate/gateway.do?";         //支付接口

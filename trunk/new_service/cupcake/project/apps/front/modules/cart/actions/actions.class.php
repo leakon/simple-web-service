@@ -167,13 +167,15 @@ class cartActions extends sfActions
 		}
 
 		$arrValidPayMehtods	= array(
-						'cash'		=> 1,
-						'alipay'	=> 1,
+						'cash'		=> Table_data_order::PAY_METHOD_CASH,
+						'alipay'	=> Table_data_order::PAY_METHOD_ALIPAY,
 					);
 
 		if (empty($this->strPayMethod) || empty($arrValidPayMehtods[ $this->strPayMethod ])) {
 			return	$this->redirect('product/index?msg=payError_EmptyPayMethod');
 		}
+		
+		$intPayMethod		= $arrValidPayMehtods[ $this->strPayMethod ];
 
 		// 复制购物车到订单
 
@@ -226,12 +228,14 @@ class cartActions extends sfActions
 
 		if ($objMatchOrder->id) {
 
-			$objMatchOrder->total	= $fltTotal;
+			$objMatchOrder->total		= $fltTotal;
+			$objMatchOrder->pay_method	= $intPayMethod;
 			$objMatchOrder->save();
 
 		} else {
 
-			$objOrder->total	= $fltTotal;
+			$objOrder->total		= $fltTotal;
+			$objOrder->pay_method		= $intPayMethod;
 			$objOrder->save();
 
 		}
@@ -246,7 +250,7 @@ class cartActions extends sfActions
 
 			$strBankID	= $request->getParameter('bank_id', '');
 
-			$strRedirect		= sprintf('payment/createAlipay?orderID=%s&bankID=%s', $this->strOrderID, $strBankID);
+			$strRedirect		= sprintf('payment/createAlipay?orderID=%s', $this->strOrderID);
 
 		}
 
@@ -256,5 +260,10 @@ class cartActions extends sfActions
 
 	}
 
+	// 订单完成
+	public function executeFinish($request) {
+
+
+	}
 
 }

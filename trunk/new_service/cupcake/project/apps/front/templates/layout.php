@@ -7,11 +7,19 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     
     <link href="/css/mail.css" type="text/css" rel="stylesheet" />
-    
-    
-    
+
   </head>
   <body>
+  	
+<div>
+<a href="<?php echo url_for('product/index') ?>">产品列表</a>
+</div>
+  	
+  	
     <?php echo $sf_content ?>
+    
+    
+    
+    
   </body>
 </html>
