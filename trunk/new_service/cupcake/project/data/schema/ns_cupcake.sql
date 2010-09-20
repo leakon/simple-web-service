@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 20, 2010 at 01:37 ����
+-- Generation Time: Sep 20, 2010 at 01:25 ����
 -- Server version: 5.1.37
 -- PHP Version: 5.3.0
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `data_cart_detail` (
   `total` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '总价',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uid_pid` (`cart_id`,`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `data_cart_detail`
@@ -81,7 +81,14 @@ INSERT INTO `data_cart_detail` (`id`, `cart_id`, `product_id`, `quantity`, `pric
 (19, '20100919000010', 5, 1, '78.00', '78.00'),
 (20, '20100919000011', 1, 2, '20.00', '40.00'),
 (21, '20100919000011', 3, 3, '36.00', '108.00'),
-(22, '20100919000011', 5, 10, '78.00', '780.00');
+(22, '20100919000011', 5, 10, '78.00', '780.00'),
+(23, '20100920000012', 2, 4, '28.00', '112.00'),
+(24, '20100920000012', 3, 2, '36.00', '72.00'),
+(25, '20100920000013', 2, 2, '28.00', '56.00'),
+(26, '20100920000013', 5, 3, '78.00', '234.00'),
+(27, '20100920000014', 4, 1, '44.00', '44.00'),
+(28, '20100920000015', 4, 2, '44.00', '88.00'),
+(29, '20100920000016', 4, 2, '44.00', '88.00');
 
 -- --------------------------------------------------------
 
@@ -99,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `data_customer` (
   `status` int(11) NOT NULL DEFAULT '0' COMMENT '标记是否成功关联到订单',
   PRIMARY KEY (`id`),
   KEY `mobile` (`mobile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `data_customer`
@@ -108,7 +115,12 @@ CREATE TABLE IF NOT EXISTS `data_customer` (
 INSERT INTO `data_customer` (`id`, `name`, `mobile`, `address`, `receive_time`, `order_id`, `status`) VALUES
 (1, '刘丽慷', '21221323', '让飞微微分', '0000-00-00 00:00:00', '20100919000009', 0),
 (2, '刘丽慷', '2323', '你好', '0000-00-00 00:00:00', '20100919000010', 0),
-(3, 'Leakon', '13810525285', '132213', '0000-00-00 00:00:00', '20100919000011', 1000);
+(3, 'Leakon', '13810525285', '132213', '0000-00-00 00:00:00', '20100919000011', 1000),
+(4, 'Leakon2', '1313131', 'haidianqu', '2010-09-24 00:00:00', '20100920000012', 1000),
+(5, 'nihao', '1232312', 'fff', '0000-00-00 00:00:00', '20100920000013', 1000),
+(6, '11', '22', '33', '0000-00-00 00:00:00', '20100920000014', 1000),
+(7, 'ff', 'fee', '232', '0000-00-00 00:00:00', '20100920000015', 1000),
+(8, 'fw2', 'f434', '3444', '0000-00-00 00:00:00', '20100920000016', 1000);
 
 -- --------------------------------------------------------
 
@@ -128,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `data_id_generator` (
 
 INSERT INTO `data_id_generator` (`name`, `uniq_id`) VALUES
 ('order_id', 215),
-('cart_id', 11);
+('cart_id', 16);
 
 -- --------------------------------------------------------
 
@@ -141,18 +153,24 @@ CREATE TABLE IF NOT EXISTS `data_order` (
   `order_id` char(16) NOT NULL,
   `total` decimal(8,2) NOT NULL DEFAULT '0.00',
   `status` int(11) NOT NULL DEFAULT '0',
+  `pay_method` int(11) NOT NULL DEFAULT '0' COMMENT '付款类型：货到付款、支付宝等',
   `created_at` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `order_id` (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `data_order`
 --
 
-INSERT INTO `data_order` (`id`, `order_id`, `total`, `status`, `created_at`, `updated_at`) VALUES
-(1, '20100919000011', '928.00', 0, '2010-09-20 00:29:58', '2010-09-20 00:48:53');
+INSERT INTO `data_order` (`id`, `order_id`, `total`, `status`, `pay_method`, `created_at`, `updated_at`) VALUES
+(1, '20100919000011', '928.00', 0, 0, '2010-09-20 00:29:58', '2010-09-20 00:48:53'),
+(7, '20100920000012', '184.00', 0, 0, '2010-09-20 01:40:17', '2010-09-20 05:58:59'),
+(8, '20100920000013', '290.00', 0, 0, '2010-09-20 12:30:11', '2000-01-01 00:00:00'),
+(9, '20100920000014', '44.00', 0, 0, '2010-09-20 12:33:45', '2000-01-01 00:00:00'),
+(10, '20100920000015', '88.00', 0, 0, '2010-09-20 12:34:19', '2000-01-01 00:00:00'),
+(11, '20100920000016', '88.00', 0, 1000, '2010-09-20 12:42:54', '2010-09-20 12:43:08');
 
 -- --------------------------------------------------------
 
@@ -169,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `data_order_detail` (
   `total` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '总价',
   PRIMARY KEY (`id`),
   KEY `order_id` (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=59 ;
 
 --
 -- Dumping data for table `data_order_detail`
@@ -178,7 +196,14 @@ CREATE TABLE IF NOT EXISTS `data_order_detail` (
 INSERT INTO `data_order_detail` (`id`, `order_id`, `product_id`, `quantity`, `price`, `total`) VALUES
 (40, '20100919000011', 1, 2, '20.00', '40.00'),
 (41, '20100919000011', 3, 3, '36.00', '108.00'),
-(42, '20100919000011', 5, 10, '78.00', '780.00');
+(42, '20100919000011', 5, 10, '78.00', '780.00'),
+(51, '20100920000012', 2, 4, '28.00', '112.00'),
+(52, '20100920000012', 3, 2, '36.00', '72.00'),
+(53, '20100920000013', 2, 2, '28.00', '56.00'),
+(54, '20100920000013', 5, 3, '78.00', '234.00'),
+(55, '20100920000014', 4, 1, '44.00', '44.00'),
+(56, '20100920000015', 4, 2, '44.00', '88.00'),
+(58, '20100920000016', 4, 2, '44.00', '88.00');
 
 -- --------------------------------------------------------
 
@@ -223,14 +248,15 @@ CREATE TABLE IF NOT EXISTS `data_session` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `sess_id` (`sess_id`),
   KEY `sess_time` (`sess_time`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `data_session`
 --
 
 INSERT INTO `data_session` (`id`, `user_id`, `sess_time`, `sess_id`, `sess_data`) VALUES
-(2, 0, 1284914933, 'dvs49qcivm9qn43t15og5vmgm4', 'symfony/user/sfUser/lastRequest|i:1284914933;symfony/user/sfUser/authenticated|b:0;symfony/user/sfUser/credentials|a:0:{}symfony/user/sfUser/attributes|a:0:{}symfony/user/sfUser/culture|s:2:"en";');
+(4, 0, 1284986588, '8k58qnkti1d29fnvqnh50d3tg1', 'symfony/user/sfUser/lastRequest|i:1284986588;symfony/user/sfUser/authenticated|b:0;symfony/user/sfUser/credentials|a:0:{}symfony/user/sfUser/attributes|a:0:{}symfony/user/sfUser/culture|s:2:"en";'),
+(5, 0, 1284989041, 'd971v66lr5vrngs18g2o53ega2', 'symfony/user/sfUser/lastRequest|i:1284989041;symfony/user/sfUser/authenticated|b:0;symfony/user/sfUser/credentials|a:0:{}symfony/user/sfUser/attributes|a:0:{}symfony/user/sfUser/culture|s:2:"en";');
 
 -- --------------------------------------------------------
 
@@ -252,6 +278,39 @@ CREATE TABLE IF NOT EXISTS `data_user` (
 -- Dumping data for table `data_user`
 --
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `debug_log`
+--
+
+CREATE TABLE IF NOT EXISTS `debug_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` char(255) NOT NULL DEFAULT '',
+  `object_id` char(255) NOT NULL DEFAULT '',
+  `content` mediumtext NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `debug_log`
+--
+
+INSERT INTO `debug_log` (`id`, `category`, `object_id`, `content`, `created_at`) VALUES
+(1, 'alipay_notify', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:13:02'),
+(2, 'alipay_notify', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:14:09'),
+(3, 'alipay_notify', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:15:05'),
+(4, 'alipay_notify', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:16:08'),
+(5, 'alipay_notify', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:16:30'),
+(6, 'alipay_notify', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:16:44'),
+(7, 'alipay_notify_failed', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:22:09'),
+(8, 'alipay_notify_failed', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:23:54'),
+(9, 'alipay_notify_failed', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:23:54'),
+(10, 'alipay_notify_failed', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:23:58'),
+(11, 'alipay_notify_failed', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:23:59'),
+(12, 'alipay_notify_failed', '', 'a:3:{s:10:"error_code";i:1000;s:13:"error_message";s:27:"Alipay notify verify failed";s:14:"alipay_request";a:0:{}}', '2010-09-20 13:24:01');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
