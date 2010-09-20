@@ -1,4 +1,12 @@
-<div class="FAQFolat"><img src="/images/Privacy_Policy.png" alt="" /></div>
+<?php
+
+/*
+
+‰∏≠Êñá
+
+*/
+
+?><div class="FAQFolat"><img src="/images/Privacy_Policy.png" alt="" /></div>
 
 	<div class="FAQCon">
 	<div class="FAQConScroll" style="height:322px; overflow-y:scroll">
@@ -39,13 +47,13 @@ We may use the Data you provide for one or more of the following purposes: <br /
 We will not knowingly or intentionally use, share, sell or rent the Data provided to us in ways unrelated to the purposes aforementioned.<br />
 <strong>D. Disclosure and Transfer of Personal Data </strong><br />
 We may disclose and transfer the Data to our subsidiaries, associated companies and/or business associates and other persons who we consider appropriate in connection with the services and products provided or to be provided to you; to facilitate communication of news and information about such services and products; and/or otherwise relating to the purposes mentioned above. Otherwise, we will not disclose or transfer the Data to other parties.
-The Data you provide to us may also be sourced from or transferred to other jurisdictions outside the Hong Kong Special Administrative Region of the People°Øs Republic of China (°∞Hong Kong°±) for the purposes mentioned above. We will try to ensure, as far as possible and practicable, that Data sourced or transferred outside Hong Kong is protected to standards in-line with the requirements of the Personal Data (Privacy) Ordinance (Cap. 486 of the Laws of Hong Kong) (the °∞Ordinance°±), subject to any other requirements and limitations of the particular jurisdiction.<br />
+The Data you provide to us may also be sourced from or transferred to other jurisdictions outside the Hong Kong Special Administrative Region of the People‚Äôs Republic of China (‚ÄúHong Kong‚Äù) for the purposes mentioned above. We will try to ensure, as far as possible and practicable, that Data sourced or transferred outside Hong Kong is protected to standards in-line with the requirements of the Personal Data (Privacy) Ordinance (Cap. 486 of the Laws of Hong Kong) (the ‚ÄúOrdinance‚Äù), subject to any other requirements and limitations of the particular jurisdiction.<br />
 We may disclose the Data when required by law or court order of any jurisdiction, or as requested by any government or law enforcement authorities or administrative organs, or in the good faith that disclosure is otherwise necessary or advisable including and without limitation to protect the rights or properties of SPL and its subsidiaries and associated companies or in circumstances which we consider to be related to any of the purposes for which the Data are collected. This also applies when we have reason to believe that disclosing the Data is necessary to identify, contact or bring legal action against someone who may be causing interference with our rights or properties, whether intentionally or otherwise, or when anyone else could be harmed by such activities. <br />
 <strong>E. Data Security</strong><br />
 The Data you provide to us will be kept by us in the appropriate form only for as long as is necessary to fulfill the purposes mentioned above after which it will be destroyed.
 In order to ensure the correct use and to maintain the accuracy of Data collected from you, as well as preventing unauthorised or accidental access, processing, erasure or other use of the Data, we have implemented various physical, electronic and managerial measures to safeguard and secure the Data we collect. <br />
 <strong>F. Use of Cookies </strong><br />
-A cookie is a small text file that our website transfers to your computer°Øs hard disk. The use of cookies means we can better serve you and/or maintain your information across multiple pages within or across one or more sessions. Most web browsers automatically accept cookies, but if you prefer, you can edit your browser options to block them in future.<br />
+A cookie is a small text file that our website transfers to your computer‚Äôs hard disk. The use of cookies means we can better serve you and/or maintain your information across multiple pages within or across one or more sessions. Most web browsers automatically accept cookies, but if you prefer, you can edit your browser options to block them in future.<br />
 Cookies contain information about you and your preferences. For example, if you inquire about rates and availability, the site might create a cookie that contains the details you entered. Or it might only contain a record of which pages within the site you visited, to help the site customise the view for you the next time you visit.<br />
 Only the information that you provide, or the choices you make while visiting a website, can be stored in a cookie. For example, the site cannot determine your email name unless you choose to type it. Allowing a website to create a cookie does not give that or any other site access to the rest of your computer, and only the site that created the cookie can read it.<br />
 <strong>G. Log Files</strong><br />

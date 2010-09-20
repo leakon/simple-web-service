@@ -55,7 +55,7 @@ class paymentActions extends sfActions
 		// $subject, $body, $show_url, $out_trade_no, $total_fee
 
 		$show_url		= $this->context->getController()->genUrl('cart/view?cart_id=' . $this->strOrderID, true);
-		
+
 		$arrOrderInfo		= array(
 
 						'out_trade_no'		=> $this->strOrderID,
@@ -66,12 +66,14 @@ class paymentActions extends sfActions
 						'total_fee'		=> $fltTotalFee,
 
 					);
-					
+
 		// 测试的时候付款金额写 0.01
 		$arrOrderInfo['total_fee']	= 0.01;
 
 		$this->strPayUrl		= Alipay::genPayUrl($arrOrderInfo);
-		
+
+		return	$this->redirect($this->strPayUrl);
+
 	#	var_dump($this->strPayUrl);
 
 	#	return	sfView::NONE;
@@ -81,9 +83,9 @@ class paymentActions extends sfActions
 
 	// 创建支付宝订单
 	public function executeAlipayReturn($request) {
-		
+
 		return	$this->redirect('cart/finish');
-		
+
 	}
 
 
@@ -91,11 +93,11 @@ class paymentActions extends sfActions
 	public function executeAlipayNotify($request) {
 
 		$bool		= Alipay::verifyNotification($_POST);
-		
+
 		$strReturn	= $bool ? 'success' : 'false';
 
 		return	$this->renderText($strReturn);
-	
+
 	}
 
 }

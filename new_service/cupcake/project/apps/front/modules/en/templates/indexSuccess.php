@@ -1,3 +1,12 @@
+<?php
+
+/*
+
+中文
+
+*/
+
+?>
 <div class="aboutFolat"><img src="/images/About_02.png" alt="" /></div>
 	<div class="aboutContentLeft"><img src="/images/Colibri_01.jpg" alt="" width="298" height="298" /></div>
 	<div class="aboutContentRight">

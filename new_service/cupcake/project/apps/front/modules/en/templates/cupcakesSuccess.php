@@ -1,4 +1,12 @@
-	<div class="menuFolat" style="height:50px;"><img src="/images/Menu_top.png" alt="" width="202" height="43" /></div>
+<?php
+
+/*
+
+中文
+
+*/
+
+?>	<div class="menuFolat" style="height:50px;"><img src="/images/Menu_top.png" alt="" width="202" height="43" /></div>
 	<div class="menutContentLeft">
 	<dl>
 	<dt><img src="/images/Menu_.gif" alt="" /></dt>
