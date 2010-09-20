@@ -2,15 +2,15 @@
 /**
  * 样式表
  */
- 
- 
 
 
+
+/*
 body, p, div, td, th, input, select, option, h1, h2, h3, h4, h5, li
 {
 	font-family:"微软雅黑",Verdana;
 	font-size:14px;
-	
+
 }
 
 
@@ -18,15 +18,15 @@ input.product_qty
 {
 	width:32px;
 	text-align:center;
-	
+
 }
 
 table.product_list,
 table.cart_list
 {
-	width:800px;	
-	
-}
+	width:800px;
 
+}
+*/
 
 
