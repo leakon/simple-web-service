@@ -3,13 +3,13 @@ default:
     content-type: text/html
 
   metas:
-    title:        CupCake
+    title:        COLIBRI
     #description:  symfony project
     #keywords:     symfony, project
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    [global.css]
 
   javascripts:    []
 

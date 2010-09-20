@@ -1,0 +1,33 @@
+<div class="FAQFolat"><img src="/images/FAQ_01.png" alt="" /></div>
+
+	<div class="FAQCon">
+	<div class="FAQConScroll" style="height:322px; overflow-y:scroll"><p>
+Q: who is the designer?<br />
+<strong>A: Colibri is designed by Eight Inc. a worldwide famous collaborative design and innovation studio with offices in New York, San Francisco, Honolulu, Tokyo and London. With international design awards and clients that include Apple, Coach and Nokia, Eight Inc. is recognized internationally as an innovator in architecture and design.</strong></p>
+	<p>
+Q: Do you have seating?<br />
+<strong>A: Yes, we have outside deck of smoking area and inside non-smoking area.</strong></p>
+	<p>
+Q: Hours of operation?<br />
+<strong>A: From 10 AM to 10PM, every Monday to Sunday.</strong></p>
+	<p>
+Q: Do you deliver?<br />
+<strong>A: Yes, we deliver cupcakes 7 days a week using Smart car to your door. ¡°Free Delivery¡± service is for the area within 5 kilometres around us. 50RMB will be charged for the area between 5 to 8 kilometres. An additional surcharge applies to addresses outside of this; please let us know your special request.</strong></p>
+	<p>
+Q: How do I make an order?<br />
+<strong>A: We are looking forward you visiting our site at
+Sanlitun Village North. Also please call us at hotline 0101-64170808 or visit our website at www.colibricupcakes.com. We¡¯ll be happy to assist you.</strong></p>
+	<p>
+Q: How far in advance do I need to order?<br />
+<strong>A: We request 24 hours notice for cupcake ordering with 12 pieces at least. If you have any special request, please feel free to contact us at hotline 010- 64170808.</strong></p>
+	<p>
+Q: Do you have another branch?<br />
+<strong>A: We will in the near future, but now we have only one in Beijing Sanlitun Village North.</strong></p>
+	<p>
+Q: Do you make wedding cupcakes or bigger cakes?<br />
+<strong>A: We love to help plan your day and find a way to make your own cupcakes. We have lots of options to chosen from and we love to customize upon your request. Please call us anytime you are available to talk about your idea.</strong></p>
+	<p>
+Q: How long does Colibri cupcake stay fresh?<br />
+<strong>A: Because Colibri Cupcakes are baked with all natural ingredients every morning (Preservative-free, Artificial color-free), the best taste will be enjoyed on the day of purchase. However, if you want to keep cupcakes fresh and longer, keep them in the refrigerator. It helps to wrap the box with cling film to limit air flow which may makes cupcake dried.</strong></p>
+	</div>
+	</div>

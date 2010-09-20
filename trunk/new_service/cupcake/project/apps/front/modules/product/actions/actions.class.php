@@ -19,28 +19,45 @@ class productActions extends sfActions
   {
     $this->forward('default', 'module');
   }
-  
-  
-  
-  
+
+
+
+
 	public function executeIndex($request) {
-		
+
+		$this->setTemplate('ordering');
+
 		$this->pager		= $this->getListPager($request);
-		
+
 		$this->arrResult	= $this->pager->getResults();
-		
+
+		$this->arrResult_Common		= array();
+		$this->arrResult_Special	= array();
+
+		foreach ($this->arrResult as $record) {
+
+			if (100 == $record['category']) {
+				$this->arrResult_Common[]	= $record;
+			}
+
+			if (200 == $record['category']) {
+				$this->arrResult_Special[]	= $record;
+			}
+
+		}
+
 	#	Debug::pr($this->arrResult);
-		
+
 	}
-  
-  
-  
+
+
+
 	protected function getListPager($request) {
-		
+
 		$intPage	= (int) $request->getParameter('page', 1);
 		$intSize	= 20;
-		
-		
+
+
 		$objTable	= new Table_data_product();
 
 		$sqlWhere	= sprintf('FROM %s ', $objTable->getTableName());
@@ -48,7 +65,7 @@ class productActions extends sfActions
 				// "FROM ... WHERE ..." (without SELECT)
 		$stateCount	= $sqlWhere;
 				// "SELECT c.*, m.* FROM ... WHERE ... ORDER ..." (without LIMIT)
-		$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY id DESC';
+		$stateLimit	= 'SELECT * ' . $sqlWhere . ' ORDER BY id ASC';
 
 		$pager		= new Simple_Pager();
 		$pager->setCount($stateCount)->setLimit($stateLimit);
@@ -58,11 +75,11 @@ class productActions extends sfActions
 		return	$pager;
 
 	}
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
 }

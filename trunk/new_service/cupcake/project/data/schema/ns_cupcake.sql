@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 20, 2010 at 01:35 œ¬ŒÁ
+-- Generation Time: Sep 21, 2010 at 02:25  èœß
 -- Server version: 5.1.37
 -- PHP Version: 5.3.0
 
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `data_id_generator` (
 
 INSERT INTO `data_id_generator` (`name`, `uniq_id`) VALUES
 ('order_id', 10001),
-('cart_id', 80001);
+('cart_id', 80002);
 
 -- --------------------------------------------------------
 
@@ -156,18 +156,16 @@ CREATE TABLE IF NOT EXISTS `data_order_detail` (
 
 CREATE TABLE IF NOT EXISTS `data_product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` int(11) NOT NULL DEFAULT '0',
   `name` char(255) NOT NULL DEFAULT '',
   `abstract` char(255) NOT NULL DEFAULT '',
   `detail` mediumtext NOT NULL,
+  `special` char(255) NOT NULL DEFAULT '',
   `pic` char(255) NOT NULL DEFAULT '',
   `price` decimal(8,2) NOT NULL DEFAULT '0.00',
   `quantity` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `data_product`
---
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 
 -- --------------------------------------------------------
