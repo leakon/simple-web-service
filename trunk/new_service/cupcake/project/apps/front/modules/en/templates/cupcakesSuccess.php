@@ -27,24 +27,24 @@
 	<img src="/images/Menu_cupcakes_01.jpg" alt="" width="122" height="145" />
     <strong>Almond & Cherry</strong><br />
 almond/cherry/dried berries/<br />
-eggs/dairy product
+eggs/butter and cream
 	</div>
 	<div class="list">
 	<img src="/images/Menu_cupcakes_02.jpg" alt="" />
     <strong>Carrot & Zucchini</strong><br />
-carrot/zucchini/raisins/oats/orange/
-eggs/dairy product/cinnamont
+carrot/zucchini/raisins/oats/<br />orange/
+eggs/butter and cream/cinnamont
 	</div>
 	<div class="list">
 	<img src="/images/Menu_cupcakes_03.jpg" alt="" />
     <strong>Chocolate & Banana</strong><br />
-chocolate/banana/rum/passion fruit/
-eggs/dairy product/cocoa powder
+chocolate/banana/rum/<br />passion fruit/
+eggs/<br />butter and cream/cocoa powder
 	</div>
 	<div class="listx">
 	<img src="/images/Menu_cupcakes_04.jpg" alt="" />
     <strong>Double Chocolate</strong><br />
-chocolate/eggs/dairy product/<br />
+chocolate/eggs/<br />butter and cream/<br />
 cocoa powder
 	</div>
 		<div class="listx">
@@ -52,26 +52,24 @@ cocoa powder
     <strong>Green Tea & Chocolate<br />
 Granache</strong><br />
 green tea/chocolate/almond/
-eggs/dairy product
+eggs/butter and cream
 	</div>
 	<div class="list">
 	<img src="/images/Menu_cupcakes_06.jpg" alt="" />
     <strong>Lemon Curd & Italian <br />
 Meringue</strong><br />
-lemon/eggs/dairy product/
+lemon/eggs/butter and cream/
 gelatine
 	</div>
 	<div class="list">
 	<img src="/images/Menu_cupcakes_07.jpg" alt="" />
     <strong>Orange Poppy seed</strong><br />
-orange/ poppy seed/eggs/
-dairy product
+orange/ poppy seed/eggs/<br />butter and cream
 	</div>
 	<div class="listx">
 	<img src="/images/Menu_cupcakes_08.jpg" alt="" />
     <strong>Mocha</strong><br />
-chocolate/coffee/cocoa
-powder/eggs/dairy product
+chocolate/coffee/<br />cocoa powder/eggs/<br />butter and cream
 	</div>
 	</div>
 	</div>
