@@ -17,7 +17,7 @@ Select your payment method</p></div>
 	<input type="radio" name="pay_method" value="cash" id="pay_cash" />
 
 	<label for="pay_cash">
-	<a href="#" target="_self"><img src="/images/Ordering_step3_01.gif" alt="" width="142" height="42" border="0" align="absmiddle" /></a><br />
+	<a href="javascript:;" target="_self" onclick="return true;"><img src="/images/Ordering_step3_01.gif" alt="" width="142" height="42" border="0" align="absmiddle" /></a><br />
 	</label>
 
     </div>
@@ -28,7 +28,7 @@ Select your payment method</p></div>
 
 	<input type="radio" name="pay_method" value="alipay" id="pay_alipay" />
 	<label for="pay_alipay">
-	<a href="#" target="_self"><img src="/images/Ordering_step3_02.gif" alt="" width="142" height="42" border="0" align="absmiddle" /></a><br />
+	<a href="javascript:;" target="_self" onclick="return true;"><img src="/images/Ordering_step3_02.gif" alt="" width="142" height="42" border="0" align="absmiddle" /></a><br />
 	</label>
 
 
@@ -40,7 +40,7 @@ Select your payment method</p></div>
 
 	<input type="radio" name="pay_method" value="paypal" id="pay_paypal" />
 	<label for="pay_paypal">
-	<a href="#" target="_self"><img src="/images/Ordering_step3_03.gif" alt="" width="142" height="42" border="0" align="absmiddle" /></a><br />
+	<a href="javascript:;" target="_self" onclick="return true;"><img src="/images/Ordering_step3_03.gif" alt="" width="142" height="42" border="0" align="absmiddle" /></a><br />
 	</label>
 
     </div>
@@ -48,7 +48,7 @@ Select your payment method</p></div>
 
 
 	<div class="title">
-        <h2>Total:<span>￥220/RMB</span></h2>
+        <h2>Total:<span>￥<?php echo $intTotal ?>/RMB</span></h2>
         <a href="javascript:;" onclick="SubmitOrderForm('id_main_form');"><img src="/images/Ordering_04.gif" alt="" border="0" align="absmiddle" /></a> <span>When you click next, the payment page will popup</span></div>
 
 
