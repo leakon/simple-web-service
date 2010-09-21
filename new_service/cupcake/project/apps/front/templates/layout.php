@@ -48,7 +48,7 @@ function SubmitOrderForm(strFormID, CheckFormFunc) {
   <div class="logo"><a href="<?php echo url_for('en/index') ?>"><img src="/images/logo.png" alt="" border="0" /></a></div>
 
   <div class="nav"><img src="/images/bot03.gif" alt="" /><img src="/images/bot04.gif" alt="" /><br />
-    COLIBRI<span>/</span><a href="<?php echo url_for('en/menu') ?>">MENU</a><span>/</span><a href="<?php echo url_for('product/index') ?>">ORDERING</a><span>/</span><a href="<?php echo url_for('en/faq') ?>">FAQ</a></div>
+    COLIBRI<span>/</span><a href="<?php echo url_for('en/menu') ?>">MENU</a><span>/</span><a href="<?php echo url_for('product/index') ?>">ORDER</a><span>/</span><a href="<?php echo url_for('en/faq') ?>">FAQ</a></div>
 	</div>
 	<div class="clear"></div>
 

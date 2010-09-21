@@ -15,7 +15,7 @@
 <div id="footer"><span><a href="<?php echo url_for('en/policy') ?>">Privacy Policy</a></span><span><a href="<?php echo url_for('en/findUs') ?>">Find us</a></span><span>&copy;Copyright Colibri.</span> <a href="#" target="_self"><img src="/images/icon01.gif" alt="" border="0" align="absmiddle" /></a><a href="#" target="_self"><img src="/images/icon02.gif" alt="" border="0" align="absmiddle" /></a><a href="#" target="_self"><img src="/images/icon03.gif" alt="" border="0" align="absmiddle" /></a><a href="#" target="_self"><img src="/images/icon04.gif" alt="" border="0" align="absmiddle" /></a></div>
 <div class="inlogo">
 <a href="<?php echo url_for('en/index') ?>" target=""><img src="/images/index_logo.png" alt="" border="0" /></a><br />
-<!--<a href="#" target="_blank"><img src="/images/bot_ch.gif" alt="" border="0" /></a>--><a href="<?php echo url_for('en/index') ?>" target=""><img src="/images/bot_en.gif" alt="" border="0" /></a></div>
+<!--<a href="#" target="_blank"><img src="/images/bot_ch.gif" alt="" border="0" /></a>--><a href="<?php echo url_for('en/index') ?>" target=""><img src="/images/bot_enter.gif" alt="" border="0" /></a></div>
 
 
 </div>

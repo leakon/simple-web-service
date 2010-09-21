@@ -20,14 +20,14 @@
 
 	</div>
 	<div class="menuContentRight">
-	<p><strong>Panni</strong><br />
+	<p><strong>Panini</strong><br />
 	  Tomato chutney, Fresh basil, Cheese <span>￥38/RMB</span><br />
 	Salami, roasted, Red pepper, Radicchio, Cheese <span>￥48/RMB</span><br />
 	Creamy chicken, Sauteed mushroom, Cheese <span>￥48/RMB</span></p>
 
 
 	<p><strong>Sourdough</strong><br />
-	  Bacan, Fried quail egg, radicchio, mayonnaise <span>￥38/RMB</span><br />
+	  Bacon, Fried quail egg, radicchio, mayonnaise <span>￥38/RMB</span><br />
 	  Egg Mayo <span>￥38/RMB</span><br />
 	  Poached salmon, Mint & dill yoghurt dressing,cucumber, salmon roe <span>￥58/RMB</span></p>
 
@@ -40,7 +40,7 @@
 
 	<p><strong>Baguette</strong><br />
 	  Ham, Pickled pineapple, Coriander, Mint leaves,Lime mayonnaise, Buttercup lettuce <span>￥38/RMB</span><br />Roasted beef, Gherkin, Horseradish, Rocket leaves <span>￥48/RMB</span><br />
-	  Smoked chicken, Avocado, Crab meat, Tomatoes,Lime mayonnaise, Romaine lettuce <span>￥48/RMB</span></p>
+	  Smoked chicken, Avocado, Crab meat, Tomatoes, Lime mayonnaise, Romaine lettuce <span>￥48/RMB</span></p>
 
 
 	  <p><strong>Salads</strong><br />

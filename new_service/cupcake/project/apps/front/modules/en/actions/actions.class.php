@@ -46,7 +46,7 @@ class enActions extends sfActions
 	{
 	}
 
-	public function executePanni(sfWebRequest $request)
+	public function executePanini(sfWebRequest $request)
 	{
 	}
 
