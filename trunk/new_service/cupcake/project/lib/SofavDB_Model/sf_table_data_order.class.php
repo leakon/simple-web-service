@@ -32,5 +32,25 @@ class Table_data_order extends SofavDB_Table {
 		$this->hasColumns($arrColumns);
 
 	}
+	
+	public static function getDiscount($intTotal) {
+		
+		if ($intTotal >= 220) {
+			
+			$intDivide	= floor($intTotal / 220);
+			
+			$intTotal	-= $intDivide * 56;
+			
+		} else if ($intTotal >= 138) {
+			
+			$intTotal	-= 23;
+			
+		}
+		
+		return	$intTotal;
+		
+	}
+		
+	
 
 }

@@ -40,11 +40,32 @@ function CalSum() {
 	var intSum	= intTotal * 23;
 	
 	// 计算折扣
+	intSum		= getDiscount(intSum);
+	
 	
 	var strSum	= intSum > 0 ? intSum : '0';
 	
 	jQuery('#id_sum').html(strSum);
 	
+	
+}
+
+// 计算折扣
+function getDiscount(intTotal) {
+	
+	if (intTotal >= 220) {
+		
+		var intDivide	= Math.floor(intTotal / 220);
+		
+		intTotal	-= intDivide * 56;
+		
+	} else if (intTotal >= 138) {
+		
+		intTotal	-= 23;
+		
+	}
+	
+	return	intTotal;
 	
 }
 

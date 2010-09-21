@@ -96,6 +96,8 @@ class cartActions extends sfActions
 	
 		$this->intTotal		= Table_data_cart::calcCartSum($this->strCartID);
 		
+		$this->intTotal		= Table_data_order::getDiscount($this->intTotal);
+		
 	//	var_dump($fltTotal);
 	
 	}
@@ -162,7 +164,7 @@ class cartActions extends sfActions
 
 		$this->intTotal		= Table_data_cart::calcCartSum($this->strOrderID, 'order_id', 'Table_data_order_detail');
 		
-		
+		$this->intTotal		= Table_data_order::getDiscount($this->intTotal);
 		
 	}
 
@@ -231,7 +233,9 @@ class cartActions extends sfActions
 
 		// 添加订单记录
 		// 如果已存在则更新订单
-
+		
+		$fltTotal		= Table_data_order::getDiscount($fltTotal);
+		
 		$objOrder		= new Table_data_order();
 
 		$objOrder->order_id	= $this->strOrderID;
