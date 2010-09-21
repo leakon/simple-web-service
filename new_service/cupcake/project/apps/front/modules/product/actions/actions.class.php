@@ -10,6 +10,13 @@
  */
 class productActions extends sfActions
 {
+	
+	public function preExecute() {
+		
+		$this->strLang		= 'en';
+		
+	}
+	
  /**
   * Executes index action
   *
@@ -21,7 +28,38 @@ class productActions extends sfActions
   }
 
 
+	
+	public function executeIndexCh($request) {
+		
+		$this->setLayout('layout_ch');
+		
+		$this->setTemplate('orderingCh');
+		
+		$this->strLang		= 'ch';
+		
+		$this->pager		= $this->getListPager($request);
 
+		$this->arrResult	= $this->pager->getResults();
+
+		$this->arrResult_Common		= array();
+		$this->arrResult_Special	= array();
+
+		foreach ($this->arrResult as $record) {
+
+			if (100 == $record['category']) {
+				$this->arrResult_Common[]	= $record;
+			}
+
+			if (200 == $record['category']) {
+				$this->arrResult_Special[]	= $record;
+			}
+
+		}
+
+
+	}
+	
+	
 
 	public function executeIndex($request) {
 
@@ -52,6 +90,9 @@ class productActions extends sfActions
 
 
 
+
+
+
 	protected function getListPager($request) {
 
 		$intPage	= (int) $request->getParameter('page', 1);
@@ -60,7 +101,7 @@ class productActions extends sfActions
 
 		$objTable	= new Table_data_product();
 
-		$sqlWhere	= sprintf('FROM %s ', $objTable->getTableName());
+		$sqlWhere	= sprintf("FROM %s WHERE lang = '%s' ", $objTable->getTableName(), $this->strLang);
 
 				// "FROM ... WHERE ..." (without SELECT)
 		$stateCount	= $sqlWhere;

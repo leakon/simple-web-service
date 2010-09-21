@@ -17,7 +17,9 @@ class cartActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forward('default', 'module');
+    
+    return $this->redirect('@homepage');
+    
   }
 
 
@@ -52,6 +54,13 @@ class cartActions extends sfActions
 			$arrResult	= SofavDB_Record_SE::findAll('Table_data_product', $criteria, false);
 
 		}
+		
+		$strProductCH		= '';
+		$strLangCH		= '';
+		if ('ch' == $request->getParameter('lang', '')) {
+			$strProductCH		= 'Ch';
+			$strLangCH		= '&lang=ch';
+		}
 
 		if (count($arrResult)) {
 
@@ -72,11 +81,11 @@ class cartActions extends sfActions
 
 			}
 
-			$strRedirect	= sprintf('cart/fillAddress?cartID=%s', $strCartID);
+			$strRedirect	= sprintf('cart/fillAddress?cartID=%s' . $strLangCH, $strCartID);
 
 		} else {
 
-			$strRedirect	= sprintf('product/index?msg=cartIsEmpty');
+			$strRedirect	= sprintf('product/index'.$strProductCH.'?msg=cartIsEmpty');
 
 		}
 
@@ -91,6 +100,13 @@ class cartActions extends sfActions
 	// Step [2]
 	// 填写送货信息
 	public function executeFillAddress($request) {
+
+		if ('ch' == $request->getParameter('lang', '')) {
+			
+			$this->setLayout('layout_ch');
+			$this->setTemplate('fillAddressCh');
+		}
+
 
 		$this->strCartID	= $request->getParameter('cartID', '');
 	
@@ -118,6 +134,12 @@ class cartActions extends sfActions
 
 */
 
+		$strProductCH		= '';
+		$strLangCH		= '';
+		if ('ch' == $request->getParameter('lang', '')) {
+			$strProductCH		= 'Ch';
+			$strLangCH		= '&lang=ch';
+		}
 
 		$arrParameters		= $request->getParameterHolder()->getAll();
 
@@ -140,11 +162,11 @@ class cartActions extends sfActions
 
 			$strOrderID	= $request->getParameter('order_id', '');
 
-			$strRedirect	= sprintf('cart/selectPayment?orderID=%s', $strOrderID);
+			$strRedirect	= sprintf('cart/selectPayment?orderID=%s' . $strLangCH, $strOrderID);
 
 		} else {
 
-			$strRedirect	= sprintf('product/index?msg=saveAddressFailed');
+			$strRedirect	= sprintf('product/index'.$strProductCH.'?msg=saveAddressFailed');
 
 		}
 
@@ -160,6 +182,12 @@ class cartActions extends sfActions
 	// 选择支付方式
 	public function executeSelectPayment($request) {
 
+		if ('ch' == $request->getParameter('lang', '')) {
+			
+			$this->setLayout('layout_ch');
+			$this->setTemplate('selectPaymentCh');
+		}
+
 		$this->strOrderID	= $request->getParameter('orderID', '');
 
 		$this->intTotal		= Table_data_cart::calcCartSum($this->strOrderID, 'order_id', 'Table_data_order_detail');
@@ -172,21 +200,29 @@ class cartActions extends sfActions
 	// Step [3]
 	public function executePayOrder($request) {
 
+		$strProductCH		= '';
+		$strLangCH		= '';
+		if ('ch' == $request->getParameter('lang', '')) {
+			$strProductCH		= 'Ch';
+			$strLangCH		= '&lang=ch';
+		}
+		
 		$this->strOrderID	= $request->getParameter('order_id', '');
 		$this->strPayMethod	= $request->getParameter('pay_method', '');
 
 
 		if (empty($this->strOrderID)) {
-			return	$this->redirect('product/index?msg=payError_EmptyOrderID');
+			return	$this->redirect('product/index'.$strProductCH.'?msg=payError_EmptyOrderID');
 		}
 
 		$arrValidPayMehtods	= array(
 						'cash'		=> Table_data_order::PAY_METHOD_CASH,
 						'alipay'	=> Table_data_order::PAY_METHOD_ALIPAY,
+						'paypal'	=> Table_data_order::PAY_METHOD_PAYPAL,
 					);
 
 		if (empty($this->strPayMethod) || empty($arrValidPayMehtods[ $this->strPayMethod ])) {
-			return	$this->redirect('product/index?msg=payError_EmptyPayMethod');
+			return	$this->redirect('product/index'.$strProductCH.'?msg=payError_EmptyPayMethod');
 		}
 		
 		$intPayMethod		= $arrValidPayMehtods[ $this->strPayMethod ];
@@ -260,7 +296,7 @@ class cartActions extends sfActions
 		Table_data_customer::confirmOrder($this->strOrderID);
 
 
-		$strRedirect		= sprintf('cart/finish');
+		$strRedirect		= sprintf('cart/finish'.$strProductCH);
 
 		if ('alipay' == $this->strPayMethod) {
 
@@ -278,8 +314,10 @@ class cartActions extends sfActions
 
 	// 订单完成
 	public function executeFinish($request) {
-
-
+	}
+	
+	public function executeFinishCh($request) {
+		$this->setLayout('layout_ch');
 	}
 
 }
