@@ -214,6 +214,29 @@ class Array_Util {
 
 	}
 
+	/**
+	 * 把数字索引的二维数组结果集，转换为以某个字段为索引的数组
+	 *
+	 * @param string	$strKey		字段名
+	 *
+	 * @return array
+	 *
+	 */
+	public static function toKeyIndexed(&$arrResult, $strKey) {
+
+		$arrRet		= array();
+
+		foreach ($arrResult as $val) {
+
+			$key		= $val[$strKey];
+
+			$arrRet[$key]	= $val;
+
+		}
+
+		return	$arrRet;
+
+	}
 
 	/**
 	 * 按集合中数组的字段进行排序
