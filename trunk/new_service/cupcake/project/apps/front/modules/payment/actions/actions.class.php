@@ -68,7 +68,7 @@ class paymentActions extends sfActions
 					);
 
 		// 测试的时候付款金额写 0.01
-		$arrOrderInfo['total_fee']	= 0.01;
+	#	$arrOrderInfo['total_fee']	= 0.01;
 
 		$this->strPayUrl		= Alipay::genPayUrl($arrOrderInfo);
 
