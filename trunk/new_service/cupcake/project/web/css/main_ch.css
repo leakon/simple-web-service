@@ -1,0 +1,277 @@
+﻿/* CSS Document */
+
+body{
+ background:url(/images/bg.jpg) no-repeat top center;
+ font-size:12px;
+ margin:0px;
+ font-family:Verdana, Arial, Helvetica, sans-serif;
+ }
+img{
+ border:0px;
+ }
+form{
+ margin:0px;
+ }
+select,input{
+ font-size:10px;
+ }
+dl,dt,dd,ul,li{
+ margin:0px;
+ padding:0px;
+ }
+h1,h2,h3{
+ margin:0px;
+ padding:0px;
+ }
+a{
+ text-decoration:none;
+ color:#8e0610
+ }
+a:hover{
+ text-decoration:underline;
+ color:#8e0610;
+ }
+#main{
+ width:1003px;
+ margin:auto;
+ color:#221e1f;
+ height:680px;
+ }
+.logo{
+padding-top:30px;
+height:74px;
+float:left;
+width:423px;
+ }
+.nav{
+padding-top:30px;
+height:74px;
+float:left;
+width:580px;
+text-align:right;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#8e0610;
+ }
+.nav a,.nav span{
+ color:#251d1e;
+ }
+.nav span {
+ padding-left:7px;
+ padding-right:7px;
+
+}
+.nav img{
+ margin-left:10px;
+ margin-bottom:20px;
+ }
+.aboutFolat{
+ height:74px;
+ padding-left:400px;
+ }
+ 
+.aboutContentLeft{
+ width:390px;
+ margin-right:20px;
+ float:left;
+ display:inline;
+ text-align:right;
+ }
+
+.aboutContentRight{
+ width:508px;
+ float:left;
+ background-color:#FFFFFF;
+ padding:20px;
+ line-height:150%;
+ font-size:12px;
+ height:260px;
+ }
+.FAQFolat{
+ height:74px;
+ padding-left:200px;
+ } 
+.FAQCon{
+ margin-left:174px;
+ width:580px;
+ padding:20px 5px 20px 20px;
+ background-color:#FFFFFF;
+ 
+ font-size:11px;
+ } 
+.FAQConScroll {
+ line-height:200%;
+
+ }
+ 
+ 
+ 
+ 
+ 
+.menutContentLeft{
+ width:242px;
+ float:left;
+ }
+.menutContentLeft dt{
+ height:32px;
+
+}
+.menutContentLeft dd img{
+ display:block;
+ }
+.menuContentRight{
+ width:760px;
+ float:left;
+ line-height:150%;
+ font-size:12px;
+ line-height:150%;
+ padding-top:20px;
+ }
+.menuContentRight p{
+ margin-bottom:20px;
+  line-height:150%;
+ }
+.menuContentRight p span{
+ color:#990000;
+ font-weight:bold;
+ }
+.menuContentRight p.title{
+ font-size:13px;
+ }
+.menuFolat{
+ height:74px;
+ padding-left:242px;
+ }
+.menuContentRight .listContent{
+ width:760px;
+ height:342px;
+ overflow-y:auto;
+ }
+.menuContentRight .listx{
+ width:165px;
+ float:left;
+ padding-right:10px;
+ margin-bottom:25px;
+ font-size:12px;
+ }
+.menuContentRight .list{
+ width:185px;
+ float:left;
+ padding-right:10px;
+ margin-bottom:25px;
+ font-size:12px;
+ }
+.menuContentRight .list img,.menuContentRight .listx img{
+ display:block;
+ border:1px solid #FFFFFF;
+ margin-bottom:8px;
+ }
+ 
+.OrderingFolat{
+ height:74px;
+ } 
+.OrderingContent{
+ padding-left:16px;
+ } 
+.OrderingContent .title{
+ padding-left:10px;
+ padding-bottom:8px;
+ }
+.OrderingContent .title span{
+ color:#990000;
+ font-size:12px;
+ padding-left:15px;
+ }
+.OrderingContent .title span.bg{
+ padding-left:5px;
+ font-size:18px;
+ font-weight:bold;
+ background:url(/images/pbg.gif) repeat-x top ;
+ height:34px;
+ display:block;
+ width:180px;
+ margin-bottom:10px;
+ }
+.OrderingContent .title h2{
+ font-size:14px;
+ color:#000000;
+ margin-bottom:10px;
+ }
+.OrderingContent .title h2 span{
+color:#990000;
+font-size:12px;
+}
+.OrderingContent .title p{
+ padding-left:5px;
+  font-family:10px;
+  padding-top:8px;
+  padding-bottom:10px;
+  margin:0px;
+  padding-top:0px;
+  }
+.OrderingContent .list{
+ width:310px;
+ margin-right:5px;
+ display:inline;
+ float:left;
+ font-size:12px;
+ line-height:150%;
+ }
+.OrderingContent .list h1{
+ font-size:12px;
+ margin:0px;
+ padding-bottom:5px;
+ font-style:italic;
+ color:#84857f;
+ }
+.OrderingContent .list h2{
+ font-size:12px;
+ margin:0px;
+ padding-bottom:5px;
+ }
+.OrderingContent .list h3{
+ font-size:12px;
+ margin:0px;
+ padding-top:5px;
+ color:#990000
+ }
+.OrderingContent .list td{
+ padding-top:5px;
+ padding-bottom:5px;
+ }
+.OrderingContent .list td p{
+ margin:0px;
+ padding:0px;
+ }
+.bank{
+ margin-bottom:20px;
+ }
+.bank img,.pice img{
+ margin-right:4px;
+ margin-bottom:6px;
+ }
+.pice{
+ margin-bottom:10px;
+ }
+.clear{
+overflow:hidden;
+clear:both;
+height:1px;
+} 
+#footer{
+ text-align:right;
+ 
+ font-size:12px;
+ padding-right:20px;
+ position:absolute;
+ top:653px;
+ width:980px;
+}
+#footer span{
+ padding-right:15px;
+ }
+#footer img{
+ margin-right:3px;
+ }
+#footer a{
+ color:#221e1f;
+ }
