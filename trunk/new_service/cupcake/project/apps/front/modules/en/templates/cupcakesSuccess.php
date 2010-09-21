@@ -11,7 +11,7 @@
 	<dl>
 	<dt><img src="/images/Menu_.gif" alt="" /></dt>
 	<dd><img src="/images/Menu_01_1.gif" alt="" /></dd>
-	<dd><a href="<?php echo url_for('en/panni') ?>"><img src="/images/Menu_08.gif" alt="" width="146" height="23" border="0" /></a></dd>
+	<dd><a href="<?php echo url_for('en/panini') ?>"><img src="/images/Menu_08.gif" alt="" width="146" height="23" border="0" /></a></dd>
 
 
 	</dl>
