@@ -2,7 +2,7 @@
 
 /**
  * SofavDB_Table class: data_product
- * auto generated at 2010-09-19 21:47:59
+ * auto generated at 2010-09-22 00:10:42
  */
 
 class Table_data_product extends SofavDB_Table {
@@ -12,9 +12,12 @@ class Table_data_product extends SofavDB_Table {
 		$this->setTableName("data_product");
 
 			$arrColumns	= array(
+						'category',
+						'lang',
 						'name',
 						'abstract',
 						'detail',
+						'special',
 						'pic',
 						'price',
 						'quantity',
