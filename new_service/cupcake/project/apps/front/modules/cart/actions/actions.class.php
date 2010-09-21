@@ -93,7 +93,11 @@ class cartActions extends sfActions
 	public function executeFillAddress($request) {
 
 		$this->strCartID	= $request->getParameter('cartID', '');
-
+	
+		$this->intTotal		= Table_data_cart::calcCartSum($this->strCartID);
+		
+	//	var_dump($fltTotal);
+	
 	}
 
 
@@ -152,6 +156,10 @@ class cartActions extends sfActions
 
 		$this->strOrderID	= $request->getParameter('orderID', '');
 
+		$this->intTotal		= Table_data_cart::calcCartSum($this->strOrderID, 'order_id', 'Table_data_order_detail');
+		
+		
+		
 	}
 
 

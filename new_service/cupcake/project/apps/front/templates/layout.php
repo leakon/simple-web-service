@@ -12,13 +12,22 @@
 <script src="/js/PNG.js" language="javascript" type="text/javascript"></script>
 <![ENDif]-->
 
+<?php if (0) : ?>
+<script src="/js/home.ok.js" language="javascript" type="text/javascript"></script>
+<?php endif ?>
+
+
 <script>
 
-function SubmitOrderForm(strFormID) {
+function SubmitOrderForm(strFormID, CheckFormFunc) {
 
 	var objForm	= document.getElementById(strFormID);
 
 	if (objForm) {
+		
+		if ('undefined' != typeof CheckFormFunc && true != CheckFormFunc(objForm)) {
+			return;
+		}
 
 		objForm.submit();
 
