@@ -19,7 +19,7 @@
 
 	</div>
 	<div class="menuContentRight">
-	<p class="title">We deliver cupcakes with 24 hours notice in advance.<br />
+	<p class="title">Please allow us 24 hours notice for your cupcake delivery.<br />
 	<span>1/2 dozen      ￥115</span><br />
 <span>1 dozen        ￥220</span></p>
 	<div class="listContent">
