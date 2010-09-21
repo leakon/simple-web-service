@@ -125,7 +125,11 @@ class cartActions extends sfActions
 		}
 
 		$objCustomer		= new Table_data_customer();
-
+		
+		$arrParameters['name']		= $arrParameters['customer_name'];
+		$arrParameters['receive_time']	= $arrParameters['receive_day'] . ' ' . $arrParameters['receive_time'];
+		
+		
 		$objCustomer->fromArray($arrParameters);
 
 		$bool			= $objCustomer->save();
