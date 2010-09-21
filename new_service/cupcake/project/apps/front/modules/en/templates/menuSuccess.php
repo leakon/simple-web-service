@@ -20,6 +20,6 @@
 	</div>
 	<div class="menuContentRight">
 	<p class="title"><em>Complementing the colourful spread of cupcakes is a delectable selection of wraps, sandwiches and<br />
-	  coffee-perfect for lunch staples or those feeling peckish, foraging for a mid- day snack.</em></p>
+	  coffee-perfect for lunch staples or those feeling peckish, foraging for a mid-day snack.</em></p>
 	<p><a href="menu_panni.html"><img src="/images/Menu_img01.jpg" alt="" border="0" /></a><a href="menu_panni.html"><img src="/images/Menu_img02.jpg" alt="" border="0" /></a><a href="menu_cupcakes.html"><img src="/images/Menu_img03.jpg" alt="" border="0" /></a></p>
 	</div>
