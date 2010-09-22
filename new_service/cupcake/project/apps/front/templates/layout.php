@@ -101,7 +101,7 @@ function showNav($arrNav, $module, $action) {
   <div id="top">
   <div class="logo"><a href="<?php echo url_for('en/index') ?>"><img src="/images/logo.png" alt="" border="0" /></a></div>
 
-  <div class="nav"><img src="/images/bot03.gif" alt="" /><img src="/images/bot04.gif" alt="" /><br />
+  <div class="nav"><a href="<?php echo url_for('ch/index') ?>"><img src="/images/bot03.gif" alt=""  border="0"  /></a><img src="/images/bot04.gif" alt=""/><br />
     <?php echo showNav($arrNav, $module, $action) ?></div>
 	</div>
 	<div class="clear"></div>

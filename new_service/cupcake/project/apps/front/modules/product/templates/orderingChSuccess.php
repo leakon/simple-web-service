@@ -130,7 +130,7 @@ endforeach;
 
 
 
-      <div class="title"><img src="/images/Ordering_t02.png" alt="" width="931" height="40" /></div>
+      <div class="title"><img src="/images_ch/Ordering_t02.png" alt="" width="931" height="40" /></div>
 
 
 <?php
