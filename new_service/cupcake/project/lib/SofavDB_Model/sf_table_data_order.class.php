@@ -125,18 +125,44 @@ class Table_data_order extends SofavDB_Table {
 		
 	}
 	
-	public static function sendOrderDetailMail($strOrderID) {
-		
-		$arrDetail	= self::getDetail($strOrderID);
+	
+	public static function getOrderHtml($strOrderID) {
 		
 		// 获取邮件正文
-		$strUrl		= sprintf('http://%s/index.php/admin/orderDetailPass/order_id/%s?pass=cupcackes',
-						SYMFONY_SERVER_HOST, $strOrderID);
+		
+		// SYMFONY_SERVER_HOST
+		$strHost	= SYMFONY_SERVER_HOST;
+		
+		if (file_exists('F:/usr/ColibriCupcakes/')) {
+			$strHost	= 'colibricupcakes.baolaa.com';
+		}
+		
+		$strUrl		= sprintf('http://%s/index.php/admin/orderDetailPass/order_id/%s?pass=cupcakes',
+						$strHost, $strOrderID);
 		$strHtml	= file_get_contents($strUrl);
 		
-	#	echo	$strHtml;
+		/*
+		*/
+		return	$strHtml;
 		
-		$res		= MailWork::send('leakon@hotmail.com', 'cake ' . $strOrderID, $strHtml);
+	}
+	
+	public static function sendOrderDetailMail($strOrderID) {
+		
+		$strHtml	= self::getOrderHtml($strOrderID);
+		
+		$address	= array(
+					'leakon@hotmail.com',
+					'info@colibricupcakes.com',
+				);
+		
+		$res		= MailWork::send($address, 'COLIBRI Cup Cakes Order Info - ' . $strOrderID, $strHtml);
+		
+		return;
+		
+		$log		= sprintf("ret[%d]	order_id[%s]	url[%s]	html: %s", 
+					$res, $strOrderID, $strUrl, $strHtml);
+		MyLog::doLog($log);
 	
 	}
 

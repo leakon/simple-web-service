@@ -1,7 +1,7 @@
 
 <h1>Order Info</h1>
 
-<table class="product_list" border="1" style="width:900px;">
+<table class="product_list" border="1" style="xxwidth:900px;">
 
 <tr>
 	<td width="32">订单</td>
@@ -79,7 +79,7 @@ endforeach;
 <h1>Order Detail</h1>
 
 
-<table class="product_list" border="1" style="width:900px;">
+<table class="product_list" border="1" style="xxwidth:900px;">
 
 <tr>
 	<td width="120">图片</td>
