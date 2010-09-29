@@ -8,11 +8,11 @@
 class Table_data_order extends SofavDB_Table {
 	
 	const
-		PAY_METHOD_CASH		= 1000,		// œ÷Ω
-		PAY_METHOD_ALIPAY	= 2000,		// ÷ß∏∂±¶
+		PAY_METHOD_CASH		= 1000,		// Áé∞Èáë
+		PAY_METHOD_ALIPAY	= 2000,		// ÊîØ‰ªòÂÆù
 		PAY_METHOD_PAYPAL	= 3000,		// Paypal
 		
-		STATUS_PAYED_SUCCESS	= 2000,		// ∏∂øÓ≥…π¶
+		STATUS_PAYED_SUCCESS	= 2000,		// ‰ªòÊ¨æÊàêÂäü
 		
 		VERSION			= 0;
 
@@ -56,7 +56,7 @@ class Table_data_order extends SofavDB_Table {
 			
 		$arrReturn		= array();
 		
-		// ªÒ»°∂©µ•–≈œ¢
+		// Ëé∑ÂèñËÆ¢Âçï‰ø°ÊÅØ
 		$objOrder		= new Table_data_order();
 		$objOrder->order_id	= $strOrderID;
 		
@@ -73,8 +73,10 @@ class Table_data_order extends SofavDB_Table {
 						
 						);
 			
-			// ≤È—Ø∂©µ•œÍ«È
-								
+			// Êü•ËØ¢ËÆ¢ÂçïËØ¶ÊÉÖ
+				
+		
+		
 			$criteria	= new SofavDB_Criteria(sprintf('WHERE @where'));
 			$arrParam	= array(
 						'order_id'	=> $strOrderID,
@@ -121,6 +123,21 @@ class Table_data_order extends SofavDB_Table {
 		
 		return	$arrReturn;
 		
+	}
+	
+	public static function sendOrderDetailMail($strOrderID) {
+		
+		$arrDetail	= self::getDetail($strOrderID);
+		
+		// Ëé∑ÂèñÈÇÆ‰ª∂Ê≠£Êñá
+		$strUrl		= sprintf('http://%s/index.php/admin/orderDetailPass/order_id/%s?pass=cupcackes',
+						SYMFONY_SERVER_HOST, $strOrderID);
+		$strHtml	= file_get_contents($strUrl);
+		
+	#	echo	$strHtml;
+		
+		$res		= MailWork::send('leakon@hotmail.com', 'cake ' . $strOrderID, $strHtml);
+	
 	}
 
 }
