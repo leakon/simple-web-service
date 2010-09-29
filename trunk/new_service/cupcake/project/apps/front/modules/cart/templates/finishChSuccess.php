@@ -7,3 +7,20 @@
 
 
 	</div>
+	
+	
+<?php 
+
+if (strlen($strHtml)) {
+	
+	echo	' <div style="height:330px; overflow-y:scroll">';
+
+	echo	$strHtml;
+	
+	echo	'</div>';
+	
+}
+
+?>
+	
+	

@@ -25,11 +25,11 @@ class adminActions extends sfActions
 		
 		$strPass		= $request->getParameter('pass');
 		
-		if ('cupcackes' != $strPass) {
+		if ('cupcakes' != $strPass) {
 			die('None');
 		}
 		
-		$this->setLayout('admin');
+		$this->setLayout('layout_pass');
 		$this->setTemplate('orderDetail');
 		
 		$strOrderID		= $request->getParameter('order_id');

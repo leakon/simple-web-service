@@ -300,7 +300,7 @@ class cartActions extends sfActions
 		Table_data_customer::confirmOrder($this->strOrderID);
 
 
-		$strRedirect		= sprintf('cart/finish'.$strProductCH);
+		$strRedirect		= sprintf('cart/finish'.$strProductCH . '?order_id=' . $this->strOrderID);
 
 		if ('alipay' == $this->strPayMethod) {
 
@@ -316,12 +316,39 @@ class cartActions extends sfActions
 
 	}
 
+	protected function getOrderHtml($request) {
+		
+		$strOrderID		= $request->getParameter('order_id');
+		
+		$this->strHtml		= '';
+		
+		if (strlen($strOrderID) > 0) {
+			
+			$this->arrOrderDetail	= Table_data_order::getDetail($strOrderID);
+			
+		#	print_r($this->arrOrderDetail);
+			
+			if (isset($this->arrOrderDetail['id'])) {
+				
+				$this->strHtml	= Table_data_order::getOrderHtml($strOrderID);
+				
+			}
+			
+		#	var_dump($this->strHtml);
+		}
+		
+	}
+
 	// ¶©µ¥Íê³É
 	public function executeFinish($request) {
+		
+		$this->getOrderHtml($request);
+		
 	}
 	
 	public function executeFinishCh($request) {
 		$this->setLayout('layout_ch');
+		$this->getOrderHtml($request);
 	}
 
 }
