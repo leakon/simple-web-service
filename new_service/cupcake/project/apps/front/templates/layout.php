@@ -29,7 +29,9 @@ function SubmitOrderForm(strFormID, CheckFormFunc) {
 			return;
 		}
 
-		objForm.submit();
+		setTimeout(function() {
+			objForm.submit();
+		}, 10);
 
 	}
 

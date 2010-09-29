@@ -20,7 +20,8 @@
 <script>
 
 function SubmitOrderForm(strFormID, CheckFormFunc) {
-
+	
+	
 	var objForm	= document.getElementById(strFormID);
 
 	if (objForm) {
@@ -28,8 +29,10 @@ function SubmitOrderForm(strFormID, CheckFormFunc) {
 		if ('undefined' != typeof CheckFormFunc && true != CheckFormFunc(objForm)) {
 			return;
 		}
-
-		objForm.submit();
+		
+		setTimeout(function() {
+			objForm.submit();
+		}, 10);
 
 	}
 
