@@ -96,7 +96,7 @@ foreach ($arrOrderDetail['detail'] as $key => $item) :
 ?>
 
 <tr>
-	<td><img src="<?php echo $item['pic'] ?>" /></td>
+	<td><img src="<?php echo 'http://' . SYMFONY_SERVER_HOST . $item['pic'] ?>" /></td>
 	<td><?php echo $item['product_name'] ?></td>
 	<td><?php echo $item['category'] ?></td>
 	<td><?php echo $item['price'] ?></td>

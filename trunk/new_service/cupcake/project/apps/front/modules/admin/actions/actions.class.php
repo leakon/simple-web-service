@@ -19,12 +19,27 @@ class adminActions extends sfActions
   {
 #    $this->forward('default', 'module');
   }
-  
-	public function executeOrderDetail(sfWebRequest $request)  {
+  	
+  	
+	public function executeOrderDetailPass(sfWebRequest $request) {
+		
+		$strPass		= $request->getParameter('pass');
+		
+		if ('cupcackes' != $strPass) {
+			die('None');
+		}
 		
 		$this->setLayout('admin');
+		$this->setTemplate('orderDetail');
 		
 		$strOrderID		= $request->getParameter('order_id');
+		
+		$this->getDetail($strOrderID);
+		
+		
+	}
+	
+	protected function getDetail($strOrderID) {
 		
 		$this->arrOrderDetail	= Table_data_order::getDetail($strOrderID);
 		
@@ -38,18 +53,24 @@ class adminActions extends sfActions
 		$objCustomer->order_id	= $this->arrOrderDetail['order_id'];
 		
 		$arrCustomer		= SofavDB_Record::match($objCustomer, false);
-		
 			
 		$this->arrOrderDetail['customer_name']		= $arrCustomer['name'];
-		$this->arrOrderDetail['customer_mobile']		= $arrCustomer['mobile'];
+		$this->arrOrderDetail['customer_mobile']	= $arrCustomer['mobile'];
 		$this->arrOrderDetail['customer_address']	= $arrCustomer['address'];
 		$this->arrOrderDetail['receive_time']		= $arrCustomer['receive_time'];
 			
+	}
+	
+  	
+	public function executeOrderDetail(sfWebRequest $request) {
 		
-	#	$res		= MailWork::send('leakon@hotmail.com', 'nihao cupcake', 'cupcackesss');
+		$this->setLayout('admin');
+		
+		$strOrderID		= $request->getParameter('order_id');
+		
+		$this->getDetail($strOrderID);
 		
 	#	Debug::pre($this->arrOrderDetail);
-		
 				
 	#	return	sfView::NONE;
 		
@@ -91,6 +112,8 @@ class adminActions extends sfActions
 			$this->arrResult[$key]	= $val;
 			
 		}
+		
+		
 		
 	#	Debug::pr($this->arrResult);
 		

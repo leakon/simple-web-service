@@ -291,6 +291,10 @@ class cartActions extends sfActions
 			$objOrder->save();
 
 		}
+		
+		// 发邮件
+		Table_data_order::sendOrderDetailMail($this->strOrderID);
+		
 
 		// 关联客户地址信息
 		Table_data_customer::confirmOrder($this->strOrderID);
