@@ -52,5 +52,75 @@ class Table_data_order extends SofavDB_Table {
 	}
 		
 	
+	public static function getDetail($strOrderID) {
+			
+		$arrReturn		= array();
+		
+		// 获取订单信息
+		$objOrder		= new Table_data_order();
+		$objOrder->order_id	= $strOrderID;
+		
+		$arrOrder		= SofavDB_Record::match($objOrder, false);
+		
+	#	Debug::pr($arrOrder);
+		
+		if (isset($arrOrder['id'])) {
+			
+			$arrMapCategory		= array(
+							
+							Table_data_product::CATEGORY_NORMAL	=> 'normal',
+							Table_data_product::CATEGORY_SPECIAL	=> 'special',
+						
+						);
+			
+			// 查询订单详情
+								
+			$criteria	= new SofavDB_Criteria(sprintf('WHERE @where'));
+			$arrParam	= array(
+						'order_id'	=> $strOrderID,
+					);
+					
+			$arrResult	= SofavDB_Record_SE::findAll('Table_data_order_detail', $criteria->bind($arrParam), false);
+			
+			$arrProducts	= Table_data_product::getAllProducts();
+			
+			
+			$arrDetail	= array();
+			
+			foreach ($arrResult as $val) {
+				
+				$intProductID	= $val['product_id'];
+				
+				$intCategory	= $arrProducts[$intProductID]['category'];
+				
+				$arrOne		= array(
+				
+							'product_name'		=> $arrProducts[$intProductID]['name'],
+							'category'		=> $arrMapCategory[$intCategory],
+							'pic'			=> $arrProducts[$intProductID]['pic'],
+							'price'			=> $arrProducts[$intProductID]['price'],
+							'quantity'		=> $val['quantity'],
+						
+						);
+						
+				$arrDetail[]	= $arrOne;
+				
+			}
+			
+		#	Debug::pr($arrResult);
+		#	Debug::pr($arrProducts);
+		#	Debug::pr($arrDetail);
+			
+			$arrReturn		= $arrOrder;
+			
+			$arrReturn['detail']	= $arrDetail;
+		
+		}
+		
+	#	Debug::pr($arrReturn);
+		
+		return	$arrReturn;
+		
+	}
 
 }

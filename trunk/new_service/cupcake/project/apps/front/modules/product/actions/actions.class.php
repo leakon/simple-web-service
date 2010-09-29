@@ -46,11 +46,11 @@ class productActions extends sfActions
 
 		foreach ($this->arrResult as $record) {
 
-			if (100 == $record['category']) {
+			if (Table_data_product::CATEGORY_NORMAL == $record['category']) {
 				$this->arrResult_Common[]	= $record;
 			}
 
-			if (200 == $record['category']) {
+			if (Table_data_product::CATEGORY_SPECIAL == $record['category']) {
 				$this->arrResult_Special[]	= $record;
 			}
 
@@ -74,11 +74,11 @@ class productActions extends sfActions
 
 		foreach ($this->arrResult as $record) {
 
-			if (100 == $record['category']) {
+			if (Table_data_product::CATEGORY_NORMAL == $record['category']) {
 				$this->arrResult_Common[]	= $record;
 			}
 
-			if (200 == $record['category']) {
+			if (Table_data_product::CATEGORY_SPECIAL == $record['category']) {
 				$this->arrResult_Special[]	= $record;
 			}
 

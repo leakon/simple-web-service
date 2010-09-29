@@ -20,6 +20,40 @@ class adminActions extends sfActions
 #    $this->forward('default', 'module');
   }
   
+	public function executeOrderDetail(sfWebRequest $request)  {
+		
+		$this->setLayout('admin');
+		
+		$strOrderID		= $request->getParameter('order_id');
+		
+		$this->arrOrderDetail	= Table_data_order::getDetail($strOrderID);
+		
+		if (empty($this->arrOrderDetail['order_id'])) {
+			$this->renderText('Order not found');
+		}
+		
+		
+		// 获取客户信息
+		$objCustomer		= new Table_data_customer();
+		$objCustomer->order_id	= $this->arrOrderDetail['order_id'];
+		
+		$arrCustomer		= SofavDB_Record::match($objCustomer, false);
+		
+			
+		$this->arrOrderDetail['customer_name']		= $arrCustomer['name'];
+		$this->arrOrderDetail['customer_mobile']		= $arrCustomer['mobile'];
+		$this->arrOrderDetail['customer_address']	= $arrCustomer['address'];
+		$this->arrOrderDetail['receive_time']		= $arrCustomer['receive_time'];
+			
+		
+	#	$res		= MailWork::send('leakon@hotmail.com', 'nihao cupcake', 'cupcackesss');
+		
+	#	Debug::pre($this->arrOrderDetail);
+		
+				
+	#	return	sfView::NONE;
+		
+	}
   
 
 	public function executeListOrder(sfWebRequest $request)  {

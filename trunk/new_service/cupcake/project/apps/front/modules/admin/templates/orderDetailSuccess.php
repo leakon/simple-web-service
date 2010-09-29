@@ -1,5 +1,5 @@
 
-
+<h1>Order Info</h1>
 
 <table class="product_list" border="1" style="width:900px;">
 
@@ -33,6 +33,9 @@ $arrStatusMap	= array(
 
 );
 
+$arrResult	= array();
+$arrResult[0]	= $arrOrderDetail;
+
 foreach ($arrResult as $key => $item) :
 	
 	
@@ -40,7 +43,7 @@ foreach ($arrResult as $key => $item) :
 
 
 <tr>
-	<td><a href="<?php echo url_for('admin/orderDetail?order_id=' . $item['order_id']) ?>"><?php echo $item['order_id'] ?></a></td>
+	<td><?php echo $item['order_id'] ?></td>
 	<td><?php echo $item['total'] ?></td>
 	<td>
 		<?php echo $arrMethodMap[  $item['pay_method'] ] ?>
@@ -64,6 +67,54 @@ endforeach;
 ?>
 
 </table>
+
+
+<?php
+
+#	Debug::pr($arrOrderDetail['detail']);
+
+?>
+
+
+<h1>Order Detail</h1>
+
+
+<table class="product_list" border="1" style="width:900px;">
+
+<tr>
+	<td width="120">图片</td>
+	<td width="">产品名称</td>
+	<td width="120">类型</td>
+	<td width="120">单价</td>
+	<td width="120">数量</td>
+</tr>
+
+<?php
+
+foreach ($arrOrderDetail['detail'] as $key => $item) :
+
+?>
+
+<tr>
+	<td><img src="<?php echo $item['pic'] ?>" /></td>
+	<td><?php echo $item['product_name'] ?></td>
+	<td><?php echo $item['category'] ?></td>
+	<td><?php echo $item['price'] ?></td>
+	<td><?php echo $item['quantity'] ?></td>
+</tr>
+
+
+
+
+
+<?php
+
+endforeach;
+
+?>
+
+</table>
+
 
 
 
