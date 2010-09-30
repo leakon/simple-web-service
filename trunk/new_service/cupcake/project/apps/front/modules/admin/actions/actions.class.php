@@ -10,15 +10,6 @@
  */
 class adminActions extends sfActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-#    $this->forward('default', 'module');
-  }
   	
   	
 	public function executeOrderDetailPass(sfWebRequest $request) {
@@ -118,5 +109,82 @@ class adminActions extends sfActions
 	#	Debug::pr($this->arrResult);
 		
 	}
+
+
+
+
+
+
+
+
+
+	public function preExecute() {
+
+		$this->objUser		= $this->getUser();
+		$this->intUserId	= $this->objUser->getId();
+
+	}
+
+	public function executeIndex(sfWebRequest $request) {
+		
+		if ($this->intUserId > 0) {
+			
+			return	$this->redirect('admin/listOrder');
+			
+		}
+		
+		$this->forward('admin', 'signIn');
+		
+		
+	}
+
+	public function executeSignIn(sfWebRequest $request) {
+		$this->setLayout('layout_login');
+		$this->last_url		= sfConfig::get('accounts_login_last_url', '');
+	}
+
+	public function handleErrorAuthorize() {
+		$this->forward('admin', 'signIn');
+	}
+
+	public function executeAuthorize($request) {
+
+		$mail		= $request->getParameter('username', '');
+		$password	= $request->getParameter('password', '');
+
+		try {
+
+
+			$arrRet		= Model_Accounts::signIn($mail, $password, $this->objUser, $request);
+
+			// 登录成功
+			if (Util::isRetOK($arrRet)) {
+			} else {
+				// 登录失败
+				throw new Exception(sprintf("用户名无效或密码错误"), 1030);
+			}
+
+		} catch (Exception $exception) {
+
+			$request->setError($exception->getCode(), $exception->getMessage());
+			$request->setError('has_error', true);
+
+			return	$this->forward('admin', 'signIn');
+		}
+
+		$parameters	= array(
+				#	'msg'		=> 'signInSuccess',
+				#	'last_url'	=> $this->last_url
+				);
+		ActionsUtil::redirect('admin/listOrder', $parameters);
+
+	}
+
+	// 退出登录
+	public function executeSignOut($request) {
+		$this->objUser->setLoggedOut();
+		$this->redirect('admin/index');
+	}
+
 
 }
