@@ -42,7 +42,7 @@ class Alipay {
 							AlipayConf::SECRET_KEY,
 							'MD5',
 							'GBK',
-							'https',
+							'http',		// 万网主机 socket 方式不支持 https
 							$arrRequest
 						);
 		
