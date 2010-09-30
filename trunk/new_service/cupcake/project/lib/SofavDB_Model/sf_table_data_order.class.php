@@ -141,6 +141,10 @@ class Table_data_order extends SofavDB_Table {
 						$strHost, $strOrderID);
 		$strHtml	= file_get_contents($strUrl);
 		
+		$log		= sprintf("ret[%d]	order_id[%s]	url[%s]", 
+					$res, $strOrderID, $strUrl);
+		MyLog::doLog($log);
+		
 		/*
 		*/
 		return	$strHtml;
@@ -157,12 +161,6 @@ class Table_data_order extends SofavDB_Table {
 				);
 		
 		$res		= MailWork::send($address, 'COLIBRI Cup Cakes Order Info - ' . $strOrderID, $strHtml);
-		
-		return;
-		
-		$log		= sprintf("ret[%d]	order_id[%s]	url[%s]	html: %s", 
-					$res, $strOrderID, $strUrl, $strHtml);
-		MyLog::doLog($log);
 	
 	}
 
