@@ -1,6 +1,7 @@
 prod:
   .settings:
-    no_script_name:         on
+#    no_script_name:         on
+    no_script_name:         off
     logging_enabled:        off
 
 dev:
@@ -30,6 +31,11 @@ all:
 
     # Cache settings
     lazy_cache_key:         on        # Delays creation of a cache key until after checking whether an action or partial is cacheable
+
+
+    login_module:           admin   # To be called when a non-authenticated user
+    login_action:           signIn     # Tries to access a secure page
+
 
 #all:
 #  .actions:
