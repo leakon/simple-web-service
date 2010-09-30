@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+body, td, th, p, div, a, li, span, h1, h2, h3, h4, h5, b,
+input, textarea, select, option
+			{font-family:微软雅黑,宋体,Verdana,Arial,Sans-serif;}
+
+
+table	{border-collapse:collapse; border-spacing:0;}
+
+
+table.most		{margin:12px 0;}
+table.most th,
+table.most td		{padding:4px 8px; font-size:12px; text-align:left;}
+
+table.td_120 td		{width:100px;}
+
+
+h1			{margin:0 0 12px 2px; padding:0;}
+
+div.form_error,
+span.error		{color:red; font-weight:bold;}
+
+p.status_ok		{font-weight:bold; color:green;}
+p.status_problem	{font-weight:bold; color:red;}
+
+#id_clear_map_iframe	{float:right; position:relative; top:58px; right:20px; width:640px; height:480px;}
+
+.input_text		{width:160px; padding:4px; height:18px; line-height:18px;}
+.w200			{width:200px;}
+.w100			{width:100px;}
+
+img.verify_pic		{border:1px solid black; vertical-align:middle; *vertical-align:text-bottom;}
+img.favicon		{width:16px; vertical-align:text-bottom; margin:0 4px 0 0;}
+
+a			{text-decoration:none;}
+
+input.btn		{padding:4px; line-height:18px; vertical-align:middle;}
+
+body			{margin:0; padding:0; width:100%; font-size:12px;}
+div#header		{border-bottom:1px solid gray; overflow:auto; zoom:1;}
+
+div#header div a:link,
+div#header div a:visited,
+div#header div a:hover,
+div#header div a:active		{color:white;}
+
+div#header div.links a.current:link,
+div#header div.links a.current:visited,
+div#header div.links a.current:hover,
+div#header div.links a.current:active,
+div#header div.gray a:link,
+div#header div.gray a:visited,
+div#header div.gray a:hover,
+div#header div.gray a:active		{color:#555555;}
+
+div#header div.wide		{width:100%; display:block; clear:both;}
+
+div#header div.navPrimary	{background:#2380C0; height:29px; color:white;}
+div#header div div		{padding:0 8px;}
+div#header div div.account	{float:right;}
+div#header div div.logo		{float:left; width:100px;}
+div#header div div.links	{float:left; xborder:1px solid red;}
+div#header div div.nav a	{display:block; float:left; padding:6px 8px;}
+
+
+div#header div.navSecondary	{background:#DEEEF8; height:29px; color:white;}
+
+
+div#header div.links a.current		{background:#DEEEF8;}
+
+
+/* BeginOf login */
+
+div.contentBox				{margin:28px auto; padding:16px 32px; background:#EDF2F6; width:320px;}
+div.contentBox table.login_form		{}
+div.contentBox table.login_form	th,
+div.contentBox table.login_form	td		{padding:4px 8px; line-height:22px;}
+div.contentBox table.login_form th		{width:40px;}
+
+
+div.contentBox table.login_form input.check_box		{vertical-align:middle ;}
+
+/* EndOf login */
+
+
+
+
+/* BeginOf pager */
+div.pagerLink			{margin:12px auto; width:448px; overflow:auto; text-align:center;}
+div.pagerLink a,
+div.pagerLink span		{border:1px solid #ddd; padding:2px 4px !important;
+				-moz-border-radius:2px; -webkit-border-radius:2px; margin-left:3px;
+				text-decoration:none; display:block; float:left; font-weight:bold;
+				background-color:white; font-size:13px;}
+div.pagerLink span		{color:white;}
+div.pagerLink a:hover		{background-color:#1f75cc; color:white;}
+div.pagerLink a:active		{background-color:#549BE6;}
+div.pagerLink .selected		{background-color:#777; border:1px solid #777;}
+div.pagerLink .selected *	{color:white !important; text-shadow:0 1px 0 #777;}
+
+div.pagerLink			{margin:12px 0;}
+/* EndOf pager */
+
+
+
+div.adminContentBox		{padding:16px;}
+
+
+table.admin_table		{border-collapse:separate; border-spacing:1px; background:#999; margin:0px;
+				border:0;
+				cellpadding:expression(this.cellPadding='1px');
+				cellspacing:expression(this.cellSpacing='1px');
+				}
+
+table.admin_table th,
+table.admin_table td		{background:white; padding:4px 8px; line-height:20px;}
+
+table.admin_table th		{background:#AAA; color:white;}
+table.admin_table td		{}
+
+table.admin_table td p		{padding:0; margin:4px 0;}
+
+
+
+
+

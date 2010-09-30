@@ -10,6 +10,18 @@
 
 </head>
 <body>
+	
+<?php
+$intUserId	= $sf_user->getId();
+
+if ($intUserId > 0) :
+?>
+
+<div>
+	<a href="<?php echo url_for('admin/signOut') ?>">退出</a>
+</div>
+
+<?php endif ?>
 
     <?php echo $sf_content ?>
 

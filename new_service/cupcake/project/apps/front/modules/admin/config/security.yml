@@ -1,0 +1,20 @@
+#index:
+#  is_secure: off
+
+all:
+  is_secure: on
+  
+orderDetailPass:
+  is_secure: off
+
+signIn:
+  is_secure: off
+
+signOut:
+  is_secure: off
+
+authorize:
+  is_secure: off
+
+index:
+  is_secure: off

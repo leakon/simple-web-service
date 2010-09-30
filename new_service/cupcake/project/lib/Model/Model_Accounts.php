@@ -62,25 +62,6 @@ class Model_Accounts {
 
 			self::signInByUserId($intUserId, $objUser, $request);
 
-/*
-			// 设置 Session 和 Cookie
-			$objUser->setLoggedIn($intUserId);
-
-			$objUser->setFlash('signInSuccess', true);
-
-			// 如果设置了 WebRequest对象
-			if ($request) {
-
-				$strRememberMe	= $request->getParameter('remember_me', '0');
-
-				// 记录登录状态
-				if ('1' == $strRememberMe) {
-					$objUser->setRememberMe();
-				}
-
-			}
-*/
-
 
 		}
 
@@ -111,18 +92,6 @@ class Model_Accounts {
 
 			$objUser->setFlash('signInSuccess', true);
 
-			// 如果设置了 WebRequest对象
-			if ($request) {
-
-				$strRememberMe	= $request->getParameter('remember_me', '0');
-
-				// 记录登录状态
-				if ('1' == $strRememberMe) {
-					$objUser->setRememberMe();
-				}
-
-			}
-
 			$bool	= true;
 
 		}
@@ -130,8 +99,6 @@ class Model_Accounts {
 		return	$bool;
 
 	}
-
-
 
 
 
@@ -149,33 +116,32 @@ class Model_Accounts {
 
 		$arrReturn		= Util::getReturn();
 		$arrReturn['user_id']	= 0;
-
+		
 		try {
-
+			
 			$tableUser		= new Table_data_user();
 
 			$tableUser->mail	= $strMail;
 			$tableUser->password	= Table_data_user::makePassword($strRawPassword);
 
 			$objUserRecord		= SofavDB_Record::match($tableUser);
-
+			
+		#	Debug::pr($objUserRecord);
+			
 			if (empty($objUserRecord->id)) {
-				throw new SofavException(self::ERROR_MAIL_PASSWORD_MISMATCH, sprintf("Mail and password is not match"));
+				
+				throw new Exception(sprintf("Mail and password is not match"), 1000);
 			}
 
 			$arrReturn['user_id']	= $objUserRecord->id;
 
-
-			// 密码匹配，检查用户激活状态
-			if (!$objUserRecord->isActivated()) {
-				throw new SofavException(self::ERROR_NOT_ACTIVATED, sprintf("Account is not activated"));
-			}
-
-		} catch (SofavException $exception) {
-
-			$exception->writeToReturn($arrReturn);
-
+		} catch (Exception $exception) {
+			
+			$arrReturn['errno']	= $exception->getCode();
+			
 		}
+		
+	#	Debug::pre($arrReturn);
 
 		return	$arrReturn;
 
@@ -183,191 +149,7 @@ class Model_Accounts {
 
 
 
-	/**
-	 * 激活指定 $strSign 的帐户
-	 *
-	 * @param string	$strSign	用户签名
-	 *
-	 * @return array	$arrReturn	Util::getReturn()
-	 			包含 user_id 字段，默认为 0，激活成功返回用户ID
-	 */
-	public static function activate($strSign) {
 
-		$arrReturn		= Util::getReturn();
-		$arrReturn['user_id']	= 0;
-
-		try {
-
-			$tableUser		= new Table_data_user();
-
-			$tableUser->sign	= $strSign;
-
-			$arrRecords		= SofavDB_Record::matchAll($tableUser);
-
-			$intTotal		= count($arrRecords);
-
-			// 如果匹配的总数不唯一，则抛出异常
-			if (1 !== $intTotal) {
-
-				if (0 == $intTotal) {
-					// 找不到匹配的 sign
-					throw new SofavException(self::ERROR_MAIL_PASSWORD_MISMATCH, sprintf("Could NOT find matching sign"));
-				} else {
-					// 找到多个 sign
-					throw new SofavException(self::ERROR_MAIL_PASSWORD_MISMATCH,
-							sprintf("Found %d matching signs, expected one", $intTotal));
-
-				}
-
-			}
-
-			// 密码匹配，检查用户激活状态
-			if ($arrRecords[0]->isActivated()) {
-				throw new SofavException(self::ERROR_NOT_ACTIVATED, sprintf("Account is already activated"));
-			}
-
-			// 设置用户为已激活
-			if (!$arrRecords[0]->setActivated()) {
-				throw new SofavException(self::ERROR_SET_ACTIVATED_FAILED, sprintf("Failed to set to activated"));
-			}
-
-			// 设置用户ID
-			$arrReturn['user_id']	= $arrRecords[0]->id;
-
-		} catch (SofavException $exception) {
-
-			$exception->writeToReturn($arrReturn);
-
-		}
-
-		return	$arrReturn;
-	}
-
-
-
-	/**
-	 * 封装创建用户的逻辑
-	 *
-	 * <1> User 表创建新记录
-	 * <2> 与邀请码创建人关联
-	 * <3> 发送验证邮件
-	 *
-	 * @param array		$arrInfo	用户信息数组
-	 			必须包含下列元素
-	 						homepage
-	 						username
-	 						mail
-	 						password	(原始密码)
-	 *
-	 * @return array	$arrReturn	Util::getReturn()
-	 */
-	public static function create($arrInfo) {
-
-		$arrReturn		= Util::getReturn();
-
-		try {
-			// <1>
-			$objUser		= new Table_data_user();
-
-			$objUser->homepage	= $arrInfo['homepage'];
-			$objUser->username	= $arrInfo['username'];
-			$objUser->mail		= $arrInfo['mail'];
-
-			$objUser->setPassword($arrInfo['password']);
-		#	$objUser->password	= Table_data_user::setPassword($arrInfo['password']);
-
-			$intUserId		= $objUser->save();
-
-			if (!$intUserId) {
-				throw new SofavException(1000, sprintf("[Model_Accounts::create] Create user record failed"));
-			}
-
-
-			// <2>
-			Model_Invitation::accept($arrInfo['serial'], $intUserId);
-
-
-			// <3>
-			// 加入邮件发送队列
-			TaskActivationMail::add($objUser->toArray());
-
-
-		} catch (SofavException $exception) {
-
-			$exception->writeToReturn($arrReturn);
-			$strLog		= sprintf("Errno[%d]	Error[%s]",
-							$exception->getCode(), $exception->getMessage());
-			MyLog::doLog($strLog, 'message', 'Error');
-
-		#	Debug::pr(SofavDB_Debug_PDO::getTimer());
-		#	Debug::pre($arrReturn);
-
-
-		}
-
-		return	$arrReturn;
-
-	}
-
-
-
-	/**
-	 * 重新发送验证邮件
-	 *
-	 * <1> 验证用户 mail 是否存在
-	 * <2> 并且状态是未激活
-	 * <3> 发送验证邮件
-	 *
-	 * @param string	$strMail	用户邮箱
-	 *
-	 * @return array	$arrReturn	Util::getReturn()
-	 */
-	public static function reSendActivateMail($strMail) {
-
-		$arrReturn		= Util::getReturn();
-
-		try {
-
-			// <1>
-			$tableUser		= new Table_data_user();
-
-			$tableUser->mail	= $strMail;
-
-			$objUserRecord		= SofavDB_Record::match($tableUser);
-
-			if (empty($objUserRecord->id)) {
-				throw new SofavException(self::ERROR_MAIL_NOT_EXIST, sprintf("Mail is not exists"));
-			}
-
-
-			// <2>
-			// 如果帐户已激活，则不必再发邮件
-			if ($objUserRecord->isActivated()) {
-				throw new SofavException(self::ERROR_MAIL_NOT_EXIST, sprintf("Account already activated"));
-			}
-
-
-			// <3>
-			// 加入邮件发送队列
-			TaskActivationMail::add($objUserRecord->toArray());
-
-
-		} catch (SofavException $exception) {
-
-			$exception->writeToReturn($arrReturn);
-			$strLog		= sprintf("Errno[%d]	Error[%s]",
-							$exception->getCode(), $exception->getMessage());
-			MyLog::doLog($strLog, 'message', 'Error');
-
-		#	Debug::pr(SofavDB_Debug_PDO::getTimer());
-		#	Debug::pre($arrReturn);
-
-
-		}
-
-		return	$arrReturn;
-
-	}
 
 
 }
