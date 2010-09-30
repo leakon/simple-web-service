@@ -133,12 +133,14 @@ class Table_data_order extends SofavDB_Table {
 		// SYMFONY_SERVER_HOST
 		$strHost	= SYMFONY_SERVER_HOST;
 		
-		if (file_exists('F:/usr/ColibriCupcakes/')) {
+	//	if (1 || file_exists('F:/usr/ColibriCupcakes/')) {
+		if (false !== strpos(SYMFONY_SERVER_HOST, 'www.colibricupcakes.com')) {
 			$strHost	= 'colibricupcakes.baolaa.com';
 		}
 		
 		$strUrl		= sprintf('http://%s/index.php/admin/orderDetailPass/order_id/%s?pass=cupcakes',
 						$strHost, $strOrderID);
+						
 		$strHtml	= file_get_contents($strUrl);
 		
 		$log		= sprintf("ret[%d]	order_id[%s]	url[%s]", 
