@@ -27,6 +27,9 @@ class adminActions extends sfActions
 		
 		$this->getDetail($strOrderID);
 		
+		// 留空，避免用户支付宝付款后，还提示未付款
+		$this->arrOrderDetail['status']		= 'empty';
+		
 		
 	}
 	

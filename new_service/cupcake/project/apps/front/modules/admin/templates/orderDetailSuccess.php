@@ -28,6 +28,7 @@ $arrMethodMap	= array(
 
 $arrStatusMap	= array(
 
+	'empty'					=> '',		// 
 	0					=> '未付款',		// 
 	Table_data_order::STATUS_PAYED_SUCCESS	=> '已付款',		// 
 
