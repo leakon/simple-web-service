@@ -1,91 +1,7 @@
 
 <script>
 	
-function CalSum() {
-	
-//	alert(jQuery(this).attr('id'));
-	
-	
-	var intTotal	= 0;
-	
-	jQuery('input:checkbox').each(function() {
-				
-				
-			var objTarget	= jQuery(this);
-			
-			var strProdID	= '';
-			var strQtyID	= '';
-			
-			var objQty	= null;
-			
-			if (objTarget.attr('checked') === true) {
-				
-			//	alert(objTarget.attr('id'));
-				
-				strProdID	= objTarget.attr('id');
-				
-				strQtyID	= strProdID.replace('product', 'qty');
-				
-				objQty		= jQuery('#' + strQtyID);
-				
-				if (objQty.length) {
-					
-					intTotal	+= parseInt(objQty.attr('value'));
-				}
-				
-			}
-			
-		});
-	
-	var intSum	= intTotal * 23;
-	
-	// 计算折扣
-	intSum		= getDiscount(intSum);
-	
-	
-	var strSum	= intSum > 0 ? intSum : '0';
-	
-	jQuery('#id_sum').html(strSum);
-	
-	
-}
 
-// 计算折扣
-function getDiscount(intTotal) {
-	
-	if (intTotal >= 220) {
-		
-		var intDivide	= Math.floor(intTotal / 220);
-		
-		intTotal	-= intDivide * 56;
-		
-	} else if (intTotal >= 138) {
-		
-		intTotal	-= 23;
-		
-	}
-	
-	return	intTotal;
-	
-}
-
-jQuery(function() {
-	
-//	CalSum();	
-	
-	jQuery('input:checkbox').each(function() {
-				
-				jQuery(this).bind('click', CalSum);
-		
-		});
-		
-	jQuery('input:text').each(function() {
-		
-				jQuery(this).bind('blur', CalSum);
-		
-		});
-	
-});
 	
 </script>
 
@@ -115,7 +31,7 @@ foreach ($arrResult_Common as $key => $item) :
 		<?php echo $item['detail'] ?>
 
               <h3>￥<?php echo (int) $item['price'] ?>/RMB</h3></td>
-            <td width="28"><input type="text" name="product_qty[<?php echo $item['id'] ?>]" value="1" style="width:16px;" class="product_qty" id="qty_<?php echo $item['id'] ?>" />
+            <td width="28"><input type="text" name="product_qty[<?php echo $item['id'] ?>]" value="0" style="width:16px;" class="product_qty" id="qty_<?php echo $item['id'] ?>" />
             </td>
           </tr>
         </table>
@@ -152,7 +68,7 @@ foreach ($arrResult_Special as $key => $item) :
 
                <h3>￥<?php echo (int) $item['price'] ?>/RMB</h3>
             </td>
-            <td width="28"><input type="text" name="product_qty[<?php echo $item['id'] ?>]" value="1" style="width:16px;" class="product_qty" id="qty_<?php echo $item['id'] ?>" />
+            <td width="28"><input type="text" name="product_qty[<?php echo $item['id'] ?>]" value="0" style="width:16px;" class="product_qty" id="qty_<?php echo $item['id'] ?>" />
             </td>
           </tr>
         </table>
