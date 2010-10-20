@@ -26,14 +26,14 @@
 	<div class="listx">
 	<img src="/images/Menu_cupcakes_01.jpg" alt="" width="122" height="145" />
     <strong>Almond & Cherry</strong><br />
-almond/cherry/dried berries/<br />
+almond/cherry/<br />
 eggs/butter and cream
 	</div>
 	<div class="list">
 	<img src="/images/Menu_cupcakes_02.jpg" alt="" />
     <strong>Carrot & Zucchini</strong><br />
 carrot/zucchini/raisins/oats/<br />orange/
-eggs/butter and cream/cinnamont
+eggs/butter and cream/cinnamon
 	</div>
 	<div class="list">
 	<img src="/images/Menu_cupcakes_03.jpg" alt="" />
@@ -63,7 +63,7 @@ gelatine
 	</div>
 	<div class="list">
 	<img src="/images/Menu_cupcakes_07.jpg" alt="" />
-    <strong>Orange Poppy seed</strong><br />
+    <strong>Orange Poppy Seed</strong><br />
 orange/ poppy seed/eggs/<br />butter and cream
 	</div>
 	<div class="listx">

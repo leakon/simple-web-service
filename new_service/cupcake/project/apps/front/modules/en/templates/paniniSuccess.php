@@ -21,38 +21,38 @@
 	</div>
 	<div class="menuContentRight">
 	<p><strong>Panini</strong><br />
-	  Tomato chutney, Fresh basil, Cheese <span>￥38/RMB</span><br />
-	Salami, roasted, Red pepper, Radicchio, Cheese <span>￥48/RMB</span><br />
-	Creamy chicken, Sauteed mushroom, Cheese <span>￥48/RMB</span></p>
+	  Tomato chutney, Fresh basil, Cheese <span>￥38</span><br />
+	Salami, Roasted red pepper, Radicchio, Cheese <span>￥48</span><br />
+	Creamy chicken, Sauteed mushroom, Cheese <span>￥48</span></p>
 
 
 	<p><strong>Sourdough</strong><br />
-	  Bacon, Fried quail egg, radicchio, mayonnaise <span>￥38/RMB</span><br />
-	  Egg Mayo <span>￥38/RMB</span><br />
-	  Poached salmon, Mint & dill yoghurt dressing,cucumber, salmon roe <span>￥58/RMB</span></p>
+	  Bacon, Fried quail egg, Radicchio, Mayonnaise <span>￥38</span><br />
+	  Egg Mayo <span>￥38</span><br />
+	  Poached salmon, Mint & dill yoghurt dressing, Cucumber, Salmon roe <span>￥58</span></p>
 
 
 	  <p><strong>Wrap</strong><br />
-      Sambal prawn, Rice crispy, Cress, Thai dressing <span>￥48/RMB</span><br />
-      Antipasto <span>￥48/RMB</span><br />
-      Peking duck, Hoi sin sauce, pesto, cucumber,spring onion, prawn cracker, Buttercup lettuce <span>￥48/RMB</span></p>
+      Sambal prawn, Rice crispy, Cress, Thai dressing <span>￥48</span><br />
+      Antipasto <span>￥48</span><br />
+      Peking duck, Hoi sin sauce, Pesto, Cucumber, Spring onion, Prawn cracker, Buttercup lettuce <span>￥48</span></p>
 
 
 	<p><strong>Baguette</strong><br />
-	  Ham, Pickled pineapple, Coriander, Mint leaves,Lime mayonnaise, Buttercup lettuce <span>￥38/RMB</span><br />Roasted beef, Gherkin, Horseradish, Rocket leaves <span>￥48/RMB</span><br />
-	  Smoked chicken, Avocado, Crab meat, Tomatoes, Lime mayonnaise, Romaine lettuce <span>￥48/RMB</span></p>
+	  Ham, Pickled pineapple, Coriander, Mint leaves,Lime mayonnaise, Buttercup lettuce <span>￥38</span><br />Roasted beef, Gherkin, Horseradish, Rocket leaves <span>￥48</span><br />
+	  Smoked chicken, Avocado, Crab meat, Tomatoes, Lime mayonnaise, Romaine lettuce <span>￥48</span></p>
 
 
 	  <p><strong>Salads</strong><br />
-      Tuna Nicoise <span>￥48/RMB</span><br />
-      Couscous salad, Roasted pumpkin <span>￥48/RMB</span><br />
-      Roasted cauliflower, radicchio, Feta, Bacon,Crouton, Quail egg, Red grapes, Red wine dressing <span>￥48/RMB</span></p>
+      Tuna Nicoise <span>￥48</span><br />
+      Couscous salad, Roasted pumpkin <span>￥48</span><br />
+      Roasted cauliflower, Radicchio, Feta, Bacon, Crouton, Quail egg, Red grapes, Red wine dressing <span>￥48</span></p>
 
 
 
 
 	  <p><strong>Soup</strong><br />
-	  Pumpkin Soup <span>￥28/RMB</span><br />
-	  Chicken and Rice Soup <span>￥28/RMB</span></p>
+	  Pumpkin Soup <span>￥28</span><br />
+	  Chicken and Rice Soup <span>￥28</span></p>
 
 	</div>
