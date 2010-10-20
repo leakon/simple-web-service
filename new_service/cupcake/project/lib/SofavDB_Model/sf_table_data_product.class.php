@@ -23,6 +23,7 @@ class Table_data_product extends SofavDB_Table {
 						'abstract',
 						'detail',
 						'special',
+						'spec_days',
 						'pic',
 						'price',
 						'quantity',

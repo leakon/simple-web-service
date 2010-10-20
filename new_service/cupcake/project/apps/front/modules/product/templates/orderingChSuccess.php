@@ -62,7 +62,8 @@ foreach ($arrResult_Special as $key => $item) :
             <td width="57" align="center"><img src="<?php echo $item['pic'] ?>" width="53" height="63" alt="" /></td>
             <td width="197">
 			<h1><?php echo $item['special'] ?></h1>
-			<h2><?php echo $item['name'] ?></h2>
+			<h2 id="prod_name_<?php echo $item['id'] ?>"><?php echo $item['name'] ?></h2>
+			<input type="hidden" name="spec_days[<?php echo $item['id'] ?>]" value="<?php echo $item['spec_days'] ?>" id="id_spec_days_<?php echo $item['id'] ?>" />
 
               <?php echo $item['detail'] ?>
 
@@ -89,7 +90,7 @@ endforeach;
 
       <div class="title" style="padding-top:15px;">
         <h2>总计:<span>￥<span id="id_sum">0</span>/RMB</span></h2>
-        <a href="javascript:;" onclick="SubmitOrderForm('id_order_form');"><img src="/images_ch/Ordering_04.gif" alt="" border="0" /></a> </div>
+        <a href="javascript:;" onclick="SubmitOrderForm('id_order_form', CheckCakesQuantity);"><img src="/images_ch/Ordering_04.gif" alt="" border="0" /></a> </div>
     </div>
 
 
