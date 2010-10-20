@@ -4,6 +4,47 @@
 */
 
 
+window._COLIBRI		= {
+				'has_empty_quantites':		false,
+				'has_invalid_specials':		false,
+				'arr_invalid_specials':		[],
+				'cake_quantity':		0
+			};
+
+function CheckCakesQuantity() {
+	
+	CalSum();
+	
+	var bool	= true;
+	
+	var arrErrors	= [];
+	
+	if (_COLIBRI['cake_quantity'] < 12) {
+		bool	= false;
+		arrErrors.push('The minimum quantity is 12');
+	}
+	
+	if (_COLIBRI['has_empty_quantites']) {
+		bool	= false;
+		arrErrors.push('Please fill the quantity of your choice');
+	}
+	
+	if (_COLIBRI['has_invalid_specials'] && _COLIBRI['arr_invalid_specials'].length) {
+		bool	= false;
+		var strTitles	= _COLIBRI['arr_invalid_specials'].join(', ');
+		arrErrors.push('The specials ('+ strTitles +') is not available today, please contact us directly.');
+	}
+	
+	if (!bool) {
+		
+		alert("Found error: \n  * " + arrErrors.join("\n  * "));
+		
+	}
+	
+	return	bool;
+	
+}
+
 function CalSum() {
 	
 //	alert(jQuery(this).attr('id'));
@@ -14,8 +55,16 @@ function CalSum() {
 	// check if any checkbox has been checked but the value is empty
 	var boolHasEmptyCheckeds	= false;
 	
+	var intQuantity			= 0;
+	
+	var objDate			= new Date();
+	
+	// weekday
+	var strWeekDay			= objDate.getDay().toString();
+	
+	_COLIBRI['arr_invalid_specials']	= [];
+	
 	jQuery('input:checkbox').each(function() {
-				
 				
 			var objTarget	= jQuery(this);
 			
@@ -39,10 +88,39 @@ function CalSum() {
 					var intCheckValue	= parseInt(objQty.attr('value'));
 					
 					if (intCheckValue > 0) {
+						
 						intTotal	+= intCheckValue;
+						intQuantity	+= intCheckValue;
+						
 					} else {
+						
 						boolHasEmptyCheckeds	= true;
+					
 					}
+					
+					
+					// 判断 special
+					
+					var objSpecDays		= jQuery('#' + strProdID.replace('product', 'id_spec_days'));
+					
+					if (objSpecDays.length) {
+						
+						var strSpecDays		= objSpecDays.attr('value');
+						
+						// 没有找到当日特例
+						if (-1 == strSpecDays.indexOf(strWeekDay)) {
+							
+							var strSpecName		= jQuery('#' + strProdID.replace('product', 'prod_name'));
+							
+							// 当日不是特例，就把 name 加到 arr_invalid_specials 数组
+							if (strSpecName.length) {
+								_COLIBRI['has_invalid_specials']	= true;
+								_COLIBRI['arr_invalid_specials'].push(strSpecName.text());
+							}
+						}
+						
+					}
+					
 					
 				}
 				
@@ -55,14 +133,13 @@ function CalSum() {
 	// 计算折扣
 	intSum		= getDiscount(intSum);
 	
-	if (boolHasEmptyCheckeds) {
-		alert('Please fill the quantity of your choice');
-	}
 	
 	var strSum	= intSum > 0 ? intSum : '0';
 	
 	jQuery('#id_sum').html(strSum);
 	
+	_COLIBRI['has_empty_quantites']		= boolHasEmptyCheckeds;
+	_COLIBRI['cake_quantity']	= intQuantity;
 	
 }
 
