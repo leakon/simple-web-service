@@ -86,3 +86,38 @@ function getDiscount(intTotal) {
 }
 
 
+function CheckAddrForm(objForm) {
+
+	var boolRet	= false;
+
+	try {
+
+		if (objForm.customer_name.value.length < 1) {
+			throw('Name is empty');
+		}
+
+		var regMobile	= /^[0-9]{11}$/;
+
+		if (!regMobile.test(objForm.mobile.value)) {
+			throw('Phone number is not valid (Example:13800138000)');
+		}
+
+		if (objForm.address.value.length < 1) {
+			throw('Address is empty');
+		}
+
+		boolRet		= true;
+
+	} catch (exception) {
+
+		alert(exception);
+
+	}
+
+
+
+	return	boolRet;
+
+}
+
+

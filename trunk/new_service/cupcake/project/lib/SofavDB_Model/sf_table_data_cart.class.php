@@ -49,5 +49,26 @@ class Table_data_cart extends SofavDB_Table {
 		
 		
 	}
+	
+	
+	public static function genDeliverTimes() {
+		
+		$arrHtml	= array();
+		
+		$intTime	= strtotime(date('Y-m-d') . ' 10:00:00');
+		
+		for ($i = 0; $i < 23; $i++) {
+		
+			$arrHtml[]	= sprintf('<option value="%s">%s</option>',
+						date('H:i', $intTime), date('H:ia', $intTime)
+					);	
+					
+			$intTime	+= 1800;
+			
+		}
+		
+		return	implode("\n", $arrHtml);
+		
+	}
 
 }
