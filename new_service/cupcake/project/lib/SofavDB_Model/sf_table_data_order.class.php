@@ -143,8 +143,8 @@ class Table_data_order extends SofavDB_Table {
 						
 		$strHtml	= file_get_contents($strUrl);
 		
-		$log		= sprintf("ret[%d]	order_id[%s]	url[%s]", 
-					$res, $strOrderID, $strUrl);
+		$log		= sprintf("order_id[%s]	url[%s]", 
+					$strOrderID, $strUrl);
 		MyLog::doLog($log);
 		
 		/*
@@ -159,7 +159,7 @@ class Table_data_order extends SofavDB_Table {
 		
 		$address	= array(
 					'leakon@hotmail.com',
-					'info@colibricupcakes.com',
+				//	'info@colibricupcakes.com',
 				);
 		
 		$res		= MailWork::send($address, 'COLIBRI Cup Cakes Order Info - ' . $strOrderID, $strHtml);

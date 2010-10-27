@@ -30,7 +30,7 @@ Input your delivery infomation</p></div>
 
 					);
 
-			echo	input_date_tag('receive_day', date("Y-m-d"), $arrConf);
+			echo	input_date_tag('receive_day', date("Y-m-d", time() + 86400), $arrConf);
 
 		?>
 

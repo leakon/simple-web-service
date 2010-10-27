@@ -1,21 +1,15 @@
 
-<h1>Order Info</h1>
+<style>
+table.detail		{margin:8px 0; background:gray; }	
+table.detail td		{padding:4px 8px; background:white; font-size:14px;}
+</style>
 
-<table class="product_list" border="1" style="xxwidth:900px;">
+<h1>订单信息</h1>
 
-<tr>
-	<td width="32">订单</td>
-	<td width="">总价</td>
-	<td width="">付款方式</td>
-	<td width="">状态</td>
-	<td width="">客户姓名</td>
-	<td width="">客户手机</td>
-	<td width="">客户地址</td>
-	<td width="">送货时间</td>
-	<td width="">创建时间</td>
-</tr>
+<table class="product_list detail" border="0" cellspacing="1" cellpadding="1">
 
 <?php
+
 
 $arrMethodMap	= array(
 
@@ -42,23 +36,54 @@ foreach ($arrResult as $key => $item) :
 	
 ?>
 
+<tr>
+	<td width="120">订单</td>
+	<td width="360"><?php echo $item['order_id'] ?></td>
+</tr>
 
 <tr>
-	<td><?php echo $item['order_id'] ?></td>
+	<td width="">总价</td>
 	<td><?php echo $item['total'] ?></td>
+</tr>
+
+<tr>
+	<td width="">付款方式</td>
 	<td>
 		<?php echo $arrMethodMap[  $item['pay_method'] ] ?>
 	</td>
-	<td>
-		<?php echo $arrStatusMap[ $item['status'] ] ?>
-	</td>
-	<td><?php echo $item['customer_name'] ?>&nbsp;</td>
-	<td><?php echo $item['customer_mobile'] ?></td>
-	<td><?php echo $item['customer_address'] ?></td>
-	<td><?php echo $item['receive_time'] ?></td>
-	<td><?php echo $item['created_at'] ?></td>
 </tr>
 
+<tr>
+	<td width="">状态</td>
+	<td>
+		<?php echo $arrStatusMap[ $item['status'] ] ?>&nbsp;
+	</td>
+</tr>
+
+<tr>
+	<td width="">客户姓名</td>
+	<td><?php echo $item['customer_name'] ?>&nbsp;</td>
+</tr>
+
+<tr>
+	<td width="">客户手机</td>
+	<td><?php echo $item['customer_mobile'] ?></td>
+</tr>
+
+<tr>
+	<td width="">客户地址</td>
+	<td><?php echo $item['customer_address'] ?></td>
+</tr>
+
+<tr>
+	<td width="">送货时间</td>
+	<td><?php echo $item['receive_time'] ?></td>
+</tr>
+
+<tr>
+	<td width="">创建时间</td>
+	<td><?php echo $item['created_at'] ?></td>
+</tr>
 
 
 <?php
@@ -76,11 +101,13 @@ endforeach;
 
 ?>
 
+<br />
 
-<h1>Order Detail</h1>
+
+<h1>订单详情</h1>
 
 
-<table class="product_list" border="1" style="xxwidth:900px;">
+<table class="product_list detail"  border="0" cellspacing="1" cellpadding="1">
 
 <tr>
 	<td width="120">图片</td>

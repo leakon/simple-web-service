@@ -81,6 +81,9 @@ class Alipay {
 			// 成功
 			$bool	= true;
 			
+			// 付款成功后再发邮件
+			Table_data_order::sendOrderDetailMail($strOrderID);
+		
 			
 			$arrData	= array(
 						

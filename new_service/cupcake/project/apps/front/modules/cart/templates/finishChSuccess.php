@@ -13,7 +13,7 @@
 
 if (strlen($strHtml)) {
 	
-	echo	' <div style="height:330px; overflow-y:scroll">';
+	echo	' <div style="height:330px; overflow-y:scroll; padding:24px 0 36px 32px;">';
 
 	echo	$strHtml;
 	
