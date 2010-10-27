@@ -1,7 +1,8 @@
 
 <style>
-table.detail		{margin:8px 0; background:gray; }	
+table.detail		{margin:8px 0; background:gray; }
 table.detail td		{padding:4px 8px; background:white; font-size:14px;}
+h1			{color:black;}
 </style>
 
 <h1>订单信息</h1>
@@ -13,18 +14,18 @@ table.detail td		{padding:4px 8px; background:white; font-size:14px;}
 
 $arrMethodMap	= array(
 
-	Table_data_order::PAY_METHOD_CASH	=> '现金',		// 
-	Table_data_order::PAY_METHOD_ALIPAY	=> '支付宝',		// 
-	Table_data_order::PAY_METHOD_PAYPAL	=> 'Paypal',		// 
+	Table_data_order::PAY_METHOD_CASH	=> '现金',		//
+	Table_data_order::PAY_METHOD_ALIPAY	=> '支付宝',		//
+	Table_data_order::PAY_METHOD_PAYPAL	=> 'Paypal',		//
 
 );
 
 
 $arrStatusMap	= array(
 
-	'empty'					=> '',		// 
-	0					=> '未付款',		// 
-	Table_data_order::STATUS_PAYED_SUCCESS	=> '已付款',		// 
+	'empty'					=> '',		//
+	0					=> '未付款',		//
+	Table_data_order::STATUS_PAYED_SUCCESS	=> '已付款',		//
 
 );
 
@@ -32,8 +33,8 @@ $arrResult	= array();
 $arrResult[0]	= $arrOrderDetail;
 
 foreach ($arrResult as $key => $item) :
-	
-	
+
+
 ?>
 
 <tr>
