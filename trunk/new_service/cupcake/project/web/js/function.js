@@ -168,6 +168,46 @@ function CheckAddrForm(objForm) {
 	var boolRet	= false;
 
 	try {
+		
+		var arrDatePart		= objForm.receive_day.value.split('-');
+		
+		if (arrDatePart[0] && arrDatePart[1] && arrDatePart[2]) {
+			
+			arrDatePart[1]	= parseInt(arrDatePart[1]);
+			arrDatePart[1]--;
+			
+			if (arrDatePart[1] < 10) {
+				arrDatePart[1]	= '0' + arrDatePart[1];
+			} else {
+				arrDatePart[1]	= '' + arrDatePart[1];
+			}
+		} else {
+			
+			throw('Delivery Day is invalid');
+		}
+		
+		var arrTimePart		= objForm.receive_time.options[objForm.receive_time.selectedIndex].value.split(':');
+		
+		if (arrTimePart[0] && arrTimePart[1]) {
+			
+		} else {
+			
+			throw('Delivery Time is invalid');
+		}
+
+		strReceiveTime		= arrDatePart.join('-');
+		
+		var objReceiveTime	= new Date(arrDatePart[0], arrDatePart[1], arrDatePart[2],
+							arrTimePart[0], arrTimePart[1], '00');
+		
+		var objCurrTime		= new Date();
+		
+		var intSecond		= objReceiveTime.getTime() - objCurrTime.getTime();
+		
+		// 必须大于 24 小时才可以
+		if (intSecond < 24 * 3600 * 1000) {
+			throw('We need 24 hours to process your order, please choose a later time.');
+		}
 
 		if (objForm.customer_name.value.length < 1) {
 			throw('Name is empty');
@@ -190,8 +230,6 @@ function CheckAddrForm(objForm) {
 		alert(exception);
 
 	}
-
-
 
 	return	boolRet;
 
