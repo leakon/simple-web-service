@@ -209,19 +209,42 @@ function CheckAddrForm(objForm) {
 			throw('We need 24 hours to process your order, please choose a later time.');
 		}
 
+		// 检查姓名
 		if (objForm.customer_name.value.length < 1) {
 			throw('Name is empty');
 		}
+		
+		// 人名的判断必须是实名，即不可以有数字
+		var regexName	= new RegExp("[0-9]", 'i');
+		if (regexName.test(objForm.customer_name.value)) {
+			throw('Name can NOT has number');
+		}
 
-		var regMobile	= /^[0-9]{11}$/;
+		// 电话不能少于11位。
+		var regMobile	= /^[0-9]{11,}$/;
 
 		if (!regMobile.test(objForm.mobile.value)) {
 			throw('Phone number is not valid (Example:13800138000)');
 		}
-
+		
 		if (objForm.address.value.length < 1) {
 			throw('Address is empty');
 		}
+		
+		// 地址判断不能是纯数字，如果超过8个以上的数字出现提示。
+		var regexAddress_1	= new RegExp("^[0-9]*$", 'i');
+		if (regexAddress_1.test(objForm.address.value)) {
+			throw('Address is invalid [1]');
+		}
+		
+		var regexAddress_2	= new RegExp("([0-9])", 'ig');
+		
+		var arrMatchesNumbers	= objForm.address.value.match(regexAddress_2);
+		
+		if (arrMatchesNumbers && arrMatchesNumbers.length > 8) {
+			throw('Address is invalid  [2]');
+		}
+		
 
 		boolRet		= true;
 

@@ -58,7 +58,7 @@ Input your delivery infomation</p></div>
   </tr>
   <tr>
     <td align="right">Phone number</td>
-    <td><input type="text" name="mobile" maxlength="11" /></td>
+    <td><input type="text" name="mobile" maxlength="20" /></td>
   </tr>
   <tr>
     <td align="right">Address</td>
