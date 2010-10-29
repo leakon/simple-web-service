@@ -57,7 +57,7 @@
   </tr>
   <tr>
     <td align="right">电话号码</td>
-    <td><input type="text" name="mobile" maxlength="11" /></td>
+    <td><input type="text" name="mobile" maxlength="20" /></td>
   </tr>
   <tr>
     <td align="right">地址</td>
