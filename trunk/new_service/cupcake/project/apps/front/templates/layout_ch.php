@@ -100,7 +100,7 @@ function showNav($arrNav, $module, $action) {
 
 ?>
 <div id="main">
-<div id="footer"><span><a href="<?php echo url_for('ch/policy') ?>">隐私条款</a></span><span><a href="<?php echo url_for('ch/findUs') ?>">联系我们</a></span><span>&copy;Copyright Colibri.</span> <a href="#" target="_self"><img src="/images/icon01.gif" alt="" border="0" align="absmiddle" /></a><a href="#" target="_self"><img src="/images/icon02.gif" alt="" border="0" align="absmiddle" /></a><a href="#" target="_self"><img src="/images/icon03.gif" alt="" border="0" align="absmiddle" /></a><a href="#" target="_self"><img src="/images/icon04.gif" alt="" border="0" align="absmiddle" /></a></div>
+<div id="footer"><span><a href="<?php echo url_for('ch/policy') ?>">隐私条款</a></span><span><a href="<?php echo url_for('ch/findUs') ?>">联系我们</a></span><span>&copy;Copyright Colibri.</span> <span><a href="http://china.smart.com/" target="_blank"><img src="/images/smartlogo.gif" alt="" border="0" align="absmiddle" /></a></span> <a href="#" target="_self"><img src="/images/icon01.gif" alt="" border="0" align="absmiddle" /></a><a href="#" target="_self"><img src="/images/icon02.gif" alt="" border="0" align="absmiddle" /></a><a href="#" target="_self"><img src="/images/icon03.gif" alt="" border="0" align="absmiddle" /></a><a href="#" target="_self"><img src="/images/icon04.gif" alt="" border="0" align="absmiddle" /></a></div>
   <div id="top">
   <div class="logo"><a href="<?php echo url_for('ch/index') ?>"><img src="/images/logo.png" alt="" border="0" /></a></div>
 
