@@ -20,16 +20,16 @@
 <script>
 
 function SubmitOrderForm(strFormID, CheckFormFunc) {
-	
-	
+
+
 	var objForm	= document.getElementById(strFormID);
 
 	if (objForm) {
-		
+
 		if ('undefined' != typeof CheckFormFunc && true != CheckFormFunc(objForm)) {
 			return;
 		}
-		
+
 		setTimeout(function() {
 			objForm.submit();
 		}, 10);
@@ -49,53 +49,53 @@ $arrNav		= array(
 										'ch/index'	=> 1,
 										)
 					),
-			
+
 			1	=> array('菜单', url_for('ch/menu'), array(
 										'ch/menu'	=> 1,
 										'ch/cupcakes'	=> 1,
 										'ch/panini'	=> 1,
 										)
 					),
-					
+
 			2	=> array('订餐', url_for('product/indexCh'), array(
 										'product/indexCh'		=> 1,
 										'cart/fillAddress'	=> 1,
 										'cart/selectPayment'	=> 1,
 										)
 					),
-					
+
 			3	=> array('问答', url_for('ch/faq'), array(
 										'ch/faq'	=> 1,
 										)
 					),
-					
+
 		);
 
 $module		= $sf_context->getModuleName();
 $action		= $sf_context->getActionName();
 
 function showNav($arrNav, $module, $action) {
-	
+
 	$route		= $module . '/' . $action;
-	
+
 	$arrHtmls	= array();
-	
+
 	foreach ($arrNav as $val) {
-		
+
 		if (isset($val[2][$route])) {
 			// highlight
-			
+
 			$arrHtmls[]	= $val[0];
-			
+
 		} else {
-			
+
 			$arrHtmls[]	= sprintf('<a href="%s">%s</a>', $val[1], $val[0]);
 		}
-		
+
 	}
-	
+
 	return	implode('<span>/</span>', $arrHtmls);
-	
+
 }
 
 ?>
@@ -120,6 +120,22 @@ function showNav($arrNav, $module, $action) {
 
 
 </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19856171-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
 </body>
 </html>
 
