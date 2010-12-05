@@ -15,41 +15,7 @@
 	  <p >
 Input your delivery infomation</p></div>
 
-	<table width="100%" border="0" cellspacing="0" cellpadding="6">
-	 <tr>
-    <td width="12%" align="right">Delivery Day</td>
-    <td width="88%">
-
-		<?php
-
-			$arrConf	= array(
-
-						'rich'		=> true,
-						'size'		=> '',
-						'calendar_button_img'	=> '/images/date_control.gif'
-
-					);
-
-			echo	input_date_tag('receive_day', date("Y-m-d", time() + 86400), $arrConf);
-
-		?>
-
-
-
-        </td>
-  </tr>
-   <tr>
-    <td width="12%" align="right">Delivery Time</td>
-    <td width="88%"><label>
-        <select name="receive_time" size="1">
-        	
-        	<?php
-        		echo	Table_data_cart::genDeliverTimes();
-        	?>
-        	
-        </select>
-        </label></td>
-  </tr>
+<table width="100%" border="0" cellspacing="0" cellpadding="6">
   <tr>
     <td width="12%" align="right">Name</td>
     <td width="88%">
