@@ -78,6 +78,7 @@ function CheckSpecialDate() {
 		var intSpecialDay	= objDeliverDate.getDay();
 	//	alert(intSpecialDay);
 
+		var boolHasError	= false;
 
 		jQuery('input:hidden').each(function() {
 
@@ -102,7 +103,7 @@ function CheckSpecialDate() {
 
 					//	alert(strSpecName.text());
 
-						_COLIBRI['has_invalid_specials']	= true;
+						boolHasError	= true;
 						_COLIBRI['arr_invalid_specials'].push(strSpecName.text());
 
 					}
@@ -112,7 +113,8 @@ function CheckSpecialDate() {
 
 			}); // EndOf each();
 
-		if (_COLIBRI['has_invalid_specials']) {
+		if (boolHasError) {
+			_COLIBRI['has_invalid_specials']	= true;
 			var strTitles	= _COLIBRI['arr_invalid_specials'].join(', ');
 			strTitles	= 'The specials ('+ strTitles +') is not available for the delivery day.';
 			throw(strTitles);
@@ -330,6 +332,8 @@ function CheckAddrForm(objForm) {
 
 	try {
 
+	
+	/*
 		var arrDatePart		= objForm.receive_day.value.split('-');
 
 		if (arrDatePart[0] && arrDatePart[1] && arrDatePart[2]) {
@@ -369,7 +373,8 @@ function CheckAddrForm(objForm) {
 		if (intSecond < 24 * 3600 * 1000) {
 			throw('We need 24 hours to process your order, please choose a later time.');
 		}
-
+	*/
+	
 		// 检查姓名
 		if (objForm.customer_name.value.length < 1) {
 			throw('Name is empty');

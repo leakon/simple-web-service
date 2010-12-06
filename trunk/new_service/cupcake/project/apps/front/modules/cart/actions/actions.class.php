@@ -80,6 +80,27 @@ class cartActions extends sfActions
 				$objCartDetail->save();
 
 			}
+			
+			
+			
+			// 创建 customer 记录
+			// 获取订单信息
+			$objCustomer		= new Table_data_customer();
+			
+			$arrParameters['receive_time']	= $arrParameters['receive_day'] . ' ' . $arrParameters['receive_time'];
+		
+		#	print_r($arrParameters);exit;
+			
+			$objCustomer->fromArray($arrParameters);
+			$objCustomer->order_id		= $strCartID;
+			
+		#	print_r($objCustomer);exit;
+			
+			$bool			= $objCustomer->save();
+			
+			
+			
+			
 
 			$strRedirect	= sprintf('cart/fillAddress?cartID=%s' . $strLangCH, $strCartID);
 
@@ -147,20 +168,55 @@ class cartActions extends sfActions
 		if (isset($arrParameters['status'])) {
 			unset($arrParameters['status']);
 		}
-
-		$objCustomer		= new Table_data_customer();
 		
 		$arrParameters['name']		= $arrParameters['customer_name'];
-		$arrParameters['receive_time']	= $arrParameters['receive_day'] . ' ' . $arrParameters['receive_time'];
+	//	$arrParameters['receive_time']	= $arrParameters['receive_day'] . ' ' . $arrParameters['receive_time'];
 		
+		$strOrderID	= $request->getParameter('order_id', '');
+			
+		// 获取订单信息
+		$matcherCustomer		= new Table_data_customer();
+		$matcherCustomer->order_id	= $strOrderID;
+
+		$objFindCustomer		= SofavDB_Record::match($matcherCustomer);
+
+
 		
+		if ($objFindCustomer->id) {
+			
+			$objCustomer	= $objFindCustomer;
+			
+		} else {
+			
+		//	$objCustomer	= new Table_data_customer();
+		
+			$strRedirect	= sprintf('product/index'.$strProductCH.'?msg=CustomerError');
+			return	$this->redirect($strRedirect);
+			
+		}
+		
+	#	Debug::pre($objCustomer);
+	
+	
+	#	unset($arrParameters['invoice_title']);
+	#	unset($arrParameters['mobile']);
+	
+		$arrParameters['mobile']	= substr($arrParameters['mobile'], 0, 11);
+	
 		$objCustomer->fromArray($arrParameters);
-
+		
+	#	Debug::pr($arrParameters);
+	#	Debug::pr($objCustomer);
+		
 		$bool			= $objCustomer->save();
+		
+	#	var_dump($bool);
 
+	#	Debug::pre($objCustomer);
+	
 		if ($bool) {
 
-			$strOrderID	= $request->getParameter('order_id', '');
+		//	$strOrderID	= $request->getParameter('order_id', '');
 
 			$strRedirect	= sprintf('cart/selectPayment?orderID=%s' . $strLangCH, $strOrderID);
 

@@ -12,6 +12,42 @@
     <div class="OrderingContent">
       <div class="title"><img src="/images_ch/Ordering_t01.gif" alt="" /><p style="padding-top:5px; margin-bottom:-10px;">请在提前24小时给我们联系进行预定，谢谢！</p></div>
 
+	<table width="100%" border="0" cellspacing="0" cellpadding="6">
+	 <tr>
+    <td width="12%" align="right">送达日期</td>
+    <td width="88%">
+
+		<?php
+
+			$arrConf	= array(
+
+						'rich'		=> true,
+						'size'		=> '',
+						'calendar_button_img'	=> '/images/date_control.gif'
+
+					);
+
+			echo	input_date_tag('receive_day', date("Y-m-d", time() + 86400), $arrConf);
+
+		?>
+
+
+
+        </td>
+  </tr>
+   <tr>
+    <td width="12%" align="right">送达时间</td>
+    <td width="88%"><label>
+        <select name="receive_time" size="1">
+        	<?php
+        		echo	Table_data_cart::genDeliverTimes();
+        	?>
+        </select>
+        </label></td>
+  </tr>
+</table>
+
+
 	  <div style="height:330px; overflow-y:scroll">
 
 
