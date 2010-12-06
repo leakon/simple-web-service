@@ -17,38 +17,7 @@
 输入您的相关信息。</p></div>
 
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
-	 <tr>
-    <td width="12%" align="right">送达日期</td>
-    <td width="88%">
 
-		<?php
-
-			$arrConf	= array(
-
-						'rich'		=> true,
-						'size'		=> '',
-						'calendar_button_img'	=> '/images/date_control.gif'
-
-					);
-
-			echo	input_date_tag('receive_day', date("Y-m-d", time() + 86400), $arrConf);
-
-		?>
-
-
-
-        </td>
-  </tr>
-   <tr>
-    <td width="12%" align="right">送达时间</td>
-    <td width="88%"><label>
-        <select name="receive_time" size="1">
-        	<?php
-        		echo	Table_data_cart::genDeliverTimes();
-        	?>
-        </select>
-        </label></td>
-  </tr>
   <tr>
     <td width="12%" align="right">姓名</td>
     <td width="88%">
@@ -62,6 +31,10 @@
   <tr>
     <td align="right">地址</td>
     <td><input name="address" type="text" size="40" /></td>
+  </tr>
+  <tr>
+    <td align="right">发票</td>
+    <td><input type="text" name="invoice_title" /></td>
   </tr>
   <tr>
     <td>&nbsp;</td>

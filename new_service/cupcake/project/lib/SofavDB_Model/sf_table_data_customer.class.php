@@ -20,6 +20,7 @@ class Table_data_customer extends SofavDB_Table {
 						'address',
 						'receive_time',
 						'order_id',
+						'invoice_title',
 						'status',
 					);
 

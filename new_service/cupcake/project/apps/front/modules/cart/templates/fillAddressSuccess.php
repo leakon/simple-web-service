@@ -31,6 +31,10 @@ Input your delivery infomation</p></div>
     <td><input name="address" type="text" size="40" /></td>
   </tr>
   <tr>
+    <td align="right">Invoice Titletitle</td>
+    <td><input type="text" name="invoice_title" /></td>
+  </tr>
+  <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
