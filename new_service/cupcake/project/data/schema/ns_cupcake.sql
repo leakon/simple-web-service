@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2010 at 03:42
+-- Generation Time: Dec 06, 2010 at 08:33 
 -- Server version: 5.1.37
 -- PHP Version: 5.3.0
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `data_cart_detail` (
   `total` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '总价',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uid_pid` (`cart_id`,`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=66 ;
 
 -- --------------------------------------------------------
 
@@ -57,11 +57,12 @@ CREATE TABLE IF NOT EXISTS `data_customer` (
   `address` char(255) NOT NULL DEFAULT '',
   `receive_time` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
   `order_id` char(16) NOT NULL DEFAULT '',
+  `invoice_title` char(255) NOT NULL DEFAULT '' COMMENT '发票抬头',
   `status` int(11) NOT NULL DEFAULT '0' COMMENT '标记是否成功关联到订单',
   PRIMARY KEY (`id`),
   UNIQUE KEY `order_id` (`order_id`),
   KEY `mobile` (`mobile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=73 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=81 ;
 
 -- --------------------------------------------------------
 
