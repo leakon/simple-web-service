@@ -3,17 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 20, 2010 at 12:59 ����
+-- Generation Time: Dec 06, 2010 at 03:42
 -- Server version: 5.1.37
 -- PHP Version: 5.3.0
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `ns_cupcake`
@@ -48,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `data_cart_detail` (
   `total` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '总价',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uid_pid` (`cart_id`,`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
 
 -- --------------------------------------------------------
 
@@ -65,8 +59,9 @@ CREATE TABLE IF NOT EXISTS `data_customer` (
   `order_id` char(16) NOT NULL DEFAULT '',
   `status` int(11) NOT NULL DEFAULT '0' COMMENT '标记是否成功关联到订单',
   PRIMARY KEY (`id`),
+  UNIQUE KEY `order_id` (`order_id`),
   KEY `mobile` (`mobile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=73 ;
 
 -- --------------------------------------------------------
 
@@ -96,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `data_order` (
   `updated_at` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `order_id` (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -113,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `data_order_detail` (
   `total` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '总价',
   PRIMARY KEY (`id`),
   KEY `order_id` (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
 -- --------------------------------------------------------
 
@@ -151,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `data_session` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `sess_id` (`sess_id`),
   KEY `sess_time` (`sess_time`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=78 ;
 
 -- --------------------------------------------------------
 
@@ -183,7 +178,3 @@ CREATE TABLE IF NOT EXISTS `debug_log` (
   `created_at` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
