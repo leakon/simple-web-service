@@ -388,9 +388,10 @@ function CheckAddrForm(objForm) {
 
 		// 电话不能少于11位。
 		var regMobile	= /^[0-9]{11,}$/;
+		var regMobile_8	= /^[0-9]{8}$/;
 
-		if (!regMobile.test(objForm.mobile.value)) {
-			throw('Phone number is not valid (Example:13800138000)');
+		if (!regMobile.test(objForm.mobile.value) && !regMobile_8.test(objForm.mobile.value)) {
+			throw('Phone number is not valid (Example: 13800138000 or 66668888)');
 		}
 
 		if (objForm.address.value.length < 1) {
