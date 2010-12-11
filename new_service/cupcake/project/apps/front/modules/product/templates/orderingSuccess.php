@@ -7,7 +7,15 @@
 
     <div class="OrderingFolat"><img src="/images/Ordering_top.png" alt="" width="413" height="43" /></div>
     <div class="OrderingContent">
-      <div class="title"><img src="/images/Ordering_t01.gif" alt="" /><p style="padding-top:5px; margin-bottom:-10px;">Please allow a day notice so we can bake them fresh for you.</p></div>
+      <div class="title"><img src="/images/Ordering_t01.gif" alt="" />
+      	
+      	<p style="padding-top:5px; margin-bottom:-10px;">Please allow a day notice so we can bake them fresh for you.
+      		
+		<span>1/2 dozen      ￥115</span>
+		<span>1 dozen        ￥220</span>
+      	</p>
+      	
+      	</div>
 
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
 	 <tr>
