@@ -10,7 +10,10 @@
 
     <div class="OrderingFolat"><img src="/images/Ordering_top.png" alt="" width="413" height="43" /></div>
     <div class="OrderingContent">
-      <div class="title"><img src="/images_ch/Ordering_t01.gif" alt="" /><p style="padding-top:5px; margin-bottom:-10px;">请在提前24小时给我们联系进行预定，谢谢！</p></div>
+      <div class="title"><img src="/images_ch/Ordering_t01.gif" alt="" /><p style="padding-top:5px; margin-bottom:-10px;">请在提前24小时给我们联系进行预定，谢谢！
+      	<span>半打115元</span>
+<span>一打220元</span>
+</p></div>
 
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
 	 <tr>
