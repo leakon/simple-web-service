@@ -1,0 +1,241 @@
+
+/* Begin Content Slider */
+.wrap {
+position: relative;
+margin: 0 auto;
+}
+
+.contain:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+* html .contain { height: 1%; } /* IE6 */
+*:first-child+html .contain { min-height: 1px; } /* IE7 */
+
+#featured {
+xwidth: 960px;
+width: 904px;
+float: left;
+margin: 21px 0 55px 0;
+background: #3c3f36;
+padding:18px;
+}
+
+#featured .wrap {
+padding: 10px 0 10px 0;
+background: #FFFFFF;
+}
+
+#slides {
+widthx: 940px;
+width: 840px;
+height: 240px;
+position: relative;
+top: 0px;
+overflow: hidden;
+z-index: 5;
+margin: 0 auto;
+padding: 0;
+}
+
+#slides img {
+margin: 0 7px 0 0;
+padding: 0;
+border: 0;
+widthx: 310px;
+width: 280px;
+height: 240px;
+}
+
+#slide-box {
+/* width: 7020px; */
+height: 240px;
+position: absolute;
+overflow: visible !important;
+}
+
+#slide-box div {
+float: left;
+position: relative;
+width: 900px;
+height: 240px;
+display: block !important;
+}
+
+#slides-prev {
+display: block;
+width: 50px;
+height: 260px;
+position: absolute;
+top: 0;
+left: -17px;
+z-index: 10;
+}
+
+#slides-prev a {
+display: block;
+width: 50px;
+height: 260px;
+text-indent: -9999px;
+background: url("/1029-static/images/slide-nav.png") no-repeat 0 0;
+}
+
+#slides-prev a:hover { background-position: 0 100%; }
+
+#slides-next {
+display: block;
+width: 50px;
+height: 260px;
+position: absolute;
+top: 0;
+right: -17px;
+z-index: 10;
+}
+
+#slides-next a {
+display: block;
+position: relative;
+width: 50px;
+height: 260px;
+text-indent: -9999px;
+background: url("/1029-static/images/slide-nav.png") no-repeat 100% 0;
+}
+
+#slides-next a:hover { background-position: 100% 100%; }
+
+.slides_buttons11		{border:1px solid red; border-top:0;  border-bottom:0;}
+
+
+/* End Content Slider */
+
+/* Begin Tooltip */
+#tooltip {
+position: absolute;
+z-index: 3000;
+border: 1px solid #3C3F36;
+backgroundxx: url("http://www.10yuephoto.cn/images/tipbg.png") top left repeat;
+background: #efefef;;
+padding: 5px;
+width: 200px;
+font-size: 10px;
+font-weight: normal;
+color: #3C3F36;
+}
+
+#tooltip h3, #tooltip div { 
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: normal;
+}
+/* End Tooltip */
+
+
+/* Begin Leakon */
+
+#main		{padding-top:0;}
+#featured	{margin-bottom:20px;}
+#slides img	{border:1px solid gray; width:272px; height:238px; }
+#slides		{padding-left:4px;}
+
+#content img.bottom_right	{width:50px; height:50px; border:2px solid brown;}
+
+ul#fb_right_list	{list-style:none; margin:0; padding:0; overflow:auto;}
+ul#fb_right_list li	{list-style:none; padding:4px; float:left; width:190px; overflow:auto; border:1px solid black; margin:4px;}
+
+ul#fb_right_list li div.fbrl_pic	{float:left; padding-top:4px;}
+ul#fb_right_list li div.fbrl_content	{float:left; font-size:12px; padding:4px; padding-top:0; height:80px; overflow:hidden;}
+ul#fb_right_list li div.fbrl_content h4	{font-size:14px; padding:4px; font-weight:bold; margin:0; padding:0;}
+
+/* End Leakon */
+
+
+/* Begin Column */
+
+div#content
+{
+margin-right:0;	
+margin-left:0;	
+}
+
+div#front_article
+{
+border:1px solid black;	
+overflow:auto;
+background:#3c3f36;
+padding:12px 0;
+}
+
+div#front_article div.column
+{
+width:272px;
+xborder:1px solid red;
+float:left;
+margin-left:18px;
+padding:8px;
+height:320px;
+overflow:hidden;
+background:white;
+}
+
+div#front_article div.column h3
+{
+	font-size:14px;
+	font-weight:bold;	
+}
+
+div#front_article div.column div.content {
+	margin-bottom:20px;
+	xborder:1px solid red;
+	height:230px;
+	overflow:hidden;
+	font-size:14px;
+}
+
+div#front_block
+{
+xborder:1px solid green;
+margin-top:20px;
+overflow:auto;
+padding:12px;
+}
+	
+	
+div#front_block div.blocks
+{
+	
+width:420px;
+xborder:1px solid blue;
+float:left;
+margin:8px;
+padding:8px;
+}
+
+div#fb_picture
+{
+	float:left;
+	border:2px solid brown;
+}
+div#fb_content
+{
+	float:left;
+	padding:8px; 
+	padding-top:0;
+}
+div#fb_content h3 {
+	margin:0;	
+}
+
+/* End Column */
+
+div#front_block
+{
+		
+	background:#3c3f36;
+}
+
+div.blocks	
+{
+	background:white;	
+}	
+div.block_left
+{
+	height:307px;
+	overflow:hidden;	
+}
