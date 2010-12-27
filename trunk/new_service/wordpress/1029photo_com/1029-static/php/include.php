@@ -2,7 +2,7 @@
 
 /*
 ## wp-config.php {bottom}
-include(ABSPATH . '1029-static/php/theme_index.php');
+include(ABSPATH . '1029-static/php/include.php');
 */
 
 

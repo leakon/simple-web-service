@@ -29,22 +29,53 @@ get_header(); ?>
 #	$arrResult	= LeakonWP_Posts::getCategoryPosts(9, 'leakon_post_thumb-90x90');
 #	CDebug::pr($arrResult);
 
+
+$arrCateMap	= array();
+
+if (file_exists('/home/work/web/baolaa.com')) {
+	
+	$arrCateMap['slide']		= 3;
+	
+	$arrCateMap['col_left']		= 4;
+	$arrCateMap['col_middle']	= 5;
+	$arrCateMap['col_right']	= 6;
+	
+	$arrCateMap['bot_left']		= 7;
+	$arrCateMap['bot_right']	= 8;
+	
+} else {
+	
+	$arrCateMap['slide']		= 10;
+	
+	$arrCateMap['col_left']		= 11;
+	$arrCateMap['col_middle']	= 12;
+	$arrCateMap['col_right']	= 13;
+	
+	$arrCateMap['bot_left']		= 14;
+	$arrCateMap['bot_right']	= 9;
+	
+}
+
+
 ?>
 
 <?php
-	$arrResult	= LeakonWP_Posts_Slide::getHomepageSlides(10);
+	$arrResult	= LeakonWP_Posts_Slide::getHomepageSlides($arrCateMap['slide']);
+	
+#	print_r($arrResult);
+	
 	include(ABSPATH . '1029-static/php/slide.php');
 ?>
 
 
 <?php
 	$arrResult	= array();
-	$arrResult['left']	= LeakonWP_Posts_Slide::getHomepageColumn(11);
-	$arrResult['middle']	= LeakonWP_Posts_Slide::getHomepageColumn(12);
-	$arrResult['right']	= LeakonWP_Posts_Slide::getHomepageColumn(13);
+	$arrResult['left']	= LeakonWP_Posts_Slide::getHomepageColumn($arrCateMap['col_left']);
+	$arrResult['middle']	= LeakonWP_Posts_Slide::getHomepageColumn($arrCateMap['col_middle']);
+	$arrResult['right']	= LeakonWP_Posts_Slide::getHomepageColumn($arrCateMap['col_right']);
 	
-	$arrResult['bottom_left']	= LeakonWP_Posts::getCategoryPosts(14, 'leakon_post_thumb-280x240');
-	$arrResult['bottom_right']	= LeakonWP_Posts::getCategoryPosts(9, 'leakon_post_thumb-40x40');
+	$arrResult['bottom_left']	= LeakonWP_Posts::getCategoryPosts($arrCateMap['bot_left'], 'leakon_post_thumb-280x240');
+	$arrResult['bottom_right']	= LeakonWP_Posts::getCategoryPosts($arrCateMap['bot_right'], 'leakon_post_thumb-40x40');
 	
 	include(ABSPATH . '1029-static/php/main_column.php');
 ?>

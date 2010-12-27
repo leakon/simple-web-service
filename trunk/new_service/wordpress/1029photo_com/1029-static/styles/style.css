@@ -74,7 +74,7 @@ display: block;
 width: 50px;
 height: 260px;
 text-indent: -9999px;
-background: url("/1029-static/images/slide-nav.png") no-repeat 0 0;
+background: url("http://demo.baolaa.com/1029photo/1029-static/images/slide-nav.png") no-repeat 0 0;
 }
 
 #slides-prev a:hover { background-position: 0 100%; }
@@ -95,7 +95,7 @@ position: relative;
 width: 50px;
 height: 260px;
 text-indent: -9999px;
-background: url("/1029-static/images/slide-nav.png") no-repeat 100% 0;
+background: url("/1029photo/1029-static/images/slide-nav.png") no-repeat 100% 0;
 }
 
 #slides-next a:hover { background-position: 100% 100%; }
@@ -140,7 +140,7 @@ ul#fb_right_list	{list-style:none; margin:0; padding:0; overflow:auto;}
 ul#fb_right_list li	{list-style:none; padding:4px; float:left; width:190px; overflow:auto; border:1px solid black; margin:4px;}
 
 ul#fb_right_list li div.fbrl_pic	{float:left; padding-top:4px;}
-ul#fb_right_list li div.fbrl_content	{float:left; font-size:12px; padding:4px; padding-top:0; height:80px; overflow:hidden;}
+ul#fb_right_list li div.fbrl_content	{float:left; font-size:12px; padding:4px; padding-top:0; height:80px; overflow:hidden; width:126px;}
 ul#fb_right_list li div.fbrl_content h4	{font-size:14px; padding:4px; font-weight:bold; margin:0; padding:0;}
 
 /* End Leakon */
@@ -212,14 +212,24 @@ div#fb_picture
 	float:left;
 	border:2px solid brown;
 }
+
+div#fb_picture img
+{
+	width:180px;
+	height:180px;	
+}
+
 div#fb_content
 {
 	float:left;
 	padding:8px; 
 	padding-top:0;
+	width:218px;
+	font-size:14px;
 }
 div#fb_content h3 {
-	margin:0;	
+	margin:0;
+	font-weight:bold;	
 }
 
 /* End Column */

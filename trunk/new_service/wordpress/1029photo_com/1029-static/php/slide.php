@@ -5,14 +5,14 @@
 ?>
 
 
-	<script src="/1029-static/scripts/suckerfish.js" type="text/javascript"></script>
-	<script src="/1029-static/scripts/jquery.min.js" type="text/javascript"></script>
-	<script src="/1029-static/scripts/jquery.cycle.js" type="text/javascript"></script>
-	<script src="/1029-static/scripts/jquery.functions.js" type="text/javascript"></script>
-	<script src="/1029-static/scripts/jquery.tooltip.js" type="text/javascript"></script>
-	<script src="/1029-static/scripts/jquery.dimensions.js" type="text/javascript"></script>
+	<script src="1029-static/scripts/suckerfish.js" type="text/javascript"></script>
+	<script src="1029-static/scripts/jquery.min.js" type="text/javascript"></script>
+	<script src="1029-static/scripts/jquery.cycle.js" type="text/javascript"></script>
+	<script src="1029-static/scripts/jquery.functions.js" type="text/javascript"></script>
+	<script src="1029-static/scripts/jquery.tooltip.js" type="text/javascript"></script>
+	<script src="1029-static/scripts/jquery.dimensions.js" type="text/javascript"></script>
 	
-	<link rel="stylesheet" href="/1029-static/styles/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="1029-static/styles/style.css" type="text/css" media="screen" />
 
 	<script type="text/javascript">
 	$(function() {
@@ -42,9 +42,9 @@
 								
 								echo	sprintf('<a href="%s" title="%s"><img src="%s" alt="%s" /></a>',
 											$arrResult[$i]['post_guid'],
-											$arrResult[$i]['post_title'],
+											htmlspecialchars($arrResult[$i]['post_title']),
 											$arrResult[$i]['post_thumb'],
-											$arrResult[$i]['post_title']
+											htmlspecialchars($arrResult[$i]['post_title'])
 										);	
 								
 							}
@@ -60,9 +60,9 @@
 								
 								echo	sprintf('<a href="%s" title="%s"><img src="%s" alt="%s" /></a>',
 											$arrResult[$i]['post_guid'],
-											$arrResult[$i]['post_title'],
+											htmlspecialchars($arrResult[$i]['post_title']),
 											$arrResult[$i]['post_thumb'],
-											$arrResult[$i]['post_title']
+											htmlspecialchars($arrResult[$i]['post_title'])
 										);		
 								
 							}
