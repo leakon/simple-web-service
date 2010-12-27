@@ -88,7 +88,7 @@ function getColumnHtml($post) {
 	
 			
 					<div id="fb_picture">
-						<img src="<?php echo $thumb ?>" width="280" />
+						<img src="<?php echo $thumb ?>" width="180" />
 					</div>
 				
 					<div id="fb_content">
