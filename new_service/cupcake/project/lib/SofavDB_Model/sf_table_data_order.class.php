@@ -102,6 +102,7 @@ class Table_data_order extends SofavDB_Table {
 							'pic'			=> $arrProducts[$intProductID]['pic'],
 							'price'			=> $arrProducts[$intProductID]['price'],
 							'quantity'		=> $val['quantity'],
+							'special'		=> $arrProducts[$intProductID]['special'],
 
 						);
 
