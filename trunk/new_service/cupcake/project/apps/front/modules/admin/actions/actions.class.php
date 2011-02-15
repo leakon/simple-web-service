@@ -50,6 +50,8 @@ class adminActions extends sfActions
 		$objCustomer		= new Table_data_customer();
 		$objCustomer->order_id	= $this->arrOrderDetail['order_id'];
 
+	#	Debug::pr($objCustomer);
+
 		$arrCustomer		= SofavDB_Record::match($objCustomer, false);
 
 		$this->arrOrderDetail['customer_name']		= $arrCustomer['name'];
