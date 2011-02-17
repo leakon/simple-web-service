@@ -37,7 +37,7 @@
 Romaine Lettuce, Lime Mayonnaise
  <span>￥48.00/RMB</span>
 		<br />Smoked salmon, Lemon Creamcheese,
-Spring onion, Cucumber, Rocket
+Spring onion, Cucumber, Rocket, Capers
  <span>￥58.00/RMB</span>
 	</p>
 	
@@ -81,7 +81,7 @@ dressing
 	</p>
 
 	<p><strong>Others</strong>
-		<br />Baked Potato, Coleslaw, Side Salad 38
+		<br />Baked Potato, Coleslaw, Side Salad <span>￥38.00/RMB</span>
 With Tuna
  <span>￥48.00/RMB</span>
 		<br />Leek & Blue Cheese Quiche <span>￥48.00/RMB</span>
