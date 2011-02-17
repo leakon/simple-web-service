@@ -56,6 +56,9 @@ class productActions extends sfActions
 
 		}
 
+		usort($this->arrResult_Special, array($this, 'compareResult'));
+		
+		Debug::pr($this->arrResult_Special);
 
 	}
 	
@@ -83,13 +86,20 @@ class productActions extends sfActions
 			}
 
 		}
-
-	#	Debug::pr($this->arrResult);
+		
+		usort($this->arrResult_Special, array($this, 'compareResult'));
+		
+	#	Debug::pr($this->arrResult_Special);
 
 	}
 
 
-
+	public function compareResult($left, $right) {
+		if ($left['sort_id'] == $right['sort_id']) {
+			return 0;
+		}
+		return ($left['sort_id'] < $right['sort_id']) ? -1 : 1;
+	}
 
 
 
