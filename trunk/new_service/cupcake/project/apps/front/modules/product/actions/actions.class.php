@@ -58,7 +58,7 @@ class productActions extends sfActions
 
 		usort($this->arrResult_Special, array($this, 'compareResult'));
 		
-		Debug::pr($this->arrResult_Special);
+	#	Debug::pr($this->arrResult_Special);
 
 	}
 	
