@@ -135,7 +135,7 @@ class Table_data_order extends SofavDB_Table {
 		$strHost	= SYMFONY_SERVER_HOST;
 
 	//	if (1 || file_exists('F:/usr/ColibriCupcakes/')) {
-		if (false !== strpos(SYMFONY_SERVER_HOST, 'www.colibricupcakes.com')) {
+		if (false === strpos(SYMFONY_SERVER_HOST, 'www.colibricupcakes.com')) {
 			$strHost	= 'colibricupcakes.baolaa.com';
 		}
 
@@ -144,8 +144,8 @@ class Table_data_order extends SofavDB_Table {
 
 		$strHtml	= file_get_contents($strUrl);
 
-		$log		= sprintf("order_id[%s]	url[%s]",
-					$strOrderID, $strUrl);
+		$log		= sprintf("order_id[%s]	url[%s] define_host[%s]",
+					$strOrderID, $strUrl, SYMFONY_SERVER_HOST);
 		MyLog::doLog($log);
 
 		/*
