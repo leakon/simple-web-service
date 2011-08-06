@@ -18,8 +18,20 @@ if ($intUserId > 0) :
 ?>
 
 <div>
-	<a href="<?php echo url_for('admin/signOut') ?>">退出</a>
+	
+<table class="product_list" border="1" style="width:auto;">
+	<tr>
+		<td width="100"><a href="<?php echo url_for('admin/listOrder') ?>">订单列表</a></td>
+		<td width="100"><a href="<?php echo url_for('admin/setMenu') ?>">设置菜单</a></td>
+		<td width="100"><a href="<?php echo url_for('admin/setCategory') ?>">设置分类</a></td>
+		<td width="100"><a href="<?php echo url_for('admin/signOut') ?>">退出</a></td>
+	</tr>
+</table>
+	
+
 </div>
+
+<hr style="margin:24px 0;" />
 
 <?php endif ?>
 
