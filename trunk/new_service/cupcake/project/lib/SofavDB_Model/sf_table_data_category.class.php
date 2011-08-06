@@ -43,8 +43,6 @@ class Table_data_category extends SofavDB_Table {
 	
 	public static function getList($lang = '') {
 		
-	#	var_dump($lang);
-	
 		
 		if (strlen($lang)) {
 			
@@ -58,7 +56,7 @@ class Table_data_category extends SofavDB_Table {
 					
 		} else {
 			
-			$objCriteria	= new SofavDB_Criteria(' ORDER BY sort_id DESC ');
+			$objCriteria	= new SofavDB_Criteria(' ORDER BY lang DESC, sort_id DESC ');
 			
 		}
 		

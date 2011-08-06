@@ -27,9 +27,9 @@ class Table_data_menu extends SofavDB_Table {
 	
 	public static function getList($lang = '') {
 		
-		$objCriteria	= new SofavDB_Criteria();
-		
 		if (strlen($lang)) {
+			
+			$objCriteria	= new SofavDB_Criteria(' WHERE lang = :lang ');
 			
 			$objCriteria->bind(
 						array(
@@ -37,6 +37,10 @@ class Table_data_menu extends SofavDB_Table {
 						)
 					);
 					
+		} else {
+			
+			$objCriteria	= new SofavDB_Criteria();
+		
 		}
 		
 		$arrResult	= SofavDB_Record_SE::findAll('Table_data_menu', $objCriteria, false);

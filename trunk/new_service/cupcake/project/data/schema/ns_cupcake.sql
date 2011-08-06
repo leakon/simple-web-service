@@ -179,3 +179,37 @@ CREATE TABLE IF NOT EXISTS `debug_log` (
   `created_at` timestamp NOT NULL DEFAULT '2000-01-01 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_category`
+--
+
+CREATE TABLE IF NOT EXISTS `data_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lang` char(32) NOT NULL DEFAULT '',
+  `title` char(255) NOT NULL DEFAULT '',
+  `sort_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_menu`
+--
+
+CREATE TABLE IF NOT EXISTS `data_menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lang` char(32) NOT NULL DEFAULT '' COMMENT 'ch, en',
+  `category` int(11) NOT NULL DEFAULT '0',
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `title` char(255) NOT NULL DEFAULT '',
+  `price` decimal(8,2) NOT NULL DEFAULT '0.00',
+  `sort_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
+
+

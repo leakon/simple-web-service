@@ -58,7 +58,7 @@ $arrLangOptions	= array(
 
 <h1>菜单列表</h1>
 
-<table class="product_list" border="1" style="width:900px;">
+<table class="product_list" border="1" style="width:980px;">
 
 <tr>
 	<td width="32">排序</td>
