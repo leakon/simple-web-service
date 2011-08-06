@@ -425,4 +425,16 @@ function CheckAddrForm(objForm) {
 
 }
 
+function FormDel(formId, intId) {
+	var objForm	= jQuery('#' + formId);
+	if (objForm.length > 0) {
+
+		if (window.confirm('确定要删除吗？')) {
+		} else {
+			return;
+		}
+		objForm[0].id.value = intId;
+		objForm.submit();
+	}
+}
 

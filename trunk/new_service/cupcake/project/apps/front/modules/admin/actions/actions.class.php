@@ -120,9 +120,181 @@ class adminActions extends sfActions
 	}
 
 
+	public function executeSetMenu(sfWebRequest $request)  {
+
+		$this->setLayout('admin');
+		
+		$this->strLang		= $request->getParameter('lang', 'en');
+		
+		$intMenuID		= $request->getParameter('id', '');
+		
+		$objOneMenu		= new Table_data_menu($intMenuID);
+		
+		$this->arrEdit		= $objOneMenu->toArray();
+		
+		if ($this->strLang != 'ch' && $this->strLang != 'en') {
+			$this->strLang	= 'en';
+		}
+		
+		if ($this->arrEdit['id'] > 0) {
+			$this->strLang	= $this->arrEdit['lang'];
+		}
+		
+	#	Debug::pr($this->arrEdit);
+	
+		$this->arrCateOptions	= Table_data_category::getOptions($this->strLang);
+		
+		$this->arrCategories	= Table_data_category::getList();
+		
+	#	Debug::pr($this->arrCategories);
+	
+		if ($this->arrEdit['id'] > 0) {
+			$this->arrEdit['button']	= '保存';
+		} else {
+			$this->arrEdit['button']	= '添加';
+		}
+		
+		
+		$this->arrResult	= Table_data_menu::getList();
+		
+	#	Debug::pr($arrList);
+
+	}
+
+	public function executeSaveMenu(sfWebRequest $request)  {
+
+		$intMenuID		= $request->getParameter('id', '');
+		
+		if ($intMenuID > 0) {
+			
+			$objOneMenu		= new Table_data_menu($intMenuID);
+			
+		} else {
+			
+			$objOneMenu		= new Table_data_menu();
+			
+		}
+		
+		$arrParameters		= $request->getParameterHolder()->getAll();
+		
+	#	Debug::pre($arrParameters);
+		
+		$objOneMenu->fromArray($arrParameters);
+		
+		$bool			= $objOneMenu->save();
+		
+		$parameters	= array(
+					'succ'		=> $bool ? 0 : 1,
+				);
+		ActionsUtil::redirect('admin/setMenu', $parameters);
+		
+
+	}
+
+
+	public function executeDelMenu(sfWebRequest $request)  {
+		
+		$bool		= false;
+		
+		$intMenuID	= $request->getParameter('id', '');
+			
+		if (sfRequest::POST == $request->getMethod() && $intMenuID > 0) {
+			
+			$objOneMenu		= new Table_data_menu($intMenuID);
+			
+			$objOneMenu->delete();
+		
+		}
+		
+		$parameters	= array(
+					'succ'		=> $bool ? 0 : 1,
+				);
+		ActionsUtil::redirect('admin/setMenu', $parameters);
+		
+	}
 
 
 
+
+
+
+
+
+	public function executeSetCategory(sfWebRequest $request)  {
+
+		$this->setLayout('admin');
+		
+		$intCateID		= $request->getParameter('id', '');
+		
+		$objOneCategory		= new Table_data_category($intCateID);
+		
+		$this->arrEdit		= $objOneCategory->toArray();
+		
+		if ($this->arrEdit['id'] > 0) {
+			$this->arrEdit['button']	= '保存';
+		} else {
+			$this->arrEdit['button']	= '添加';
+		}
+		
+		$this->arrResult	= Table_data_category::getList();
+		
+	#	Debug::pr($this->arrResult);
+	
+	
+
+	}
+
+	public function executeSaveCategory(sfWebRequest $request)  {
+
+		$intCateID		= $request->getParameter('id', '');
+		
+		if ($intCateID > 0) {
+			
+			$objOneCategory		= new Table_data_category($intCateID);
+			
+		} else {
+			
+			$objOneCategory		= new Table_data_category();
+			
+		}
+		
+		$arrParameters		= $request->getParameterHolder()->getAll();
+		
+	#	Debug::pre($arrParameters);
+		
+		$objOneCategory->fromArray($arrParameters);
+		
+		$bool			= $objOneCategory->save();
+		
+		$parameters	= array(
+					'succ'		=> $bool ? 0 : 1,
+				);
+		ActionsUtil::redirect('admin/setCategory', $parameters);
+		
+
+	}
+
+
+	public function executeDelCategory(sfWebRequest $request)  {
+		
+		$bool		= false;
+		
+		$intCateID	= $request->getParameter('id', '');
+			
+		if (sfRequest::POST == $request->getMethod() && $intCateID > 0) {
+			
+			$objOneCategory		= new Table_data_category($intCateID);
+			
+			$objOneCategory->delete();
+		
+		}
+		
+		$parameters	= array(
+					'succ'		=> $bool ? 0 : 1,
+				);
+		ActionsUtil::redirect('admin/setCategory', $parameters);
+		
+	}
 
 
 
