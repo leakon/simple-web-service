@@ -22,6 +22,20 @@
 	<div class="menuContentRight">
 	<div style="height:330px; overflow-y:scroll">
 	
+	
+	
+<?php if (1) : ?>
+
+
+	<?php
+	
+	echo	App_Menu::getLangMenuHtml('ch');
+	
+	?>
+
+<?php else : ?>
+
+
 	<p><strong>帕尼尼</strong>
 		<br />秘制番茄酱，鲜罗勒，大孔奶酪 <span>￥38.00/RMB</span>
 		<br />意大利腊肠，烤红柿子椒，紫菊苣，大孔奶酪 <span>￥48.00/RMB</span>
@@ -80,7 +94,10 @@
 	<p><strong>附加菜</strong>
 		<br />水果沙拉配椰奶或酸奶 <span>￥28.00/RMB</span>
 	</p>
-	  
+	
+<?php endif ?>
+
+
 	  
 </div>
 	</div>

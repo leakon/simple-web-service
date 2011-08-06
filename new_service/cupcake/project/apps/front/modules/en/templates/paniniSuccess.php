@@ -22,7 +22,15 @@
 	<div class="menuContentRight">
 	<div style="height:330px; overflow-y:scroll">
 		
+<?php if (1) : ?>
 	
+	<?php
+	
+	echo	App_Menu::getLangMenuHtml('en');
+	
+	?>
+
+<?php else : ?>
 
 	<p><strong>PANINI</strong>
 		<br />Tomato chutney, Fresh basil, Cheese <span>￥38.00/RMB</span>
@@ -82,6 +90,9 @@
 	<p><strong>Side Dish</strong>
 		<br />Fruit salad with coconut milk <span>￥28.00/RMB</span>
 	</p>
+
+<?php endif ?>
+
 
 	</div>
 	</div>

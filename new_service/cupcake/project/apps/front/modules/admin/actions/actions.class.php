@@ -154,6 +154,9 @@ class adminActions extends sfActions
 			$this->arrEdit['button']	= '添加';
 		}
 		
+	#	$this->arrEdit['sort_id']	= 400;
+	#	$this->arrEdit['price']		= 38.00;
+		
 		
 		$this->arrResult	= Table_data_menu::getList();
 		
