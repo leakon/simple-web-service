@@ -36,7 +36,7 @@ carrot/zucchini/raisins/oats/<br />orange/
 eggs/butter and cream/cinnamon
 	</div>
 	<div class="list">
-	<img src="/images/Menu_cupcakes_03.jpg" alt="" />
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_202.jpg" alt="" width="122" height="" /></div>
     <strong>Chocolate & Banana</strong><br />
 chocolate/banana/rum/<br />passion fruit/
 eggs/<br />butter and cream/cocoa powder
@@ -47,29 +47,31 @@ eggs/<br />butter and cream/cocoa powder
 chocolate/eggs/<br />butter and cream/<br />
 cocoa powder
 	</div>
-		<div class="listx">
-	<img src="/images/Menu_cupcakes_05.jpg" alt="" />
-    <strong>Green Tea & Chocolate<br />
-Granache</strong><br />
-green tea/chocolate/almond/
-eggs/butter and cream
-	</div>
+
+
+
+
 	<div class="list">
-	<img src="/images/Menu_cupcakes_06.jpg" alt="" />
-    <strong>Lemon Curd & Italian <br />
-Meringue</strong><br />
-lemon/eggs/butter and cream/
-gelatine
-	</div>
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_203.jpg" alt="" width="122" height="" /></div>
+    <strong>Raspberry & Lemon</strong><br />
+	raspberry/eggs/butter and cream/gelatine</div>
+
+
+
 	<div class="list">
-	<img src="/images/Menu_cupcakes_07.jpg" alt="" />
-    <strong>Orange Poppy Seed</strong><br />
-orange/ poppy seed/eggs/<br />butter and cream
-	</div>
-	<div class="listx">
-	<img src="/images/Menu_cupcakes_08.jpg" alt="" />
-    <strong>Mocha</strong><br />
-chocolate/coffee/<br />cocoa powder/eggs/<br />butter and cream
-	</div>
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_204.jpg" alt="" width="122" height="" /></div>
+    <strong>HALO</strong><br />
+	strawberry/blueberry/eggs/butter and cream/almond</div>
+
+
+
+	<div class="list">
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_205.jpg" alt="" width="122" height="" /></div>
+    <strong>Hazelnut</strong><br />
+	chocolate/ hazelnut powder/eggs/butter and cream</div>
+
+
+
+
 	</div>
 	</div>
