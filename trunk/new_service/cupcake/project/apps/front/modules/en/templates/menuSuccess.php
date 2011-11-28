@@ -21,5 +21,5 @@
 	<div class="menuContentRight">
 	<p class="title"><em>Complementing the colourful spread of cupcakes is a delectable selection of wraps, sandwiches and
 coffee. Perfect for lunch staples or those feeling peckish, foraging for a mid-day snack.</em></p>
-	<p><a href="<?php echo url_for('en/panini') ?>"><img src="/images/Menu_img01.jpg" alt="" border="0" /></a><a href="<?php echo url_for('en/panini') ?>"><img src="/images/Menu_img02.jpg" alt="" border="0" /></a><a href="<?php echo url_for('en/cupcakes') ?>"><img src="/images/Menu_img03.jpg" alt="" border="0" /></a></p>
+	<p><a href="<?php echo url_for('en/panini') ?>"><img src="/images/Menu_image_201.jpg" alt="" border="0" /></a><a href="<?php echo url_for('en/panini') ?>"><img src="/images/Menu_img02.jpg" alt="" border="0" /></a><a href="<?php echo url_for('en/cupcakes') ?>"><img src="/images/Menu_img03.jpg" alt="" border="0" /></a></p>
 	</div>
