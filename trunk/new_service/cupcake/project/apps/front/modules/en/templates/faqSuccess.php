@@ -17,13 +17,13 @@ Q: Do you have seating?<br />
 <strong>A: Yes, we have outside deck smoking area and inside non-smoking area.</strong></p>
 	<p>
 Q: Hours of operation?<br />
-<strong>A: From 10 AM to 10PM, every Monday to Sunday.</strong></p>
+<strong>A: From 9 AM to 10PM, every Monday to Sunday.</strong></p>
 	<p>
 Q: Do you deliver?<br />
 <strong>A: Yes, we deliver cupcakes 7 days a week in our Smartfortwo car to your door. “Free Delivery” service is for the area within 5 kilometres around us. 50RMB will be charged for the area between 5 to 8 kilometres. An additional surcharge applies for delivery to addresses outside of this; please let us know your special request.</strong></p>
 	<p>
 Q: How do I make an order?<br />
-<strong>A: We’re looking forward to have you visit us at  Sanlitun Village North. Please call us 10-6410-0808. 
+<strong>A: We’re looking forward to have you visit us at  Sanlitun Village North. Please call us 10-6410-0808.
 We’ll be happy to assist you.
 </strong></p>
 	<p>

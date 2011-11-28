@@ -8,7 +8,7 @@
 
 ?>
 	<div class="FAQFolat"><img src="/images_ch/FAQ_01.png" alt="" /></div>
-	
+
 	<div class="FAQCon">
 	<div class="FAQConScroll" style="height:322px; overflow-y:scroll"><p>
 Q: 你们的设计师是谁？<br />
@@ -18,7 +18,7 @@ Q: 你有没有座位？<br />
 <strong>A: 是的，我们有室外的吸烟座区和室内的无烟座区。</strong></p>
 	<p>
 Q: 营业时间？<br />
-<strong>A: 周一到周日， 早10点到晚10点</strong></p>
+<strong>A: 周一到周日， 早9点到晚10点</strong></p>
 	<p>
 Q: 你们有外送服务吗？<br />
 <strong>A: 是的，我们用Smartfortwo把纸杯蛋糕送到您家门口。“免费送货”服务是到我们周围5公里范围内的区域。 5至8公里的地区将收取50元。额外的附加费适用于运送到8公里以外的地址，请让我们知道您的特殊要求。</strong></p>

@@ -37,10 +37,10 @@ class ProjectConfiguration extends sfProjectConfiguration
 
 
 class ProjConf {
-	
+
 	const
 		USER_SESSION_NAME	= 'ccake_sess',			// ”√ªß session name
-		USER_COOKIE_DOMAIN	= '.baolaa.com',
+		USER_COOKIE_DOMAIN	= '.colibricupcakes.com',
 		VERSION			= 1;
-	
+
 }

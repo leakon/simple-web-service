@@ -1,7 +1,7 @@
 prod:
   .settings:
-#    no_script_name:         on
-    no_script_name:         off
+    no_script_name:         on
+#    no_script_name:         off
     logging_enabled:        off
 
 dev:
