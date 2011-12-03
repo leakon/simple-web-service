@@ -35,7 +35,7 @@
 干、燕麦、橙子、鸡蛋、奶制品、肉桂
 	</div>
 	<div class="list">
-	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images_ch/Menu_image_202.jpg" alt="" width="122" height="" /></div>
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images_ch/Menu_image_202.jpg" alt="" width="122" height="173" /></div>
     <strong>巧克力& 香蕉</strong><br />
 巧克力、香蕉、朗姆酒、热情果、鸡蛋、奶制品、可可粉	</div>
 	<div class="listx">
@@ -47,22 +47,22 @@
 
 
 
-	<div class="list">
-	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images_ch/Menu_image_203.jpg" alt="" width="122" height="" /></div>
+	<div class="listx">
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images_ch/Menu_image_203.jpg" alt="" width="122" height="150" /></div>
     <strong>树莓&柠檬</strong><br />
 	树莓、鸡蛋、奶制品、食用凝胶</div>
 
 
 
 	<div class="list">
-	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images_ch/Menu_image_204.jpg" alt="" width="122" height="" /></div>
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images_ch/Menu_image_204.jpg" alt="" width="122" height="165" /></div>
     <strong>明</strong><br />
 	杏仁、鸡蛋、奶制品、草莓、蓝莓</div>
 
 
 
 	<div class="list">
-	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images_ch/Menu_image_205.jpg" alt="" width="122" height="" /></div>
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images_ch/Menu_image_205.jpg" alt="" width="122" height="166" /></div>
     <strong>榛子</strong><br />
 	榛子酱、鸡蛋、奶制品、巧克力</div>
 
