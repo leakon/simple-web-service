@@ -36,10 +36,10 @@ carrot/zucchini/raisins/oats/<br />orange/
 eggs/butter and cream/cinnamon
 	</div>
 	<div class="list">
-	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_202.jpg" alt="" width="122" height="" /></div>
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_202.jpg" alt="" width="122" height="173" /></div>
     <strong>Chocolate & Banana</strong><br />
 chocolate/banana/rum/<br />passion fruit/
-eggs/<br />butter and cream/cocoa powder
+eggs/<br />butter and cream/<br />cocoa powder
 	</div>
 	<div class="listx">
 	<img src="/images/Menu_cupcakes_04.jpg" alt="" />
@@ -51,22 +51,22 @@ cocoa powder
 
 
 
-	<div class="list">
-	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_203.jpg" alt="" width="122" height="" /></div>
+	<div class="listx">
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_203.jpg" alt="" xwidth="122" height="150" /></div>
     <strong>Raspberry & Lemon</strong><br />
-	raspberry/eggs/butter and cream/gelatine</div>
+	raspberry/eggs/butter <br />and cream/gelatine</div>
 
 
 
 	<div class="list">
-	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_204.jpg" alt="" width="122" height="" /></div>
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_204.jpg" alt="" width="122" height="165" /></div>
     <strong>HALO</strong><br />
 	strawberry/blueberry/eggs/butter and cream/almond</div>
 
 
 
 	<div class="list">
-	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_205.jpg" alt="" width="122" height="" /></div>
+	<div style="width:122px; height:145px; overflow:hidden;"><img src="/images/Menu_image_205.jpg" alt="" width="122" height="166" /></div>
     <strong>Hazelnut</strong><br />
 	chocolate/ hazelnut powder/eggs/butter and cream</div>
 
