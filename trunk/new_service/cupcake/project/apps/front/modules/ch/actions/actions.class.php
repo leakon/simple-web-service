@@ -48,6 +48,7 @@ class chActions extends sfActions
 
 	public function executePanini(sfWebRequest $request)
 	{
+	    return  sfView::NONE;
 	}
   
   

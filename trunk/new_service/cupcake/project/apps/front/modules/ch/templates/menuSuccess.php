@@ -12,8 +12,10 @@
 	<dl>
 	<dt><img src="/images_ch/Menu_.gif" alt="" /></dt>
 	<dd><a href="<?php echo url_for('ch/cupcakes') ?>"><img src="/images_ch/Menu_01.gif" alt="" width="146" height="23" border="0" /></a></dd>
+	<!--
 	<dd><a href="<?php echo url_for('ch/panini') ?>"><img src="/images_ch/Menu_08.gif" alt="" width="146" height="23" border="0" /></a></dd>
-
+    -->
+    
 	</dl>
 
 

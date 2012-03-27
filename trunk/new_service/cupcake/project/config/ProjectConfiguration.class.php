@@ -20,7 +20,7 @@ $strServerFile		= '/home/work/lib/symfony-1.2-latest/lib/autoload/sfCoreAutoload
 if (file_exists($strServerFile)){
 	require_once($strServerFile);
 } else {
-	require_once 'D:/Leakon/code/project/sofav/sofav_2009/stable/symfony-1.2.10/lib/autoload/sfCoreAutoload.class.php';
+	require_once 'D:/Leakon/code/sofav/sofav_2009/stable/symfony-1.2.10/lib/autoload/sfCoreAutoload.class.php';
 }
 
 sfCoreAutoload::register();
