@@ -341,7 +341,7 @@ if ('portal/index' == $strRouting) :
 
   </div><!-- end wrapper -->
   <div id="footer">
-     <p><a href="#">Contact Information</a>|<a href="#">Newsfeeds</a>|<a href="#">Site Map</a>|<a href="#">Privacy</a>|<a href="#">Accessibility</a>|<a href="#">Terms</a>© 2009 CNRO  Company</p>
+     <p><a href="http://www.miitbeian.gov.cn" target="_blank">津ICP备08001412号</a>|<a href="#">Contact Information</a>|<a href="#">Newsfeeds</a>|<a href="#">Site Map</a>|<a href="#">Privacy</a>|<a href="#">Accessibility</a>|<a href="#">Terms</a>© 2009 CNRO  Company</p>
   </div><!-- end footer -->
 
 
