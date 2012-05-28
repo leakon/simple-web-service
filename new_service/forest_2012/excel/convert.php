@@ -45,7 +45,6 @@ foreach ($arrSheets as $oneSheet) {
     
     print_r($output);
     
-    print_r("--------------------------------------");
     
 }
 
@@ -54,5 +53,3 @@ foreach ($arrSheets as $oneSheet) {
 
 #   print_r($sheetData);
 
-
-?>
